@@ -8,114 +8,117 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~mSle0~/clojure
+~mSle0/.emac
+
+# Last Substitute Search Pattern:
+~mSle0~&\n
 
 # Last Substitute String:
-$
+$ 
 
 # Command Line History (newest to oldest):
-:qall
-:!emacs
-:w
-:!emacs .
-:!which emacs
-:! mv lisp/init-javascript.el.nouse lisp/init-javascript.el
-:! emacs .
 :wqall
-:!emacs 
-:e .emacs.desktop
-:q
-:!sudo apt-get install json-mode
-:qa
-:mks!
-:e ./qca/chipcode/common/build/ipq/tools/genimg.py
-:cs find f genimg.py
-:cs 
-:e
-:e ~/.vimrc
-:cs find s ssp_cancel_pnm
-:cs add cscope.out
-:e CcspBPandMSsp
-:e ./CcspCommonLibrary/source/ccsp/custom
+:%s/\n/ /g
+:w
+:qall
+:e ~/.bashrc
+:e /var/www
 :qall!
-:e ../erouter_stack-3e97f0bold/ccsp_build
-:b 1
-:b 
-:b 3
-:b ExtDependency/opensource/dbus/configure
-:e ExtDependency/opensource/dbus/configure
-:!echo $PATH
-:e 
-:b ./ExtDependency/opensource/dbus/configure
-:b ./ExtDependency/opensource/dbus/config.log
-:b 5
-:!which arch
-:!arch
-:!/bin/uname 
-:!/bin/uname -X
-:e /dev/null
-:e ./ExtDependency/opensource/dbus/configure
-:!which uname
-:!uname -p
-:uname -p
-:e ./ExtDependency/opensource/dbus/config.log
-:e ccsp_setenv_simu.sh
-:! gcc -V
-:b 3963
+:q
 :b 2
-:!gcc -v
+:e 3f74ae4e98448618eacf395fc0ee46392b1e7dd2.buildlog.txt
+:mks!
+:e 
+:set nonu
+:sh
+:!sh shell/123.bash
+:e aaa.sh
+:!cp aaa aaa.sh
+:e ~/.backupemacs
+:e ~/.emacs.d/
+:b 1
+:b 3
+:qa
+:qal
+:e night.sh
+:!bash 123.bash
+:wq
+:  
+:! touch aaa
+:!sh 123.bash
+:!sh 
+:e CcspMisc/source/
+:all
+:e /root/.vimrc
+:cs find s pid
+:cs find s cscopequickfix
+:b ccsp/arch/ccsp_common.mk
+:b mk
+:b 18
+:e ccsp/Utopia/source/
+:b 17
+:b 
+:e ccsp/arch/ccsp_common.mk
+:!pwd
+:e ../
+:!file
+:!nice -5
+:!ps
+:!Ps
+:!nice
+:!grep 123 .&
 
 # Search String History (newest to oldest):
-?/clojure
-?/24
-?/emacs
-?/git
+? \n
+?/.emac
 ?/java
-?/ruby
-?/git_hub
-?/json
-?/.el
-?/el
-?/author
-?/1.2
-?/js
-?/son
-?/javascript
-?/load-file
-?/cscope
-?/ipq806x
-?/pre
-?/vdsl2
-?/mkimag
-?/No such file or directory
-?/error executing mkimage
-?/
-?/mkimage
-?/cs
-?/cancel_pnm
-?/n
-?/dist
-?/clean
-?/distclean:
-?/trtarget
-?/simu
-?/misc
-?/configure
-?/fuck
-?/fuckit
-?/confiugre
-?/expat
-?/xml
-?/--with-xml
+?/8192
+?/#
+?/dgl
+?/arch
+?/arm
+?/probe
+?/mrprobe
+?/8080
+?/site
+?/conf
+?/fatal
+?/error 1
+?/error 
 ?/error
-?/path
-?/expat.h
-?/XML_ParserCreate_MM
-?/uname
-?/usr
-?/dbus
-?/unkown
-?/CROSS_COMPILE
+?/ccsp_simu
+?/package\/ccsp
+?/package
+?/ccsp\/compile
+?/ccsp
+?/CCSP
+?/package\/CCSP\/compile
+?/install
+?/compile
+?/wifi_hal
+?/wifi
+?/hal
+?/cp
+?/cflags
+?/gcc
+?/ccspcr
+?/syscfg.h
+?/stage
+?/frame-title
+?/lo
+?/pre
+?/cscope
+?/f5
+?/ini
+?/c-c
+?/c-c s
+?/global
+?/gloa
+?/require
+?/site-lisp
+?/site-list
+?/add-to
+?/load-file
 
 # Expression History (newest to oldest):
 
@@ -124,378 +127,267 @@ $
 # Input Line History (newest to oldest):
 
 # Registers:
-"0	CHAR	0
-	
-	;;; This file bootstraps the configuration, which is divided into
-	;;; a number of other files.
-	
-	(let ((minver 23))
-	  (unless (>= emacs-major-version minver)
-	    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
-	
-	(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-	(require 'init-benchmarking) ;; Measure startup time
-	
-	(defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
-	(defconst *is-a-mac* (eq system-type 'darwin))
-	
-	;;----------------------------------------------------------------------------
-	;; Bootstrap config
-	;;----------------------------------------------------------------------------
-	(require 'init-compat)
-	(require 'init-utils)
-	(require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
-	(require 'init-elpa)      ;; Machinery for installing required packages
-	(require 'init-exec-path) ;; Set up $PATH
-	
-	;;----------------------------------------------------------------------------
-	;; Allow users to provide an optional "init-preload-local.el"
-	;;----------------------------------------------------------------------------
-	(require 'init-preload-local nil t)
-	
-	;;----------------------------------------------------------------------------
-	;; Load configs for specific features and modes
-	;;----------------------------------------------------------------------------
-	
-	(require-package 'wgrep)
-	(require-package 'project-local-variables)
-	(require-package 'diminish)
-	(require-package 'scratch)
-	(require-package 'mwe-log-commands)
-	
-	(require 'init-frame-hooks)
-	(require 'init-xterm)
-	(require 'init-themes)
-	(require 'init-osx-keys)
-	(require 'init-gui-frames)
-	(require 'init-proxies)
-	(require 'init-dired)
-	(require 'init-isearch)
-	(require 'init-uniquify)
-	(require 'init-ibuffer)
-	(require 'init-flycheck)
-	
+"0	LINE	0
+	export KERNEL_SRC=/home/guoliang/Public/work/raspberry/
+	export CCPREFIX=/home/guoliang/Public/work/rasptoolchain/arm-bcm2708/arm-bcm2708-linux-gnueabi/bin/arm-bcm2708-linux-gnueabi-
+	export MODULES_TEMP=/home/guoliang/Public/work/raspmodules
 ""1	LINE	0
-	
-"2	CHAR	0
-	;;; This file bootstraps the configuration, which is divided into
-	;;; a number of other files.
-	
-	(let ((minver 23))
-	  (unless (>= emacs-major-version minver)
-	    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
-	
-	(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-	(require 'init-benchmarking) ;; Measure startup time
-	
-	(defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
-	(defconst *is-a-mac* (eq system-type 'darwin))
-	
-	;;----------------------------------------------------------------------------
-	;; Bootstrap config
-	;;----------------------------------------------------------------------------
-	(require 'init-compat)
-	(require 'init-utils)
-	(require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
-	(require 'init-elpa)      ;; Machinery for installing required packages
-	(require 'init-exec-path) ;; Set up $PATH
-	
-	;;----------------------------------------------------------------------------
-	;; Allow users to provide an optional "init-preload-local.el"
-	;;----------------------------------------------------------------------------
-	(require 'init-preload-local nil t)
-	
-	;;----------------------------------------------------------------------------
-	;; Load configs for specific features and modes
-	;;----------------------------------------------------------------------------
-	
-	(require-package 'wgrep)
-	(require-package 'project-local-variables)
-	(require-package 'diminish)
-	(require-package 'scratch)
-	(require-package 'mwe-log-commands)
-	
-	(require 'init-frame-hooks)
-	(require 'init-xterm)
-	(require 'init-themes)
-	(require 'init-osx-keys)
-	(require 'init-gui-frames)
-	(require 'init-proxies)
-	(require 'init-dired)
-	(require 'init-isearch)
-	(require 'init-uniquify)
-	(require 'init-ibuffer)
-	(require 'init-flycheck)
-	
-	(require 'init-recentf)
-"3	LINE	0
-	(require 'init-github)
-"4	LINE	0
-	(require 'init-git)
-	(require 'init-github)
+		software/
+"2	LINE	0
+		software/
+"3	CHAR	0
+	#
+	# Untracked files:
+	#   (use "git add <file>..." to include in what will be committed)
+	#
+	#	#.bashrc#
+	#	#123#
+	#	.ICEauthority
+	#	.Xauthority
+	#	.backupemacs
+	#	.bash_history
+	#	.bash_logout
+	#	.bashrc
+	#	.cache/
+	#	.config/
+	#	.dbus/
+	#	.dmrc
+	#	.emacs.d.old/
+	#	.emacs.d/
+	#	.fontconfig/
+	#	.gconf/
+	#	.gitconfig
+	#	.gksu.lock
+	#	.gnome2/
+	#	.gnupg/
+	#	.gtk-bookmarks
+	#	.ido.last
+	#	.ido.last~
+	#	.install4j
+	#	.java/
+	#	.lesshst
+	#	.local/
+	#	.lvm_history
+	#	.mission-control/
+	#	.mozilla/
+	#	.profile
+	#	.pulse-cookie
+	#	.pulse/
+	#	.recentf
+	#	.recentf~
+	#	.smartbear/
+	#	.smartgit/
+	#	.ssh/
+	#	.subversion/
+	#	.thumbnails/
+	#	.vim.tgz
+	#	.viminfo.tmp
+	#	.xsession-errors
+	#	.xsession-errors.old
+	#	123
+	#	1234
+"4	BLOCK	12
+	#	new file:
+	#	modified:
+	#	modified:
+	#	modified:
 "5	CHAR	0
-	(require 'init-vc)
-	(require 'init-darcs)
-	(require 'init-git)
-	(require 'init-github)
-	
-	
-"6	CHAR	0
-	(require 'init-editing-utils)
-	
-	(require 'init-vc)
-	(require 'init-darcs)
-	(require 'init-git)
-	(require 'init-github)
-	
+	# On branch master
+	# Changes to be committed:
+	#   (use "git reset HEAD <file>..." to unstage)
+	#
+"6	LINE	0
 	
 "7	CHAR	0
-	(require 'init-crontab)
-	(require 'init-textile)
-	(require 'init-markdown)
-	(require 'init-csv)
-	(require 'init-erlang)
-	;(require 'init-javascript)
-	
-"8	CHAR	0
-	(require 'init-php)
-	(require 'init-org)
-	(require 'init-nxml)
-	(require 'init-html)
-	(require 'init-css)
-	(require 'init-haml)
-	(require 'init-python-mode)
-	(require 'init-haskell)
-	(require 'init-ruby-mode)
-	(require 'init-rails)
-	(require 'init-sql)
-	
-	
+	#	./
+	#	../.fontconfig/
+	#	../.gconf/
+	#	../.gitconfig
+	#	../.gksu.lock
+	#	../.gnome2/
+	#	../.gnupg/
+	#	../.gtk-bookmarks
+	#	../.ido.last
+	#	../.ido.last~
+	#	../.install4j
+	#	../.java/
+	#	../.lesshst
+	#	../.local/
+	#	../.lvm_history
+	#	../.mission-control/
+	#	../.mozilla/
+	#	../.profile
+	#	../.pulse-cookie
+	#	../.pulse/
+	#	../.recentf
+	#	../.recentf~
+	#	../.smartbear/
+	#	../.smartgit/
+	#	../.ssh/
+	#	../.subversion/
+	#	../.thumbnails/
+	#	../.vim.tgz
+	#	../.viminfo.tmp
+	#	../.xsession-errors
+	#	../.xsession-errors.old
+	#	../123
+	#	../1234
+	#	../Downloads/
+	#	../Public/
+	#	../ccollab-cmdline/
+	#	../cscope.out
+	#	../emacs.d_chinawriter/
+	#	../examples.desktop
+	#	../mbox
+	#	../profile/
+	#	../software/
+	no changes added to commit (use "git add" and/or "git commit -a")
+"8	LINE	0
+	#	../.emacs.d.old/
 "9	CHAR	0
-	(require 'init-paredit)
-	(require 'init-lisp)
-	(require 'init-slime)
-	(require 'init-clojure)
-	(when (>= emacs-major-version 24)
-	  (require 'init-clojure-cider))
-	(require 'init-common-lisp)
+	#	../#.bashrc#
+	#	../#123#
+	#	../.ICEauthority
+	#	../.Xauthority
+	#	../.backupemacs
+	#	../.bash_history
+	#	../.bash_logout
+	#	../.bashrc
+	#	../.cache/
+	#	../.config/
+	#	../.dbus/
+	#	../.dmrc
 	
-	(when *spell-check-support-enabled*
-	  (require 'init-spelling))
-	
-	(require 'init-marmalade)
-	(require 'init-misc)
-	
-	(require 'init-dash)
-	(require 'init-ledger)
-	
-	(load-file "/usr/share/emacs/site-lisp/xcscope.el")
-	(require 'xcscope)
-	;; Extra packages which don't require any configuration
-	
-	(require-package 'gnuplot)
-	(require-package 'lua-mode)
-	(require-package 'htmlize)
-	(require-package 'dsvn)
-	(when *is-a-mac*
-	  (require-package 'osx-location))
-	(require-package 'regex-tool)
-	
-	;;----------------------------------------------------------------------------
-	;; Allow access from emacsclient
-	;;----------------------------------------------------------------------------
-	(require 'server)
-	(unless (server-running-p)
-	  (server-start))
-	
-	
-	;;----------------------------------------------------------------------------
-	;; Variables configured via the interactive 'customize' interface
-	;;----------------------------------------------------------------------------
-	(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-	(when (file-exists-p custom-file)
-	  (load custom-file))
-	
-	
-	;;----------------------------------------------------------------------------
-	;; Allow users to provide an optional "init-local" containing personal settings
-	;;----------------------------------------------------------------------------
-	(when (file-exists-p (expand-file-name "init-local.el" user-emacs-directory))
-	  (error "Please move init-local.el to ~/.emacs.d/lisp"))
+"b	LINE	0
+		echo leave install
 "j	CHAR	0
-	jkkkkkkj:e ./ExtDependency/opensource/dbus/config.log�kb�kb�kb�kb												�kBG:b 2:b 1:b 3:b 3963
+	jjkkj%%
+"k	CHAR	0
+	kvjjkkjkwwjjj,:w:k:�ku�ku vj,x:w:!�ku kk,x:w:�kuk,x:wkkgdjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkbidglli_kkkkkkkkkkbidgl_pathjjjjjjjjjjhipath:wGkkkkkkkkkkkj
 "v	CHAR	0
-	
-	;;; This file bootstraps the configuration, which is divided into
-	;;; a number of other files.
-	
-	(let ((minver 23))
-	  (unless (>= emacs-major-version minver)
-	    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
-	
-	(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-	(require 'init-benchmarking) ;; Measure startup time
-	
-	(defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
-	(defconst *is-a-mac* (eq system-type 'darwin))
-	
-	;;----------------------------------------------------------------------------
-	;; Bootstrap config
-	;;----------------------------------------------------------------------------
-	(require 'init-compat)
-	(require 'init-utils)
-	(require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
-	(require 'init-elpa)      ;; Machinery for installing required packages
-	(require 'init-exec-path) ;; Set up $PATH
-	
-	;;----------------------------------------------------------------------------
-	;; Allow users to provide an optional "init-preload-local.el"
-	;;----------------------------------------------------------------------------
-	(require 'init-preload-local nil t)
-	
-	;;----------------------------------------------------------------------------
-	;; Load configs for specific features and modes
-	;;----------------------------------------------------------------------------
-	
-	(require-package 'wgrep)
-	(require-package 'project-local-variables)
-	(require-package 'diminish)
-	(require-package 'scratch)
-	(require-package 'mwe-log-commands)
-	
-	(require 'init-frame-hooks)
-	(require 'init-xterm)
-	(require 'init-themes)
-	(require 'init-osx-keys)
-	(require 'init-gui-frames)
-	(require 'init-proxies)
-	(require 'init-dired)
-	(require 'init-isearch)
-	(require 'init-uniquify)
-	(require 'init-ibuffer)
-	(require 'init-flycheck)
-	
+	/usr/share/emacs/site-lisp/
 "-	CHAR	0
-	1
+	#
 
 # File marks:
-'0  757  0  ~/.emacs
-'1  112  0  ~/.emacs.d/init.el
-'2  64  15  ~/.emacs.d/init.el
-'3  1  0  ~/.emacs.d/init.el
-'4  1  0  ~/.emacs.d/init.el
-'5  27  0  ~/.emacs.d/_init.el
-'6  1  0  ~/.emacs.d/init.el
-'7  1  1  ~/.emacs.d/init.el
-'8  1  0  ~/123
-'9  330  0  /usr/share/emacs/NERD_tree_3
+'0  1  4  ~/123
+'1  2  3  ~/123
+'2  1  3  ~/.emacs.d/123
+'3  14  0  ~/software/smartgit/known-issues.txt
+'4  14  25  ~/Public/work2/vdsl/smartgithg-6_0_7/known-issues.txt
+'5  815  0  ~/Public/work2/vdsl/ikanos_8_5_1_1/sample_config/buildroot_sampcfg_2_6_28_vx185LT_AVDSL_RG_SPI
+'6  45  0  ~/Public/work/rasptoolchain/mkimage/imagetool-uncompressed.py
+'7  1  0  ~/Public/work/setenv.sh
+'8  66  0  ~/Public/work/raspberry/NERD_tree_1
+'9  4  0  ~/Public/work/raspmodules/NERD_tree_1
 
 # Jumplist (newest first):
--'  757  0  ~/.emacs
--'  1  0  ~/.emacs
--'  112  0  ~/.emacs.d/init.el
--'  28  0  ~/.emacs.d/lisp/init-clojure-cider.el
--'  88  6  ~/.emacs.d/init.el
--'  132  60  ~/.emacs.d/init.el
--'  124  53  ~/.emacs.d/init.el
--'  114  21  ~/.emacs.d/init.el
--'  101  23  ~/.emacs.d/init.el
--'  1  0  ~/.emacs.d/init.el
--'  97  0  ~/.emacs.d/init.el
--'  80  15  ~/.emacs.d/init.el
--'  1  1  ~/.emacs.d/lisp/init-javascript.el.nouse
--'  13  0  ~/.emacs.d/lisp/init-github.el
--'  2  0  ~/.emacs.d/lisp/init-javascript.el.nouse
--'  71  15  ~/.emacs.d/init.el
--'  64  15  ~/.emacs.d/init.el
--'  5  0  ~/.emacs.d/_init.el
--'  1  0  ~/.emacs.d/_init.el
--'  27  0  ~/.emacs.d/_init.el
--'  72  16  ~/.emacs.d/_init.el
--'  86  0  ~/.emacs.d/_init.el
--'  12  0  ~/NERD_tree_3
--'  13  0  ~/NERD_tree_3
--'  1  0  ~/NERD_tree_3
--'  46  0  ~/NERD_tree_1
--'  1  0  ~/NERD_tree_1
--'  10  0  ~/Public/erouter_stack-3e97f0b/NERD_tree_3
--'  1  0  ~/Public/erouter_stack-3e97f0b/NERD_tree_3
--'  11  0  ~/Public/erouter_stack-3e97f0b/NERD_tree_3
--'  11  0  ~/Public/erouter_stack-3e97f0b/NERD_tree_1
--'  1  0  ~/Public/erouter_stack-3e97f0b/NERD_tree_1
--'  20  0  ~/Public/erouter_stack-3e97f0b/NERD_tree_3
--'  21  0  ~/Public/erouter_stack-3e97f0b/NERD_tree_3
--'  21  0  ~/Public/erouter_stack-3e97f0b/NERD_tree_1
--'  1  0  ~/123
--'  330  0  /usr/share/emacs/NERD_tree_3
--'  127  0  /usr/share/emacs/NERD_tree_3
--'  1  0  /usr/share/emacs/NERD_tree_3
--'  335  0  /usr/share/emacs/NERD_tree_1
--'  1  0  /usr/share/emacs/NERD_tree_1
--'  1  0  /usr/share/emacs/23.3/etc/tutorials/TUTORIAL
--'  659  0  /usr/share/emacs/NERD_tree_3
--'  747  0  /usr/share/emacs/NERD_tree_3
--'  1  0  /usr/share/emacs/23.3/etc/AUTHORS
--'  1  0  /usr/share/emacs/23.3/etc/refcards/sk-refcard.pdf
--'  1  0  /usr/share/emacs/23.3/etc/refcards/sk-refcard.tex
--'  414  0  /usr/share/emacs/NERD_tree_1
--'  1  0  /usr/share/emacs/23.3/lisp/json.elc
--'  1  0  ~/.emacs.d/lisp/init-lisp.el
--'  87  0  /usr/share/emacs/23.3/lisp/json.elc
--'  1  0  ~/.emacs.d/.emacs.desktop
--'  3  36  ~/123
--'  2  75  ~/123
--'  10  64  ~/123
--'  4  0  ~/123
--'  29  0  ~/.emacs.d/.emacs.desktop
--'  1  0  ~/.emacs.d/.emacs.desktop.lock
--'  1  0  ~/.emacs.d/.emacs.desktop.
--'  114  2  ~/.emacs.d/.emacs.desktop
--'  1  0  ~/.emacs.d/.git/index
--'  330  9  ~/.emacs.d/NERD_tree_1
--'  1  0  ~/.emacs.d/NERD_tree_1
--'  360  0  ~/.emacs.d/NERD_tree_1
--'  364  0  ~/.emacs.d/NERD_tree_1
--'  5  0  ~/.emacs.d/.session
--'  1  0  ~/.emacs.d/.session
--'  1  0  ~/Public/erouter_stack-3e97f0b/123
--'  181  0  ~/Public/erouter_stack-3e97f0b/123
--'  73  67  ~/Public/erouter_stack-3e97f0b/123
--'  66  25  ~/Public/erouter_stack-3e97f0b/123
--'  65  24  ~/Public/erouter_stack-3e97f0b/123
--'  64  24  ~/Public/erouter_stack-3e97f0b/123
--'  58  33  ~/Public/erouter_stack-3e97f0b/123
--'  56  75  ~/Public/erouter_stack-3e97f0b/123
--'  55  90  ~/Public/erouter_stack-3e97f0b/123
--'  50  52  ~/Public/erouter_stack-3e97f0b/123
--'  49  48  ~/Public/erouter_stack-3e97f0b/123
--'  46  71  ~/Public/erouter_stack-3e97f0b/123
--'  45  0  ~/Public/erouter_stack-3e97f0b/123
--'  43  9  ~/Public/erouter_stack-3e97f0b/123
--'  32  45  ~/Public/erouter_stack-3e97f0b/123
--'  29  57  ~/Public/erouter_stack-3e97f0b/123
--'  23  27  ~/Public/erouter_stack-3e97f0b/123
--'  22  23  ~/Public/erouter_stack-3e97f0b/123
--'  21  26  ~/Public/erouter_stack-3e97f0b/123
--'  20  26  ~/Public/erouter_stack-3e97f0b/123
--'  18  47  ~/Public/erouter_stack-3e97f0b/123
--'  17  39  ~/Public/erouter_stack-3e97f0b/123
--'  16  42  ~/Public/erouter_stack-3e97f0b/123
--'  15  42  ~/Public/erouter_stack-3e97f0b/123
--'  14  15  ~/Public/erouter_stack-3e97f0b/123
--'  13  15  ~/Public/erouter_stack-3e97f0b/123
--'  12  11  ~/Public/erouter_stack-3e97f0b/123
--'  11  42  ~/Public/erouter_stack-3e97f0b/123
--'  10  39  ~/Public/erouter_stack-3e97f0b/123
--'  9  24  ~/Public/erouter_stack-3e97f0b/123
--'  5  0  ~/.emacs.d/_init.el
--'  1  0  ~/.emacs.d/_init.el
--'  27  0  ~/.emacs.d/_init.el
+-'  1  4  ~/123
+-'  2  3  ~/123
+-'  1  3  ~/.emacs.d/123
+-'  2  0  ~/.emacs.d/123
+-'  14  0  ~/software/smartgit/known-issues.txt
+-'  1  0  ~/software/smartgit/known-issues.txt
+-'  14  25  ~/Public/work2/vdsl/smartgithg-6_0_7/known-issues.txt
+-'  1  0  ~/Public/work2/vdsl/smartgithg-6_0_7/known-issues.txt
+-'  815  0  ~/Public/work2/vdsl/ikanos_8_5_1_1/sample_config/buildroot_sampcfg_2_6_28_vx185LT_AVDSL_RG_SPI
+-'  1  0  ~/Public/work2/vdsl/ikanos_8_5_1_1/sample_config/buildroot_sampcfg_2_6_28_vx185LT_AVDSL_RG_SPI
+-'  45  0  ~/Public/work/rasptoolchain/mkimage/imagetool-uncompressed.py
+-'  1  0  ~/Public/work/rasptoolchain/mkimage/imagetool-uncompressed.py
+-'  1  0  ~/Public/work/setenv.sh
+-'  111  0  ~/.bashrc
+-'  1  0  ~/.bashrc
+-'  5  0  ~/Public/work/setenv.sh
+-'  66  0  ~/Public/work/raspberry/NERD_tree_1
+-'  77  0  ~/Public/work/raspberry/NERD_tree_1
+-'  1  0  ~/Public/work/raspberry/NERD_tree_1
+-'  4  0  ~/Public/work/raspmodules/NERD_tree_1
+-'  5  0  ~/Public/work/raspmodules/NERD_tree_1
+-'  1  0  ~/Public/work/raspmodules/NERD_tree_1
+-'  113  19  ~/.bashrc
+-'  1962  2  ~/Public/work/raspberry/.config
+-'  1  0  ~/Public/work/raspberry/.config
+-'  2  7  ~/Public/work/raspberry/.bashrc
+-'  1  0  ~/Public/work/raspberry/.bashrc
+-'  3  0  ~/Public/work/raspberry/.bashrc
+-'  4525  0  ~/Public/work/raspberry/.config
+-'  4778  0  ~/Public/work/raspberry/.config
+-'  3937  0  ~/Public/work/raspberry/.config
+-'  4118  0  ~/Public/work/raspberry/.config
+-'  1  0  ~/Public/work/raspberry/kernel/bounds.s
+-'  5  43  ~/Public/work2/vdsl/committxt
+-'  1  0  ~/Public/work2/vdsl/committxt
+-'  816  1  ~/Public/work2/vdsl/ikanos_8_5_1_1/sample_config/buildroot_sampcfg_2_6_28_vx185LT_AVDSL_RG_SPI
+-'  112  0  ~/.bashrc
+-'  1961  10  ~/Public/work/raspberry/.config
+-'  1720  21  ~/Public/work/raspberry/.config
+-'  524  7  ~/Public/work/raspberry/.config
+-'  496  7  ~/Public/work/raspberry/.config
+-'  479  9  ~/Public/work/raspberry/.config
+-'  420  7  ~/Public/work/raspberry/.config
+-'  416  12  ~/Public/work/raspberry/.config
+-'  415  9  ~/Public/work/raspberry/.config
+-'  414  9  ~/Public/work/raspberry/.config
+-'  399  7  ~/Public/work/raspberry/.config
+-'  393  18  ~/Public/work/raspberry/.config
+-'  357  9  ~/Public/work/raspberry/.config
+-'  356  9  ~/Public/work/raspberry/.config
+-'  235  8  ~/Public/work/raspberry/.config
+-'  17  7  ~/Public/work/raspberry/.config
+-'  5  7  ~/Public/work/raspberry/.config
+-'  3  8  ~/Public/work/raspberry/.config
+-'  1  0  ~/Public/work/raspberry/Makefile
+-'  1  0  /var/www/index.html
+-'  5  0  ~/Public/work/NERD_tree_2
+-'  1  0  ~/Public/work/NERD_tree_2
+-'  2  2  /var/www/index.html
+-'  1  17  /etc/apache2/sites-available/default
+-'  62  0  /etc/apache2/sites-available/default
+-'  42  17  /etc/apache2/sites-available/default
+-'  9  2  ~/Public/work/NERD_tree_3
+-'  16  0  ~/Public/work/NERD_tree_3
+-'  1  2  ~/Public/work/NERD_tree_3
+-'  1  0  /etc/apache2/mods-enabled/alias.conf
+-'  1  0  /etc/apache2/mods-available/info.conf
+-'  42  0  /etc/apache2/mods-available/autoindex.conf
+-'  1  0  /etc/apache2/mods-available/actions.load
+-'  1  0  /etc/apache2/mods-available/actions.conf
+-'  104  0  ~/Public/work/NERD_tree_1
+-'  1  0  ~/Public/work/NERD_tree_1
+-'  1  0  ~/Public/work/vdsl2_qsdk_v0.11.1/temp/1234
+-'  23  0  ~/Public/work/vdsl2_qsdk_v0.11.1/temp/123
+-'  1  0  ~/Public/work/vdsl2_qsdk_v0.11.1/temp/123
+-'  18  2  ~/Public/work2/vdsl/pirtest.py
+-'  1  0  ~/Public/work2/vdsl/pirtest.py
+-'  1  0  ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/package/qtn-pcie-host/Makefile
+-'  15  0  ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/package/qtn-pcie-host/Makefile
+-'  1  0  /mnt/hgfs/下载/123
+-'  387  56  /mnt/hgfs/下载/123
+-'  309  1102  /mnt/hgfs/下载/123
+-'  308  1182  /mnt/hgfs/下载/123
+-'  306  77  /mnt/hgfs/下载/123
+-'  180  244  /mnt/hgfs/下载/123
+-'  157  244  /mnt/hgfs/下载/123
+-'  155  244  /mnt/hgfs/下载/123
+-'  144  77  /mnt/hgfs/下载/123
+-'  131  77  /mnt/hgfs/下载/123
+-'  98  244  /mnt/hgfs/下载/123
+-'  75  244  /mnt/hgfs/下载/123
+-'  73  244  /mnt/hgfs/下载/123
+-'  60  77  /mnt/hgfs/下载/123
+-'  50  77  /mnt/hgfs/下载/123
+-'  31  77  /mnt/hgfs/下载/123
+-'  19  13  /mnt/hgfs/下载/123
 
 # History of marks within files (newest to oldest):
 
-> ~/.emacs
-	"	757	0
+> ~/123
+	"	1	4
+	.	1	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	1	0
 
 > ~/NERD_tree_1
 	"	4	0
@@ -505,36 +397,284 @@ $
 	+	1	0
 	+	1	0
 	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
 
-> ~/.emacs.d/init.el
-	"	112	0
-	.	89	0
+> ~/.emacs.d/123
+	"	1	3
+	.	1	0
 	+	1	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
 	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	1
-	+	154	0
-	+	1	0
-	+	154	0
-	+	154	0
-	+	154	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	64	0
-	+	80	0
-	+	71	0
-	+	80	0
-	+	89	0
-	+	89	0
 
 > ~/.emacs.d/NERD_tree_1
-	"	10	9
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/software/smartgit/known-issues.txt
+	"	14	0
+
+> ~/software/smartgit/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl/smartgithg-6_0_7/known-issues.txt
+	"	14	25
+
+> ~/Public/work2/vdsl/smartgithg-6_0_7/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl/ikanos_8_5_1_1/sample_config/buildroot_sampcfg_2_6_28_vx185LT_AVDSL_RG_SPI
+	"	815	0
+	.	816	0
+	+	816	0
+
+> ~/Public/work2/vdsl/ikanos_8_5_1_1/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work/rasptoolchain/mkimage/imagetool-uncompressed.py
+	"	45	0
+
+> ~/Public/work/rasptoolchain/mkimage/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work/setenv.sh
+	"	1	0
+	^	5	0
+	.	1	0
+	+	1	58
+	+	2	0
+	+	1	0
+
+> ~/Public/work/raspberry/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/.bashrc
+	"	1	0
+	^	113	20
+	.	113	19
+	+	111	0
+	+	112	93
+	+	112	7
+	+	113	19
+
+> ~/Public/work/raspberry/-MiniBufExplorer-
+	"	1	0
+	.	2	0
+	+	2	0
+	+	2	0
+
+> ~/Public/work/raspmodules/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work/raspberry/.config
+	"	1962	2
+	^	1962	3
+	.	1962	0
+	+	1961	0
+	+	4778	0
+	+	1961	0
+	+	1962	0
+
+> ~/Public/work/raspberry/.bashrc
+	"	2	7
+	.	1	0
+	+	1	0
+
+> ~/Public/work/raspberry/kernel/bounds.s
+	"	1	0
+
+> ~/Public/work2/vdsl/committxt
+	"	5	43
+	^	5	44
+	.	5	43
+	+	5	58
+	+	3	35
+	+	5	43
+
+> ~/Public/work/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work/raspberry/Makefile
+	"	1	0
+
+> /var/www/index.html
+	"	1	0
+
+> ~/Public/work/NERD_tree_2
+	"	5	0
+	.	1	0
+	+	1	0
+	+	1	0
+
+> /etc/apache2/sites-available/default
+	"	1	17
+	^	1	18
+	.	1	17
+	+	42	0
+	+	42	17
+	+	1	17
+
+> ~/Public/work/NERD_tree_3
+	"	9	2
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> /etc/apache2/mods-available/actions.conf
+	"	1	0
+
+> /etc/apache2/mods-available/actions.load
+	"	1	0
+
+> ~/Public/work/-MiniBufExplorer-
+	"	1	79
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> /etc/apache2/mods-available/autoindex.conf
+	"	42	0
+
+> /etc/apache2/mods-available/info.conf
+	"	1	0
+
+> /etc/apache2/mods-enabled/alias.conf
+	"	1	0
+
+> ~/Public/work/vdsl2_qsdk_v0.11.1/temp/123
+	"	23	0
+
+> ~/Public/work/vdsl2_qsdk_v0.11.1/temp/1234
+	"	1	0
+
+> ~/Public/work/vdsl2_qsdk_v0.11.1/temp/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work/vdsl2_qsdk_v0.11.1/temp/-MiniBufExplorer-
+	"	1	7
+	.	2	0
+	+	2	0
+	+	2	0
+
+> ~/Public/work2/vdsl/pirtest.py
+	"	18	2
+
+> ~/Public/work2/vdsl/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/package/qtn-pcie-host/Makefile
+	"	1	0
+
+> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/package/qtn-pcie-host/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> /mnt/hgfs/下载/ccsp_log.txt
+	"	1	0
+	^	501	0
+	.	500	19
+	+	500	19
+
+> /mnt/hgfs/下载/123
+	"	1	0
+
+> /mnt/hgfs/下载/3f74ae4e98448618eacf395fc0ee46392b1e7dd2.buildlog.txt
+	"	4090	17
+
+> /mnt/hgfs/下载/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> /mnt/hgfs/下载/-MiniBufExplorer-
+	"	1	16
+	.	2	0
+	+	2	0
+
+> ~/Public/work2/ccspaaa/NERD_tree_1
+	"	4	0
 	.	1	0
 	+	1	0
 	+	1	0
@@ -555,9 +695,361 @@ $
 	+	1	0
 	+	1	0
 	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
 
-> ~/.emacs.d/lisp/init-javascript.el.nouse
+> ~/Public/work2/committxt
 	"	1	0
+
+> ~/Public/work2/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/ccsp/Utopia/Makefile
+	"	42	37
+
+> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/package/CCSP/Makefile
+	"	40	10
+
+> ~/Public/work2/ccspaaa/adam/committxt
+	"	5	70
+	^	5	71
+	.	5	70
+	+	14	25
+	+	5	33
+	+	3	22
+	+	5	21
+	+	3	22
+	+	5	70
+
+> ~/Public/work2/ccspaaa/adam/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work2/ccspaaa/adam/arch/vdsl2/boards/simu_qualcomm/ccsp_build_custom.mk
+	"	30	4
+	.	30	0
+	+	41	0
+	+	30	0
+
+> ~/Public/work2/ccspaaa/bacasda/hal/Makefile
+	"	28	17
+	^	43	15
+	.	43	14
+	+	42	1
+	+	41	1
+	+	43	14
+
+> ~/Public/work2/ccspaaa/bacasda/NERD_tree_1
+	"	74	4
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work2/ccspaaa/bacasda/arch/vdsl2/boards/simu_qualcomm/ccsp_build_custom.mk
+	"	30	30
+	.	30	0
+	+	41	0
+	+	30	0
+
+> ~/Public/work2/ccspaaa/bacasda/-MiniBufExplorer-
+	"	1	0
+	.	2	0
+	+	2	0
+	+	2	0
+
+> ~/Public/work2/ccspaaa/bacasda/NERD_tree_2
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work2/ccspaaa/bacasda/NERD_tree_3
+	"	17	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work2/ccspaaa/ccsp_build
+	"	168	0
+
+> ~/Public/work2/ccspaaa/ccsp_setenv_pc.sh
+	"	1	0
+
+> ~/Public/work2/ccspaaa/-MiniBufExplorer-
+	"	1	35
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/Public/work2/ccspaaa/ccsp_setenv_vdsl2.sh
+	"	21	0
+
+> ~/Public/work2/ccspaaa/aaa
+	"	2	1
+
+> ~/Public/work2/NERD_tree_2
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work2/NERD_tree_3
+	"	35	6
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work2/ccspaaa/hal/Makefile
+	"	1	0
+
+> ~/Public/work2/ccspaaa/arch/vdsl2/boards/simu_qualcomm/ccsp_build_custom.mk
+	"	22	0
+
+> ~/Public/work2/ccspaaa/CcspCr/Makefile
+	"	42	0
+
+> ~/Public/work2/ccspaaa/arch/common.mk
+	"	336	0
+
+> ~/Public/work2/ccspaaa/arch/ccsp_common.mk
+	"	164	28
+
+> ~/Public/work2/ccspaaa/aaaaaa
+	"	4475	82
+	^	4759	0
+	.	4758	40
+	+	4758	40
+
+> ~/Public/work2/ccspaaa/Stage/vdsl2-simu_qualcomm/include/wifi_hal.h
+	"	1	0
+
+> ~/Public/work2/ccspaaa/Stage/NERD_tree_1
+	"	1	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work2/ccspaaa/Stage/NERD_tree_2
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work2/ccspaaa/Stage/NERD_tree_3
+	"	19	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work2/aaa
+	"	1	0
+	^	3	0
+	.	1	0
+	+	2	41
+	+	1	0
+
+> ~/Public/study/shell/123.bash
+	"	70	9
+	^	68	10
+	.	68	9
+	+	41	0
+	+	41	0
+	+	49	0
+	+	54	36
+	+	55	1
+	+	50	0
+	+	53	3
+	+	52	11
+	+	54	11
+	+	57	0
+	+	57	0
+	+	47	0
+	+	46	12
+	+	45	15
+	+	46	12
+	+	57	4
+	+	56	0
+	+	58	6
+	+	46	0
+	+	42	7
+	+	46	11
+	+	63	19
+	+	64	1
+	+	61	12
+	+	63	15
+	+	61	18
+	+	66	0
+	+	70	0
+	+	72	24
+	+	75	1
+	+	64	0
+	+	70	21
+	+	42	4
+	+	72	10
+	+	73	3
+	+	74	0
+	+	66	2
+	+	67	9
+	+	66	0
+	+	72	0
+	+	68	9
+
+> ~/Public/study/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/study/aaa
+	"	1	23
+	^	1	24
+	.	1	23
+	+	2	0
+	+	2	2
+	+	1	23
+
+> ~/Public/study/aaa.sh
+	"	3	14
+	^	3	15
+	.	3	14
+	+	3	0
+	+	2	16
+	+	3	14
+
+> ~/Public/study/-MiniBufExplorer-
+	"	1	7
+	.	2	0
+	+	2	0
+
+> ~/.emacs
+	"	134	6
+	^	20	0
+	.	134	0
+	+	26	0
+	+	26	0
+	+	26	0
+	+	26	0
+	+	26	0
+	+	26	2
+	+	26	0
+	+	26	0
+	+	26	0
+	+	26	0
+	+	26	0
+	+	26	25
+	+	26	0
+	+	26	0
+	+	26	4
+	+	21	0
+	+	14	0
+	+	3	0
+	+	2	0
+	+	26	0
+	+	2	0
+	+	2	0
+	+	1	0
+	+	22	0
+	+	23	0
+	+	813	0
+	+	26	0
+	+	25	0
+	+	15	24
+	+	15	54
+	+	15	54
+	+	21	0
+	+	16	32
+	+	20	0
+	+	15	0
+	+	132	0
+	+	134	0
+
+> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/Makefile.cyt
+	"	78	11
+
+> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/NERD_tree_2
+	"	5	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/NERD_tree_3
+	"	12	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/ccsp/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/.backupemacs
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	0
 
 > ~/.emacs.d/-MiniBufExplorer-
 	"	1	0
@@ -571,405 +1063,14 @@ $
 	+	2	0
 	+	2	0
 	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
 
-> ~/.emacs.d/lisp/init-github.el
-	"	13	0
+> ~/.emacs.el
+	"	803	0
 
-> ~/.emacs.d/lisp/init-clojure-cider.el
-	"	28	0
+> /usr/share/emacs/site-lisp/xcscope.el
+	"	214	8
 
-> ~/.emacs.d/_init.el
-	"	5	0
-
-> ~/NERD_tree_2
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/NERD_tree_3
-	"	12	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/erouter_stack-3e97f0b/NERD_tree_1
-	"	1	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/erouter_stack-3e97f0b/NERD_tree_2
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/erouter_stack-3e97f0b/NERD_tree_3
-	"	10	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/123
-	"	1	0
-
-> /usr/share/emacs/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> /usr/share/emacs/NERD_tree_2
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-
-> /usr/share/emacs/NERD_tree_3
-	"	330	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> /usr/share/emacs/23.3/etc/refcards/sk-refcard.tex
-	"	1	0
-
-> /usr/share/emacs/23.3/etc/refcards/sk-refcard.pdf
-	"	1	0
-
-> /usr/share/emacs/-MiniBufExplorer-
-	"	1	47
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-
-> /usr/share/emacs/23.3/etc/AUTHORS
-	"	1	0
-
-> /usr/share/emacs/23.3/etc/tutorials/TUTORIAL
-	"	1	0
-
-> /usr/share/emacs/23.3/lisp/json.elc
-	"	1	0
-
-> ~/.emacs.d/lisp/init-lisp.el
-	"	1	0
-
-> ~/.emacs.d/.emacs.desktop
-	"	1	0
-	.	29	0
-	+	29	0
-
-> ~/.emacs.d/.emacs.desktop.lock
-	"	1	0
-
-> ~/.emacs.d/.emacs.desktop.
-	"	1	0
-
-> ~/.emacs.d/.git/index
-	"	1	0
-
-> ~/.emacs.d/lisp/init-javascript.el
-	"	6	18
-
-> ~/.emacs.d/.session
-	"	5	0
-
-> ~/Public/erouter_stack-3e97f0b/123
-	"	1	0
-
-> ~/.emacs.d/README.md
-	"	95	0
-
-> ~/-MiniBufExplorer-
-	"	1	11
-	.	2	0
-	+	2	0
-
-> /usr/share/emacs23/site-lisp/cscope/xcscope.elc
-	"	79	0
-
-> ~/Public/work/vdsl2_qsdk_v0.11.1/Makefile.cyt
-	"	55	39
-	^	62	6
-	.	62	5
-	+	61	0
-	+	62	5
-	a	70	2
-
-> ~/Public/work/vdsl2_qsdk_v0.11.1/qca/chipcode/common/build/ipq/tools/genimg.py
-	"	5	0
-
-> ~/Public/work/vdsl2_qsdk_v0.11.1/BSDmakefile
-	"	1	0
-
-> ~/Public/work/vdsl2_qsdk_v0.11.1/NERD_tree_1
-	"	27	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work/vdsl2_qsdk_v0.11.1/Makefile
-	"	53	0
-
-> ~/Public/work/vdsl2_qsdk_v0.11.1/-MiniBufExplorer-
-	"	1	27
-	.	2	0
-	+	2	0
-	+	2	0
-
-> ~/Public/work/vdsl2_qsdk_v0.11.1/qca/chipcode/apss_proc/out/pack.py
-	"	674	24
-	a	679	35
-
-> ~/Public/work/vdsl2_qsdk_v0.11.1/123
-	"	19	14
-	^	20	0
-	.	13	0
-	+	7	15
-	+	11	0
-	+	19	15
-	+	13	0
-
-> ~/.vimrc
-	"	72	0
-	^	61	4
-	.	61	0
-	+	18	6
-	+	74	0
-	+	73	0
-	+	61	0
-
-> ~/Public/erouter_stack-3e97f0b/CcspCr/Makefile
-	"	24	0
-
-> ~/Public/erouter_stack-3e97f0b/ccsp_build
-	"	107	9
-	a	217	4
-
-> ~/Public/erouter_stack-3e97f0b/-MiniBufExplorer-
-	"	1	26
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-
-> ~/Public/erouter_stack-3e97f0b/AppEnvManager/source/AppEnvSsp/cosa_apis_ccsp.c
-	"	46	45
-
-> ~/Public/erouter_stack-3e97f0b/AppEnvManager/source/AppEnvManager/ccsp_package_mgr.c
-	"	56	0
-
-> ~/Public/erouter_stack-3e97f0b/CcspCommonLibrary/source/ccsp/components/include/ccsp_package_mgr.h
-	"	175	1
-
-> ~/Public/erouter_stack-3e97f0b/CcspPandM/source/PandMSsp/ssp_action.c
-	"	207	0
-
-> ~/Public/erouter_stack-3e97f0b/CcspBPandMSsp/source/PandMSsp/ssp_pnm_action.c
-	"	225	0
-
-> ~/Public/erouter_stack-3e97f0b/CcspCommonLibrary/source/ccsp/custom/dslgm_module_custom.h
-	"	238	4
-
-> ~/Public/erouter_stack-3e97f0b/CcspCommonLibrary/source/ccsp/custom/ansc_crypto_custom.h
-	"	59	0
-
-> ~/Public/erouter_stack-3e97f0b/CcspBPandMSsp/source/PandMSsp/ssp_main.c
-	"	386	8
-
-> ~/Public/erouter_stack-3e97f0b/CcspPandM/source/PandMSsp/ssp_main.c
-	"	334	8
-
-> ~/Public/erouter_stack-3e97f0b/CcspBTr069PaSsp/Makefile
-	"	40	0
-
-> ~/Public/erouter_stack-3e97f0b/ccsp_setenv_simu.sh
-	"	8	0
-
-> ~/Public/erouter_stack-3e97f0b/CcspTr069Pa/source/CcspCwmpSession/ccsp_cwmp_sesso_base.c
-	"	99	4
-
-> ~/Public/erouter_stack-3e97f0b/AppEnvManager/source/AppEnvSsp/aem_plugin.xml
-	"	1	0
-
-> ~/Public/erouter_stack-3e97f0b/CcspCr/source/CrSsp/ssp_cmd.c
-	"	20	12
-
-> /bin/sshccsp
-	"	1	24
-	^	1	25
-	.	1	14
-	+	1	14
-
-> /mnt/hgfs/work/ccsp_dsl_porting/vdsl2_qsdk_v0.11.1/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0b/CcspMisc/Makefile
-	"	9	53
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0b/NERD_tree_1
-	"	16	6
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0b/ccsp_build
-	"	98	8
-	^	163	0
-	.	163	0
-	+	101	0
-	+	100	24
-	+	165	27
-	+	172	0
-	+	171	32
-	+	166	29
-	+	171	0
-	+	171	0
-	+	171	0
-	+	166	0
-	+	168	0
-	+	166	29
-	+	168	0
-	+	166	0
-	+	168	0
-	+	164	16
-	+	163	0
-	a	153	21
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0bold/ccsp_build
-	"	1	0
-	.	145	0
-	+	162	0
-	+	165	0
-	+	166	0
-	+	166	0
-	+	163	25
-	+	164	0
-	+	164	25
-	+	164	25
-	+	166	0
-	+	145	0
-	a	165	30
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0b/-MiniBufExplorer-
+> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/ccsp/-MiniBufExplorer-
 	"	1	0
 	.	2	0
 	+	2	0
@@ -982,95 +1083,24 @@ $
 	+	2	0
 	+	2	0
 	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
 
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0bold/NERD_tree_1
-	"	4	0
+> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/ccsp/NERD_tree_2
+	"	1	0
 	.	1	0
 	+	1	0
 	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
 
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0bold/NERD_tree_2
+> ~/.emacs.d/NERD_tree_2
 	"	1	0
 	.	1	0
 	+	1	0
 	+	1	0
 	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
 
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0bold/NERD_tree_3
-	"	89	2
-	.	1	0
-	+	1	0
+> ~/.emacs.d/thinks.el
+	"	271	0
 
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0b/dummy.c
-	"	6	0
-	^	6	1
-	.	6	0
-	+	6	0
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0b/ExtDependency/opensource/dbus/config.log
-	"	2217	27
-	a	2216	55
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0b/ExtDependency/opensource/dbus/configure
-	"	1619	2
-	a	97	28
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0bold/ccsp_setenv_simu.sh
-	"	9	27
-	^	9	28
-	.	9	27
-	+	9	27
-
-> /bin/uname
-	"	1	0
-
-> /usr/bin/arch
-	"	1	0
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0bold/-MiniBufExplorer-
+> ~/Public/work2/vdsl/-MiniBufExplorer-
 	"	1	0
 	.	2	0
 	+	2	0
@@ -1078,336 +1108,15 @@ $
 	+	2	0
 	+	2	0
 	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
 
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0bold/ExtDependency/opensource/dbus/config.log
-	"	144	16
-	a	105	5
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0bold/ExtDependency/opensource/dbus/configure
-	"	1	0
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-3e97f0b/NERD_tree_2
+> ~/Public/work2/vdsl/NERD_tree_2
 	"	4	0
 	.	1	0
 	+	1	0
 
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-6b0a166/CcspBTr069PaSsp/source/Ssp/ssp_ccsp_cwmp_cfg.c
-	"	150	0
-	.	150	0
-	+	150	0
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-6b0a166/NERD_tree_1
-	"	4	0
+> ~/Public/work2/vdsl/NERD_tree_3
+	"	43	2
 	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-6b0a166/ccsp_build
-	"	19	38
-
-> /mnt/hgfs/work/ccsp_dsl_porting/erouter_stack-6b0a166/-MiniBufExplorer-
-	"	1	0
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-
-> ~/.vim/plugin/visualmark.vim
-	"	35	16
-	.	35	0
-	+	35	0
-
-> /mnt/hgfs/work/ccsp dsl porting/erouter_stack-6b0a166/ccsp_build
-	"	11	7
-
-> /mnt/hgfs/work/ccsp dsl porting/erouter_stack-6b0a166/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> /mnt/hgfs/guoliang/work/DLC/pnp4nagios-0.6.22/Makefile
-	"	168	27
-	^	159	36
-	.	159	35
-	+	144	0
-	+	143	7
-	+	143	0
-	+	143	7
-	+	144	1
-	+	144	0
-	+	144	0
-	+	31	0
-	+	143	0
-	+	150	0
-	+	150	0
-	+	149	0
-	+	150	0
-	+	143	7
-	+	150	26
-	+	151	32
-	+	152	34
-	+	154	33
-	+	158	36
-	+	159	35
-	a	143	4
-
-> /mnt/hgfs/work/ccsp dsl porting/erouter_stack-6b0a166/-MiniBufExplorer-
-	"	1	10
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-
-> /mnt/hgfs/work/worldbox/HowToBuild.txt
-	"	7	0
-
-> /mnt/hgfs/work/worldbox/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-
-> /usr/local/nagios/etc/objects/templates.cfg
-	"	213	0
-	^	215	1
-	.	215	0
-	+	216	0
-	+	216	0
-	+	216	0
-	+	216	0
-	+	188	3
-	+	216	0
-	+	188	3
-	+	188	0
-	+	188	37
-	+	216	0
-	+	216	0
-	+	216	0
-	+	188	3
-	+	216	0
-	+	188	0
-	+	216	0
-	+	216	0
-	+	216	3
-	+	188	0
-	+	216	3
-	+	216	3
-	+	216	0
-	+	216	0
-	+	216	59
-	+	216	22
-	+	216	50
-	+	216	60
-	+	216	14
-	+	216	22
-	+	216	0
-	+	188	0
-	+	215	0
-
-> /mnt/hgfs/guoliang/work/DLC/pnp4nagios-0.6.22/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> /mnt/hgfs/guoliang/work/DLC/pnp4nagios-0.6.22/-MiniBufExplorer-
-	"	1	17
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-
-> /usr/local/nagios/etc/objects/localhost.cfg
-	"	169	28
-	^	169	29
-	.	169	28
-	+	149	0
-	+	157	0
-	+	157	0
-	+	159	0
-	+	162	31
-	+	157	0
-	+	166	0
-	+	174	0
-	+	180	0
-	+	25	45
-	+	166	0
-	+	167	24
-	+	169	28
-
-> /usr/local/nagios/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> /usr/local/nagios/etc/hosts.cfg
-	"	25	0
-	.	25	0
-	+	23	0
-	+	22	43
-	+	31	0
-	+	30	0
-	+	24	0
-	+	25	0
-
-> /usr/local/nagios/-MiniBufExplorer-
-	"	1	0
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-
-> /NERD_tree_2
-	"	1	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
 	+	1	0
 	+	1	0
 	+	1	0

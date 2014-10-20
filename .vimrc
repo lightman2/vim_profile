@@ -17,6 +17,7 @@ map <F9> :!make<CR>
 map <F10> :cs find c <cword><CR>
 map <F2> :cs find s <cword><CR>
 map <F12> :cs find f <cword><CR>
+
 map <CR>  <C-]> 
 map <BS>  <C-T> 
 "map <C-F10>  :bn<CR>
@@ -62,7 +63,7 @@ if has("cscope")
     set csprg=/usr/bin/cscope        " 指定用来执行cscope的命令
     set csto=0                        " 设置cstag命令查找次序：0先找cscope数据库再找标签文件；1先找标签文件再找cscope数据库
     set cst                            " 同时搜索cscope数据库和标签文件
-    set cscopequickfix=s-,c-,d-,i-,t-,e-    " 使用QuickFix窗口来显示cscope查找结果
+"    set cscopequickfix=s-,c-,d-,i-,t-,e-    " 使用QuickFix窗口来显示cscope查找结果
     set nocsverb
     if filereadable("cscope.out")    " 若当前目录下存在cscope数据库，添加该数据库到vim
         cs add cscope.out

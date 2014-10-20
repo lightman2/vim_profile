@@ -1,8 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/guoliang/.emacs.d'
-let g:netrw_dirhist_2='/usr/share/emacs'
-let g:netrw_dirhist_3='/home/guoliang/.emacs.d'
-let g:netrw_dirhist_4='/usr/share/emacs/23.3/etc'
-let g:netrw_dirhist_5='/usr/share/emacs/23.3/lisp'
-let g:netrw_dirhist_6='/home/guoliang/.emacs.d'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/guoliang/Public/work2/vdsl2/vdsl2_qsdk_v0.11.1/ccsp/CcspMisc/source/Setvalues'
+let g:netrw_dirhist_2='/home/guoliang/Public/work2/vdsl2/vdsl2_qsdk_v0.11.1/ccsp/CcspMisc/source/Ccsp_bus_client_tool'
+let g:netrw_dirhist_3='/etc'
+let g:netrw_dirhist_4='/etc/emacs'
+let g:netrw_dirhist_5='/home/guoliang/Public/work2/ccspaaa/Stage/vdsl2-simu_qualcomm'
+let g:netrw_dirhist_6='/home/guoliang/Public/work2/vdsl'
+let g:netrw_dirhist_7='/home/guoliang/Public/work2/ccspaaa/bacasda/arch'
+let g:netrw_dirhist_8='/etc/apache2'
