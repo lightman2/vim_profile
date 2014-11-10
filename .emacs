@@ -1,4 +1,5 @@
 
+ (setq debug-on-quit t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -20,12 +21,14 @@
 
 
 (global-set-key (kbd "<f5>")  'goto-line)
+(global-set-key (kbd "<f7>") 'recentf-open-files)
+
 (load-file "/usr/share/emacs/site-lisp/xcscope.el")
 (require 'xcscope)
 
 ;;设置有用的个人信息
-(setq user-full-name "mudan")
-(setq user-mail-address "mudand88@gmail.com")
+(setq user-full-name "guoding")
+(setq user-mail-address "guoliang.ding@gmail.com")
 
 ;;--显示时间设置--
 (display-time-mode 1);;启用时间显示设置
@@ -33,6 +36,9 @@
 (setq display-time-day-and-date t);;时间显示包括日期和具体时间
 (setq display-time-use-mail-icon t);;时间栏旁边启用邮件设置
 (setq display-time-interval 10);;时间的变化频率
+;;--paste plate
+(setq x-select-enable-clipboard t)
+
 ;;时间戳设置，插入文档内的
 (defun my-timestamp ()
   "Insert the \"Time-stamp: <>\" string at point."
@@ -456,9 +462,10 @@ auto-mode-alist))
 ;(load "~/.emacs.d/easymenu.el")
 ;(require 'easymenu)
 
-;; git-emacs.el
-;(add-to-list 'load-path' "~/.emacs.d/git-emacs/")
-;(require 'git-emacs)
+;dgl
+; git-emacs.el
+(add-to-list 'load-path' "~/.emacs.d/git-emacs/")
+(require 'git-emacs)
 
 ;; markdown-mode
 (load "~/.emacs.d/markdown-mode.el")
