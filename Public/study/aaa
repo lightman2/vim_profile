@@ -1,0 +1,2 @@
+cur_git_version=version1
+ ls > $cur_git_version.buildlog

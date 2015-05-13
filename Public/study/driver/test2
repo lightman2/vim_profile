@@ -1,0 +1,33 @@
+#exclude <stdio.h>
+#exclude <time.h>
+
+#exclude <stdint.h>
+#exclude <unistd.h>
+#exclude <stdio.h>
+#exclude <stdlib.h>
+#exclude <getopt.h>
+#exclude <fcntl.h>
+#exclude <sys/ioctl.h>
+#exclude <linux/types.h>
+#exclude <linux/spi/spidev.h>
+
+
+int main(int argc, char *argv[])
+{
+int ret = 0;
+	int fd;
+FILE *ft;
+
+     time_t tim;
+      struct tm *at;
+       char now[80];
+        time(&tim);
+         at=localtime(&tim);
+          strftime(now,79,"%Y-%m-%d\n%H:%M:%S\n",at);
+while(1)
+{
+    printf("helloworld now : %s\n", now);
+}
+
+	return ret;
+}

@@ -1,0 +1,1000 @@
+  166  ls
+  167  pwd
+  168  cd -
+  169  ls
+  170  cd ~/EDA/
+  171  vim
+  172  ls
+  173  find . -name dfb
+  174  vim
+  175  cd `PO`
+  176  cd $PO
+  177  ls
+  178  make
+  179  make
+  180  git stash list
+  181  git stash show stash@{0}
+  182  make compendium
+  183  make merge
+  184  make
+  185  make merge
+  186  ls /workspace/guoding/EDA/src/application/generic/data/languages/po/../../../../../config/
+  187  cd ~/EDA/EDA_BCM7241/
+  188  source make.env 
+  189  cd $PO
+  190  make merge
+  191  make install
+  192  make
+  193  make merege
+  194  make merge
+  195  make compendium
+  196  cd ~/EDA/src/
+  197  grep " Ethernet cable detected" . -R
+  198  vi ./application/generic/src/lanTest.c
+  199  make merge
+  200  cd $PO
+  201  makemerge
+  202  make merge
+  203  make 
+  204  vim Makefile 
+  205  make eda_install
+  206  cd ~/EDA/EDA_BCM7241/
+  207  make gen
+  208  cd ~/bin/8k_app/
+  209  ls -alt
+  210  sh mda.bash vmlinuz_diag_7241b0_v2.3.4.5
+  211  cd -
+  212  git pull
+  213  git log -p
+  214  git info
+  215  git remote
+  216  git remote show
+  217  git show remote
+  218  git-ls-remote 
+  219  cd ../src/application/generic/
+  220  git-ls-remote 
+  221  mkdir 123
+  222  cd 123
+  223  git clone git@sn-crdc-build1:/workspace/repo/EDA/src/application/generic
+  224  git clone git@sn-crdc-build1:/workspace/repo/EDA/src/application/
+  225  git clone git@sn-crdc-build1:/workspace/repo/EDA/src
+  226  git clone git@sn-crdc-build1:/workspace/repo/EDA
+  227  rm *
+  228  rm * -rf
+  229  cd ..
+  230  rm 123
+  231  ls
+  232  rm 123 -r
+  233  ls
+  234  ls
+  235  ls
+  236  cd ~/EDA/EDA_BCM7241/
+  237  ls
+  238  cd ..
+  239  ls
+  240  git pull
+  241  git log -p
+  242  ls
+  243  ls
+  244  soruce make.env 
+  245  source make.env 
+  246  vim Makefile 
+  247  vim Makefile 
+  248  make eda_bundler
+  249  vim Makefile 
+  250  make bgc
+  251  source make.env 
+  252  make bgc
+  253  vi Makefile 
+  254  cd ~/bin/8k_app/
+  255  ls -alt
+  256  cd -
+  257  make
+  258  make eda_bundler
+  259  cd -
+  260  ls -alt
+  261  cd-
+  262  cd -
+  263  -
+  264  ls
+  265  cd image/
+  266  ls
+  267  cd opt/
+  268  ls
+  269  cd ..
+  270  ls
+  271  cd ~/EDA/
+  272  ls
+  273  make
+  274  make app
+  275  make app
+  276  make app
+  277  make app
+  278  ls
+  279  fdisk -hl
+  280  fdisk -h
+  281  df -h
+  282  ls
+  283  ls -alt
+  284  cd svn2/Merged_Diag_Generic/
+  285  ls
+  286  find . -name att_gui_mda_message.c
+  287  vim ./brutus/nexus/mda/application/generic/dfb/att_gui_mda_message.c
+  288  gti pull --help
+  289  git pull --help
+  290  ls
+  291  cd EDA/
+  292  ls
+  293  cd src/application/generic/data/languages/po/
+  294  ls -alt
+  295  ls
+  296  cd ../..
+  297  ls
+  298  cd..
+  299  ls
+  300  cd ..
+  301  ls
+  302  cd ..
+  303  ls
+  304  cd ..
+  305  ls
+  306  git status
+  307  vim 123
+  308  cat 123 |xargs git diff
+  309  cat 123 |xargs git diff>1234
+  310  vim 123
+  311  cat 123 |xargs git diff>1234
+  312  vim 1234
+  313  git pull
+  314  git log
+  315  git log -p
+  316  vim 1234
+  317  cat 123|git diff >1234
+  318  vim 1234
+  319  vim 123
+  320  cat 123|xargs git diff >1234
+  321  vim 1234
+  322  cat 123|xargs git stage 
+  323  git status
+  324  git diff application/generic/Makefile 
+  325  git diff application/generic/Makefile  --origin
+  326  git diff origin application/generic/Makefile 
+  327  git commit 
+  328  git push
+  329  git log -p
+  330  cd ../../..
+  331  ls
+  332  cd guoding/
+  333  ls
+  334  cd nas/
+  335  ls -alt
+  336  cd EDA_0125/
+  337  ls
+  338  git pull
+  339  cd EDA/
+  340  git pull
+  341  ls
+  342  git pull
+  343  cd src/
+  344  git pull
+  345  cd ..
+  346  ls
+  347  cd EDA_BCM7241/
+  348  ls
+  349  gitpull
+  350  git pull
+  351  cd..
+  352  ls
+  353  pwd
+  354  cd ..
+  355  git ls remote
+  356  git-ls-remote 
+  357  git pull git@sn-crdc-build1:/workspace/repo/EDA
+  358  ls\
+  359  ls
+  360  source make.env 
+  361  make 
+  362  make gen
+  363  make bgc
+  364  make 
+  365  make clean_gen
+  366  make gen
+  367  ls
+  368  git pull git@sn-crdc-build1:/workspace/repo/EDA
+  369  rm * -rf
+  370  pwd
+  371  rm * -rf
+  372  history
+  373   git checkout git@sn-crdc-build1:/workspace/repo/EDA
+  374   git clone git@sn-crdc-build1:/workspace/repo/EDA
+  375  git  submodule init
+  376  git submodule update
+  377  cd ~/EDA/
+  378  find .-name EdaBundler 
+  379  find . -name EdaBundler 
+  380  make bgc
+  381  source make.env 
+  382  make bgc
+  383  ls
+  384  pwd
+  385  ls
+  386  ls
+  387  cd ls
+  388  cd EDA/
+  389  ls
+  390  ls
+  391  source make.env 
+  392  ls
+  393  make
+  394  make bgc
+  395  ls image/ -alt
+  396  ls
+  397  ls
+  398  vim -S Session.vim 
+  399  cscope -R
+  400  vim
+  401  vim  -S Session.vim 
+  402  cd study/
+  403  ls
+  404  cd driver/
+  405  ls
+  406  vim 123
+  407  ./123
+  408  ./a.out 
+  409  ls -alt
+  410  ls -alth
+  411  split -b 1k 123
+  412  ls
+  413  ls -alt
+  414  vim xaa 
+  415  cd ~/bin/Merged_Diag_App/
+  416  ls
+  417  ls 2618-6.2/
+  418  ls -alt
+  419  cd 2618-6.2/
+  420  ls -alt
+  421  cd ~/
+  422  echo $PATH
+  423  path = $PATH
+  424  path=$PATH
+  425  echo path
+  426  echo $path
+  427  echo ${path#/opt/*}
+  428  echo ${path#/*opt/*}
+  429  echo ${path#/opt/*}
+  430  echo ${path#/opt/*:}
+  431  echo $path
+  432  echo ${path#/usr/*:}
+  433  echo ${path#/usr/*}
+  434  echo ${path#/*usr/*:}
+  435  echo ${path#/**:}
+  436  echo ${path#/*:}
+  437  man dlopen
+  438  cd study/
+  439  ls
+  440  cd driver/
+  441  hexdump a.out 
+  442  echo ${path#/*:}
+  443  echo ${path##/*:}
+  444   echo $username
+  445   echo $username
+  446   username=${username-root
+  447   username=${username-root }
+  448   echo $username
+  449  username:="vbird tsai"
+  450  username=$username:"vbird tsai"
+  451   echo $username
+  452  username=${username-root}
+  453   echo $username
+  454  echo -n
+  455  type -a echo
+  456  alias echo echo -n
+  457  alias echo=echo -n
+  458  alias echo=echo "-n"
+  459  alias echo='echo -n'
+  460  type echo
+  461  type -a echo
+  462  cd EDA/
+  463  ls
+  464  vim -S Session.vim 
+  465  vim -S Session.vim 
+  466  cd EDA/
+  467  vim -S Session.vim 
+  468  git pull
+  469  git diff src/application/generic/main.c
+  470  git checkout src/application/generic/main.c
+  471  git pull
+  472  make bgc
+  473  source make.env 
+  474  make bgc
+  475  make clean
+  476  make
+  477  make clean_app
+  478  make
+  479  make clean_directfb
+  480  make
+  481  make clean_mlib
+  482  make clean_kernel
+  483  make bgc
+  484  cd study/
+  485  ls
+  486  vim driver/123.c 
+  487  mv ~/.vimrc ~/.vimrcbackup
+  488  vim driver/123.c 
+  489  mv  ~/.vimrcbackup ~/.vimrc
+  490  vim driver/123.c 
+  491  cd ~/.vim
+  492  ls
+  493  cd plugin/
+  494  ls
+  495  cd..
+  496  ls
+  497  ls
+  498  ls
+  499  cd ..
+  500  ls
+  501  mv plugin plugin_backup
+  502  vim ~/study/driver/123.c 
+  503  mv plugin_backup/ plugin
+  504  vim ~/study/driver/123.c 
+  505  ls
+  506  cd plugin/
+  507  ls
+  508  vim 123
+  509  cat 123 |xargs mv tmp -p
+  510  mkdir tmp
+  511  cat 123 |xargs mv tmp 
+  512  ls
+  513  cat 123 |xargs cp tmp 
+  514  cat 123 -exec "cp  {} tmp"
+  515  cat 123 -exec "cp  {} tmp/"
+  516  vim 123
+  517  cat 123 -exec "cp  {} tmp/"
+  518  vim 123
+  519  cat 123 -exec cp "{}" tmp/
+  520  cat 123 -exec cp {} tmp/
+  521  cat 123 -exec cp {} tmp
+  522  cat 123
+  523  grep.vim -exec
+  524  find .-name a.vim -exec cp {} tmp
+  525  find . -name a.vim -exec cp {} tmp
+  526  find . -name a.vim -exec "cp {} tmp"
+  527  find . -name a.vim -exec ls
+  528  find . -name a.vim -exec ls {}
+  529  find . -type f -exec ls {}
+  530  find . -type f -exec ls -l { } ;
+  531  find . -type f -exec ls -l { } 
+  532  find . -type f -exec ls -l { }
+  533  find . -type f -exec ls -l {}
+  534  find . -name H* -exec ls -l {} \
+  535  find . -name H* -exec ls -l {} 
+  536  find . -name H* -exec ls -l {}
+  537  find . -name * -exec ls -l {}
+  538  find . -name *.vim -exec ls -l {}
+  539  find . -name *.vim -exec ls -l {}
+  540  find . -name *.vim
+  541  find . -name *\.vim
+  542  find . -name *vim
+  543  find . -name vim
+  544  find . -name a.vim
+  545  find . -name *.vim
+  546  find . -name a*vim
+  547  find . -name [a-z]*vim
+  548  find . -name [a\z]*vim
+  549  find . -name [1\z]*vim
+  550  find . -name [a\z]*vim
+  551  find . -name *vim
+  552  find . -name a*
+  553  ls
+  554  find . -name *vim
+  555  find . -name "*vim" -exec mv {} tmp
+  556  find . -name "*vim" -exec cp {} tmp
+  557  find . -name "*vim" -exec "cp {} tmp"
+  558  man find
+  559  find . -name "*vim" -exec cp {} tmp
+  560  find . -name "*vim" -exec cp {} tmp
+  561  find . -name "*vim" -exec ls {} tmp
+  562  find . -name "*vim" -exec ls 
+  563  find . -name "*vim" -exec ls {}
+  564  find . -name "*vim" -exec ls {} \
+  565  find . -name "*vim" -exec ls {} \;
+  566  find . -name "*vim" -exec cp {} tmp
+  567  find . -name "*vim" -exec cp {} tmp;
+  568  find . -name "*vim" -exec cp {} tmp\;
+  569  find . -name "*vim" -exec cp {} tmp \;
+  570  ls
+  571  ls tmp/
+  572  man find
+  573  find . --maxdepth 1 -name "*vim" -exec cp {} tmp \;
+  574  man find
+  575  find . -maxdepth 1 -name "*vim" -exec cp {} tmp \;
+  576  find . -maxdepth 1 -name "*vim" -exec mv {} tmp \;
+  577  ls
+  578  ls
+  579  cd tmp/
+  580  ls
+  581  tar backup .
+  582  tar backup *
+  583  tar -zcvf backup *
+  584  ls
+  585  ls -alt
+  586  ls
+  587  cd ..
+  588  ls
+  589  cp tmp/*  .
+  590  ls
+  591  find . -name "*.vim" 
+  592  find . -name "*.vim" -maxdepth 1
+  593  find . -name "*.vim" -maxdepth 1 -exec ls {}\;
+  594  find . -name "*.vim" -maxdepth 1 -exec ls {} \;
+  595  find . -name "*.vim" -maxdepth 1 -exec ls -alt {} \;
+  596  find . -maxdepth 1-name "*.vim"  -exec ls -alt {} \;
+  597  find . -maxdepth 1 -name "*.vim"  -exec ls -alt {} \;
+  598  cat 123 -exec ls {}\;
+  599  man cat 
+  600  ls
+  601  cat 123
+  602  mv a.vim  EnhancedCommentify.vim  grep.vim  highlight.vim  minibufexpl.vim tmp/
+  603  ls
+  604  vim ~/study/driver/123.c 
+  605  ls
+  606  mv visualmark.vim  tmp/
+  607  ls
+  608  vim ~/study/driver/123.c 
+  609  ls
+  610  mv taglist.vim  tmp/
+  611  ls
+  612  vim ~/study/driver/123.c 
+  613  ls
+  614  mv NERD_tree.vim  tmp/
+  615  ls
+  616  vim ~/study/driver/123.c 
+  617  ls
+  618  vim ~/study/driver/123.c 
+  619  ls
+  620  cp tmp/ .
+  621  cp tmp/* .
+  622  ls
+  623  mv tmp ../
+  624  ls ../tmp/
+  625  ls
+  626  ls
+  627  rm a.vim  EnhancedCommentify.vim  grep.vim  highlight.vim  minibufexpl.vim
+  628  ls
+  629  vim ~/study/driver/123.c 
+  630  cd ..
+  631  cp  grep.vim  highlight.vim  minibufexpl.vim plugin/
+  632  ls
+  633  cd tmp/
+  634  ls
+  635  cp  grep.vim  highlight.vim  minibufexpl.vim ../plugin/
+  636  vim ~/study/driver/123.c 
+  637  rm ../plugin/minibufexpl.vim 
+  638  vim ~/study/driver/123.c 
+  639  rm ../plugin/highlight.vim 
+  640  vim ~/study/driver/123.c 
+  641  vim ~/study/driver/123.c 
+  642  ls
+  643  cp *.vim
+  644  cp "*.vim" ../plugin/
+  645  find  "*.vim" -exec cp {} ../plugin/ ;
+  646  find  "*.vim" -exec cp {} ../plugin/ \;
+  647  find  . -name "*.vim" -exec cp {} ../plugin/ \;
+  648  ls ../plugin/ -alt
+  649  rm ../plugin/highlight.vim 
+  650  ls
+  651  ls
+  652  cd..
+  653  ls
+  654  ls
+  655  cd ..
+  656  ls
+  657  cd EDA/
+  658  vim  -S Session.vim 
+  659  vim  -S Session.vim 
+  660  vim  -S Session.vim 
+  661  vim  -S Session.vim 
+  662  vim -S Session.vim 
+  663  ls
+  664  ls
+  665  cd study/driver/
+  666  ls
+  667  vim 123
+  668  vim 123.c 
+  669  vim 123.c 
+  670  vim 123.c 
+  671  vim 123.c 
+  672  vim 123.c 
+  673  vim 123.c 
+  674  cd ~/EDA/
+  675  vim -S Session.vim 
+  676  vim -S Session.vim 
+  677  cd -
+  678  vim 123.c 
+  679  vim 123.c 
+  680  vim 123.c 
+  681  vim 123.c 
+  682  vim 123.c 
+  683  dos2unix ~/.vim/plugin/EnhancedCommentify.vim 
+  684  vim 123.c 
+  685  dos2unix ~/.vim/plugin/ocaml_enhcomm.vim
+  686  dos2unix ~/.vim/plugin/php_enhcomm.vim
+  687  vim 123.c 
+  688  vim 123.c 
+  689  vim 123.c 
+  690  vim 123
+  691  vim 123.c 
+  692  ls
+  693  vim -S Session.vim 
+  694  vim 123.c 
+  695  vim 123.c 
+  696  vim -S Session.vim 
+  697  vim -S Session.vim 
+  698  vim -S Session.vim 
+  699  vim -S Session.vim 
+  700  vim -S Session.vim 
+  701  vim -S Session.vim 
+  702  vim -S Session.vim 
+  703  vim -S Session.vim 
+  704  vim -S Session.vim 
+  705  vim -S Session.vim 
+  706  vim -S Session.vim 
+  707  vim -S Session.vim 
+  708  vim -S Session.vim 
+  709  vim -S Session.vim 
+  710  vim -S Session.vim 
+  711  vim -S Session.vim 
+  712  vim -S Session.vim 
+  713  vim -S Session.vim 
+  714  vim -S Session.vim 
+  715  vim -S Session.vim 
+  716  vim -S Session.vim 
+  717  vim -S Session.vim 
+  718  vim -S Session.vim 
+  719  vim -S Session.vim 
+  720  vim -S Session.vim 
+  721  vim -S Session.vim 
+  722  vim -S Session.vim 
+  723  cp ~/.vim/tmp/EnhancedCommentify.vim  ~/.vim/plugin/
+  724  vim -S Session.vim 
+  725  vim -S Session.vim 
+  726  vim -S Session.vim 
+  727  vim -S Session.vim 
+  728  vim -S Session.vim 
+  729  vim -S Session.vim 
+  730  ls
+  731  cd ~/svn2/Merged_Diag_Generic/
+  732  svn info
+  733  ls
+  734  cd ~/nas/
+  735  ls
+  736  mkdir Mergediag
+  737  cd Mergediag/
+  738  ls
+  739  svn co https://192.133.203.75/iptv-int/ScreenClean_Gen2/branches/Merged_Diag_Generic
+  740  cd ~/nas/
+  741  ls
+  742  cd EDA_0125/
+  743  ls
+  744  git pull
+  745  cd EDA/
+  746  git pull
+  747  git log -p
+  748  git pull
+  749  cd sr
+  750  ls
+  751  cd EDA
+  752  ls
+  753  git pull
+  754  git log -p
+  755  cd nas/Mergediag/
+  756  ls
+  757  mkdir 123
+  758  cd 123/
+  759  ls
+  760  svn co https://192.133.203.75/iptv-int/ScreenClean_Gen2/branches/Merged_Diag_Generic/application/att/tools/EDA2.0ServerPackage/Product Configuration 1/Release 1/
+  761  svn co https://192.133.203.75/iptv-int/ScreenClean_Gen2/branches/Merged_Diag_Generic/brutus/nexus/mda/application/att/tools/EDA2.0ServerPackage/Product Configuration 1/Release 1/
+  762  svn co https://192.133.203.75/iptv-int/ScreenClean_Gen2/branches/Merged_Diag_Generic/brutus/nexus/mda/application/att/tools/EDA2.0ServerPackage
+  763  vim ~/.bashrc 
+  764  vim ~/.bashrc 
+  765  svn --help
+  766  cd EDA2.0ServerPackage/Product Configuration 1/Release 1/
+  767  cd EDA2.0ServerPackage/Product\ Configuration\ 1/Release 1/
+  768  cd EDA2.0ServerPackage/Product\ Configuration\ 1/Release\ 1/
+  769  ls
+  770  cd LogFiles/
+  771  ls
+  772  rm *.txt
+  773  ls
+  774  svn st
+  775  svn st >123
+  776  vim 123
+  777  ls
+  778  ls
+  779  rm 123
+  780  ls
+  781  svn st
+  782  cd ..
+  783  ls
+  784  ls Reports/
+  785  cd LogFiles/
+  786  ls
+  787  svn ci . 
+  788  ls
+  789  svn st
+  790  cd ..
+  791  ls
+  792  cd DiskImages/
+  793  ls
+  794  cd ../LogFiles/
+  795  ls
+  796  cd ../
+  797  ls
+  798  svn rm
+  799  svn --help
+  800  man svn
+  801  svn rm LogFiles/* 
+  802  svn rm LogFiles
+  803  svn add LogFile
+  804  ls
+  805  svn revert
+  806  svn revert LogFiles/
+  807  ls
+  808  cd LogFiles/
+  809  ls
+  810  svn rm *
+  811  ls |xargs svn rm
+  812  ls
+  813  svn up
+  814  ls
+  815  cd ..
+  816  ls
+  817  rm LogFiles -rf
+  818  svn checkout LogFiles
+  819  svn up
+  820  ls
+  821  cd LogFiles/
+  822  ls
+  823  svn rm *
+  824  svn ci -m "rm unecessary package logs for some checkout cases"
+  825  ls
+  826  ls
+  827  cd ..
+  828  ls
+  829  ls
+  830  ls
+  831  cd ~/EDA/
+  832  ls
+  833  git pull
+  834  git-ls-remote 
+  835  git log
+  836  git diff 64a8eb8f6f080f8f287b9e4f820ca647e395b1a7
+  837  git log 64a8eb8f6f080f8f287b9e4f820ca647e395b1a7 -p
+  838  vim -S Session.vim 
+  839  ls
+  840  source make.env 
+  841  ls
+  842  cd src/application/generic/
+  843  ls
+  844  cd data/languages/
+  845  ls
+  846  cd po/
+  847  ls
+  848  make
+  849  vim Makefile 
+  850  vim Makefile 
+  851  make merge
+  852  make compendium
+  853  vim Makefile 
+  854  make merge
+  855  make merge
+  856  cd ..
+  857  s
+  858  ls
+  859  cd ..
+  860  ls
+  861  cd ..
+  862  ls
+  863  cd ..
+  864  ls
+  865  cd ../config/
+  866  ls
+  867  cd att/
+  868  ls
+  869  vim EDAconfig.xml 
+  870  ls
+  871  ls
+  872  pwd
+  873  ls
+  874  cd ../..
+  875  ls
+  876  cd ..
+  877  ls
+  878  source make.env 
+  879  make
+  880  cd src/application/generic/
+  881  make
+  882  cd ../../../
+  883  ls
+  884  source make.env 
+  885  make bgc
+  886  banker
+  887  banker report
+  888  ls image/ -alt
+  889  vim -S Session.vim 
+  890  vim -S Session.vim 
+  891  ls
+  892  cd EDA/
+  893  ls
+  894  vim -S Session.vim 
+  895  vim -S Session.vim 
+  896  git diff src/common/stbInfo.c
+  897  git stage src/common/stbInfo.c
+  898  git commit src/common/stbInfo.c -m "Diag Version Read for new bootloader"
+  899  git push
+  900  git pull
+  901  git diff src/xml/xmlConfigCommon.cpp
+  902  git checkout src/xml/xmlConfigCommon.cpp
+  903  git pull
+  904  git push
+  905  git log -p
+  906  ls
+  907  source make.env 
+  908  vim -S Session.vim 
+  909  source make.env 
+  910  cd src/application/generic/
+  911  make
+  912  cd ../../..
+  913  ls
+  914  make
+  915  make clean_directfb
+  916  make
+  917  make clean_mlib
+  918  make clean_app
+  919  make
+  920  make clean_kernel
+  921  cd src/application/generic/
+  922  make
+  923  cd -
+  924  make bgc
+  925  cd src/application/generic/
+  926  ls
+  927  make
+  928  cd ../../
+  929  ls
+  930  cd ..
+  931  ls
+  932  cd src/
+  933  git status
+  934  vim 123
+  935  cat 123
+  936  cat 123 |xargs gitdiff >1234
+  937  cat 123 |xargs git diff >1234
+  938  vim 1234
+  939  cat 123 |xargs git stage
+  940  git commit -m "boot software check && cn's po"
+  941  git log -p
+  942  git commit --help
+  943  git push
+  944  git pull
+  945  vi src/config/bgc/EDAconfig.xml
+  946  vi config/bgc/EDAconfig.xml
+  947  git log
+  948  git diff dbee3a0287ea571d39df7d268e4fe93de1cda37e origin
+  949  git diff dbee3a0287ea571d39df7d268e4fe93de1cda37e origin>12345
+  950  git reset  --soft HEAD
+  951  git log
+  952  git reset  --soft HEAD^
+  953  git log
+  954  git log -p
+  955  git reset --soft HEAD^   
+  956  git log
+  957  git diff config/bgc/EDAconfig.xml 
+  958  git stage config/bgc/EDAconfig.xml 
+  959  git commit config/bgc/EDAconfig.xml 
+  960  git push
+  961  git pull
+  962  cd ..
+  963  vim 123
+  964  cat 123
+  965  mkdir tmp
+  966  cp  src/application/generic/data/languages/po/zh_CN_compendium.po                 src/common/stbInfo.c                         src/testModule/testModuleBootSoftwareCheck.c  tmp
+  967  cd src/
+  968  git pull
+  969  git stash 
+  970  git stash show
+  971  git stash list
+  972  git pull
+  973  git stash list
+  974  git log
+  975  git log 
+  976  git log -p
+  977  git stash push stash@{0}
+  978  git stash pop stash@{0}
+  979  cd ../t
+  980  cd ../tmp/
+  981  ls
+  982  tar -zcvf 0227.gz *
+  983  ls
+  984  rm *.c *.po
+  985  ls
+  986  cd ..
+  987  ls
+  988  cd src/
+  989  vi 123
+  990  cat 123|xargs git diff>1234
+  991  vim 1234
+  992  cat 123|xargs git stash
+  993  cat 123|xargs git stage
+  994  git stage
+  995  git stage show
+  996  git-stage  --help
+  997  git status
+  998  git commit -m "boot software check for bootloader 2.10.11.0"
+  999  git push
+ 1000  last
+ 1001  last
+ 1002  man last
+ 1003  last
+ 1004  last --help
+ 1005  last -10
+ 1006  ls
+ 1007  last
+ 1008  last -10
+ 1009  last -10|tr  '[a-z]' '[A-Z]'
+ 1010  ls
+ 1011  cd EDA/
+ 1012  ls
+ 1013  cat make.env 
+ 1014  cat make.env |tr 'A-Z' 'a-z'
+ 1015  cat make.env 
+ 1016  cat make.env |tr =
+ 1017  cat make.env |tr '='
+ 1018  cat make.env |tr '\='
+ 1019  cat make.env |tr ';'
+ 1020  cat make.env |tr -d ';'
+ 1021  man col
+ 1022  man col>temp
+ 1023  vi temp 
+ 1024  cat temp |col -b>temp2
+ 1025  diff temp temp2
+ 1026  vim temp temp2
+ 1027  tr
+ 1028  ls
+ 1029  cat temp2 
+ 1030  unix2dos temp2 
+ 1031  cat temp
+ 1032  cat temp2 
+ 1033  vim temp2
+ 1034  man col>temp2
+ 1035  vim temp2
+ 1036  cat temp2 |tr "^H">123
+ 1037  cat temp2 |tr -d "^H">123
+ 1038  vim 123
+ 1039  cat temp2 |tr -d "^H"
+ 1040  cat temp2 |tr -d "^H">123
+ 1041  vim 123
+ 1042  vim 123
+ 1043  tr -d "/r"  tmep2  123
+ 1044  tr -d "/r"  temp2  123
+ 1045  cat temp2|tr -d "/r"  123
+ 1046  cat temp2|tr -d "/r" 
+ 1047  cat temp2|tr -d "/r" >123
+ 1048  vim 123
+ 1049  vim 123
+ 1050  cat temp2|col -b >123
+ 1051  vim 123
+ 1052  unix2dos  123>1234
+ 1053  unix2dos  123
+ 1054  vim 123
+ 1055  vim temp2 
+ 1056  unix2dos temp2
+ 1057  vim temp2 
+ 1058  cat /etc/passwd
+ 1059  cat /etc/passwd|sort
+ 1060  cat /etc/passwd|sort -t ':'
+ 1061  cat /etc/passwd|sort -t ':' -3
+ 1062  cat /etc/passwd|sort -t ':' -k 3
+ 1063  cat /etc/passwd|sort -t ':' -k 2
+ 1064  last | cut -d ' ' -f1 | sort | uniq -c
+ 1065  man cut
+ 1066  last -3
+ 1067  last -3|cut -d ' '
+ 1068  last -3|cut -d ' ' -f1
+ 1069  last -30|cut -d ' ' -f1
+ 1070  man cut
+ 1071  last -30|cut -d ' '
+ 1072  last -30|cut -d ''
+ 1073  last -30|cut -d 
+ 1074  last -30|cut -d ' '
+ 1075  last -30|cut -d ' ' -f1
+ 1076  last -30|cut -f1
+ 1077  man cut
+ 1078  ls
+ 1079  wc make.env 
+ 1080  wc make.env 
+ 1081  whatever
+ 1082  whatever
+ 1083  whatever
+ 1084  echo $?
+ 1085  ls
+ 1086  echo $?
+ 1087  test 1==2
+ 1088  echo $?
+ 1089  test 1==1
+ 1090  echo $?
+ 1091  test 0
+ 1092  echo $?
+ 1093  test 1
+ 1094  echo $?
+ 1095  test -e 123
+ 1096  echo $?
+ 1097  test -e 1222
+ 1098  echo $?
+ 1099  echo $:
+ 1100  echo $$
+ 1101  ps -a
+ 1102  top
+ 1103  ll/
+ 1104  ll /
+ 1105  ll
+ 1106  ll /
+ 1107  ls -alt
+ 1108  ll
+ 1109  ll /
+ 1110  ll ~/
+ 1111  ll ~/
+ 1112  ll
+ 1113  ll /
+ 1114  cat >234<123
+ 1115  cat > 234 <1 23
+ 1116  cat > 234 < 123
+ 1117  diff 234 123
+ 1118  cat 234
+ 1119  ll 123 234 
+ 1120  cat > 234 < "abc"
+ 1121  cat > 234 << "abc"
+ 1122  cat 234 
+ 1123  man test
+ 1124  cd ~/study/
+ 1125  ls
+ 1126  cd gcc/
+ 1127  ls
+ 1128  vim Makefile 
+ 1129  vim Makefile 
+ 1130  make part 4
+ 1131  vim Makefile 
+ 1132  make part5
+ 1133  vim Makefile 
+ 1134  last
+ 1135  vim Makefile 
+ 1136  cd ~/EDA/
+ 1137  source make.env 
+ 1138  cd -
+ 1139  make part5
+ 1140  vim Makefile 
+ 1141  cd ~/EDA/
+ 1142  ls
+ 1143  cd EDA_BCM7241/brutus_phase3.0/nexus/
+ 1144  ls
+ 1145  grep Modules.symvers . -R
+ 1146  find . -name Makefile|xargs grep Modules.symvers 
+ 1147  find . -name Makefile|xargs grep Modules.symver
+ 1148  cd ..
+ 1149  ls
+ 1150  find . -name Makefile|xargs grep Modules.symver
+ 1151  vim ./BSEAV/linux/driver/usermode/Makefile
+ 1152  cd -
+ 1153  ls
+ 1154  cd ~/study/gcc/
+ 1155  vim Makefile 
+ 1156  vi ~/.bashrc 
+ 1157  echo -s Makefile 
+ 1158  echo -s ./Makefile 
+ 1159  startx  
+ 1160  startx  
+ 1161  vim Makefile 
+ 1162  dd
+ 1163  last
+ 1164  history
+ 1165  history>123

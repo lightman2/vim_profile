@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <time.h>
+
+#include <stdint.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <getopt.h>
+#include <fcntl.h>
+#include <sys/ioctl.h>
+#include <linux/types.h>
+#include <linux/spi/spidev.h>
+
+
+int main(int argc, char *argv[])
+{
+int ret = 0;
+	int fd;
+FILE *ft;
+
+     time_t tim;
+      struct tm *at;
+       char now[80];
+        time(&tim);
+         at=localtime(&tim);
+          strftime(now,79,"%Y-%m-%d\n%H:%M:%S\n",at);
+while(1)
+{
+    printf("helloworld now : %s\n", now);
+}
+
+	return ret;
+}
