@@ -8,117 +8,117 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~mSle0/.emac
+~mSle0~/..\/ 
 
 # Last Substitute Search Pattern:
-~mSle0~&\n
+~mSle0&\n
 
 # Last Substitute String:
 $ 
 
 # Command Line History (newest to oldest):
+:qall
 :wqall
 :%s/\n/ /g
 :w
-:qall
-:e ~/.bashrc
-:e /var/www
-:qall!
+:wqa
+:e ipkbuild.sh
+:e 123.sh
 :q
-:b 2
-:e 3f74ae4e98448618eacf395fc0ee46392b1e7dd2.buildlog.txt
-:mks!
-:e 
-:set nonu
-:sh
-:!sh shell/123.bash
-:e aaa.sh
-:!cp aaa aaa.sh
-:e ~/.backupemacs
-:e ~/.emacs.d/
-:b 1
-:b 3
-:qa
-:qal
-:e night.sh
-:!bash 123.bash
+:history
 :wq
-:  
-:! touch aaa
-:!sh 123.bash
-:!sh 
-:e CcspMisc/source/
-:all
-:e /root/.vimrc
-:cs find s pid
-:cs find s cscopequickfix
-:b ccsp/arch/ccsp_common.mk
-:b mk
-:b 18
-:e ccsp/Utopia/source/
-:b 17
+:e .config
+:e Makefile
+:qa
+:!cscope . -R
+:cscope . -R
+:e shell/
+:qal
+:cs find s CosaLanCreate
+:cs find s CcspCwmpCpecoInitialize
+:cs find s CcspCwmpCpecoEnrollObjects
+:cs find s CcspCwmpCreateAcsBroker
+:cs find s CcspCwmpAcsboCreate
+:qall!
+:e ../rules.mk
+:e ../Makefile.cyt
+:e ../Makefile
+:e ccsp/ccsp_build
+:e ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/
+:e ./CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_ml/
+:!cp ./bin/ipq806x/packages/CCSP_2.2-1_ipq806x.ipk /mnt/hgfs/work/
+:e 123
+:!git log ./CcspPandM/custom/comcast/source/TR-181/custom_ml/cosa_x_comcast_com_parentalcontrol_dml.c
+:!
+:!git log -p CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_ml/landevice_wlanconfiguration_dml.c
+:! git log CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_ml/landevice_wlanconfiguration_dml.c -p
+:cs find s CcspSbLANDeviceWLANConfigurationGetEntryByIndex
+:b 3
+:b 1
+:! git log ./CcspTr069Pa/arch/vdsl2/config/ccsp_tr069_pa_mapper_tr098.xml
+:%s /n/ /g
+:'<,'>l
+:e ./CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_ml/plugin_main.c
+:set nonu
 :b 
-:e ccsp/arch/ccsp_common.mk
-:!pwd
-:e ../
-:!file
-:!nice -5
-:!ps
-:!Ps
-:!nice
-:!grep 123 .&
+:e 
+:!git diff CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_ml/plugin_main.c
+:!git diff 
+:e CcspPandM/arch/vdsl2/boards/qualcomm/config/COSAXcalibur_tr098.XML
+:e ../ccsp_code_generator/tr098.xml
+:e 111
 
 # Search String History (newest to oldest):
+?/..\/ 
+?/..\/
+?/../ 
 ? \n
-?/.emac
-?/java
-?/8192
-?/#
-?/dgl
-?/arch
-?/arm
-?/probe
-?/mrprobe
-?/8080
-?/site
-?/conf
-?/fatal
-?/error 1
-?/error 
+?/block
+?/MS
+?/cosa
 ?/error
-?/ccsp_simu
-?/package\/ccsp
-?/package
-?/ccsp\/compile
-?/ccsp
-?/CCSP
-?/package\/CCSP\/compile
-?/install
-?/compile
-?/wifi_hal
-?/wifi
-?/hal
-?/cp
-?/cflags
-?/gcc
-?/ccspcr
-?/syscfg.h
-?/stage
-?/frame-title
-?/lo
-?/pre
-?/cscope
-?/f5
-?/ini
-?/c-c
-?/c-c s
-?/global
-?/gloa
-?/require
-?/site-lisp
-?/site-list
-?/add-to
-?/load-file
+?/$?
+?/then
+?/if
+?/data
+?/pcspkr
+?/black
+?/instance
+?/init
+?/utopia
+?/secur
+?/sb
+? \<CosaDmlBlkURL_GetConf\>
+? \<BlkURL_InsGetIndex\>
+? \<Utopia_GetNumberOfBlkURL\>
+?/addentry
+?/so
+?/.so
+?/9005
+?/ut
+?/utcx
+?/hostdes
+?/hostdesk
+?/CosaDmlBlkURL_GetNumberOfEntries1111
+?//home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c
+?/CosaDmlBlkURL_GetNumberOfEntries
+?//CosaDmlBlkURL_GetNumberOfEntries
+?/objdump
+?/BlkURL_InsGetIndex
+?/<F6><F6>
+?/nn
+?/parent
+?/parentcontrol
+?/-g
+?/os
+?/build
+?/flag
+?/cflag
+?/make
+?/098
+?/09
+?/Blocked
+?/Parent
 
 # Expression History (newest to oldest):
 
@@ -127,291 +127,273 @@ $
 # Input Line History (newest to oldest):
 
 # Registers:
-"0	LINE	0
-	export KERNEL_SRC=/home/guoliang/Public/work/raspberry/
-	export CCPREFIX=/home/guoliang/Public/work/rasptoolchain/arm-bcm2708/arm-bcm2708-linux-gnueabi/bin/arm-bcm2708-linux-gnueabi-
-	export MODULES_TEMP=/home/guoliang/Public/work/raspmodules
+"0	CHAR	0
+	else
 ""1	LINE	0
-		software/
-"2	LINE	0
-		software/
+	no changes added to commit (use "git add" and/or "git commit -a")
+"2	BLOCK	0
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
 "3	CHAR	0
 	#
 	# Untracked files:
 	#   (use "git add <file>..." to include in what will be committed)
 	#
-	#	#.bashrc#
-	#	#123#
-	#	.ICEauthority
-	#	.Xauthority
-	#	.backupemacs
-	#	.bash_history
-	#	.bash_logout
-	#	.bashrc
-	#	.cache/
-	#	.config/
-	#	.dbus/
-	#	.dmrc
-	#	.emacs.d.old/
-	#	.emacs.d/
-	#	.fontconfig/
-	#	.gconf/
-	#	.gitconfig
-	#	.gksu.lock
-	#	.gnome2/
-	#	.gnupg/
-	#	.gtk-bookmarks
-	#	.ido.last
-	#	.ido.last~
-	#	.install4j
-	#	.java/
-	#	.lesshst
-	#	.local/
-	#	.lvm_history
-	#	.mission-control/
-	#	.mozilla/
-	#	.profile
-	#	.pulse-cookie
-	#	.pulse/
-	#	.recentf
-	#	.recentf~
-	#	.smartbear/
-	#	.smartgit/
-	#	.ssh/
-	#	.subversion/
-	#	.thumbnails/
-	#	.vim.tgz
-	#	.viminfo.tmp
-	#	.xsession-errors
-	#	.xsession-errors.old
-	#	123
-	#	1234
-"4	BLOCK	12
-	#	new file:
-	#	modified:
-	#	modified:
-	#	modified:
-"5	CHAR	0
+"4	BLOCK	13
+	#	modified: 
+	#	modified: 
+	#	modified: 
+"5	BLOCK	0
+	#
+	#
+	#
+	#
+"6	CHAR	0
 	# On branch master
+	# Your branch is ahead of 'origin/master' by 1 commit.
+	#   (use "git push" to publish your local commits)
+	#
+	# Changes not staged for commit:
+	#   (use "git add <file>..." to update what will be committed)
+	#   (use "git checkout -- <file>..." to discard changes in working directory)
+	#
+"7	LINE	0
+	
+"8	CHAR	0
+	#
+	# Changes not staged for commit:
+	#   (use "git add <file>..." to update what will be committed)
+	#   (use "git checkout -- <file>..." to discard changes in working directory)
+	#
+	#	modified:   CcspPandM/Makefile
+	#	modified:   CcspPandM/arch/intel_usg/boards/arm_shared/source/TR-181/board_sbapi/cosa_x_cisco_com_security_apis.c
+	#	modified:   CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_include/x_comcast_com_parentalcontrol_managedservices_trusteduser_apis.h
+	#	modified:   CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_ml/x_comcast_com_parentalcontrol_managedsites_blockedsite_dml.c
+	#	modified:   CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedservices_service_apis.c
+	#	modified:   CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedservices_trusteduser_apis.c
+	#	modified:   CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c
+	#	modified:   CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_trusteduser_apis.c
+	#	modified:   CcspPandM/custom/comcast/source/TR-181/custom_sbapi/cosa_x_comcast_com_parentalcontrol_apis.c
+	#	modified:   Utopia/source/utapi/lib/utapi_parental_control.c
+	#	modified:   ccsp_build
+	#
+	# Untracked files:
+	#   (use "git add <file>..." to include in what will be committed)
+	#
+	#	#parent_example#
+	#	.#parent_example
+	#	.emacs.desktop
+	#	.emacs.desktop.lock
+	#	11
+	#	111
+	#	1234
+	#	3211.sh
+	#	CcspCommonLibrary/build-vdsl2-qualcomm/
+	#	CcspCommonLibrary/source/ccsp/components/common/DataModel/dml/components/DslhDataModelAgent/#dslh_dmagnt_utilities.c#
+	#	CcspCommonLibrary/source/ccsp/components/common/DataModel/dml/components/DslhDataModelAgent/.#dslh_dmagnt_utilities.c
+	#	CcspCr/build-vdsl2-qualcomm/
+	#	CcspMisc/build-vdsl2-qualcomm/
+	#	CcspMisc/source/Ccsp_bus_client_tool/.ccsp_message_bus_client_tool.c.swp
+	#	CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_ml/#x_comcast_com_parentalcontrol_managedsites_blockedsite_dml.c#
+	#	"CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/wandevice/#wandevice_wanconnectiondevice_wanpppconnection_apis.c\n#"
+	#	CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/#x_cisco_com_security_internetaccess_accesspolicy_apis.c#
+	#	CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/.#x_cisco_com_security_internetaccess_accesspolicy_apis.c
+	#	CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/.backupapi.cbak
+	#	CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/.emacs.desktop
+	#	CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/.emacs.desktop.lock
+	#	CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c_bak
+	#	CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c_bak0513
+	#	CcspPandM/build-vdsl2-qualcomm/
+	#	CcspPandM/custom/comcast/source/TR-181/custom_ml/#cosa_x_comcast_com_parentalcontrol_internal.c#
+	#	CcspPsm/build-vdsl2-qualcomm/
+	#	CcspTr069Pa/build-vdsl2-qualcomm/
+	#	CcspWifiAgent/build-vdsl2-qualcomm/
+	#	ExtDependency/opensource_work/
+	#	FirmwareUpgrade/build/
+"9	CHAR	0
+	# On branch vdsl2_gw_pc
+	# Your branch is up-to-date with 'origin/vdsl2_gw_pc'.
+	#
 	# Changes to be committed:
 	#   (use "git reset HEAD <file>..." to unstage)
 	#
-"6	LINE	0
-	
-"7	CHAR	0
-	#	./
-	#	../.fontconfig/
-	#	../.gconf/
-	#	../.gitconfig
-	#	../.gksu.lock
-	#	../.gnome2/
-	#	../.gnupg/
-	#	../.gtk-bookmarks
-	#	../.ido.last
-	#	../.ido.last~
-	#	../.install4j
-	#	../.java/
-	#	../.lesshst
-	#	../.local/
-	#	../.lvm_history
-	#	../.mission-control/
-	#	../.mozilla/
-	#	../.profile
-	#	../.pulse-cookie
-	#	../.pulse/
-	#	../.recentf
-	#	../.recentf~
-	#	../.smartbear/
-	#	../.smartgit/
-	#	../.ssh/
-	#	../.subversion/
-	#	../.thumbnails/
-	#	../.vim.tgz
-	#	../.viminfo.tmp
-	#	../.xsession-errors
-	#	../.xsession-errors.old
-	#	../123
-	#	../1234
-	#	../Downloads/
-	#	../Public/
-	#	../ccollab-cmdline/
-	#	../cscope.out
-	#	../emacs.d_chinawriter/
-	#	../examples.desktop
-	#	../mbox
-	#	../profile/
-	#	../software/
-	no changes added to commit (use "git add" and/or "git commit -a")
-"8	LINE	0
-	#	../.emacs.d.old/
-"9	CHAR	0
-	#	../#.bashrc#
-	#	../#123#
-	#	../.ICEauthority
-	#	../.Xauthority
-	#	../.backupemacs
-	#	../.bash_history
-	#	../.bash_logout
-	#	../.bashrc
-	#	../.cache/
-	#	../.config/
-	#	../.dbus/
-	#	../.dmrc
-	
+	#
+"a	CHAR	0
+	ll
 "b	LINE	0
 		echo leave install
 "j	CHAR	0
-	jjkkj%%
+	jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj:�kuq
 "k	CHAR	0
 	kvjjkkjkwwjjj,:w:k:�ku�ku vj,x:w:!�ku kk,x:w:�kuk,x:wkkgdjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkbidglli_kkkkkkkkkkbidgl_pathjjjjjjjjjjhipath:wGkkkkkkkkkkkj
 "v	CHAR	0
-	/usr/share/emacs/site-lisp/
+	IsKeyUpdated
 "-	CHAR	0
-	#
+	 
 
 # File marks:
-'0  1  4  ~/123
-'1  2  3  ~/123
-'2  1  3  ~/.emacs.d/123
-'3  14  0  ~/software/smartgit/known-issues.txt
-'4  14  25  ~/Public/work2/vdsl/smartgithg-6_0_7/known-issues.txt
-'5  815  0  ~/Public/work2/vdsl/ikanos_8_5_1_1/sample_config/buildroot_sampcfg_2_6_28_vx185LT_AVDSL_RG_SPI
-'6  45  0  ~/Public/work/rasptoolchain/mkimage/imagetool-uncompressed.py
-'7  1  0  ~/Public/work/setenv.sh
-'8  66  0  ~/Public/work/raspberry/NERD_tree_1
-'9  4  0  ~/Public/work/raspmodules/NERD_tree_1
+'0  1  36  ~/.emacs.d/111
+'1  1  29  ~/Public/work2/vdsl2/vdsl2/strip.sh
+'2  1  0  ~/Public/work2/vdsl2/vdsl2/111
+'3  1  0  ~/Public/work2/vdsl2/vdsl2/temp_build.sh
+'4  1  0  ~/Public/work2/vdsl2/vdsl2/123.sh
+'5  1  0  ~/Public/work2/vdsl2/vdsl2/123
+'6  1  0  ~/Public/work2/vdsl2/vdsl2/bashtemp.sh
+'7  1  126  ~/Public/work2/vdsl2/vdsl2/ccsp/111
+'8  2  26  ~/Public/work2/vdsl2/vdsl2/ccsp/111
+'9  1  0  ~/Public/work2/vdsl2/vdsl2/111.log
 
 # Jumplist (newest first):
--'  1  4  ~/123
--'  2  3  ~/123
--'  1  3  ~/.emacs.d/123
--'  2  0  ~/.emacs.d/123
--'  14  0  ~/software/smartgit/known-issues.txt
--'  1  0  ~/software/smartgit/known-issues.txt
--'  14  25  ~/Public/work2/vdsl/smartgithg-6_0_7/known-issues.txt
--'  1  0  ~/Public/work2/vdsl/smartgithg-6_0_7/known-issues.txt
--'  815  0  ~/Public/work2/vdsl/ikanos_8_5_1_1/sample_config/buildroot_sampcfg_2_6_28_vx185LT_AVDSL_RG_SPI
--'  1  0  ~/Public/work2/vdsl/ikanos_8_5_1_1/sample_config/buildroot_sampcfg_2_6_28_vx185LT_AVDSL_RG_SPI
--'  45  0  ~/Public/work/rasptoolchain/mkimage/imagetool-uncompressed.py
--'  1  0  ~/Public/work/rasptoolchain/mkimage/imagetool-uncompressed.py
--'  1  0  ~/Public/work/setenv.sh
--'  111  0  ~/.bashrc
--'  1  0  ~/.bashrc
--'  5  0  ~/Public/work/setenv.sh
--'  66  0  ~/Public/work/raspberry/NERD_tree_1
--'  77  0  ~/Public/work/raspberry/NERD_tree_1
--'  1  0  ~/Public/work/raspberry/NERD_tree_1
--'  4  0  ~/Public/work/raspmodules/NERD_tree_1
--'  5  0  ~/Public/work/raspmodules/NERD_tree_1
--'  1  0  ~/Public/work/raspmodules/NERD_tree_1
--'  113  19  ~/.bashrc
--'  1962  2  ~/Public/work/raspberry/.config
--'  1  0  ~/Public/work/raspberry/.config
--'  2  7  ~/Public/work/raspberry/.bashrc
--'  1  0  ~/Public/work/raspberry/.bashrc
--'  3  0  ~/Public/work/raspberry/.bashrc
--'  4525  0  ~/Public/work/raspberry/.config
--'  4778  0  ~/Public/work/raspberry/.config
--'  3937  0  ~/Public/work/raspberry/.config
--'  4118  0  ~/Public/work/raspberry/.config
--'  1  0  ~/Public/work/raspberry/kernel/bounds.s
--'  5  43  ~/Public/work2/vdsl/committxt
--'  1  0  ~/Public/work2/vdsl/committxt
--'  816  1  ~/Public/work2/vdsl/ikanos_8_5_1_1/sample_config/buildroot_sampcfg_2_6_28_vx185LT_AVDSL_RG_SPI
--'  112  0  ~/.bashrc
--'  1961  10  ~/Public/work/raspberry/.config
--'  1720  21  ~/Public/work/raspberry/.config
--'  524  7  ~/Public/work/raspberry/.config
--'  496  7  ~/Public/work/raspberry/.config
--'  479  9  ~/Public/work/raspberry/.config
--'  420  7  ~/Public/work/raspberry/.config
--'  416  12  ~/Public/work/raspberry/.config
--'  415  9  ~/Public/work/raspberry/.config
--'  414  9  ~/Public/work/raspberry/.config
--'  399  7  ~/Public/work/raspberry/.config
--'  393  18  ~/Public/work/raspberry/.config
--'  357  9  ~/Public/work/raspberry/.config
--'  356  9  ~/Public/work/raspberry/.config
--'  235  8  ~/Public/work/raspberry/.config
--'  17  7  ~/Public/work/raspberry/.config
--'  5  7  ~/Public/work/raspberry/.config
--'  3  8  ~/Public/work/raspberry/.config
--'  1  0  ~/Public/work/raspberry/Makefile
--'  1  0  /var/www/index.html
--'  5  0  ~/Public/work/NERD_tree_2
--'  1  0  ~/Public/work/NERD_tree_2
--'  2  2  /var/www/index.html
--'  1  17  /etc/apache2/sites-available/default
--'  62  0  /etc/apache2/sites-available/default
--'  42  17  /etc/apache2/sites-available/default
--'  9  2  ~/Public/work/NERD_tree_3
--'  16  0  ~/Public/work/NERD_tree_3
--'  1  2  ~/Public/work/NERD_tree_3
--'  1  0  /etc/apache2/mods-enabled/alias.conf
--'  1  0  /etc/apache2/mods-available/info.conf
--'  42  0  /etc/apache2/mods-available/autoindex.conf
--'  1  0  /etc/apache2/mods-available/actions.load
--'  1  0  /etc/apache2/mods-available/actions.conf
--'  104  0  ~/Public/work/NERD_tree_1
--'  1  0  ~/Public/work/NERD_tree_1
--'  1  0  ~/Public/work/vdsl2_qsdk_v0.11.1/temp/1234
--'  23  0  ~/Public/work/vdsl2_qsdk_v0.11.1/temp/123
--'  1  0  ~/Public/work/vdsl2_qsdk_v0.11.1/temp/123
--'  18  2  ~/Public/work2/vdsl/pirtest.py
--'  1  0  ~/Public/work2/vdsl/pirtest.py
--'  1  0  ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/package/qtn-pcie-host/Makefile
--'  15  0  ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/package/qtn-pcie-host/Makefile
--'  1  0  /mnt/hgfs/下载/123
--'  387  56  /mnt/hgfs/下载/123
--'  309  1102  /mnt/hgfs/下载/123
--'  308  1182  /mnt/hgfs/下载/123
--'  306  77  /mnt/hgfs/下载/123
--'  180  244  /mnt/hgfs/下载/123
--'  157  244  /mnt/hgfs/下载/123
--'  155  244  /mnt/hgfs/下载/123
--'  144  77  /mnt/hgfs/下载/123
--'  131  77  /mnt/hgfs/下载/123
--'  98  244  /mnt/hgfs/下载/123
--'  75  244  /mnt/hgfs/下载/123
--'  73  244  /mnt/hgfs/下载/123
--'  60  77  /mnt/hgfs/下载/123
--'  50  77  /mnt/hgfs/下载/123
--'  31  77  /mnt/hgfs/下载/123
--'  19  13  /mnt/hgfs/下载/123
+-'  1  36  ~/.emacs.d/111
+-'  2  0  ~/.emacs.d/111
+-'  1  29  ~/Public/work2/vdsl2/vdsl2/strip.sh
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/111
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/temp_build.sh
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/123.sh
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/123
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/bashtemp.sh
+-'  1  126  ~/Public/work2/vdsl2/vdsl2/ccsp/111
+-'  2  0  ~/Public/work2/vdsl2/vdsl2/ccsp/111
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/111.log
+-'  6  49  ~/Public/work2/vdsl2/vdsl2/ipkbuild.sh
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/ipkbuild.sh
+-'  21  23  ~/Public/work2/vdsl2/vdsl2/ipkbuild.sh
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/ccsp/123
+-'  997  1  ~/Public/work2/vdsl2/vdsl2/ccsp/123
+-'  1304  0  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c_bak0513
+-'  312  0  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c_bak0513
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c_bak0513
+-'  313  8  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c_bak0513
+-'  332  7  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c_bak0513
+-'  125  10  ~/Public/work2/vdsl2/vdsl2/ccsp/3211.sh
+-'  154  11  ~/Public/work2/vdsl2/vdsl2/ccsp/3211.sh
+-'  114  11  ~/Public/work2/vdsl2/vdsl2/ccsp/3211.sh
+-'  100  8  ~/Public/work2/vdsl2/vdsl2/ccsp/3211.sh
+-'  85  9  ~/Public/work2/vdsl2/vdsl2/ccsp/3211.sh
+-'  72  4  ~/Public/work2/vdsl2/vdsl2/ccsp/3211.sh
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/ccsp/3211.sh
+-'  3  3  ~/Public/work2/vdsl2/vdsl2/123.sh
+-'  157  0  ~/Public/work2/vdsl2/vdsl2/ccsp/3211.sh
+-'  61  4  ~/Public/work2/vdsl2/vdsl2/ccsp/3211.sh
+-'  49  4  ~/Public/work2/vdsl2/vdsl2/ccsp/3211.sh
+-'  43  0  ~/Public/work2/vdsl2/vdsl2/NERD_tree_3
+-'  61  0  ~/Public/work2/vdsl2/vdsl2/NERD_tree_3
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/NERD_tree_3
+-'  1094  0  ~/Public/work2/vdsl2/vdsl2/NERD_tree_1
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/NERD_tree_1
+-'  7  1  ~/Public/work2/vdsl2/vdsl2/123.sh
+-'  2  23  ~/Public/work2/vdsl2/vdsl2/123.sh
+-'  9  41  ~/Public/work2/vdsl2/vdsl2/ipkbuild.sh
+-'  1240  0  ~/Public/work2/vdsl2/vdsl2/NERD_tree_1
+-'  18  12  ~/Public/work2/vdsl2/vdsl2/ipkbuild.sh
+-'  49  10  /etc/modprobe.d/blacklist.conf
+-'  23  0  /etc/modprobe.d/blacklist.conf
+-'  21  0  /etc/modprobe.d/blacklist.conf
+-'  1  0  /etc/modprobe.d/blacklist.conf
+-'  458  0  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  716  39  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  138  39  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  820  39  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  605  39  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  450  39  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  305  39  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  208  24  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  213  51  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  211  52  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  210  38  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  209  25  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  202  8  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  95  8  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  92  59  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  88  8  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  82  13  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  79  44  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  73  28  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  52  14  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  355  59  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  351  60  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  347  46  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  339  33  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  335  58  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  315  71  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  224  33  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  218  91  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  215  24  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  113  12  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  464  71  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  43  0  ~/Public/work2/vdsl2/vdsl2/NERD_tree_3
+-'  61  0  ~/Public/work2/vdsl2/vdsl2/NERD_tree_3
+-'  1  0  ~/Public/work2/vdsl2/vdsl2/NERD_tree_3
+-'  49  10  /etc/modprobe.d/blacklist.conf
+-'  23  0  /etc/modprobe.d/blacklist.conf
+-'  21  0  /etc/modprobe.d/blacklist.conf
+-'  1  0  /etc/modprobe.d/blacklist.conf
+-'  458  0  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  716  39  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  138  39  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  820  39  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  605  39  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  450  39  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  305  39  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  208  24  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  213  51  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  211  52  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+-'  210  38  ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
 
 # History of marks within files (newest to oldest):
 
-> ~/123
-	"	1	4
+> ~/.emacs.d/111
+	"	1	36
 	.	1	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	1	0
-
-> ~/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/.emacs.d/123
-	"	1	3
-	.	1	0
-	+	1	0
-	+	2	0
 	+	2	0
 	+	2	0
 	+	2	0
@@ -423,257 +405,14 @@ $
 	+	1	0
 	+	1	0
 	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
 
-> ~/software/smartgit/known-issues.txt
-	"	14	0
+> ~/Public/work2/vdsl2/vdsl2/strip.sh
+	"	1	29
+	^	1	30
+	.	1	29
+	+	1	29
 
-> ~/software/smartgit/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-
-> ~/Public/work2/vdsl/smartgithg-6_0_7/known-issues.txt
-	"	14	25
-
-> ~/Public/work2/vdsl/smartgithg-6_0_7/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-
-> ~/Public/work2/vdsl/ikanos_8_5_1_1/sample_config/buildroot_sampcfg_2_6_28_vx185LT_AVDSL_RG_SPI
-	"	815	0
-	.	816	0
-	+	816	0
-
-> ~/Public/work2/vdsl/ikanos_8_5_1_1/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work/rasptoolchain/mkimage/imagetool-uncompressed.py
-	"	45	0
-
-> ~/Public/work/rasptoolchain/mkimage/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-
-> ~/Public/work/setenv.sh
-	"	1	0
-	^	5	0
-	.	1	0
-	+	1	58
-	+	2	0
-	+	1	0
-
-> ~/Public/work/raspberry/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/.bashrc
-	"	1	0
-	^	113	20
-	.	113	19
-	+	111	0
-	+	112	93
-	+	112	7
-	+	113	19
-
-> ~/Public/work/raspberry/-MiniBufExplorer-
-	"	1	0
-	.	2	0
-	+	2	0
-	+	2	0
-
-> ~/Public/work/raspmodules/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work/raspberry/.config
-	"	1962	2
-	^	1962	3
-	.	1962	0
-	+	1961	0
-	+	4778	0
-	+	1961	0
-	+	1962	0
-
-> ~/Public/work/raspberry/.bashrc
-	"	2	7
-	.	1	0
-	+	1	0
-
-> ~/Public/work/raspberry/kernel/bounds.s
-	"	1	0
-
-> ~/Public/work2/vdsl/committxt
-	"	5	43
-	^	5	44
-	.	5	43
-	+	5	58
-	+	3	35
-	+	5	43
-
-> ~/Public/work/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work/raspberry/Makefile
-	"	1	0
-
-> /var/www/index.html
-	"	1	0
-
-> ~/Public/work/NERD_tree_2
-	"	5	0
-	.	1	0
-	+	1	0
-	+	1	0
-
-> /etc/apache2/sites-available/default
-	"	1	17
-	^	1	18
-	.	1	17
-	+	42	0
-	+	42	17
-	+	1	17
-
-> ~/Public/work/NERD_tree_3
-	"	9	2
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> /etc/apache2/mods-available/actions.conf
-	"	1	0
-
-> /etc/apache2/mods-available/actions.load
-	"	1	0
-
-> ~/Public/work/-MiniBufExplorer-
-	"	1	79
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-
-> /etc/apache2/mods-available/autoindex.conf
-	"	42	0
-
-> /etc/apache2/mods-available/info.conf
-	"	1	0
-
-> /etc/apache2/mods-enabled/alias.conf
-	"	1	0
-
-> ~/Public/work/vdsl2_qsdk_v0.11.1/temp/123
-	"	23	0
-
-> ~/Public/work/vdsl2_qsdk_v0.11.1/temp/1234
-	"	1	0
-
-> ~/Public/work/vdsl2_qsdk_v0.11.1/temp/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-
-> ~/Public/work/vdsl2_qsdk_v0.11.1/temp/-MiniBufExplorer-
-	"	1	7
-	.	2	0
-	+	2	0
-	+	2	0
-
-> ~/Public/work2/vdsl/pirtest.py
-	"	18	2
-
-> ~/Public/work2/vdsl/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/package/qtn-pcie-host/Makefile
-	"	1	0
-
-> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/package/qtn-pcie-host/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> /mnt/hgfs/下载/ccsp_log.txt
-	"	1	0
-	^	501	0
-	.	500	19
-	+	500	19
-
-> /mnt/hgfs/下载/123
-	"	1	0
-
-> /mnt/hgfs/下载/3f74ae4e98448618eacf395fc0ee46392b1e7dd2.buildlog.txt
-	"	4090	17
-
-> /mnt/hgfs/下载/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> /mnt/hgfs/下载/-MiniBufExplorer-
-	"	1	16
-	.	2	0
-	+	2	0
-
-> ~/Public/work2/ccspaaa/NERD_tree_1
+> ~/Public/work2/vdsl2/vdsl2/NERD_tree_1
 	"	4	0
 	.	1	0
 	+	1	0
@@ -708,331 +447,804 @@ $
 	+	1	0
 	+	1	0
 	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
 
-> ~/Public/work2/committxt
+> ~/Public/work2/vdsl2/vdsl2/111
 	"	1	0
 
-> ~/Public/work2/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/ccsp/Utopia/Makefile
-	"	42	37
-
-> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/package/CCSP/Makefile
-	"	40	10
-
-> ~/Public/work2/ccspaaa/adam/committxt
-	"	5	70
-	^	5	71
-	.	5	70
-	+	14	25
-	+	5	33
-	+	3	22
-	+	5	21
-	+	3	22
-	+	5	70
-
-> ~/Public/work2/ccspaaa/adam/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work2/ccspaaa/adam/arch/vdsl2/boards/simu_qualcomm/ccsp_build_custom.mk
-	"	30	4
-	.	30	0
-	+	41	0
-	+	30	0
-
-> ~/Public/work2/ccspaaa/bacasda/hal/Makefile
-	"	28	17
-	^	43	15
-	.	43	14
-	+	42	1
-	+	41	1
-	+	43	14
-
-> ~/Public/work2/ccspaaa/bacasda/NERD_tree_1
-	"	74	4
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work2/ccspaaa/bacasda/arch/vdsl2/boards/simu_qualcomm/ccsp_build_custom.mk
-	"	30	30
-	.	30	0
-	+	41	0
-	+	30	0
-
-> ~/Public/work2/ccspaaa/bacasda/-MiniBufExplorer-
-	"	1	0
-	.	2	0
-	+	2	0
-	+	2	0
-
-> ~/Public/work2/ccspaaa/bacasda/NERD_tree_2
-	"	4	0
-	.	1	0
-	+	1	0
-
-> ~/Public/work2/ccspaaa/bacasda/NERD_tree_3
-	"	17	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work2/ccspaaa/ccsp_build
-	"	168	0
-
-> ~/Public/work2/ccspaaa/ccsp_setenv_pc.sh
+> ~/Public/work2/vdsl2/vdsl2/temp_build.sh
 	"	1	0
 
-> ~/Public/work2/ccspaaa/-MiniBufExplorer-
-	"	1	35
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-
-> ~/Public/work2/ccspaaa/ccsp_setenv_vdsl2.sh
-	"	21	0
-
-> ~/Public/work2/ccspaaa/aaa
-	"	2	1
-
-> ~/Public/work2/NERD_tree_2
-	"	4	0
-	.	1	0
-	+	1	0
-
-> ~/Public/work2/NERD_tree_3
-	"	35	6
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work2/ccspaaa/hal/Makefile
+> ~/Public/work2/vdsl2/vdsl2/123.sh
 	"	1	0
-
-> ~/Public/work2/ccspaaa/arch/vdsl2/boards/simu_qualcomm/ccsp_build_custom.mk
-	"	22	0
-
-> ~/Public/work2/ccspaaa/CcspCr/Makefile
-	"	42	0
-
-> ~/Public/work2/ccspaaa/arch/common.mk
-	"	336	0
-
-> ~/Public/work2/ccspaaa/arch/ccsp_common.mk
-	"	164	28
-
-> ~/Public/work2/ccspaaa/aaaaaa
-	"	4475	82
-	^	4759	0
-	.	4758	40
-	+	4758	40
-
-> ~/Public/work2/ccspaaa/Stage/vdsl2-simu_qualcomm/include/wifi_hal.h
-	"	1	0
-
-> ~/Public/work2/ccspaaa/Stage/NERD_tree_1
-	"	1	0
-	.	1	0
-	+	1	0
-
-> ~/Public/work2/ccspaaa/Stage/NERD_tree_2
-	"	4	0
-	.	1	0
-	+	1	0
-
-> ~/Public/work2/ccspaaa/Stage/NERD_tree_3
-	"	19	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work2/aaa
-	"	1	0
-	^	3	0
-	.	1	0
-	+	2	41
-	+	1	0
-
-> ~/Public/study/shell/123.bash
-	"	70	9
-	^	68	10
-	.	68	9
-	+	41	0
-	+	41	0
-	+	49	0
-	+	54	36
-	+	55	1
-	+	50	0
-	+	53	3
-	+	52	11
-	+	54	11
-	+	57	0
-	+	57	0
-	+	47	0
-	+	46	12
-	+	45	15
-	+	46	12
-	+	57	4
-	+	56	0
-	+	58	6
-	+	46	0
-	+	42	7
-	+	46	11
-	+	63	19
-	+	64	1
-	+	61	12
-	+	63	15
-	+	61	18
-	+	66	0
-	+	70	0
-	+	72	24
-	+	75	1
-	+	64	0
-	+	70	21
-	+	42	4
-	+	72	10
-	+	73	3
-	+	74	0
-	+	66	2
-	+	67	9
-	+	66	0
-	+	72	0
-	+	68	9
-
-> ~/Public/study/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/study/aaa
-	"	1	23
-	^	1	24
-	.	1	23
+	^	2	18
+	.	2	17
 	+	2	0
-	+	2	2
-	+	1	23
-
-> ~/Public/study/aaa.sh
-	"	3	14
-	^	3	15
-	.	3	14
-	+	3	0
+	+	2	0
+	+	1	1
+	+	6	3
+	+	7	1
+	+	3	3
 	+	2	16
-	+	3	14
+	+	5	3
+	+	1	2
+	+	2	0
+	+	1	1
+	+	4	47
+	+	6	46
+	+	2	17
 
-> ~/Public/study/-MiniBufExplorer-
+> ~/Public/work2/vdsl2/vdsl2/123
+	"	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/bashtemp.sh
+	"	1	0
+	^	1	2
+	.	1	1
+	+	1	1
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/111
+	"	1	126
+	^	1	127
+	.	1	126
+	+	1	4
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	107
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	126
+	+	1	0
+	+	1	126
+	+	2	0
+	+	1	126
+	+	1	126
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/111.log
+	"	1	0
+	a	450	153
+
+> ~/Public/work2/vdsl2/vdsl2/ipkbuild.sh
+	"	6	49
+	^	6	50
+	.	6	49
+	+	25	2
+	+	6	33
+	+	25	0
+	+	6	92
+	+	1	48
+	+	6	1
+	+	6	1
+	+	4	216
+	+	2	6
+	+	5	4
+	+	6	1
+	+	4	217
+	+	3	0
+	+	6	1
+	+	18	34
+	+	21	0
+	+	19	53
+	+	21	0
+	+	15	0
+	+	15	0
+	+	17	0
+	+	15	55
+	+	21	0
+	+	21	0
+	+	20	0
+	+	21	0
+	+	20	62
+	+	23	43
+	+	23	0
+	+	21	24
+	+	22	12
+	+	23	0
+	+	6	42
+	+	6	33
+	+	6	33
+	+	6	33
+	+	6	30
+	+	6	30
+	+	6	71
+	+	6	30
+	+	13	0
+	+	6	30
+	+	9	47
+	+	11	46
+	+	9	47
+	+	11	46
+	+	9	48
+	+	11	47
+	+	6	30
+	+	8	0
+	+	6	30
+	+	6	0
+	+	6	1
+	+	7	0
+	+	6	29
+	+	7	0
+	+	21	0
+	+	6	41
+	+	21	0
+	+	6	49
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/123
+	"	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/-MiniBufExplorer-
 	"	1	7
 	.	2	0
 	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
 
-> ~/.emacs
-	"	134	6
-	^	20	0
-	.	134	0
-	+	26	0
-	+	26	0
-	+	26	0
-	+	26	0
-	+	26	0
-	+	26	2
-	+	26	0
-	+	26	0
-	+	26	0
-	+	26	0
-	+	26	0
-	+	26	25
-	+	26	0
-	+	26	0
-	+	26	4
-	+	21	0
-	+	14	0
-	+	3	0
-	+	2	0
-	+	26	0
-	+	2	0
-	+	2	0
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c_bak0513
+	"	1304	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c
+	"	1304	0
+	.	42	0
+	+	42	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/3211.sh
+	"	125	10
+
+> ~/Public/work2/vdsl2/vdsl2/NERD_tree_2
+	"	4	0
+	.	1	0
 	+	1	0
-	+	22	0
-	+	23	0
-	+	813	0
-	+	26	0
-	+	25	0
-	+	15	24
-	+	15	54
-	+	15	54
-	+	21	0
-	+	16	32
-	+	20	0
-	+	15	0
-	+	132	0
-	+	134	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
 
-> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/Makefile.cyt
-	"	78	11
+> ~/Public/work2/vdsl2/vdsl2/NERD_tree_3
+	"	43	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
 
-> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/NERD_tree_2
+> /etc/modprobe.d/blacklist.conf
+	"	49	10
+	.	49	0
+	+	49	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_blockedkeyword_apis.c
+	"	1	0
+
+> ~/111
+	"	10	2
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/-MiniBufExplorer-
+	"	1	81
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_cisco_com_security/x_cisco_com_security_internetaccess_accesspolicy_apis.c
+	"	458	0
+	a	208	24
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/Out/vdsl2-qualcomm/usr/ccsp/pam/libtr098.so
+	"	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/bak.c
+	"	191	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_ml/x_comcast_com_parentalcontrol_managedsites_blockedsite_dml.c
+	"	469	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/-MiniBufExplorer-
+	"	1	65
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/layer3forwarding/layer3forwarding_forwarding_apis.c
+	"	598	12
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/Utopia/Makefile
+	"	10	4
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/Utopia/NERD_tree_1
+	"	10	0
+	.	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-181/board_sbapi/dhcpv4/dhcpv4_client_apis.c
+	"	619	25
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspMisc/source/Ccsp_bus_client_tool/ccsp_message_bus_client_tool.c
+	"	174	6
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedservices_trusteduser_apis.c
+	"	137	27
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/Utopia/source/sysevent/server/worker_threads.c
+	"	78	12
+
+> ~/Public/work2/vdsl2/vdsl2/1234
+	"	118022	4
+
+> ~/Public/work2/vdsl2/vdsl2/321
+	"	7835	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/ccsp_build
+	"	38	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/committext
+	"	1	4
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/ipkbuild.sh
+	"	4	72
+	.	3	0
+	+	2	0
+	+	7	0
+	+	3	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/Makefile
+	"	120	5
+	.	69	10
+	+	79	23
+	+	79	0
+	+	79	0
+	+	79	0
+	+	82	0
+	+	69	10
+	a	133	5
+
+> ~/Public/work2/vdsl2/vdsl2/Makefile.cyt
+	"	72	0
+
+> ~/Public/work2/vdsl2/111
+	"	416	151
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/cmpnt_build_custom_post.mk
+	"	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspCommonLibrary/source/util_api/ccsp_msg_bus/ccsp_message_bus.c
+	"	964	57
+	^	964	81
+	.	964	0
+	+	964	0
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/shell/hush.c
+	"	8623	25
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/util-linux/mkfs_vfat.c
+	"	139	2
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/-MiniBufExplorer-
+	"	1	0
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/Public/work2/vdsl2/vdsl2/package/busybox/NERD_tree_1
 	"	5	0
 	.	1	0
 	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
 
-> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/NERD_tree_3
-	"	12	0
+> ~/Public/work2/vdsl2/vdsl2/package/busybox/config/modutils/Config.in
+	"	104	0
+
+> ~/Public/work2/vdsl2/vdsl2/package/busybox/-MiniBufExplorer-
+	"	1	80
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/Public/work2/vdsl2/vdsl2/package/busybox/Makefile
+	"	32	2
+
+> ~/Public/work2/vdsl2/vdsl2/package/busybox/Config.in
+	"	16	0
+
+> ~/Public/work2/vdsl2/vdsl2/Makefile
+	"	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/shell/shell_common.c
+	"	324	18
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/README
+	"	52	43
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/.config
+	"	431	0
+	^	430	31
+	.	430	30
+	+	433	0
+	+	431	31
+	+	430	30
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/.config.old
+	"	430	0
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/init/Config.in
+	"	134	15
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/Makefile
+	"	705	7
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/111
+	"	1	0
+	.	2	0
+	+	2	0
+	+	20	0
+	+	20	0
+	+	1	0
+	+	1	0
+	+	2	0
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/scripts/kconfig/zconf.y
+	"	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/shell/ash.c
+	"	41	0
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/NERD_tree_2
+	"	8	0
 	.	1	0
 	+	1	0
 
-> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/ccsp/NERD_tree_1
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/busybox_unstripped.map
+	"	3480	21
+
+> ~/Public/work2/vdsl2/vdsl2/build_dir/target-arm_v7-a_uClibc-0.9.33.2_eabi/busybox-1.19.4/docs/posix_conformance.txt
+	"	19	61
+
+> ~/Public/work2/vdsl2/vdsl2/package/NERD_tree_1
+	"	1	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/package/NERD_tree_2
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/package/NERD_tree_3
+	"	10	1
+	.	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/package/busybox/NERD_tree_2
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/package/busybox/NERD_tree_3
+	"	7	0
+	.	1	0
+	+	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/.config
+	"	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/Utopia/source/utapi/lib/utapi_parental_control.c
+	"	101	4
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspCommonLibrary/source/ccsp/components/include/ccsp_dml_common.h
+	"	104	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspCommonLibrary/source/ccsp/components/common/DataModel/dml/components/DslhDataModelAgent/dslh_dmagnt_utilities.c
+	"	3375	4
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_ml/plugin_main.c
+	"	1582	54
+	.	1650	0
+	+	192	0
+	+	192	0
+	+	192	0
+	+	1650	0
+	+	1649	0
+	+	1650	0
+	a	1581	4
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/NERD_tree_2
 	"	4	0
 	.	1	0
 	+	1	0
@@ -1044,81 +1256,91 @@ $
 	+	1	0
 	+	1	0
 	+	1	0
-
-> ~/.backupemacs
-	"	1	0
-	^	1	0
-	.	1	0
-	+	1	0
-
-> ~/.emacs.d/-MiniBufExplorer-
-	"	1	0
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-
-> ~/.emacs.el
-	"	803	0
-
-> /usr/share/emacs/site-lisp/xcscope.el
-	"	214	8
-
-> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/ccsp/-MiniBufExplorer-
-	"	1	0
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-
-> ~/Public/work2/vdsl/vdsl2_qsdk_v0.11.1/ccsp/NERD_tree_2
-	"	1	0
-	.	1	0
 	+	1	0
 	+	1	0
 
-> ~/.emacs.d/NERD_tree_2
-	"	1	0
+> ~/Public/work2/vdsl2/vdsl2/ccsp/NERD_tree_3
+	"	33	0
 	.	1	0
 	+	1	0
 	+	1	0
 	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
 
-> ~/.emacs.d/thinks.el
-	"	271	0
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/source/TR-098/middle_layer_src/cosa_landevice_internal.c
+	"	128	0
 
-> ~/Public/work2/vdsl/-MiniBufExplorer-
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/source/TR-098/middle_layer_src/cosa_lan_internal.c
+	"	47	7
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/source/TR-098/middle_layer_src/plugin_main_apis.c
+	"	146	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/__Tag_List__
+	"	3	0
+	.	4	0
+	+	17	0
+	+	14	0
+	+	16	0
+	+	13	0
+	+	10	0
+	+	7	0
+	+	4	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/source/TR-098/middle_layer_src/cosa_time_internal.c:
 	"	1	0
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
 
-> ~/Public/work2/vdsl/NERD_tree_2
+> ~/Public/work2/vdsl2/vdsl2/ccsp/cscope.files
+	"	3407	79
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/cscope.out
+	"	1387	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/custom/comcast/source/TR-181/custom_ml/cosa_x_comcast_com_parentalcontrol_internal.c
+	"	67	4
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspTr069Pa/source/CcspCwmpAcsBroker/ccsp_cwmp_acsbo_base.c
+	"	89	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspTr069Pa/source/CcspCwmpAcsBroker/ccsp_cwmp_acsbo_interface.c
+	"	84	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspTr069Pa/source/CcspCwmpCpeController/ccsp_cwmp_cpeco_base.c
+	"	204	4
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/custom/comcast/source/TR-181/custom_sbapi/cosa_x_comcast_com_parentalcontrol_apis.c
+	"	1	2
+	a	136	30
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/dhcpv6/dhcpv6_server_pool_option_apis.c
+	"	412	21
+	a	749	0
+
+> ~/Public/work2/vdsl2/vdsl2/rules.mk
+	"	1	0
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/ccsp_setenv_vdsl2.sh
+	"	12	97
+
+> ~/Public/work2/vdsl2/vdsl2/staging_dir/toolchain-arm_v7-a_gcc-4.6-linaro_uClibc-0.9.33.2_eabi/bin/arm-openwrt-linux-ar
+	"	1	1
+	^	1	22
+	.	1	0
+	+	1	0
+
+> ~/coverity_temp/build-log.txt
+	"	1495	49
+
+> ~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/intel_usg/boards/arm_shared/source/TR-181/board_sbapi/cosa_ppp_apis.c
+	"	153	8
+
+> ~/.emacs.d/cedet-1.1/NERD_tree_1
 	"	4	0
 	.	1	0
-	+	1	0
-
-> ~/Public/work2/vdsl/NERD_tree_3
-	"	43	2
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
 	+	1	0
 	+	1	0

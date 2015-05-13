@@ -1,4 +1,3 @@
-
  (setq debug-on-quit t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -18,14 +17,17 @@
 (setq frame-title-format  
       '("%S" (buffer-file-name "%f"  
                          (dired-directory dired-directory "%b"))))  
-
+;;dgl
 
 (global-set-key (kbd "<f5>")  'goto-line)
 (global-set-key (kbd "<f7>") 'recentf-open-files)
+(load-file "/home/guoliang/.emacs.d/history.el")
+(require 'history)
+
 
 (load-file "/usr/share/emacs/site-lisp/xcscope.el")
 (require 'xcscope)
-
+;(require 'sr-speedbar)
 ;;设置有用的个人信息
 (setq user-full-name "guoding")
 (setq user-mail-address "guoliang.ding@gmail.com")
@@ -63,7 +65,8 @@
 ;(set-variable 'jit-lock-stealth-time 0)
 
 ;; 自动打开上次的文件
-;;(desktop-save-mode 1)
+(desktop-save-mode 1)
+;dgl
 
 ;;Emacs窗口大小
 ;;(modify-frame-parameters
@@ -82,9 +85,9 @@
                (windmove-default-keybindings))
 
 ;; Turn off mouse interface early in startup to avoid momentary display
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+;(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+;(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 ;; No splash screen please ... jeez
 ;(setq inhibit-startup-message t)
 
@@ -317,6 +320,20 @@ auto-mode-alist))
 (add-hook 'org-mode-hook
 (lambda () (setq truncate-lines )))
 (setq org-mobile-directory "~/Dropbox/note")
+
+
+;(add-to-list 'load-path "~/.emacs.d/cedet-1.1")
+
+(load-file "~/.emacs.d/cedet-1.1/./common/cedet.el")
+(global-ede-mode 1)                      ; Enable the Project management system
+(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
+(global-srecode-minor-mode 1)            ; Enable template insertion menu
+;(require 'ecb)
+(add-to-list 'load-path "~/.emacs.d/ecb-2.40")
+(require 'ecb)
+
+
+
 ;;iimage mode
 ;;M-x org-toggle-iimage-in-org 或 M-x iimage-mode 命令来激活 iimage模式
 (load "~/.emacs.d/iimage.el")
@@ -490,7 +507,7 @@ auto-mode-alist))
 ;(global-set-key (kbd "C-x g") 'webjump)
 ;(setq webjump-sites
 ;      (append '(
-;		("Google" . "www.google.com")
+;        ("Google" . "www.google.com")
 ;                ("baidu"   . "www.baidu.com")
 ;                )
 ;              webjump-sample-sites))
@@ -628,85 +645,85 @@ auto-mode-alist))
         ("SumatraPDF" "SumatraPDF.exe %o")
 	("Firefox" "firefox %o")))
 
-;; emms
-(add-to-list 'load-path "~/.emacs.d/emms/")
-(require 'emms-setup)
-(emms-standard)
-(require 'emms-score)
-(emms-score 1)
-(require 'emms-i18n)
-(require 'emms-history)
-(emms-default-players)
-;; 状态栏
-(defun bigclean-emms-mode-line-playlist-current ()
-    "Return a description of the current track."
-      (let* ((track (emms-playlist-current-selected-track))
-              (type (emms-track-type track))
-               (title (emms-track-get track 'info-title)))
-    (format "[ %s ]"
-               (cond ((and title)
-                       title)))))
-(setq emms-mode-line-mode-line-function
-      'bigclean-emms-mode-line-playlist-current)
-(global-set-key (kbd "C-c e e") 'emms)
-(global-set-key (kbd "C-c e s") 'emms-stop)
-(global-set-key (kbd "C-c e p") 'emms-pause)
-(global-set-key (kbd "C-c e f") 'emms-show)
-;;; ### Emms Playlist ###
-;;; --- EMMS 播放列表
-;(lazy-unset-key
-; '("s" "m" "u" "M-<" "M->")
-;	emms-playlist-mode-map)                ;卸载按键
-;(lazy-set-key
-; '(
-;   ("C-x C-s" . emms-playlist-save)             ;保存播放列表
-;   ("C-y" . emms-playlist-mode-yank)            ;剪切
-;   ("C-k" . emms-playlist-mode-kill-track)      ;删除当前TRACK
-;   ("C-/" . emms-playlist-mode-undo)            ;撤销
-;   ("." . emms-playlist-mode-first)             ;浏览最上面一行
-;   ("," . emms-playlist-mode-last)              ;浏览最下面一行
-;   ("C-j" . emms-playlist-mode-insert-newline)  ;新建一行
-;   ("M-n" . emms-playlist-mode-next)            ;下一个播放列表
-;   ("M-p" . emms-playlist-mode-previous)        ;上一个播放列表
-;   ("d" . emms-playlist-mode-kill-entire-track) ;从播放列表中移除当前TRACK
-;   ("C" . emms-playlist-mode-clear)             ;清空当前的播放列表
-;   ("f" . emms-playlist-mode-play-smart)        ;播放当前TRACK
-;   ("b" . emms-playlist-set-playlist-buffer)    ;设定当前播放列表BUFFER
-;   ("n" . emms-next)                            ;播放下一首
-;   ("p" . emms-previous)                        ;播放上一首
-;   ("r" . emms-random)                          ;随机播放下一首
-;   (">" . emms-seek-forward)                    ;前进
-;   ("<" . emms-seek-backward)                   ;后退
-;   ("X" . emms-pause)                           ;暂停
-;   ("T" . emms-stop)                            ;停止
-;   ("Z" . emms-show)                            ;显示播放信息
-;   ("q" . emms-playlist-mode-bury-buffer)       ;退出
-;   ("?" . describe-mode)                        ;帮助
-;   ("g" . emms-playlist-mode-center-current)    ;跳转到当前播放TRACK
-;   ("D" . emms-delete-file-from-disk)           ;丛磁盘删除当前的文件
-;   (";" . emms-tag-editor-edit-marked-tracks)   ;编辑标记的TAG
-;   ("H" . emms-last-mark-track)                 ;最后一个标记
-;   ("L" . emms-first-mark-track)                ;第一个标记
-;   ("N" . emms-next-mark-track)                 ;下一个标记
-;   ("P" . emms-prev-mark-track)                 ;上一个标记
-;   )
-; emms-playlist-mode-map
-; )
-
-;; w3m
-;(add-to-list 'load-path' "~/.emacs.d/emacs-w3m/")
-;(setq w3m-coding-system 'utf-8
-;          w3m-file-coding-system 'utf-8
-;          w3m-file-name-coding-system 'utf-8
-;          w3m-input-coding-system 'utf-8
-;          w3m-output-coding-system 'utf-8
-;          w3m-terminal-coding-system 'utf-8)
-;(setq w3m-display-inline-image t)
-;(setq w3m-tab-width 8)
-;(setq w3m-home-page "http://127.0.0.1/wiki")
-;;使用工具包
-;(setq w3m-use-toolbar t)
-;(setq browse-url-generic-program "w3m")
+;;; emms
+;(add-to-list 'load-path "~/.emacs.d/emms/")
+;(require 'emms-setup)
+;(emms-standard)
+;(require 'emms-score)
+;(emms-score 1)
+;(require 'emms-i18n)
+;(require 'emms-history)
+;(emms-default-players)
+;;; 状态栏
+;(defun bigclean-emms-mode-line-playlist-current ()
+;    "Return a description of the current track."
+;      (let* ((track (emms-playlist-current-selected-track))
+;              (type (emms-track-type track))
+;               (title (emms-track-get track 'info-title)))
+;    (format "[ %s ]"
+;               (cond ((and title)
+;                       title)))))
+;(setq emms-mode-line-mode-line-function
+;      'bigclean-emms-mode-line-playlist-current)
+;(global-set-key (kbd "C-c e e") 'emms)
+;(global-set-key (kbd "C-c e s") 'emms-stop)
+;(global-set-key (kbd "C-c e p") 'emms-pause)
+;(global-set-key (kbd "C-c e f") 'emms-show)
+;;;; ### Emms Playlist ###
+;;;; --- EMMS 播放列表
+;;(lazy-unset-key
+;; '("s" "m" "u" "M-<" "M->")
+;;	emms-playlist-mode-map)                ;卸载按键
+;;(lazy-set-key
+;; '(
+;;   ("C-x C-s" . emms-playlist-save)             ;保存播放列表
+;;   ("C-y" . emms-playlist-mode-yank)            ;剪切
+;;   ("C-k" . emms-playlist-mode-kill-track)      ;删除当前TRACK
+;;   ("C-/" . emms-playlist-mode-undo)            ;撤销
+;;   ("." . emms-playlist-mode-first)             ;浏览最上面一行
+;;   ("," . emms-playlist-mode-last)              ;浏览最下面一行
+;;   ("C-j" . emms-playlist-mode-insert-newline)  ;新建一行
+;;   ("M-n" . emms-playlist-mode-next)            ;下一个播放列表
+;;   ("M-p" . emms-playlist-mode-previous)        ;上一个播放列表
+;;   ("d" . emms-playlist-mode-kill-entire-track) ;从播放列表中移除当前TRACK
+;;   ("C" . emms-playlist-mode-clear)             ;清空当前的播放列表
+;;   ("f" . emms-playlist-mode-play-smart)        ;播放当前TRACK
+;;   ("b" . emms-playlist-set-playlist-buffer)    ;设定当前播放列表BUFFER
+;;   ("n" . emms-next)                            ;播放下一首
+;;   ("p" . emms-previous)                        ;播放上一首
+;;   ("r" . emms-random)                          ;随机播放下一首
+;;   (">" . emms-seek-forward)                    ;前进
+;;   ("<" . emms-seek-backward)                   ;后退
+;;   ("X" . emms-pause)                           ;暂停
+;;   ("T" . emms-stop)                            ;停止
+;;   ("Z" . emms-show)                            ;显示播放信息
+;;   ("q" . emms-playlist-mode-bury-buffer)       ;退出
+;;   ("?" . describe-mode)                        ;帮助
+;;   ("g" . emms-playlist-mode-center-current)    ;跳转到当前播放TRACK
+;;   ("D" . emms-delete-file-from-disk)           ;丛磁盘删除当前的文件
+;;   (";" . emms-tag-editor-edit-marked-tracks)   ;编辑标记的TAG
+;;   ("H" . emms-last-mark-track)                 ;最后一个标记
+;;   ("L" . emms-first-mark-track)                ;第一个标记
+;;   ("N" . emms-next-mark-track)                 ;下一个标记
+;;   ("P" . emms-prev-mark-track)                 ;上一个标记
+;;   )
+;; emms-playlist-mode-map
+;; )
+;
+;;; w3m
+;;(add-to-list 'load-path' "~/.emacs.d/emacs-w3m/")
+;;(setq w3m-coding-system 'utf-8
+;;          w3m-file-coding-system 'utf-8
+;;          w3m-file-name-coding-system 'utf-8
+;;          w3m-input-coding-system 'utf-8
+;;          w3m-output-coding-system 'utf-8
+;;          w3m-terminal-coding-system 'utf-8)
+;;(setq w3m-display-inline-image t)
+;;(setq w3m-tab-width 8)
+;;(setq w3m-home-page "http://127.0.0.1/wiki")
+;;;使用工具包
+;;(setq w3m-use-toolbar t)
+;;(setq browse-url-generic-program "w3m")
 
 ;; calendar
 (require 'calendar)
@@ -792,12 +809,78 @@ auto-mode-alist))
 ;; 注销 C-SPC,在输入法无法使用的时候可用
 (global-set-key (kbd "C-SPC") 'nil)
 ;; 既然 emacs 默认 C-c C-c 为对源代码选区进行注释，那么就用我们就用 C-c C-v 进行反注释
-;;(global-set-key "\C-c\C-v" 'uncomment-region)
+(global-set-key "\C-c\C-v" 'uncomment-region)
+
+(global-set-key (kbd "M-i") 'feng-highlight-at-point)
 
 
 (load-file "/usr/share/emacs/site-lisp/xcscope.el")
 (require 'xcscope)
 
+
+;auto complete
+(add-to-list 'load-path "/home/guoliang/.emacs.d/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "/home/guoliang/.emacs.d/ac-dict")
+(ac-config-default)
+
+
+;tab equals 4 space
+;dgl
+;(set )
+;(setq tab-width 2) ; or any other preferred value
+;(defvaralias 'c-basic-offset 'tab-width)
+;(defvaralias 'cperl-indent-level 'tab-width)
+
+;(setq indent-tabs-mode nil)
+;(setq-default indent-tabs-mode nil)
+;(load-file "/home/guoliang/.emacs.d/smart-tab.el")
+;(require 'smart-tab)
+
+
+;(setq indent-tabs-mode nil)
+;(setq default-tab-width 4)
+
+; And I have tried
+;(setq indent-tabs-mode nil)
+;(setq tab-width 4)
+;(setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
+;(customize-variable (quote tab-stop-list))
+
+
+;(load-file "/home/guoliang/.emacs.d/smart-tab.el")
+;(require 'smart-tab)
+
+(setq tab-width 4)
+(setq default-tab-width 4)
+(setq indent-tabs-mode nil)
+(setq default-indent-tabs-mode nil)
+;(setq-default 'indent-tabs-mode nil)
+;(setq-default indent-tabs-mode nil)
+(setq c-basic-offset 4)
+
+; C language setting
+(add-hook 'c-mode-hook
+          '(lambda ()
+             (c-set-style "K&R")
+             (setq tab-width 4)
+             (setq indent-tabs-mode nil)
+;             (setq-default indent-tabs-mode nil)
+             (setq c-basic-offset 4)))
+
+; C++ language setting
+(add-hook 'c++-mode-hook
+          '(lambda ()
+             (c-set-style "K&R")
+             (c-toggle-auto-state)
+             (setq tab-width 4)
+             (setq indent-tabs-mode nil)
+;             (setq-default 'indent-tabs-mode nil)
+             (setq c-basic-offset 4)))
+
+
+;(setq c-default-style "bsd"
+;  c-basic-offset 0)
 
 
   
@@ -805,15 +888,117 @@ auto-mode-alist))
 ;(add-to-list 'load-path "~/emacs.d/plugins/cscope-15.7a/contrib/xcscope/")  
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/")  
 (require 'xcscope)  
+
+
+
+(defun copy-file-name-to-clipboard ()
+  "Copy the current buffer file name to the clipboard."
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (kill-new filename)
+      (message "Copied buffer file name '%s' to the clipboard." filename))))
 ;;如果工程十分庞大，即使是判断文件更新与否也很费时，可以告诉 Emacs 别自 动更新 cscope.out：  
 ;;(setq cscope-do-not-update-database t)  
 ;;先M-x !，然后cscope -b，之后就可以在源代码中进行跳转了。命令见cscope菜单  
 ;;这里有篇讲怎么在emacs下安装和使用cscope的：  
 ;;http://ann77.stu.cdut.edu.cn/EmacsCscope.html  
 ;;----------------------              END    cscop                ---------------------  
-    
+ (require 'package)
+  (push '("marmalade" . "http://marmalade-repo.org/packages/")
+        package-archives )
+  (push '("melpa" . "http://melpa.milkbox.net/packages/")
+        package-archives)
+(add-to-list 'load-path "~/.emacs.d/evil")
+(require 'evil)
+(evil-mode 0)
 
 ;(load-file "/usr/share/emacs/site-lisp/xcscope.el")
 ;(require 'xcscope)
 ;require ‘xcscope
 ;cscope-setup
+(put 'downcase-region 'disabled nil)
+(require 'thingatpt)
+
+(defface feng-highlight-at-point-face
+  `((((class color) (background light))
+     (:background "light green"))
+    (((class color) (background dark))
+     (:background "royal blue")))
+  "Face for highlighting variables"
+  :group 'feng-highlight)
+
+(defvar current-highlighted nil)
+(make-variable-buffer-local 'current-highlighted)
+
+(defun feng-at-point-prev ()
+  (interactive)
+  (when current-highlighted
+    (unless (re-search-backward
+             (concat "\\<" (regexp-quote current-highlighted) "\\>") nil t)
+      (message "search hit TOP, continue from BOTTOM")
+      (goto-char (point-max))
+      (feng-at-point-prev))))
+
+(defun feng-at-point-next ()
+  (interactive)
+  (when current-highlighted
+    (forward-char (+ 1 (length current-highlighted))) ; more out of current
+    (if (re-search-forward
+         (concat "\\<" (regexp-quote current-highlighted) "\\>") nil t)
+        (backward-char (length current-highlighted))
+      (backward-char (+ 1 (length current-highlighted)))
+      (message "search hit BOTTOM, continue from TOP")
+      (goto-char (point-min))
+      (feng-at-point-next))))
+
+(defun feng-at-point-replace ()
+  (interactive)
+  (when current-highlighted
+    (save-excursion
+      (goto-char (point-min))           ;; back to top
+      (feng-at-point-next)              ;; find first
+      (setq isearch-string current-highlighted)
+      (isearch-query-replace))))
+
+(defvar feng-highlight-at-point-keymap
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "M-n") 'feng-at-point-next)
+    (define-key map (kbd "M-r") 'feng-at-point-replace)
+    (define-key map (kbd "M-p") 'feng-at-point-prev)
+    map))
+
+(defun feng-highlight-at-point ()
+  (interactive)
+  (remove-overlays (point-min) (point-max) 'feng-highlight t)
+  (let* ((target-symbol (symbol-at-point))
+         (target (symbol-name target-symbol)))
+    (when target-symbol
+      (setq current-highlighted target)
+      (save-excursion
+        (goto-char (point-min))
+        (let* ((regexp (concat "\\<" (regexp-quote target) "\\>"))
+               (len (length target))
+               (end (re-search-forward regexp nil t)))
+          (while end
+            (let ((ovl (make-overlay (- end len) end)))
+              (overlay-put ovl 'keymap feng-highlight-at-point-keymap)
+              (overlay-put ovl 'face 'feng-highlight-at-point-face)
+              (overlay-put ovl 'feng-highlight t))
+            (setq end (re-search-forward regexp nil t))))))))
+
+(provide 'feng-highlight)
+
+;; (defun my-put-file-name-on-clipboard ()
+;;   "Put the current file name on the clipboard"
+;;   (interactive)
+;;   (let ((filename (if (equal major-mode 'dired-mode)
+;;                       default-directory
+;;                     (buffer-file-name))))
+;;     (when filename
+;;       (with-temp-buffer
+;;         (insert filename)
+;;         (clipboard-kill-region (point-min) (point-max)))
+;;       (message filename))))
