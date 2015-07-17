@@ -1,0 +1,46 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/guoliang/Public/erouter_stack-3e97f0b/ExtDependency/opensource/" . "dbus/")
+ ("/home/guoliang/Public/erouter_stack-3e97f0b/ExtDependency/" . "opensource/")
+ ("/home/guoliang/Public/erouter_stack-3e97f0b/" . "ExtDependency/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/guoliang/Public/erouter_stack-3e97f0b/ExtDependency/opensource/dbus/test/"
+ "/home/guoliang/Public/erouter_stack-3e97f0b/ExtDependency/opensource/dbus/"
+ "/home/guoliang/Public/erouter_stack-3e97f0b/ExtDependency/opensource/avahi/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "loopback.c"
+ "depcomp"
+ "avahi-daemon.conf"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/guoliang/.emacs.d/auto-save-list/" (21474 16761) "../" ".saves-26864-ubuntu~" ".saves-27527-ubuntu~" ".saves-27730-ubuntu~" ".saves-26633-ubuntu~" "./")
+
+ ("/home/guoliang/" (21474 1754) "cscope.out" ".recentf" ".local/" "Music/" ".dmrc" "examples.desktop" ".gksu.lock" "../" "Public/" ".vim/" ".vimrc" "Videos/" "Desktop/" ".lvm_history" ".config/" ".bashrc" ".ido.last" ".bash_history" ".pulse-cookie" "Templates/" ".profile" "Downloads/" ".mission-control/" ".subversion/" ".Xauthority" ".gnome2/" "Pictures/" ".bash_logout" ".gnupg/" "Documents/" ".cache/" ".xsession-errors.old" ".lesshst" ".gconf/" ".mozilla/" ".viminfo" ".gvfs/" ".pulse/" ".emacs.d/" ".gtk-bookmarks" ".#.bashrc" "./" ".ssh/" ".xsession-errors" ".ICEauthority" ".garbadgeemacs/" ".dbus/")
+
+ ("/home/guoliang/Public/erouter_stack-3e97f0b/ExtDependency/opensource/dbus/test/" (21467 33976) "corrupt.c" "shell-test.c" "spawn-test.c" "Makefile.in" "dbus-daemon.c" "../" "test-segfault.c" ".deps/" "marshal.c" "test-service.c" "Makefile.am" "test-shell-service.c" "test-names.c" "test-utils.o" "test-utils.h" ".libs/" "libdbus-testutils.la" "dbus-test-runner" "test-utils.lo" "test-exit.c" "test-utils.c" "loopback.c" "name-test/" "test-sleep-forever.c" "./" "data/" "Makefile" "relay.c")
+
+ ("/home/guoliang/Public/erouter_stack-3e97f0b/ExtDependency/opensource/dbus/" (21467 33976) "NEWS.pre-1-2" "Makefile.in" "Doxyfile" "../" "config.sub" "m4/" "config.h" "config.log" "NEWS.pre-1-0" "README.win" "doc/" "ChangeLog" "Makefile.am" "ChangeLog.pre-1-2" "bus/" "NEWS" "dbus-1-uninstalled.pc" "cleanup-man-pages.sh" "README.wince" "tools/" "README.launchd" "aclocal.m4" "test/" "config.guess" "depcomp" "ltmain.sh" "dbus-1.pc.in" "install-sh" "Doxyfile.in" "config.status" "configure" "dbus/" "ChangeLog.pre-1-0" "README.cygwin" "dbus-1.pc" "compile" "AUTHORS" "INSTALL" "README" "stamp-h1" "HACKING" "configure.ac" "missing" "libtool" "COPYING" "dbus-1-uninstalled.pc.in" "config.h.in" "./" "Makefile" "cmake/")
+
+ ("/home/guoliang/Public/" (21473 36552) "../" "work/" "._.DS_Store" "erouter_stack-3e97f0b/" ".DS_Store" "garbadge/" "vdsl2.tgz" "./")
+
+ ("/home/guoliang/Public/erouter_stack-3e97f0b/ExtDependency/opensource/avahi/" (21473 64162) "../" "avahi-daemon.conf" "avahi-dbus.conf" "include/" ".#avahi-daemon.conf" "./")
+
+ ("/home/guoliang/Public/erouter_stack-3e97f0b/ExtDependency/opensource/" (21467 33981) "../" "libxml2-2.7.8/" "openssl/" "fcgi-2.4.0/" "mxml-2.7/" "libupnp/" "dbus/" "avahi/" "net-snmp-5.7.1/" "./" "zlib/" "eloop/")
+
+ ("/home/guoliang/Public/erouter_stack-3e97f0b/ExtDependency/" (21467 33981) "../" "simu/" "pc/" "opensource/" "./")
+
+ ("/home/guoliang/Public/erouter_stack-3e97f0b/" (21473 63074) "LanManager/" "cscope.out" "AppEnvManager/" "RebootManager/" "CcspBTr069PaSsp/" "../" "TestAndDiagnostic/" "ExtDependency/" ".config" ".gitignore" "dgl/" "DnsProxy/" "CcspMisc/" "ccsp_setenv_simu.sh" "CcspPsm/" "CcspBPandMSsp/" "Out/" "CcspPandM/" "ccsp_build" "CcspCommonLibrary/" "CcspHnapPaSsp/" "CcspCr/" "INSTALL" "SecureSoftwareDownload/" "README" "FirmwareUpgrade/" "CcspBMSPaSsp/" "./" "CcspTr069Pa/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

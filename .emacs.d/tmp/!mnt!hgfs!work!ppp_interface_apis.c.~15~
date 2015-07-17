@@ -1,0 +1,1292 @@
+/**************************************************************************
+
+    module: ppp_interface_apis.c
+
+	For CCSP Data Model Library Development
+
+    -------------------------------------------------------------------
+
+    copyright:
+
+	Cisco Systems, Inc.
+	All Rights Reserved.
+
+    -------------------------------------------------------------------
+
+    description:
+
+	This file implementes back-end apis for the CCSP Data Model Library
+
+    -------------------------------------------------------------------
+
+    environment:
+
+	platform independent
+
+    -------------------------------------------------------------------
+
+    author:
+
+	CCSP XML TOOL CODE GENERATOR 2.0
+
+    -------------------------------------------------------------------
+
+    revision:
+
+	09/05/2014    initial revision.
+
+**************************************************************************/
+
+#include "ppp_interface_apis.h"
+
+CCSP_SB_PPP_INTERFACE g_PPPInterface[] = {
+    {{0}, 1, 1, "foo", 0, "foo", 1, 1, 1, 0, 0, 0, "foo", "foo", 1, 1, 1, 0, 0, 1, 0, 0, 1, 1},
+    {{0}, 1, 1, "foo", 0, "foo", 1, 1, 1, 0, 0, 0, "foo", "foo", 1, 1, 1, 0, 0, 1, 0, 0, 1, 1},
+    {{0}, 1, 1, "foo", 0, "foo", 1, 1, 1, 0, 0, 0, "foo", "foo", 1, 1, 1, 0, 0, 1, 0, 0, 1, 1},
+    {{0}, 1, 1, "foo", 0, "foo", 1, 1, 1, 0, 0, 0, "foo", "foo", 1, 1, 1, 0, 0, 1, 0, 0, 1, 1},
+    {{0}, 1, 1, "foo", 0, "foo", 1, 1, 1, 0, 0, 0, "foo", "foo", 1, 1, 1, 0, 0, 1, 0, 0, 1, 1},
+    {{0}, 1, 1, "foo", 0, "foo", 1, 1, 1, 0, 0, 0, "foo", "foo", 1, 1, 1, 0, 0, 1, 0, 0, 1, 1},
+    {{0}, 1, 1, "foo", 0, "foo", 1, 1, 1, 0, 0, 0, "foo", "foo", 1, 1, 1, 0, 0, 1, 0, 0, 1, 1},
+    {{0}, 1, 1, "foo", 0, "foo", 1, 1, 1, 0, 0, 0, "foo", "foo", 1, 1, 1, 0, 0, 1, 0, 0, 1, 1},
+    {{0}, 1, 1, "foo", 0, "foo", 1, 1, 1, 0, 0, 0, "foo", "foo", 1, 1, 1, 0, 0, 1, 0, 0, 1, 1},
+    {{0}, 1, 1, "foo", 0, "foo", 1, 1, 1, 0, 0, 0, "foo", "foo", 1, 1, 1, 0, 0, 1, 0, 0, 1, 1}
+};
+
+ULONG g_ulNumOfPPPInterface = 3;
+
+
+#define debug_ppp
+#ifndef debug_ppp
+//#define printf(...)  printf("")
+#endif
+
+
+static int get_ppp_client(int index, PCCSP_SB_PPP_INTERFACE pEntry)
+{
+	char ns[64], buf[256], buflong[1025];
+	int rc = 0;
+	sprintf(ns, "ppp_%d", index);
+	printf("ppp_client get %s\n", ns);
+	//rc |= syscfg_get(ns, "ifname", pEntry->Interface, sizeof(pEntry->Interface));
+	rc |= syscfg_get(ns, "Enable", buf, sizeof(buf));
+	sssss
+	  printf("buf = %s\n", buf);
+	//pEntry->Enable = atoi(buf) ? true : false;
+	// pEntry->Enable = syscfg_get(ns, "enable", buf, sizeof(buf));
+	//pEntry->Status = syscfg_get(ns, "status", buf, sizeof(buf));
+	//pEntry->Renew = false;
+	//pEntry->Status = atoi(buf) ? CCSP_SB_DHCPV4_CLIENT_STATUS_Enabled : CCSP_SB_DHCPV4_CLIENT_STATUS_Disabled;
+	//pEntry->PassthroughEnable = false;
+	//strcpy(pEntry->PassthroughDHCPPool, "\0");
+	//rc |= syscfg_get(NULL, "lan_ipaddr", buf, sizeof(buf));
+	//inet_pton(AF_INET, (void *)buf, (void *)&pEntry->DHCPServer)
+
+
+	rc |=  syscfg_get(ns, "Enable", buf, sizeof(buf));
+	pEntry->Enable = atoi(buf) ? true:false;
+	if(pEntry->Enable == true)
+	  {
+	    rc |= syscfg_get(ns, "Status", buf, sizeof(buf));
+	    if(strcmp(buf, "Up") == 0)
+	      pEntry->Status =CCSP_SB_PPP_INTERFACE_STATUS_Up ;
+	    else if(strcmp(buf, "Down") == 0)
+	      pEntry->Status =   CCSP_SB_PPP_INTERFACE_STATUS_Down;
+	    else if(strcmp(buf, "Unknown") == 0 )
+	      pEntry->Status =   CCSP_SB_PPP_INTERFACE_STATUS_Unknown;
+	    else if(strcmp(buf, "Dormant") == 0)
+	      pEntry->Status =   CCSP_SB_PPP_INTERFACE_STATUS_Dormant;
+	    else if(strcmp(buf, "NotPresent") == 0)
+	      pEntry->Status =   CCSP_SB_PPP_INTERFACE_STATUS_NotPresent;
+	    else if(strcmp(buf, "LowerLayerDown") == 0)
+	      pEntry->Status =   CCSP_SB_PPP_INTERFACE_STATUS_LowerLayerDown;
+	    else if(strcmp(buf, "Error"))
+	      pEntry->Status =   CCSP_SB_PPP_INTERFACE_STATUS_Error;
+	    else
+	      pEntry->Status = -1;
+	    rc |= syscfg_get(ns, "Name", buf, sizeof(buf));//name 64
+	    AnscCopyString(pEntry->Name, buf);
+	    rc |= syscfg_get(ns, "LastChange", buf, sizeof(buf));
+	    pEntry->LastChange = (unsigned int)atoi(buf);
+	    rc |= syscfg_get(ns , "LowerLayers", buflong, sizeof(buflong));//lowerlayer 1024
+	    AnscCopyString(pEntry->LowerLayers, buf);
+
+	    rc |= syscfg_get(ns , "Reset", buf, sizeof(buf));//lowerlayer 1024
+	    pEntry->Reset = atoi(buf) ? true:false;
+	    rc |= syscfg_get(ns , "ConnectionStatus", buf, sizeof(buf));//lowerlayer 1024
+	    if(strcmp(buf, "Unconfigured") == 0)
+	      pEntry->ConnectionStatus = CCSP_SB_PPP_INTERFACE_CONNECTIONSTATUS_Unconfigured;
+	    else if(strcmp(buf, "Connecting") == 0)
+	      pEntry->ConnectionStatus =     CCSP_SB_PPP_INTERFACE_CONNECTIONSTATUS_Connecting;
+	    else if(strcmp(buf, "Authenticating") == 0)
+	      pEntry->ConnectionStatus = CCSP_SB_PPP_INTERFACE_CONNECTIONSTATUS_Authenticating;
+	    else if(strcmp(buf, "Connected") == 0)
+	      pEntry->ConnectionStatus =     CCSP_SB_PPP_INTERFACE_CONNECTIONSTATUS_Connected;
+	    else if(strcmp(buf, "PendingDisconnect") == 0)
+	      pEntry->ConnectionStatus =     CCSP_SB_PPP_INTERFACE_CONNECTIONSTATUS_PendingDisconnect;
+	    else if(strcmp(buf, "Disconnecting") == 0 )
+	      pEntry->ConnectionStatus =     CCSP_SB_PPP_INTERFACE_CONNECTIONSTATUS_Disconnecting;
+	    else if(strcmp(buf, "Disconnected") == 0)
+	      pEntry->ConnectionStatus =     CCSP_SB_PPP_INTERFACE_CONNECTIONSTATUS_Disconnected;
+	    else
+	      pEntry->ConnectionStatus = -1;
+
+	    rc |= syscfg_get(ns, "lastconnectionerror", buf, sizeof(buf));
+	    if(strcmp(buf, "NONE") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_NONE;
+	    else if(strcmp(buf,"ISP_TIME_OUT") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_ISP_TIME_OUT;
+	    else if(strcmp(buf, "COMMAND_ABORTED") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_COMMAND_ABORTED;
+	    else if(strcmp(buf, "NOT_ENABLED_FOR_INTERNET") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_NOT_ENABLED_FOR_INTERNET;
+	    else if(strcmp(buf, "BAD_PHONE_NUMBER") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_BAD_PHONE_NUMBER;
+	    else if(strcmp(buf, "USER_DISCONNECT") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_USER_DISCONNECT;
+	    else if(strcmp(buf, "ISP_DISCONNECT") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_ISP_DISCONNECT;
+	    else if(strcmp(buf, "IDLE_DISCONNECT") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_IDLE_DISCONNECT;
+	    else if(strcmp(buf, "FORCED_DISCONNECT") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_FORCED_DISCONNECT;
+	    else if(strcmp(buf, "SERVER_OUT_OF_RESOURCES") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_SERVER_OUT_OF_RESOURCES;
+	    else if(strcmp(buf,"RESTRICTED_LOGON_HOURS" ) == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_RESTRICTED_LOGON_HOURS;
+	    else if(strcmp(buf,"ACCOUNT_DISABLED" ) == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_ACCOUNT_DISABLED;
+	    else if(strcmp(buf, "ACCOUNT_EXPIRED") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_ACCOUNT_EXPIRED;
+	    else if(strcmp(buf, "PASSWORD_EXPIRED") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_PASSWORD_EXPIRED;
+	    else if(strcmp(buf, "AUTHENTICATION_FAILURE") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_AUTHENTICATION_FAILURE;
+	    else if(strcmp(buf, "NO_DIALTONE") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_NO_DIALTONE;
+	    else if(strcmp(buf, "NO_CARRIER") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_NO_CARRIER;
+	    else if(strcmp(buf, "NO_ANSWER") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_NO_ANSWER;
+	    else if(strcmp(buf, "LINE_BUSY") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_LINE_BUSY;
+	    else if(strcmp(buf, "UNSUPPORTED_BITSPERSECOND") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_UNSUPPORTED_BITSPERSECOND;
+	    else if(strcmp(buf, "TOO_MANY_LINE_ERRORS") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_TOO_MANY_LINE_ERRORS;
+	    else if(strcmp(buf, "IP_CONFIGURATION") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_IP_CONFIGURATION;
+	    else if(strcmp(buf, "UNKNOWN") == 0)
+	      pEntry->LastConnectionError = CCSP_SB_PPP_INTERFACE_LASTCONNECTIONERROR_ERROR_UNKNOWN;
+	    else
+	      pEntry->LastConnectionError = -1;
+	    rc |= syscfg_get(ns, "AutoDisconnectTime", buf, sizeof(buf));
+	    pEntry->AutoDisconnectTime = (unsigned int)atoi(buf);
+	    rc |= syscfg_get(ns, "WarnDisconnectDelay", buf, sizeof(buf));
+	    pEntry->WarnDisconnectDelay = (unsigned int)atoi(buf);
+	    rc |= syscfg_get(ns, "Username", buf, sizeof(buf));
+	    AnscCopyString(pEntry->Username, buf);
+	    rc |= syscfg_get(ns, "Password", buf, sizeof(buf));
+	    AnscCopyString(pEntry->Password, buf);
+	    rc |= syscfg_get(ns, "EncryptionProtocol", buf, sizeof(buf));
+	    if(strcmp(buf, "None") == 0)
+	      pEntry->EncryptionProtocol = CCSP_SB_PPP_INTERFACE_ENCRYPTIONPROTOCOL_None;
+	    else if(strcmp(buf, "MPPE") == 0)
+	      pEntry->EncryptionProtocol = CCSP_SB_PPP_INTERFACE_ENCRYPTIONPROTOCOL_MPPE;
+	    else
+	      pEntry->EncryptionProtocol = -1;
+	    rc |= syscfg_get(ns, "CompressionProtocol", buf, sizeof(buf));
+	    if(strcmp(buf, "None") == 0)
+	      pEntry->CompressionProtocol = CCSP_SB_PPP_INTERFACE_COMPRESSIONPROTOCOL_None;
+	    else if( strcmp(buf, "Van_Jacobson") == 0)
+	      pEntry->CompressionProtocol = CCSP_SB_PPP_INTERFACE_COMPRESSIONPROTOCOL_Van_Jacobson;
+	    else if(strcmp(buf, "STAC_LZS") == 0)
+	      pEntry->CompressionProtocol = CCSP_SB_PPP_INTERFACE_COMPRESSIONPROTOCOL_STAC_LZS;
+	    else
+	      pEntry->CompressionProtocol = -1;
+	    rc |= syscfg_get(ns, "AuthenticationProtocol", buf, sizeof(buf));
+	    if(strcmp(buf, "PAP") == 0)
+	      pEntry->AuthenticationProtocol = CCSP_SB_PPP_INTERFACE_AUTHENTICATIONPROTOCOL_PAP;
+	    else if (strcmp(buf, "CHAP") == 0)
+	      pEntry->AuthenticationProtocol = CCSP_SB_PPP_INTERFACE_AUTHENTICATIONPROTOCOL_CHAP;
+	    else if (strcmp(buf, "MS_CHAP") == 0)
+	      pEntry->AuthenticationProtocol = CCSP_SB_PPP_INTERFACE_AUTHENTICATIONPROTOCOL_MS_CHAP;
+	    else
+	      pEntry->AuthenticationProtocol = -1;
+	    rc |= syscfg_get(ns, "MaxMRUSize", buf, sizeof(buf));
+	    pEntry->MaxMRUSize = (unsigned int)atoi(buf);
+	    rc |= syscfg_get(ns, "CurrentMRUSize", buf, sizeof(buf));
+	    pEntry->CurrentMRUSize = (unsigned int)atoi(buf);
+	    rc |= syscfg_get(ns, "ConnectionTrigger", buf, sizeof(buf));
+	    if(strcmp(buf, "OnDemand") == 0)
+	      pEntry->ConnectionTrigger = CCSP_SB_PPP_INTERFACE_CONNECTIONTRIGGER_OnDemand;
+	    else if(strcmp(buf, "Manual") == 0)
+	      pEntry->ConnectionTrigger = CCSP_SB_PPP_INTERFACE_CONNECTIONTRIGGER_Manual;
+	    else if(strcmp(buf, "AlwaysOn") == 0)
+	      pEntry->ConnectionTrigger = CCSP_SB_PPP_INTERFACE_CONNECTIONTRIGGER_AlwaysOn;
+	    else
+	      pEntry->ConnectionTrigger = -1;
+	    rc |= syscfg_get(ns, "LCPEcho", buf, sizeof(buf));
+	    pEntry->LCPEcho = (unsigned int)atoi(buf);
+	    rc |= syscfg_get(ns, "LCPEchoRetry", buf, sizeof(buf));
+	    pEntry->LCPEchoRetry = (unsigned int)atoi(buf);
+	    rc |= syscfg_get(ns, "IPCPEnable", buf, sizeof(buf));
+	    pEntry->IPCPEnable = atoi(buf)?true:false;
+	    rc |= syscfg_get(ns, "IPCPEnable", buf, sizeof(buf));
+	    pEntry->IPv6CPEnable = atoi(buf)?true:false;
+	 }
+
+	return rc;
+}
+
+
+
+/**********************************************************************
+
+    caller:     owner of this object
+
+    prototype:
+
+	ULONG
+	CcspSbPPPInterfaceGetNumOfEntries
+	    (
+		PCCSP_DML_KEY_CHAIN       pKeyChain
+	    )
+
+    description:
+
+	This function is called to get the count of entries.
+
+    argument:
+
+	PCCSP_DML_KEY_CHAIN               pKeyChain
+	[IN] Key chain from the very beginnning table entry.
+
+    return:
+
+	Entry count.
+
+**********************************************************************/
+
+ULONG
+CcspSbPPPInterfaceGetNumOfEntries
+    (
+	PCCSP_DML_KEY_CHAIN               pKeyChain
+    )
+{
+    /*
+     * TODO: Use pKeyChain to identify instances from the very beginning
+     * table in backend implementation and retrieve the number of PPPInterface entries
+     */
+
+    return g_ulNumOfPPPInterface;
+}
+
+/**********************************************************************
+
+    caller:     owner of this object
+
+    prototype:
+
+	ANSC_STATUS
+	CcspSbPPPInterfaceGetEntryByIndex
+	    (
+		ULONG                     ulIndex,
+		PCCSP_SB_PPP_INTERFACE    pEntry,
+		char*                     pKey
+	    )
+
+    description:
+
+	This function is called to get the context of the object.
+
+    argument:
+
+	ULONG                             ulIndex
+	[IN] Index of the entry.
+
+	PCCSP_SB_PPP_INTERFACE            pEntry
+	[OUT] PPPInterface entry.
+
+	char*                             pKey
+	[OUT] Key value of the entry returned.
+
+    return:
+
+	The status of the operation.
+
+**********************************************************************/
+
+ANSC_STATUS
+CcspSbPPPInterfaceGetEntryByIndex
+    (
+	ULONG                             ulIndex,
+	PCCSP_SB_PPP_INTERFACE            pEntry,
+	char*                             pKey
+    )
+{
+    ANSC_STATUS                           returnStatus                    = ANSC_STATUS_SUCCESS;
+    PCCSP_DML_KEY_CHAIN                   pKeyChain                       = &pEntry->Common.KeyChain;
+    //char                                  buf[16]                         = {0};
+	char ns[64], buf[256];
+	int rc = 0;
+
+	//sprintf(ns, "ppp_%d", index);
+
+		int									  index							  = ulIndex + 1;
+		//if(get_ppp_client(index, pEntry))
+		//	returnStatus = ANSC_STATUS_FAILURE; //important
+
+    /*
+     * TODO: Use ulIndex to identify instances from the very beginning
+     * table in backend implementation and retrieve the corresponding entry
+     * Fill each field in pEntry exclude the "common" field.
+     */
+		printf("dgl func= %s\n", __func__);
+    /* pEntry->Enable = g_PPPInterface[ulIndex].Enable; */
+    /*		      printf("ns= %s", ns); */
+    /*		      //dgl temp later use unified get */
+    /* pEntry->Enable = syscfg_get(ns, "enable", buf, sizeof(buf)); */
+    /* pEntry->Status = g_PPPInterface[ulIndex].Status; */
+    /* AnscCopyString(pEntry->Name, g_PPPInterface[ulIndex].Name); */
+    /* pEntry->LastChange = g_PPPInterface[ulIndex].LastChange; */
+    /* AnscCopyString(pEntry->LowerLayers, g_PPPInterface[ulIndex].LowerLayers); */
+    /* pEntry->Reset = g_PPPInterface[ulIndex].Reset; */
+    /* pEntry->ConnectionStatus = g_PPPInterface[ulIndex].ConnectionStatus; */
+    /* pEntry->LastConnectionError = g_PPPInterface[ulIndex].LastConnectionError; */
+    /* pEntry->AutoDisconnectTime = g_PPPInterface[ulIndex].AutoDisconnectTime; */
+    /* pEntry->IdleDisconnectTime = g_PPPInterface[ulIndex].IdleDisconnectTime; */
+    /* pEntry->WarnDisconnectDelay = g_PPPInterface[ulIndex].WarnDisconnectDelay; */
+    /* AnscCopyString(pEntry->Username, g_PPPInterface[ulIndex].Username); */
+    /* AnscCopyString(pEntry->Password, g_PPPInterface[ulIndex].Password); */
+    /* pEntry->EncryptionProtocol = g_PPPInterface[ulIndex].EncryptionProtocol; */
+    /* pEntry->CompressionProtocol = g_PPPInterface[ulIndex].CompressionProtocol; */
+    /* pEntry->AuthenticationProtocol = g_PPPInterface[ulIndex].AuthenticationProtocol; */
+    /* pEntry->MaxMRUSize = g_PPPInterface[ulIndex].MaxMRUSize; */
+    /* pEntry->CurrentMRUSize = g_PPPInterface[ulIndex].CurrentMRUSize; */
+    /* pEntry->ConnectionTrigger = g_PPPInterface[ulIndex].ConnectionTrigger; */
+    /* pEntry->LCPEcho = g_PPPInterface[ulIndex].LCPEcho; */
+    /* pEntry->LCPEchoRetry = g_PPPInterface[ulIndex].LCPEchoRetry; */
+    /* pEntry->IPCPEnable = g_PPPInterface[ulIndex].IPCPEnable; */
+    /* pEntry->IPv6CPEnable = g_PPPInterface[ulIndex].IPv6CPEnable; */
+
+#ifdef _SBAPI_DEBUG
+    CCSP_PRINT_ALL_PPP_INTERFACE_PARAMETERS("CcspSbPPPInterfaceGetEntryByKeyChain AFTER integration");
+#endif
+
+    if ( pKey )
+    {
+	/* TODO: Fill the pKey with the key value of the entry retrieved */
+	AnscCopyString(pKey, "g_PPPInterface");
+	
+	AnscInt2String(ulIndex, buf, 10);
+	AnscCatString(pKey, buf);
+    }
+
+
+
+    return returnStatus;
+}
+
+/**********************************************************************
+
+    caller:     owner of this object
+
+    prototype:
+
+	ANSC_STATUS
+	CcspSbPPPInterfaceGetEntryByKeyChain
+	    (
+		PCCSP_DML_KEY_CHAIN       pKeyChain,
+		char**                    ppParamArray,
+		ULONG                     ulArraySize,
+		PCCSP_SB_PPP_INTERFACE    pEntry
+	    )
+
+    description:
+
+	This function is called to get the context of the object.
+
+    argument:
+
+	PCCSP_DML_KEY_CHAIN               pKeyChain
+	[IN] Key chain starting from the very beginning table.
+
+	char**                            ppParamArray
+	[IN] Parameter name array.
+
+	ULONG                             ulArraySize
+	[IN] Parameter array size.
+
+	PCCSP_SB_PPP_INTERFACE            pEntry
+	[OUT] PPPInterface entry.
+
+    return:
+
+	The status of the operation.
+
+**********************************************************************/
+
+ANSC_STATUS
+CcspSbPPPInterfaceGetEntryByKeyChain
+    (
+	PCCSP_DML_KEY_CHAIN               pKeyChain,
+	char**                            ppParamArray,
+	ULONG                             ulArraySize,
+	PCCSP_SB_PPP_INTERFACE            pEntry
+    )
+{
+    ANSC_STATUS                           returnStatus                    = ANSC_STATUS_SUCCESS;
+    //char                                  buf[16]                         = {0};
+    char                                  key[CCSP_DML_KEY_LENGTH]        = {0};
+    ULONG                                 ulIndex                         = 0;
+    ULONG                                 i                               = 0;
+    ULONG                                 num                             = 0;
+
+    /*
+     * TODO: Use pKeyChain to identify instances from the very beginning
+     * table in backend implementation and retrieve the corresponding entry
+     * Fill each field in pEntry exclude the "common" field.
+     */
+	char ns[64], buf[256];
+	int rc = 0;
+	printf("%s func name \n", __func__);
+	/* if(syscfg_get(NULL, "ppp_num", buf, sizeof(buf))) */
+	/*   return ANSC_STATUS_FAILURE; */
+	/* num = atoi(buf); */
+	/* printf("!!!!!!!!!!!!!!!!!!!!!!!!!num = %d\n", num); */
+	//dgl_temp
+	num=3;
+	for( i = 0; i < g_ulNumOfPPPInterface; i++)
+	  {
+	    AnscCopyString(key, "g_PPPInterface");
+	AnscInt2String(i, buf, 10);
+	AnscCatString(key, buf);
+	if( AnscEqualString(pKeyChain->Key[pKeyChain->ulKeyCount - 1], key, TRUE) )
+	{
+	    ulIndex = i;
+	    break;
+	}
+	  }
+	if(i >= num)
+	  return ANSC_STATUS_FAILURE;
+
+	printf("%s func name \n", __func__);
+	get_ppp_client(ulIndex, pEntry);
+	/*
+	  if ( ppParamArray && ulArraySize > 0 )
+	  {
+	  for ( i = 0; i < ulArraySize; i++ )
+	  {
+	  if ( AnscEqualString(ppParamArray[i], "Enable", TRUE) )
+	  {
+	  printf("ns= %s\n", ns);
+	  pEntry->Enable = syscfg_get(ns, "Enable", buf, sizeof(buf));
+	      //pEntry->Enable = g_PPPInterface[ulIndex].Enable;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "Status", TRUE) )
+	    {
+		pEntry->Status = g_PPPInterface[ulIndex].Status;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "Alias", TRUE) )
+	    {
+		continue;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "Name", TRUE) )
+	    {
+		AnscCopyString(pEntry->Name, g_PPPInterface[ulIndex].Name);
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "LastChange", TRUE) )
+	    {
+		pEntry->LastChange = g_PPPInterface[ulIndex].LastChange;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "LowerLayers", TRUE) )
+	    {
+		AnscCopyString(pEntry->LowerLayers, g_PPPInterface[ulIndex].LowerLayers);
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "Reset", TRUE) )
+	    {
+		pEntry->Reset = g_PPPInterface[ulIndex].Reset;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "ConnectionStatus", TRUE) )
+	    {
+		pEntry->ConnectionStatus = g_PPPInterface[ulIndex].ConnectionStatus;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "LastConnectionError", TRUE) )
+	    {
+		pEntry->LastConnectionError = g_PPPInterface[ulIndex].LastConnectionError;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "AutoDisconnectTime", TRUE) )
+	    {
+		pEntry->AutoDisconnectTime = g_PPPInterface[ulIndex].AutoDisconnectTime;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "IdleDisconnectTime", TRUE) )
+	    {
+		pEntry->IdleDisconnectTime = g_PPPInterface[ulIndex].IdleDisconnectTime;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "WarnDisconnectDelay", TRUE) )
+	    {
+		pEntry->WarnDisconnectDelay = g_PPPInterface[ulIndex].WarnDisconnectDelay;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "Username", TRUE) )
+	    {
+		AnscCopyString(pEntry->Username, g_PPPInterface[ulIndex].Username);
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "Password", TRUE) )
+	    {
+		AnscCopyString(pEntry->Password, g_PPPInterface[ulIndex].Password);
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "EncryptionProtocol", TRUE) )
+	    {
+		pEntry->EncryptionProtocol = g_PPPInterface[ulIndex].EncryptionProtocol;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "CompressionProtocol", TRUE) )
+	    {
+		pEntry->CompressionProtocol = g_PPPInterface[ulIndex].CompressionProtocol;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "AuthenticationProtocol", TRUE) )
+	    {
+		pEntry->AuthenticationProtocol = g_PPPInterface[ulIndex].AuthenticationProtocol;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "MaxMRUSize", TRUE) )
+	    {
+		pEntry->MaxMRUSize = g_PPPInterface[ulIndex].MaxMRUSize;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "CurrentMRUSize", TRUE) )
+	    {
+		pEntry->CurrentMRUSize = g_PPPInterface[ulIndex].CurrentMRUSize;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "ConnectionTrigger", TRUE) )
+	    {
+		pEntry->ConnectionTrigger = g_PPPInterface[ulIndex].ConnectionTrigger;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "LCPEcho", TRUE) )
+	    {
+		pEntry->LCPEcho = g_PPPInterface[ulIndex].LCPEcho;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "LCPEchoRetry", TRUE) )
+	    {
+		pEntry->LCPEchoRetry = g_PPPInterface[ulIndex].LCPEchoRetry;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "IPCPEnable", TRUE) )
+	    {
+		pEntry->IPCPEnable = g_PPPInterface[ulIndex].IPCPEnable;
+	    }
+	    else if ( AnscEqualString(ppParamArray[i], "IPv6CPEnable", TRUE) )
+	    {
+		pEntry->IPv6CPEnable = g_PPPInterface[ulIndex].IPv6CPEnable;
+	    }
+	    else
+	    {
+		returnStatus = ANSC_STATUS_BAD_NAME;
+	    }
+	}
+    }
+    else
+    {
+	pEntry->Enable = g_PPPInterface[ulIndex].Enable;
+	pEntry->Status = g_PPPInterface[ulIndex].Status;
+	AnscCopyString(pEntry->Name, g_PPPInterface[ulIndex].Name);
+	pEntry->LastChange = g_PPPInterface[ulIndex].LastChange;
+	AnscCopyString(pEntry->LowerLayers, g_PPPInterface[ulIndex].LowerLayers);
+	pEntry->Reset = g_PPPInterface[ulIndex].Reset;
+	pEntry->ConnectionStatus = g_PPPInterface[ulIndex].ConnectionStatus;
+	pEntry->LastConnectionError = g_PPPInterface[ulIndex].LastConnectionError;
+	pEntry->AutoDisconnectTime = g_PPPInterface[ulIndex].AutoDisconnectTime;
+	pEntry->IdleDisconnectTime = g_PPPInterface[ulIndex].IdleDisconnectTime;
+	pEntry->WarnDisconnectDelay = g_PPPInterface[ulIndex].WarnDisconnectDelay;
+	AnscCopyString(pEntry->Username, g_PPPInterface[ulIndex].Username);
+	AnscCopyString(pEntry->Password, g_PPPInterface[ulIndex].Password);
+	pEntry->EncryptionProtocol = g_PPPInterface[ulIndex].EncryptionProtocol;
+	pEntry->CompressionProtocol = g_PPPInterface[ulIndex].CompressionProtocol;
+	pEntry->AuthenticationProtocol = g_PPPInterface[ulIndex].AuthenticationProtocol;
+	pEntry->MaxMRUSize = g_PPPInterface[ulIndex].MaxMRUSize;
+	pEntry->CurrentMRUSize = g_PPPInterface[ulIndex].CurrentMRUSize;
+	pEntry->ConnectionTrigger = g_PPPInterface[ulIndex].ConnectionTrigger;
+	pEntry->LCPEcho = g_PPPInterface[ulIndex].LCPEcho;
+	pEntry->LCPEchoRetry = g_PPPInterface[ulIndex].LCPEchoRetry;
+	pEntry->IPCPEnable = g_PPPInterface[ulIndex].IPCPEnable;
+	pEntry->IPv6CPEnable = g_PPPInterface[ulIndex].IPv6CPEnable;
+    }
+*/
+#ifdef _SBAPI_DEBUG
+    CCSP_PRINT_ALL_PPP_INTERFACE_PARAMETERS("CcspSbPPPInterfaceGetEntryByKeyChain AFTER integration");
+#endif
+
+    return returnStatus;
+}
+
+/**********************************************************************
+
+    caller:     owner of this object
+
+    prototype:
+
+	ANSC_STATUS
+	CcspSbPPPInterfaceSetEntry
+	    (
+		char**                    ppUpdatedParamArray,
+		ULONG                     ulUpdatedParamArraySize,
+		PCCSP_SB_PPP_INTERFACE    pEntry
+	    )
+
+    description:
+
+	This function is called to set the context of the object.
+
+    argument:
+
+	char**                            ppUpdatedParamArray
+	[IN] Parameter name array of updated parameters.
+
+	ULONG                             ulUpdatedParamArraySize
+	[IN] Updated parameter name array size.
+
+	PCCSP_SB_PPP_INTERFACE            pEntry
+	[IN] pEntry contains key chain and the entry value to be set.
+
+    return:
+
+	The status of the operation.
+
+**********************************************************************/
+
+ANSC_STATUS
+CcspSbPPPInterfaceSetEntry
+    (
+	char**                            ppUpdatedParamArray,
+	ULONG                             ulUpdatedParamArraySize,
+	PCCSP_SB_PPP_INTERFACE            pEntry
+    )
+{
+    ANSC_STATUS                           returnStatus                    = ANSC_STATUS_SUCCESS;
+    PCCSP_DML_KEY_CHAIN                   pKeyChain                       = &pEntry->Common.KeyChain;
+    //char                                  buf[16]                         = {0};
+    char                                  key[CCSP_DML_KEY_LENGTH]        = {0};
+    ULONG                                 ulIndex                         = 0;
+    ULONG                                 i                               = 0;
+    char							   ns[64] ={0}, name[64]={0}, buf[256]={0};
+    int								   flag;
+
+    /*
+     * TODO: Use pKeyChain to identify instances from the very beginning
+     * table in backend implementation and set the corresponding entry
+     * to backend.
+     */
+    printf("ppp dgl\n");
+
+#ifdef _SBAPI_DEBUG
+    CCSP_PRINT_ALL_PPP_INTERFACE_PARAMETERS("CcspSbPPPInterfaceSetEntry BEFORE integration");
+#endif
+
+    for( i = 0; i < g_ulNumOfPPPInterface; i++)
+    {
+	AnscCopyString(key, "g_PPPInterface");
+	AnscInt2String(i, buf, 10);
+	AnscCatString(key, buf);
+	if( AnscEqualString(pKeyChain->Key[pKeyChain->ulKeyCount - 1], key, TRUE) )
+	{
+	    ulIndex = i;
+	    break;
+	}
+    }
+    //to port dgl
+
+    // ulIndex = get_index_by_key(pKeyChain->Key[pKeyChain->ulKeyCount - 1]);
+    //	if(ulIndex == -1)
+    //		return ANSC_STATUS_FAILURE;
+		sprintf(ns, "ppp_%d", ulIndex);
+
+
+    //get code... no use here
+    //ulIndex = get_index_by_key(pKeyChain->Key[pKeyChain->ulKeyCount - 1]);
+    //if(ulIndex == -1)
+    //		return ANSC_STATUS_FAILURE;
+    //
+    //	sprintf(ns, "dhcp4s_%d", ulIndex);
+    //	sprintf(name, "enable");
+    //	syscfg_get(ns, name, buf, sizeof(buf));
+    //	pEntry->Enable = atoi(buf) ? true : false;
+		printf("dgl enter function %s\n", __func__);
+		int ret;
+		if( syscfg_init() !=0 )
+		  printf("syscfg_init fail\n");
+    if ( ppUpdatedParamArray && ulUpdatedParamArraySize > 0 )
+    {
+	for ( i = 0; i < ulUpdatedParamArraySize; i++ )
+	{
+	    if ( AnscEqualString(ppUpdatedParamArray[i], "Enable", TRUE) )
+	    {
+	      //g_PPPInterface[ulIndex].Enable = pEntry->Enable;
+	      //dgl porting
+	      printf("ns= %s", ns);
+	      //syscfg_get(ns, "enable", buf, sizeof(buf));
+	      syscfg_get(ns, "Enable", buf, sizeof(buf));
+	      printf("buf = %s", buf);
+	      if(strcmp(pEntry->Enable ? "1" : "0", buf))
+	      {
+		printf("pEntry-Enable= %d\n", pEntry->Enable);
+		if(pEntry->Enable == true)
+		  {
+		printf("pEntry-Enable2= %d\n", pEntry->Enable);
+		    syscfg_set(ns, "Enable", "1");
+		    //commonSyseventSet("pppoe-start", NULL);
+		  }
+		else
+		  {
+		printf("pEntry-Enable3= %d\n", pEntry->Enable);
+		    syscfg_set(ns, "Enable", "0");
+		    //commonSyseventSet("pppoe-stop", NULL);
+		  }
+	      }
+	      syscfg_commit();
+	    }
+	    /* else if ( AnscEqualString(ppUpdatedParamArray[i], "Status", TRUE) ) */
+	    /* { */
+	    /*   //g_PPPInterface[ulIndex].Status = pEntry->Status; */
+	    /*   syscfg_set(ns, "status", ""); */
+	    /* } */
+	    /* else if ( AnscEqualString(ppUpdatedParamArray[i], "Name", TRUE) ) */
+	    /* { */
+	    /*     AnscCopyString(g_PPPInterface[ulIndex].Name, pEntry->Name); */
+	    /* } */
+	    /* else if ( AnscEqualString(ppUpdatedParamArray[i], "LastChange", TRUE) ) */
+	    /* { */
+	    /*     g_PPPInterface[ulIndex].LastChange = pEntry->LastChange; */
+	    /* } */
+	    else if ( AnscEqualString(ppUpdatedParamArray[i], "LowerLayers", TRUE) )
+	    {
+	      syscfg_set(ns, "LowerLayers", pEntry->LowerLayers);
+	      //AnscCopyString(g_PPPInterface[ulIndex].LowerLayers, pEntry->LowerLayers);
+	    }
+	    else if ( AnscEqualString(ppUpdatedParamArray[i], "Reset", TRUE) )
+	    {
+	      if(pEntry->Reset == 1)
+		syscfg_set(ns, "Reset", "true");
+	      else if(pEntry->Reset == 0)
+		syscfg_set(ns, "Reset", "false");
+	      else
+		printf("ns set Reset error");//dgl_temp
+		//g_PPPInterface[ulIndex].Reset = pEntry->Reset;
+	    }
+	    /* else if ( AnscEqualString(ppUpdatedParamArray[i], "ConnectionStatus", TRUE) ) */
+	    /* { */
+	    /*     g_PPPInterface[ulIndex].ConnectionStatus = pEntry->ConnectionStatus; */
+	    /* } */
+	    /* else if ( AnscEqualString(ppUpdatedParamArray[i], "LastConnectionError", TRUE) ) */
+	    /* { */
+	    /*     g_PPPInterface[ulIndex].LastConnectionError = pEntry->LastConnectionError; */
+	    /* } */
+	    else if ( AnscEqualString(ppUpdatedParamArray[i], "AutoDisconnectTime", TRUE) )
+	    {
+	      sprintf(buf, "%s", pEntry->AutoDisconnectTime);
+	      syscfg_set(ns, "AutoDisconnectTime", buf);
+	      //g_PPPInterface[ulIndex].AutoDisconnectTime = pEntry->AutoDisconnectTime;
+	    }
+	    else if ( AnscEqualString(ppUpdatedParamArray[i], "IdleDisconnectTime", TRUE) )
+	    {
+	      sprintf(buf, "%s", pEntry->IdleDisconnectTime);
+	      syscfg_set(ns, "IdleDisconnectTime", buf);
+	    }
+	    else if ( AnscEqualString(ppUpdatedParamArray[i], "WarnDisconnectDelay", TRUE) )
+	    {
+	      sprintf(buf, "%s", pEntry->WarnDisconnectDelay);
+	      syscfg_set(ns, "WarnDisconnectDelay", buf);
+	    }
+	    else if ( AnscEqualString(ppUpdatedParamArray[i], "Username", TRUE) )
+	    {
+	      syscfg_set(ns, "Username", pEntry->Username);
+	    }
+	    else if ( AnscEqualString(ppUpdatedParamArray[i], "Password", TRUE) )
+	    {
+	      syscfg_set(ns, "Password", pEntry->Password);
+	    }
+	    /* else if ( AnscEqualString(ppUpdatedParamArray[i], "EncryptionProtocol", TRUE) ) */
+	    /* { */
+	    /*     g_PPPInterface[ulIndex].EncryptionProtocol = pEntry->EncryptionProtocol; */
+	    /* } */
+	    /* else if ( AnscEqualString(ppUpdatedParamArray[i], "CompressionProtocol", TRUE) ) */
+	    /* { */
+	    /*     g_PPPInterface[ulIndex].CompressionProtocol = pEntry->CompressionProtocol; */
+	    /* } */
+	    /* else if ( AnscEqualString(ppUpdatedParamArray[i], "AuthenticationProtocol", TRUE) ) */
+	    /* { */
+	    /*     g_PPPInterface[ulIndex].AuthenticationProtocol = pEntry->AuthenticationProtocol; */
+	    /* } */
+	    else if ( AnscEqualString(ppUpdatedParamArray[i], "MaxMRUSize", TRUE) )
+	    {
+	      //syscfg_get(ns, "MaxMRUSize", buf, sizeof(buf));
+	      //itoa(pEntry->MaxMRUSize, buf, sizeof(buf));
+	      sprintf(buf,"%d", pEntry->MaxMRUSize);
+	      syscfg_set(ns, "MaxMRUSize", buf);
+	    }
+	    /* else if ( AnscEqualString(ppUpdatedParamArray[i], "CurrentMRUSize", TRUE) ) */
+	    /* { */
+	    /*   syscfg_set(ns, "CurrentMRUSize", itoa(pEntry->CurrentMRUSize));	       */
+	    /* } */
+	    else if ( AnscEqualString(ppUpdatedParamArray[i], "ConnectionTrigger", TRUE) )
+	    {
+	      syscfg_set(ns, "ConnectionTrigger", pEntry->ConnectionTrigger);
+	    }
+	    /* else if ( AnscEqualString(ppUpdatedParamArray[i], "LCPEcho", TRUE) ) */
+	    /* { */
+	    /*     g_PPPInterface[ulIndex].LCPEcho = pEntry->LCPEcho; */
+	    /* } */
+	    /* else if ( AnscEqualString(ppUpdatedParamArray[i], "LCPEchoRetry", TRUE) ) */
+	    /* { */
+	    /*     g_PPPInterface[ulIndex].LCPEchoRetry = pEntry->LCPEchoRetry; */
+	    /* } */
+	    else if ( AnscEqualString(ppUpdatedParamArray[i], "IPCPEnable", TRUE) )
+	    {
+	      if(pEntry->IPCPEnable == 1)
+		syscfg_set(ns, "IPCPEnable", "true");
+	      else if(pEntry->IPCPEnable == 0)
+		syscfg_set(ns, "IPCPEnable", "false");
+	      else
+		printf("ns set IPCPEnable error");//dgl_temp
+
+	    }
+	    else if ( AnscEqualString(ppUpdatedParamArray[i], "IPv6CPEnable", TRUE) )
+	    {
+	      if(pEntry->IPv6CPEnable == 1)
+		syscfg_set(ns, "IPv6CPEnable", "true");
+	      else if(pEntry->IPv6CPEnable == 0)
+		syscfg_set(ns, "IPv6CPEnable", "false");
+	      else
+		printf("ns set IPv6CPEnable error");//dgl_temp
+	    }
+	    else
+	    {
+		returnStatus = ANSC_STATUS_BAD_NAME;
+	    }
+	}
+    }
+    else
+    {
+
+      printf("ns not set error\n");//dgl_temp
+
+	/* All the fields in pEntry excluding "common" should be set here */
+	/* g_PPPInterface[ulIndex].Enable = pEntry->Enable; */
+	/* g_PPPInterface[ulIndex].Status = pEntry->Status; */
+	/* AnscCopyString(g_PPPInterface[ulIndex].Name, pEntry->Name); */
+	/* g_PPPInterface[ulIndex].LastChange = pEntry->LastChange; */
+	/* AnscCopyString(g_PPPInterface[ulIndex].LowerLayers, pEntry->LowerLayers); */
+	/* g_PPPInterface[ulIndex].Reset = pEntry->Reset; */
+	/* g_PPPInterface[ulIndex].ConnectionStatus = pEntry->ConnectionStatus; */
+	/* g_PPPInterface[ulIndex].LastConnectionError = pEntry->LastConnectionError; */
+	/* g_PPPInterface[ulIndex].AutoDisconnectTime = pEntry->AutoDisconnectTime; */
+	/* g_PPPInterface[ulIndex].IdleDisconnectTime = pEntry->IdleDisconnectTime; */
+	/* g_PPPInterface[ulIndex].WarnDisconnectDelay = pEntry->WarnDisconnectDelay; */
+	/* AnscCopyString(g_PPPInterface[ulIndex].Username, pEntry->Username); */
+	/* AnscCopyString(g_PPPInterface[ulIndex].Password, pEntry->Password); */
+	/* g_PPPInterface[ulIndex].EncryptionProtocol = pEntry->EncryptionProtocol; */
+	/* g_PPPInterface[ulIndex].CompressionProtocol = pEntry->CompressionProtocol; */
+	/* g_PPPInterface[ulIndex].AuthenticationProtocol = pEntry->AuthenticationProtocol; */
+	/* g_PPPInterface[ulIndex].MaxMRUSize = pEntry->MaxMRUSize; */
+	/* g_PPPInterface[ulIndex].CurrentMRUSize = pEntry->CurrentMRUSize; */
+	/* g_PPPInterface[ulIndex].ConnectionTrigger = pEntry->ConnectionTrigger; */
+	/* g_PPPInterface[ulIndex].LCPEcho = pEntry->LCPEcho; */
+	/* g_PPPInterface[ulIndex].LCPEchoRetry = pEntry->LCPEchoRetry; */
+	/* g_PPPInterface[ulIndex].IPCPEnable = pEntry->IPCPEnable; */
+	/* g_PPPInterface[ulIndex].IPv6CPEnable = pEntry->IPv6CPEnable; */
+    }
+
+    return returnStatus;
+}
+
+/**********************************************************************
+
+    caller:     owner of this object
+
+    prototype:
+
+	ANSC_STATUS
+	CcspSbPPPInterfaceAddEntry
+	    (
+		PCCSP_SB_PPP_INTERFACE    pEntry
+	    )
+
+    description:
+
+	This function is called to add the context of the object.
+
+    argument:
+
+	PCCSP_SB_PPP_INTERFACE            pEntry
+	[IN] pEntry contains key chain and the entry to be added.
+
+    return:
+
+	The status of the operation.
+
+**********************************************************************/
+
+ANSC_STATUS
+CcspSbPPPInterfaceAddEntry
+    (
+	PCCSP_SB_PPP_INTERFACE            pEntry
+    )
+{
+    ANSC_STATUS                           returnStatus                    = ANSC_STATUS_SUCCESS;
+    PCCSP_DML_KEY_CHAIN                   pKeyChain                       = &pEntry->Common.KeyChain;
+    printf("dgl_mark ppp %s\n", __func__);
+	return ANSC_STATUS_FAILURE;
+	//dgl_port
+    /*
+     * TODO: Use pKeyChain to identify instances from the very beginning
+     * table in backend implementation and add the corresponding entry
+     * to backend.
+     */
+
+    if( g_ulNumOfPPPInterface < 10 )
+    {
+	g_ulNumOfPPPInterface++;
+    }
+    else
+    {
+	returnStatus = ANSC_STATUS_FAILURE;
+    }
+
+    g_PPPInterface[g_ulNumOfPPPInterface-1].Enable = pEntry->Enable;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].Status = pEntry->Status;
+    AnscCopyString(g_PPPInterface[g_ulNumOfPPPInterface-1].Name, pEntry->Name);
+    g_PPPInterface[g_ulNumOfPPPInterface-1].LastChange = pEntry->LastChange;
+    AnscCopyString(g_PPPInterface[g_ulNumOfPPPInterface-1].LowerLayers, pEntry->LowerLayers);
+    g_PPPInterface[g_ulNumOfPPPInterface-1].Reset = pEntry->Reset;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].ConnectionStatus = pEntry->ConnectionStatus;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].LastConnectionError = pEntry->LastConnectionError;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].AutoDisconnectTime = pEntry->AutoDisconnectTime;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].IdleDisconnectTime = pEntry->IdleDisconnectTime;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].WarnDisconnectDelay = pEntry->WarnDisconnectDelay;
+    AnscCopyString(g_PPPInterface[g_ulNumOfPPPInterface-1].Username, pEntry->Username);
+    AnscCopyString(g_PPPInterface[g_ulNumOfPPPInterface-1].Password, pEntry->Password);
+    g_PPPInterface[g_ulNumOfPPPInterface-1].EncryptionProtocol = pEntry->EncryptionProtocol;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].CompressionProtocol = pEntry->CompressionProtocol;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].AuthenticationProtocol = pEntry->AuthenticationProtocol;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].MaxMRUSize = pEntry->MaxMRUSize;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].CurrentMRUSize = pEntry->CurrentMRUSize;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].ConnectionTrigger = pEntry->ConnectionTrigger;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].LCPEcho = pEntry->LCPEcho;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].LCPEchoRetry = pEntry->LCPEchoRetry;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].IPCPEnable = pEntry->IPCPEnable;
+    g_PPPInterface[g_ulNumOfPPPInterface-1].IPv6CPEnable = pEntry->IPv6CPEnable;
+
+    return returnStatus;
+}
+
+/**********************************************************************
+
+    caller:     owner of this object
+
+    prototype:
+
+	ANSC_STATUS
+	CcspSbPPPInterfaceDelEntry
+	    (
+		PCCSP_SB_PPP_INTERFACE    pEntry
+	    )
+
+    description:
+
+	This function is called to delete the context of the object.
+
+    argument:
+
+	PCCSP_SB_PPP_INTERFACE            pEntry
+	[IN] pEntry contains key chain and the entry to be added.
+
+    return:
+
+	The status of the operation.
+
+**********************************************************************/
+
+ANSC_STATUS
+CcspSbPPPInterfaceDelEntry
+    (
+	PCCSP_SB_PPP_INTERFACE            pEntry
+    )
+{
+    ANSC_STATUS                           returnStatus                    = ANSC_STATUS_SUCCESS;
+    PCCSP_DML_KEY_CHAIN                   pKeyChain                       = &pEntry->Common.KeyChain;
+    char                                  buf[16]                         = {0};
+    char                                  key[CCSP_DML_KEY_LENGTH]        = {0};
+    ULONG                                 ulIndex                         = 0;
+    ULONG                                 i                               = 0;
+
+    /*
+     * TODO: Use pKeyChain to identify instances from the very beginning
+     * table in backend implementation and delete the corresponding entry
+     * from backend.
+     */
+
+    for( i = 0; i < g_ulNumOfPPPInterface; i++)
+    {
+	AnscCopyString(key, "g_PPPInterface");
+	AnscInt2String(i, buf, 10);
+	AnscCatString(key, buf);
+	if( AnscEqualString(pKeyChain->Key[pKeyChain->ulKeyCount - 1], key, TRUE) )
+	{
+	    ulIndex = i;
+	    break;
+	}
+    }
+
+    if( g_ulNumOfPPPInterface == 0 )
+    {
+	returnStatus = ANSC_STATUS_FAILURE;
+    }
+    else
+    {
+	for( i = ulIndex; i < g_ulNumOfPPPInterface - 1; i++)
+	{
+	    AnscCopyMemory(g_PPPInterface+i, g_PPPInterface+i+1, sizeof(CCSP_SB_PPP_INTERFACE));
+	}
+
+	g_ulNumOfPPPInterface--;
+    }
+
+    return returnStatus;
+}
+
+/**********************************************************************
+
+    caller:     owner of this object
+
+    prototype:
+
+	ANSC_STATUS
+	CcspSbPPPInterfaceValidate
+	    (
+		char**                    ppUpdatedParamArray,
+		ULONG                     ulUpdatedParamArraySize,
+		PCCSP_SB_PPP_INTERFACE    pEntry,
+		char*                     pReturnParamName,
+		ULONG*                    puLength
+	    )
+
+    description:
+
+	This function is called to validate the context of the object.
+
+    argument:
+
+	char**                            ppUpdatedParamArray
+	[IN] Parameter name array of those updated parameters.
+
+	ULONG                             ulUpdatedParamArraySize
+	[IN] Size of updated parameter name array.
+
+	PCCSP_SB_PPP_INTERFACE            pEntry
+	[IN] pEntry contains key chain and the entry to be added.
+
+	char*                             pReturnParamName
+	[OUT] The failed parameter name.
+
+	ULONG*                            puLength
+	[OUT] Length of the pReturnParamName.
+
+    return:
+
+	The status of the operation.
+
+**********************************************************************/
+
+ANSC_STATUS
+CcspSbPPPInterfaceValidate
+    (
+	char**                            ppUpdatedParamArray,
+	ULONG                             ulUpdatedParamArraySize,
+	PCCSP_SB_PPP_INTERFACE            pEntry,
+	char*                             pReturnParamName,
+	ULONG*                            puLength
+    )
+{
+    ANSC_STATUS                           returnStatus                    = ANSC_STATUS_SUCCESS;
+    PCCSP_DML_KEY_CHAIN                   pKeyChain                       = &pEntry->Common.KeyChain;
+
+    /*
+     * TODO: Use pKeyChain to identify instances from the very beginning
+     * table in backend implementation and validate the corresponding entry
+     * from backend.
+     */
+
+    return returnStatus;
+}
+
+/**********************************************************************
+
+    caller:     owner of this object
+
+    prototype:
+
+	BOOL
+	CcspSbPPPInterfaceIsKeyUpdated
+	    (
+		PCCSP_SB_PPP_INTERFACE    pEntry,
+		char*                     pNewKey
+	    )
+
+    description:
+
+	This function is called to check if key is updated.
+
+    argument:
+
+	PCCSP_SB_PPP_INTERFACE            pEntry
+	[IN] pEntry contains key chain and the entry to be added.
+
+	char*                             pNewKey
+	[OUT] Place holder of the new key if it's updated.
+
+    return:
+
+	The status of the operation.
+
+**********************************************************************/
+
+BOOL
+CcspSbPPPInterfaceIsKeyUpdated
+    (
+	PCCSP_SB_PPP_INTERFACE            pEntry,
+	char*                             pNewKey
+    )
+{
+    BOOL                                  bUpdated                        = FALSE;
+    PCCSP_DML_KEY_CHAIN                   pKeyChain                       = &pEntry->Common.KeyChain;
+    char*                                 pOldKey                         = NULL;
+
+    if ( pKeyChain->ulKeyCount > 0 )
+    {
+	pOldKey = pKeyChain->Key[pKeyChain->ulKeyCount - 1];
+    }
+
+    /*
+     * TODO: Compare pOldKey with the new key in backend to determine if it's
+     * already updated. If yes, fill pNewKey with the new entry key.
+     */
+
+    return bUpdated;
+}
+
+/**********************************************************************
+
+    caller:     owner of this object
+
+    prototype:
+
+	ANSC_STATUS
+	CcspSbPPPInterfaceInit
+	    (
+		PCCSP_SB_PPP_INTERFACE    pEntry,
+		char*                     pKey
+	    )
+
+    description:
+
+	This function is called to initialize pEntry.
+
+    argument:
+
+	PCCSP_SB_PPP_INTERFACE            pEntry
+	[IN/OUT] pEntry contains key chain and the entry to be added.
+
+	char*                             pKey
+	[OUT] Place holder for the new entry key.
+    return:
+
+	The status of the operation.
+
+**********************************************************************/
+
+ANSC_STATUS
+CcspSbPPPInterfaceInit
+    (
+	PCCSP_SB_PPP_INTERFACE            pEntry,
+	char*                             pKey
+    )
+{
+    ANSC_STATUS                           returnStatus                    = ANSC_STATUS_SUCCESS;
+    char                                  buf[16]                         = {0};
+
+    /* Init pEntry eg. set some default value */
+
+    if ( pKey )
+    {
+	/* TODO: Fill the pKey with the key value of the entry retrieved */
+
+	AnscCopyString(pKey, "g_PPPInterface");
+	AnscInt2String(g_ulNumOfPPPInterface-1, buf, 10);
+	AnscCatString(pKey, buf);
+    }
+
+    return returnStatus;
+}
+
+void temp()
+{
+	aaa=100;
+	
+	
+	
+	
+        ssa;
+        ;
+        if();
+        
+        aaa
+        aaa
+safadfa;
+        int a ;
+        a = 199;
+		
+  if(1)
+   
+	  
+     
+    printf("hello world\n");
+  
+  
+}
+void love()
+{
+    aa;
+
+  a=100;
+  ssaas;
+  
+  
+      if(0)
+        aaaaa
+          
+          q
+          
+      
+          
+          
+          aaaaa
+          
+        
+aaaaa
+  
+            aaaaa;
+      if(aaa==000)
+          aaaa;
+      else
+          bbb;
+      lalala;
+      lalala;
+      
+      sssss
+see
+          
+
+        
+}
+void lov()
+{
+    aaa;
+
+
+
+}

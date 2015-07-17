@@ -1,0 +1,425 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Mon Jun 29 10:40:34 2015
+;; Desktop file format version 206
+;; Emacs version 24.3.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("block" "do_parental_control" "parent" "do_lan2wan" "lan2wan" "firewa" "cosadmlmsserv_getnumberofentries" "getnumberofentries" "service" "setvalues" "cosadmlmsserv_setconf" "setconf" "ccspsbmanagedservicesservicegetnumofentries" "set" "cosadmlmstrusteduser_setvalues" "cosadmlmsserv_addentry"))
+(setq regexp-search-ring '("\\_<ppVarArray\\_>" "\\_<AnscEqualString\\_>"))
+(setq register-alist (list (list 56 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 326207 (get-buffer "firewall.c")))) mk)) (list 52 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 326853 (get-buffer "firewall.c")))) mk)) (list 51 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 326853 (get-buffer "firewall.c")))) mk)) (list 50 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 326853 (get-buffer "firewall.c")))) mk)) (list 49 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 203802 (get-buffer "firewall.c")))) mk))))
+(setq file-name-history '("~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/" "~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedservices_trusteduser_apis.c" "~/Public/work2/vdsl2/vdsl2/ccsp/222" "~/Public/work2/vdsl2/vdsl2/ccsp/111" "~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedservices_service_apis.c" "~/Public/work2/vdsl2/vdsl2/ccsp/./CcspPandM/arch/vdsl2/boards/qualcomm/config/COSAXcalibur_tr098.XML\n" "~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_manageddevices_apis.c" "~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_manageddevices_device_apis.c" "~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_trusteduser_apis.c" "~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c" "~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_apis.c" "~/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/TAGS" "~/Public/work2/vdsl2/vdsl2/ccsp/Utopia/source/firewall/TAGS" "~/Public/work2/vdsl2/vdsl2_v0.11.z/ccsp/CcspPandM/custom/comcast/source/TR-181/custom_sbapi/../../../../../../CcspPandM/arch/intel_usg/boards/dpc3939_arm/config/TR181-USGv2.XML" "~/Public/work/vdsl/vdsl_v2/test.i" "~/Public/work/vdsl/vdsl_v2/test.c" "~/Public/work2/vdsl/ccsp_simu/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/" "~/Public/work2/vdsl/ccsp_simu/CcspPandM/arch/vdsl2/boards/simu_qualcomm/source/TR-181/board_ml/" "~/Public/work2/vdsl/ccsp_simu/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/" "~/Public/work2/vdsl/ccsp_simu/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/" "~/Public/work2/vdsl/ccsp_simu/CcspPandM/arch/vdsl2/boards/simu_qualcomm/source/TR-181/board_sbapi/ppp/ppp_interface_apis.c" "/mnt/hgfs/work/ppp_interface_apis.c" "ppp_interface_apis.h" "Up\nDown\nUnknown\nDormant\nNotPresent\nLowerLayerDown\nError (OPTIONAL) " "~/Public/work2/vdsl/ccsp_simu/CcspPandM/arch/vdsl2/boards/simu_qualcomm/source/TR-181/board_sbapi/ppp/" "ppp_interface_apis.c" "dhcpv4_client_apis.c" "~/Public/work2/vdsl/ccsp_simu/CcspPandM/arch/vdsl2/boards/simu_qualcomm/source/TR-181/board_sbapi/ppp/" "~/Public/work2/vdsl/ccsp_simu/CcspPandM/arch/vdsl2/boards/simu_qualcomm/source/TR-181/" "~/Public/work2/vdsl/ccsp_simu/CcspPandM/arch/vdsl2/boards/simu_qualcomm/"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  nil
+  "x_comcast_com_parentalcontrol"
+  'dired-mode
+  '(window-number-mode)
+  1126
+  '(1188 nil)
+  t
+  '("/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/")
+  nil)
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c"
+  "x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  11284
+  '(10793 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedservices_service_apis.c"
+  "x_comcast_com_parentalcontrol_managedservices_service_apis.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  1498
+  '(1203 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/Utopia/source/firewall/firewall.c"
+  "firewall.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode linum-mode window-number-mode auto-complete-mode)
+  205425
+  '(204665 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedservices_trusteduser_apis.c"
+  "x_comcast_com_parentalcontrol_managedservices_trusteduser_apis.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  3183
+  '(520 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/222"
+  "222"
+  'fundamental-mode
+  '(window-number-mode)
+  3829
+  '(3646 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/111"
+  "111"
+  'fundamental-mode
+  '(window-number-mode)
+  976
+  '(3307 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_manageddevices_apis.c"
+  "x_comcast_com_parentalcontrol_manageddevices_apis.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  1558
+  '(1536 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/config/COSAXcalibur_tr098.XML\n"
+  "COSAXcalibur_tr098.XML\n"
+  'fundamental-mode
+  '(window-number-mode)
+  2
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_trusteduser_apis.c"
+  "x_comcast_com_parentalcontrol_managedsites_trusteduser_apis.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  3012
+  '(3100 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_manageddevices_device_apis.c"
+  "x_comcast_com_parentalcontrol_manageddevices_device_apis.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  1710
+  '(5067 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/intel_usg/boards/arm_shared/source/TR-181/board_sbapi/cosa_x_cisco_com_devicecontrol_apis.c"
+  "cosa_x_cisco_com_devicecontrol_apis.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  49862
+  '(49340 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_sbapi/x_comcast_com_parentalcontrol/x_comcast_com_parentalcontrol_managedsites_apis.c"
+  "x_comcast_com_parentalcontrol_managedsites_apis.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  1410
+  '(1233 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_include/x_comcast_com_parentalcontrol_managedsites_trusteduser_apis.h"
+  "x_comcast_com_parentalcontrol_managedsites_trusteduser_apis.h"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  1082
+  '(1015 t)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_include/x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.h"
+  "x_comcast_com_parentalcontrol_managedsites_blockedsite_apis.h"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  1813
+  '(1799 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/config-2015-06-08"
+  "config-2015-06-08"
+  'fundamental-mode
+  '(window-number-mode)
+  774
+  '(774 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "vdsl2"
+  'dired-mode
+  '(window-number-mode)
+  1052
+  '(3915 nil)
+  t
+  '("/home/guoliang/Public/work2/vdsl2/vdsl2/")
+  nil)
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/Utopia/source/utapi/lib/utapi_parental_control.c"
+  "utapi_parental_control.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  6010
+  '(6010 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-dos)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/Utopia/source/utctx/lib/utctx_api.h"
+  "utctx_api.h"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  17831
+  '(21090 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/Stage/vdsl2-qualcomm/include/utapi/utapi_parental_control.h"
+  "utapi_parental_control.h"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  2313
+  '(2943 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-dos)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/Utopia/source/utapi/lib/utapi_parental_control.h"
+  "utapi_parental_control.h"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  2313
+  '(2209 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-dos)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/Utopia/source/utapi/lib/utapi_util.c"
+  "utapi_util.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  8974
+  '(8815 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/Utopia/source/utctx/lib/utctx.c"
+  "utctx.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  130373
+  '(130384 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/Stage/intel_usg-rdkb_arm/include/utapi/utapi_util.h"
+  "utapi_util.h"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  6883
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/Stage/intel_usg-rdkb_arm/include/utctx/utctx_api.h"
+  "utctx_api.h"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  17047
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspCommonLibrary/source/cosa/include/linux/.kernel_debug.h"
+  ".kernel_debug.h"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  2787
+  '(1401 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-dos)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/Utopia/source/firewall_log/GenFWLog.c"
+  "GenFWLog.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  311
+  '(278 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/TR-181/integration_src.intel_usg_arm/cosa_x_comcast_com_parentalcontrol_apis.h"
+  "cosa_x_comcast_com_parentalcontrol_apis.h"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  474
+  '(591 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/custom/comcast/source/TR-181/custom_include/cosa_x_comcast_com_parentalcontrol_apis.h"
+  "cosa_x_comcast_com_parentalcontrol_apis.h"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  559
+  '(675 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_include/x_comcast_com_parentalcontrol_managedsites_apis.h"
+  "x_comcast_com_parentalcontrol_managedsites_apis.h"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  1234
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/.emacs.d/wcy-swbuff.el"
+  "wcy-swbuff.el"
+  'emacs-lisp-mode
+  '(senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode)
+  641
+  '(641 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . iso-latin-1-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/.emacs.d/bookmarks"
+  "bookmarks"
+  'fundamental-mode
+  '(window-number-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_ml/x_comcast_com_parentalcontrol_managedsites_blockedsite_dml.c"
+  "x_comcast_com_parentalcontrol_managedsites_blockedsite_dml.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  2466
+  '(4346 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/CcspPandM/arch/vdsl2/boards/qualcomm/source/TR-098/board_ml/plugin_main.c"
+  "plugin_main.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  145168
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/ccsp/TR-181/middle_layer_src.intel_usg_arm/cosa_x_comcast_com_parentalcontrol_internal.c"
+  "cosa_x_comcast_com_parentalcontrol_internal.c"
+  'c-mode
+  '(abbrev-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/Public/work2/vdsl2/vdsl2/BSDmakefile"
+  "BSDmakefile"
+  'makefile-gmake-mode
+  '(senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode)
+  180
+  '(180 nil)
+  nil
+  nil
+  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoliang/.emacs-history.el"
+  ".emacs-history.el"
+  'emacs-lisp-mode
+  '(senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode)
+  317065
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
