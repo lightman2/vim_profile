@@ -1,3 +1,6 @@
+
+#include <stdio.h>
+#if 0
 #include <stdio.h>
 #include <apue.h>
        int
@@ -13,11 +16,20 @@
            printf("cwd = %s\n", ptr);
 exit(0); 
 }
+#endif
 
-#if 0//file_read_test
+typedef  enum
+_CCSP_SB_BLOCKEDSITE_BLOCKMETHOD
+{
+    CCSP_SB_BLOCKEDSITE_BLOCKMETHOD_URL    = 1,
+    CCSP_SB_BLOCKEDSITE_BLOCKMETHOD_Keyword,
+}
+    CCSP_SB_BLOCKEDSITE_BLOCKMETHOD;
+//file_read_test
 int main(int argc, char *argv[])
 {
     int var;
+    printf("%d  %d\n", CCSP_SB_BLOCKEDSITE_BLOCKMETHOD_URL, CCSP_SB_BLOCKEDSITE_BLOCKMETHOD_Keyword);
 /*    printf("%x\n",atoi(argv[1]));*/
     if(1)
     ;
@@ -29,6 +41,7 @@ int main(int argc, char *argv[])
 /*str*/
 /*}*/
 
+#if 0
 int main(void)
 {
     int c;
