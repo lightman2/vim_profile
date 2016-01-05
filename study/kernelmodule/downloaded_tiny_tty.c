@@ -14,11 +14,15 @@
 #include <linux/proc_fs.h>
 
 #include "downloaded_tiny_tty.h"
+/*#include "vtty.h"*/
+/*#include "vtty_agent_fsm.h"*/
 
 #define DRIVER_VERSION "v2.0"
 #define DRIVER_AUTHOR "Greg Kroah-Hartman <greg@kroah.com>"
 #define DRIVER_DESC "Tiny TTY driver"
 
+
+/* #define printk(...)  */
 /* Module information */
 MODULE_AUTHOR( DRIVER_AUTHOR );
 MODULE_DESCRIPTION( DRIVER_DESC );
@@ -39,7 +43,14 @@ static int tty_device_num;
 
 static struct tty_port zwave_port;
 
-#define STRINGLEN 1024
+/*#define STRINGLEN 1024*/
+#define STRINGLEN 10
+
+static int temp , len;
+
+//static agentInfo_t gAgentInfo;
+
+
 
 unsigned char tty_proc_buffer[STRINGLEN]; //currently use one buffer for test 
 
@@ -70,30 +81,37 @@ static void tiny_timer(unsigned long timer_data)
 	int i;
 	/* char data[1] = {TINY_DATA_CHARACTER};//this is an example dgl_temp */
 	int data_size = STRINGLEN;//size not ture dgl_temp copy all data
-    printk("tiny_timmer %d\n", __LINE__);
+    
+    // printk("%s is on len = %d\n", __func__, len);
 	if (!tiny)
 		return;
-    printk("tiny_timmer %d\n", __LINE__);
+    if(len<=0)
+        goto exit;
 
 	tty = tiny->tty;
 	port = tty->port;
-    printk("tiny_timmer %d\n", __LINE__);
 	/* /\* send the data to the tty layer for users to read.  This doesn't */
 	/*  * actually push the data through unless tty->low_latency is set *\/ */
-	for (i = 0; i < data_size; ++i) {
-		if (!tty_buffer_request_room(port, 1))
-			tty_flip_buffer_push(port);//dgl_temp
-		/* tty_insert_flip_char(port, data[i], TTY_NORMAL); */
-		tty_insert_flip_char(port, tty_proc_buffer[i], TTY_NORMAL);
-	}
-    /* tty_insert_flip_string(port, tty_proc_buffer, data_size); */
-    printk("tiny_timmer %d\n", __LINE__);
-    
-	tty_flip_buffer_push(port);
-
+   #if 1
+   for (i = 0; i < len; ++i) {
+       if (!tty_buffer_request_room(port, 1))
+           tty_flip_buffer_push(port);//dgl_temp
+       tty_insert_flip_char(port, tty_proc_buffer[i], TTY_NORMAL);
+       printk("%s %d char =%c %x\n", __func__, __LINE__,tty_proc_buffer[i], tty_proc_buffer[i]);
+   }//dgl_temp
+   #else
+     int number = tty_insert_flip_string(port, tty_proc_buffer, len);//dgl_temp len
+   #endif
+    //  printk("copied number = %d\n", number);
+//        tty_insert_flip_string(port, "bc", len);//dgl_temp len 
+     //tty_insert_flip_char(port, "d", TTY_NORMAL);
+	 tty_flip_buffer_push(port);
+     //len = 0;
+     //memset(tty_proc_buffer, 0, STRINGLEN);
+exit:
 	/* resubmit the timer again */
 	tiny->timer->expires = jiffies + DELAY_TIME;
-    printk("tiny_timmer %d\n", __LINE__);
+    //printk("tiny_timmer %d\n", __LINE__);
 
 	add_timer(tiny->timer);
 }
@@ -106,9 +124,9 @@ static int tiny_open(struct tty_struct *tty, struct file *file)
 	/* initialize the pointer in case something fails */
 	tty->driver_data = NULL;
     
-
 	/* get the serial object associated with this tty pointer */
 	index = tty->index;
+    printk("%s index = %d\n", __func__, index);
 	tiny = tiny_table[index];
 	if (tiny == NULL) {
 		/* first time accessing this device, let's create it */
@@ -121,6 +139,7 @@ static int tiny_open(struct tty_struct *tty, struct file *file)
 		tiny->timer = NULL;
 
 		tiny_table[index] = tiny;
+        printk("%s %d a new tiny was created\n", __func__, __LINE__);
 	}
 
 	down(&tiny->sem);
@@ -130,6 +149,7 @@ static int tiny_open(struct tty_struct *tty, struct file *file)
 	tiny->tty = tty;
 
 	++tiny->open_count;
+    printk("tiny->open_count = %d\n", tiny->open_count);
 	if (tiny->open_count == 1) {
 		/* this is the first time this port is opened */
 		/* do any hardware initialization needed here */
@@ -148,14 +168,14 @@ static int tiny_open(struct tty_struct *tty, struct file *file)
 		tiny->timer->expires = jiffies + DELAY_TIME;
 		tiny->timer->function = tiny_timer;
 		add_timer(tiny->timer);
-        printk("tiny_open %d\n", __LINE__);
+        printk("tiny_open timer added  %d jiffies = %d expires = %d\n", __LINE__, jiffies,jiffies+DELAY_TIME);
 
 	}
 
-    tty_port_tty_set(&zwave_port, tty);//dgl_temp location unsure
+    tty_port_tty_set(&zwave_port, tty);
 	up(&tiny->sem);
-    printk("tiny_open quit %d\n", __LINE__);
 
+    printk("tiny_open quit %d\n", __LINE__);
 	return 0;
 }
 
@@ -183,15 +203,23 @@ exit:
 static void tiny_close(struct tty_struct *tty, struct file *file)
 {
 	struct tiny_serial *tiny = tty->driver_data;
-
+    printk("%s entered tiny = %x\n", __func__, tiny);
+/*    print_tty_struct(tty);*/
 	if (tiny)
+    {
 		do_close(tiny);
+        printk("%s did closed tiny %d\n", __func__, __LINE__);
+        /* tty_port_tty_set(&zwave_port, NULL);//dgl_temp: port is for device or driver? sclp_tty.c maybe device */
+        tty_port_tty_set(tty->port, NULL);//dgl_temp: port is for device or driver? sclp_tty.c maybe device
+    }
 }	
 
 static int tiny_write(struct tty_struct *tty, 
 		      const unsigned char *buffer, int count)
 {
-    printk("tiny_write\n");
+    /* printk("tiny_write\n"); */
+    /* return -EINVAL; */
+#if 1//dgl_temp_1230
 	struct tiny_serial *tiny = tty->driver_data;
 	int i;
 	int retval = -EINVAL;//dgl_change
@@ -222,11 +250,27 @@ static int tiny_write(struct tty_struct *tty,
     /* else */
     /*     buffer[STRINGLEN-1]='\0' */;
     proc_write_hello(NULL, buffer, count,NULL);//dgl_temp
+
+
+    /* if(count >= STRINGLEN) */
+    /* { */
+    /*     len = STRINGLEN - 1; */
+    /* } */
+    /* else */
+    /*     len = count; */
+    /* temp = len; */
+    /* printk("buffer = %s   count = %d\n", buffer, count); */
+    /* memset(tty_proc_buffer, 0, STRINGLEN); */
+    /* memcpy(tty_proc_buffer, buffer, count); */
+    //memset(tty_proc_buffer, 0, STRINGLEN);
+    //memcpy(tty_proc_buffer, buffer, count);
 exit:
     printk("tiny_write exit\n");
 
 	up(&tiny->sem);
 	return retval;
+#endif
+
 }
 
 static int tiny_write_room(struct tty_struct *tty) 
@@ -522,8 +566,8 @@ static int tiny_ioctl(struct tty_struct *tty, unsigned int cmd,
 static int tiny_ioctl(struct tty_struct *tty, unsigned int cmd,
 		      unsigned long arg)
 {
-    int ret = 0;
-    printk("%s cmd = %0x %d\n", __func__, cmd , __LINE__);
+    int ret = 0;//5401 TCGET
+    printk("%s cmd = 0x%x %d\n", __func__, cmd , __LINE__);
 	switch (cmd) {
 	case TIOCGSERIAL:
 		return tiny_ioctl_tiocgserial(tty, cmd, arg);
@@ -534,7 +578,6 @@ static int tiny_ioctl(struct tty_struct *tty, unsigned int cmd,
     /* case DEVICEADD: */
     /*     return tiny_ioctl_deviceadd(tty, cmd, arg); */
 	}
-    printk("%s cmd = %0x %d\n", __func__, cmd , __LINE__);
 	return -ENOIOCTLCMD;
 }
 
@@ -567,7 +610,6 @@ static struct tty_operations serial_ops = {
 //dgl_add proc process ,currently only support one ttydevice
 
 
-int temp , len;
 
 
 static int proc_write_hello(struct file *file,const unsigned char *buffer,unsigned long count,void *data) {
@@ -585,14 +627,18 @@ static int proc_write_hello(struct file *file,const unsigned char *buffer,unsign
     temp = len;
     printk("buffer = %s   count = %d\n", buffer, count);
     memset(tty_proc_buffer, 0, STRINGLEN);
+    memcpy(tty_proc_buffer, buffer, count);
 /*    int ret = copy_from_user(tty_proc_buffer, buffer, len);*/
-    sprintf(tty_proc_buffer, buffer, len);
+/*     sprintf(tty_proc_buffer, buffer, len); */
+//dgl_temp     sprintf(tty_proc_buffer, buffer); 
+/*    snprintf(tty_proc_buffer, len, buffer);*/
     printk("written: %d buffer3 = %s, end\n", len, tty_proc_buffer);
     return len;
 }
 
 static int proc_read_hello(struct file *filp,char *buf,size_t count,loff_t *offp ) 
 {
+    printk("%s entered\n", __func__);
     if(count>temp)
     {
         count=temp;
@@ -621,7 +667,7 @@ static const struct file_operations hello_proc_fops = {//dgl_note need fur chang
   .read = proc_read_hello, //seq_read,
   .write = proc_write_hello,//seq_write,
   .llseek = seq_lseek,
-  .release = single_release,
+  .release = single_release,//.poll
 };
 
 
@@ -630,7 +676,9 @@ static int __init tiny_init(void)
 	int retval;
 	int i;
 
-    printk("\nenter tiny dgl\n");
+//init device
+    printk("enter tiny dgl device\n");
+
 	/* allocate the tty driver */
 	tiny_tty_driver = alloc_tty_driver(TINY_TTY_MINORS);
 	if (!tiny_tty_driver)
@@ -668,6 +716,11 @@ static int __init tiny_init(void)
 		tty_register_device(tiny_tty_driver, i, NULL);//null means no parent dgl_note
         tty_device_num++;
     }
+
+
+
+    //init agent
+    //init_zwave_agent("/dev/ttty0");//dgl_temp use proc as temp instead of dev
 	printk(KERN_INFO DRIVER_DESC " " DRIVER_VERSION);
 	return retval;
 }
@@ -699,8 +752,11 @@ static void __exit tiny_exit(void)
 				do_close(tiny);
 
 			/* shut down our timer and free the memory */
+            if(tiny->timer)
+            {
 			del_timer(tiny->timer);
 			kfree(tiny->timer);
+}
 			kfree(tiny);
 			tiny_table[i] = NULL;
 		}
@@ -709,6 +765,11 @@ static void __exit tiny_exit(void)
 
 
 
+static void print_tty_struct(struct tty_struct *tty)
+{
+    printk("tty->driverdata = %x\n", tty->driver_data);
+    
+}
 
 
 module_init(tiny_init);
