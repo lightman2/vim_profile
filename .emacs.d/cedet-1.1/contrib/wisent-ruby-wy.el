@@ -2,8 +2,8 @@
 
 ;;; Copyright (C) 2007 Daniel Debertin (debertin@gmail.com)
 
-;; Author: guoliang <guoliang@ubuntu>
-;; Created: 2015-04-30 17:26:13+0800
+;; Author: guoding <guoding@ubuntu>
+;; Created: 2015-11-26 19:27:06-0800
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 

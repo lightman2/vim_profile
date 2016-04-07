@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 2002 David Ponce
 
-;; Author: guoliang <guoliang@ubuntu>
-;; Created: 2015-04-30 17:25:59+0800
+;; Author: guoding <guoding@ubuntu>
+;; Created: 2015-11-26 19:26:44-0800
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 

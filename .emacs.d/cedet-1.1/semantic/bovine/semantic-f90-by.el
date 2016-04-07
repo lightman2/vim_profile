@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 2010 Free Software Foundation
 
-;; Author: guoliang <guoliang@ubuntu>
-;; Created: 2015-04-30 17:26:05+0800
+;; Author: guoding <guoding@ubuntu>
+;; Created: 2015-11-26 19:26:53-0800
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 

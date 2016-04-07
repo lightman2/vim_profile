@@ -2,13 +2,18 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("block"
- (filename . "~/Public/work2/vdsl2/vdsl2/ccsp/Utopia/source/firewall/firewall.c")
+(("new_bookmark"
+ (filename . "~/123")
+ (front-context-string . "/*\n * Tiny TTY d")
+ (rear-context-string)
+ (position . 1))
+("block"
+ (filename . "~/Public/ccsp_mainline_pc_simulation/ccsp/CcspCommonLib/Utopia/source/firewall/firewall.c")
  (front-context-string . "(cron_fp, namesp")
  (rear-context-string . "cement_schedule2")
  (position . 211600))
 ("diary.org"
- (filename . "~/Dropbox/枯禅竹/diary.org")
+ (filename . "~/Dropbox/note/diary.org")
  (front-context-string . "\n* 简录一生\n** 2012年")
  (rear-context-string)
  (position . 1))
@@ -27,9 +32,4 @@
  (front-context-string . "\n* 杂文摘\n** 为什么男人不")
  (rear-context-string)
  (position . 1))
-("Incoming"
- (filename . "~/.aMule/Incoming/")
- (front-context-string)
- (rear-context-string . "96 5月  12 12:54 ")
- (position . 132))
 )

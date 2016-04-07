@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 2008 Free Software Foundation
 
-;; Author: guoliang <guoliang@ubuntu>
-;; Created: 2015-04-30 17:26:13+0800
+;; Author: guoding <guoding@ubuntu>
+;; Created: 2015-11-26 19:27:07-0800
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 
@@ -612,6 +612,10 @@
 ;;
 (require 'semantic-lex)
 
+(define-lex-keyword-type-analyzer wisent-php-wy--<keyword>-keyword-analyzer
+  "keyword analyzer for <keyword> tokens."
+  "\\(\\sw\\|\\s_\\)+")
+
 (define-lex-block-type-analyzer wisent-php-wy--<block>-block-analyzer
   "block analyzer for <block> tokens."
   "\\s(\\|\\s)"
@@ -628,6 +632,11 @@
   "\\(\\sw\\|\\s_\\)+"
   nil
   'IDENTIFIER)
+
+(define-lex-sexp-type-analyzer wisent-php-wy--<string>-sexp-analyzer
+  "sexp analyzer for <string> tokens."
+  "\\s\""
+  'STRING_LITERAL)
 
 (define-lex-regex-type-analyzer wisent-php-wy--<number>-regexp-analyzer
   "regexp analyzer for <number> tokens."
@@ -689,15 +698,6 @@
     (T_PAAMAYIM_NEKUDOTAYIM . "::")
     (T_DEREF . "->"))
   'punctuation)
-
-(define-lex-sexp-type-analyzer wisent-php-wy--<string>-sexp-analyzer
-  "sexp analyzer for <string> tokens."
-  "\\s\""
-  'STRING_LITERAL)
-
-(define-lex-keyword-type-analyzer wisent-php-wy--<keyword>-keyword-analyzer
-  "keyword analyzer for <keyword> tokens."
-  "\\(\\sw\\|\\s_\\)+")
 
 
 ;;; Epilogue

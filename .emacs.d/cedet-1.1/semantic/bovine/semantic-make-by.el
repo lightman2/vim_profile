@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2008 Eric M. Ludlam
 
-;; Author: guoliang <guoliang@ubuntu>
-;; Created: 2015-04-30 17:26:05+0800
+;; Author: guoding <guoding@ubuntu>
+;; Created: 2015-11-26 19:26:53-0800
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 

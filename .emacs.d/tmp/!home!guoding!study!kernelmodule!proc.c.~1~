@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+void proc_init()
+{
+}
+
+void proc_exit()
+{
+}
+
+
+module_int(proc_init);
+module_exit(proc_exit);

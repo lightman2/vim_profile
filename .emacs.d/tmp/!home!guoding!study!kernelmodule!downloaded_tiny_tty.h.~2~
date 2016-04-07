@@ -1,0 +1,2 @@
+#define DEVICEADD 1001
+#define DEVICEDEL 1002

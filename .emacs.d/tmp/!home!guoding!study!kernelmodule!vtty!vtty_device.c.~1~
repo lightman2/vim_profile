@@ -1,0 +1,361 @@
+/***************************************************************
+	 Desc  : code for ZWave vtty device to create 
+		 virutal tty devices in kernel
+	 Author: Song You, soyou@cisco.com
+	 Date  : 2015-1-27
+****************************************************************/
+
+#include <linux/init.h>
+#include <linux/module.h>
+#include <linux/slab.h>
+#include <linux/tty.h>
+#include <linux/tty_flip.h>
+#include <linux/uaccess.h>
+#include <linux/tty_driver.h>
+#include <linux/timer.h>
+#include <linux/sched.h>
+#include "vtty.h"
+
+static int ttyAmount = 0;
+
+static int vtty_device_open(struct tty_struct * tty, struct file * filp);
+static void vtty_device_close(struct tty_struct * tty, struct file * filp);
+static int  vtty_device_write(struct tty_struct * tty, const unsigned char *buf, int count);
+static int  vtty_device_write_room(struct tty_struct *tty);
+static void vtty_device_set_termios(struct tty_struct *tty, struct ktermios * old);
+static int vtty_device_ioctl(struct tty_struct *tty,
+					unsigned int cmd, unsigned long arg);
+
+static struct tty_driver *pGZwaveTtyDriver = NULL;
+static struct tty_operations gSctpaZwaveOps = {
+	.open = vtty_device_open,
+	.close = vtty_device_close,
+	.write = vtty_device_write,
+	.write_room = vtty_device_write_room,
+	.set_termios = vtty_device_set_termios,
+	.ioctl = NULL/*vtty_device_ioctl*/
+};
+
+static struct mutex vttyDevLock;
+static vttyDevInfo_t gVttyDevInfo;
+
+extern void vtty_print_buffer(unsigned char *pBuffer, int len);
+
+/***************************************************************/
+
+static void vtty_dev_lock(void)
+{
+	mutex_lock(&vttyDevLock);
+}
+
+static void vtty_dev_unlock(void)
+{
+	mutex_unlock(&vttyDevLock);
+}
+
+static vttyDevElement_t * find_vtty_by_tty(struct tty_struct *tty)
+{
+	int i;
+
+	for(i=0;i<ttyAmount;i++){
+		if(gVttyDevInfo.vttyTable[i].ttyId.tty && (tty == gVttyDevInfo.vttyTable[i].ttyId.tty))
+			return(&gVttyDevInfo.vttyTable[i]);
+	}
+	return(NULL);
+}
+
+static void vtty_open_callback(struct tty_struct *tty)
+{
+	struct ktermios setting;
+	
+	setting = *(tty->termios);
+#if 0
+	printk("<0>cflag %x, lflag %x, iflag %x, oflag %x,ispeed %x, ospeed %x,vtime %d, vmin %d\n", setting.c_cflag, setting.c_lflag,
+		setting.c_iflag, setting.c_oflag,
+		setting.c_cc[VTIME], setting.c_cc[VMIN]);
+#endif
+}
+
+static int vtty_device_open(struct tty_struct * tty, struct file * filp)
+{
+	vttyDevElement_t * pVtty;
+	int rv=-1;
+
+	VTTY_LOG(KERN_DEBUG, "enter %s, tty %x, filp->private_data %x\n", __FUNCTION__, (unsigned int)tty, (unsigned int)filp->private_data);
+	vtty_dev_lock();
+
+	pVtty = find_vtty_by_tty(tty);
+	if(pVtty){
+		if(pVtty->ttyId.pid >= 0){
+			printk(KERN_ERR "vtty: A VTTY can't be opened for more than once\n");
+			goto OUT;
+		}
+	}else{
+		int i;
+		for(i=0;i<ttyAmount;i++){
+			if(gVttyDevInfo.vttyTable[i].ttyId.tty==NULL)
+				break;
+		}
+		if(i>=ttyAmount){
+			printk(KERN_ERR "vtty: No available VTTY\n");
+			goto OUT;
+		}
+		pVtty = &gVttyDevInfo.vttyTable[i];
+	}
+	pVtty->ttyId.pid = current->pid;
+	pVtty->ttyId.tty = tty;
+	pVtty->openTick = jiffies;
+	pVtty->freeRoom = 512;
+	tty->driver_data = (void *)pVtty;
+	vtty_open_callback(tty);
+	rv = 0;
+	VTTY_LOG(KERN_DEBUG, "Program %s(%d) opened a vtty\n", current->comm,current->pid);
+
+OUT:
+	vtty_dev_unlock();
+	VTTY_LOG(KERN_DEBUG, "exit %s(%d)\n", __FUNCTION__,rv);
+	return(rv);
+}
+
+static void vtty_device_close(struct tty_struct * tty, struct file * filp)
+{
+	vttyDevElement_t * pVtty;
+	int rv = -1;
+
+	VTTY_LOG(KERN_DEBUG, "enter %s\n", __FUNCTION__);
+
+	pVtty = (vttyDevElement_t *)tty->driver_data;
+	if(pVtty==NULL)
+		goto OUT;
+
+	vtty_closed(tty);
+
+	vtty_dev_lock();
+
+	pVtty->ttyId.pid = -1;
+	pVtty->ttyId.tty = NULL;
+	tty->driver_data = NULL;
+
+	vtty_dev_unlock();
+	rv = 0;
+
+	VTTY_LOG(KERN_INFO, "tty is closed by %s\n", current->comm);
+OUT:
+		VTTY_LOG(KERN_DEBUG, "exit %s(%d)\n", __FUNCTION__,rv);
+}
+
+static int  vtty_device_write(struct tty_struct * tty, const unsigned char *buf, int count)
+{
+	vttyDevId_t id;
+	vttyDevElement_t *pVtty;
+	VTTY_LOG(KERN_DEBUG, "enter %s(%d)\n", __FUNCTION__, count);
+
+	VTTY_LOG(KERN_DEBUG, "%s write a data\n", current->comm);
+	vtty_print_buffer((unsigned char *)buf,count);
+
+	vtty_dev_lock();
+	pVtty = (vttyDevElement_t *)tty->driver_data;
+	if(pVtty==NULL){
+		vtty_dev_unlock();
+		printk(KERN_ERR "vtty: bug at %d\n",__LINE__);
+		return(-1);
+	}
+	id = pVtty->ttyId;
+	pVtty->freeRoom = 0;
+	vtty_dev_unlock();
+	my_tty_send_data(buf, count, id);
+
+	vtty_dev_lock();
+	pVtty->freeRoom = 512;
+	vtty_dev_unlock();
+
+	VTTY_LOG(KERN_DEBUG, "exit %s\n", __FUNCTION__);
+	return(count);
+}
+
+static int  vtty_device_write_room(struct tty_struct *tty)
+{
+	int size;
+
+//	VTTY_LOG(KERN_DEBUG, "enter %s\n", __FUNCTION__);
+	if(tty->driver_data){
+		vtty_dev_lock();
+		size = ((vttyDevElement_t *)tty->driver_data)->freeRoom;
+		vtty_dev_unlock();
+	}else
+		size = 0;
+
+//	VTTY_LOG(KERN_DEBUG, "exit %s(%d)\n", __FUNCTION__,size);
+	return(size);
+}
+
+static void vtty_device_set_termios(struct tty_struct *tty, struct ktermios * old)
+{
+	VTTY_LOG(KERN_DEBUG, "enter %s\n", __FUNCTION__);
+	my_tty_set_termios(tty,old);
+	VTTY_LOG(KERN_DEBUG, "exit %s\n", __FUNCTION__);
+}
+
+static int vtty_device_ioctl(struct tty_struct *tty,
+			unsigned int cmd, unsigned long arg)
+{
+	int rv = 0;
+
+	VTTY_LOG(KERN_DEBUG, "enter %s(0x%x)\n", __FUNCTION__,cmd);
+	rv = my_tty_ioctl(tty, cmd, arg);
+	VTTY_LOG(KERN_DEBUG, "exit %s(%d)\n", __FUNCTION__,rv);
+	return(rv);
+}
+
+void my_tty_rcv_data(char *pBuffer, int length, vttyDevId_t id)
+{
+	int i;
+
+	VTTY_LOG(KERN_DEBUG, "enter %s(%d)\n", __FUNCTION__,id.pid);
+
+	vtty_print_buffer(pBuffer,length);
+
+	if(id.tty){
+		vtty_dev_lock();
+		if(find_vtty_by_tty(id.tty)==NULL){
+			/*This tty has been closed*/
+			vtty_dev_unlock();
+			return;
+		}
+		vtty_dev_unlock();
+		tty_insert_flip_string(id.tty, pBuffer, length);
+		tty_flip_buffer_push(id.tty);
+	}else{/*send to all virtual tty devices*/
+		vtty_dev_lock();
+		for(i=0;i<ttyAmount;i++){
+			if(gVttyDevInfo.vttyTable[i].ttyId.tty ){
+				VTTY_LOG(KERN_DEBUG,"Deliver data to tty %x\n", (unsigned int)gVttyDevInfo.vttyTable[i].ttyId.tty);
+				tty_insert_flip_string(gVttyDevInfo.vttyTable[i].ttyId.tty, pBuffer, length);
+				tty_flip_buffer_push(gVttyDevInfo.vttyTable[i].ttyId.tty);
+			}
+		}
+		vtty_dev_unlock();
+	}
+	VTTY_LOG(KERN_DEBUG, "exit %s\n", __FUNCTION__);
+}
+
+static int init_vtty_info(int amount)
+{
+	int i;
+
+	mutex_init(&vttyDevLock);
+	gVttyDevInfo.number = amount;
+	gVttyDevInfo.vttyTable = (vttyDevElement_t *)kzalloc(sizeof(vttyDevElement_t) * amount, GFP_KERNEL);
+	if(gVttyDevInfo.vttyTable == NULL){
+		mutex_destroy(&vttyDevLock);
+		return(-1);
+	}
+	for(i=0;i<amount;i++){
+		gVttyDevInfo.vttyTable[i].ttyId.pid = -1;
+		gVttyDevInfo.vttyTable[i].ttyId.tty = NULL;
+	}
+
+	return(0);
+}
+
+static void clean_vtty_info(void)
+{
+	if(gVttyDevInfo.vttyTable){
+		kfree(gVttyDevInfo.vttyTable);
+		gVttyDevInfo.vttyTable = NULL;
+	}
+	mutex_destroy(&vttyDevLock);
+}
+
+int init_vtty_device(int amount)
+{
+	int i,rv;
+
+	if(init_vtty_info(amount)){
+		printk(KERN_CRIT"%s(%d): init_vtty_info() failed\n", __FUNCTION__, __LINE__);
+		clean_vtty_info();
+		return(-1);
+	}
+
+	ttyAmount = amount;
+	pGZwaveTtyDriver = alloc_tty_driver(ttyAmount);
+	if(pGZwaveTtyDriver==NULL){
+		printk(KERN_CRIT"%s(%d): can't allocate tty driver\n", __FUNCTION__, __LINE__);
+		return(-1);
+	}
+
+	pGZwaveTtyDriver->owner = THIS_MODULE;
+	pGZwaveTtyDriver->driver_name = "sctpa_vtty";
+	pGZwaveTtyDriver->name = "vtty";
+	pGZwaveTtyDriver->major = 0 ; //Ask kernel to specify the major number
+	pGZwaveTtyDriver->minor_start = 0;
+	pGZwaveTtyDriver->type = TTY_DRIVER_TYPE_SERIAL;
+	pGZwaveTtyDriver->subtype = SERIAL_TYPE_NORMAL;
+	pGZwaveTtyDriver->flags = TTY_DRIVER_REAL_RAW | TTY_DRIVER_DYNAMIC_DEV;
+	pGZwaveTtyDriver->init_termios.c_cflag = B115200 | CS8 | CREAD | CLOCAL;
+	pGZwaveTtyDriver->init_termios.c_ispeed = 115200;
+	pGZwaveTtyDriver->init_termios.c_ospeed = 115200;
+	pGZwaveTtyDriver->init_termios.c_iflag = 0;
+	pGZwaveTtyDriver->init_termios.c_oflag = 0;
+	pGZwaveTtyDriver->init_termios.c_lflag = 0;
+	pGZwaveTtyDriver->init_termios.c_cc[VMIN] = 1;
+	pGZwaveTtyDriver->init_termios.c_cc[VTIME] = 10;
+	tty_set_operations(pGZwaveTtyDriver, &gSctpaZwaveOps);
+
+	rv = tty_register_driver(pGZwaveTtyDriver);
+
+	if(rv){
+		printk(KERN_ERR "vtty: Failed to register TTY driver (err %d)\n",rv);
+		put_tty_driver(pGZwaveTtyDriver);
+		return(-1);
+	}
+
+	for(i=0;i<ttyAmount;i++){
+		tty_register_device(pGZwaveTtyDriver, i , NULL);
+	}
+
+	return(0);
+}
+
+void clean_vtty_device(void)
+{
+	int i;
+
+	for(i=0;i<ttyAmount;i++)
+		tty_unregister_device(pGZwaveTtyDriver, i);
+	tty_unregister_driver(pGZwaveTtyDriver);
+	put_tty_driver(pGZwaveTtyDriver);
+	mutex_destroy(&vttyDevLock);
+}
+
+#ifdef UNIT_TEST_VTTY_DEVICE
+
+int	  init_zwave_agent(char *pPath)
+{
+	return(0);
+}
+
+void	 clean_zwave_agent(void)
+{
+}
+
+int	  my_tty_send_data(const char *pBuffer, int length, vttyDevId_t id)
+{
+	return length;
+}
+
+void	 my_tty_set_termios(struct tty_struct * tty, struct ktermios * old)
+{
+}
+
+int	  my_tty_ioctl(struct tty_struct * tty, unsigned int cmd, unsigned long arg)
+{
+	return(0);
+}
+
+void vtty_closed(struct tty_struct * tty)
+{
+}
+
+#endif
+

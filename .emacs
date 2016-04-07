@@ -4,6 +4,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(pyim-dicts nil)
  '(safe-local-variable-values (quote ((TeX-master . "master")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -21,8 +22,42 @@
 
 (global-set-key (kbd "<f5>")  'goto-line)
 (global-set-key (kbd "<f7>") 'recentf-open-files)
-(load-file "/home/guoliang/.emacs.d/history.el")
+(load-file "/home/guoding/.emacs.d/history.el")
 (require 'history)
+;(require 'chinese-pyim)
+
+
+;; (setq default-frame-alist
+;;       (append
+;;        (list
+;;         '(background-color . "black")
+;;         '(foreground-color . "#55FF55")
+;;         '(cursor-color . "#00AA00")
+;;         )
+;;        default-frame-alist)
+;;       )
+
+
+(desktop-save-mode 1)
+
+(defun spw()
+  (interactive)  
+  (setq zmacs-region-stays t)  
+  (split-window-horizontally())
+)
+
+(load "~/.emacs.d/iman.el")
+(load "~/.emacs.d/neotree.el")
+
+
+;; 像 Window 中那样用 Ctrl-Tab 来切换窗口
+(load "~/.emacs.d/wcy-swbuff.el")
+(global-set-key (kbd "<f6>") 'wcy-switch-buffer)
+(setq wcy-switch-buffer-active-buffer-face  'highlight)
+(setq wcy-switch-buffer-inactive-buffer-face  'secondary-selection)
+
+
+;(global-set-key (kbd "C-x g") 'webjump)
 
 
 (load-file "/usr/share/emacs/site-lisp/xcscope.el")
@@ -92,7 +127,7 @@
 ;(setq inhibit-startup-message t)
 
 ;;鼠标自动避开指针
-(mouse-avoidance-mode 'animate)
+;; (mouse-avoidance-mode 'animate)
 
 ;; 指针颜色
 (set-cursor-color "blue")
@@ -132,7 +167,7 @@
 (column-number-mode t)
 
 ;; 显示行号
-;;(global-linum-mode t)
+(global-linum-mode t)
 
 ;; 以 y/n代表 yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -456,16 +491,26 @@ auto-mode-alist))
 (load "~/.emacs.d/sr-speedbar.el")
 (require 'sr-speedbar)
 
-;; tomorrow theme
-(load "~/.emacs.d/tomorrow/color-theme-tomorrow.el")
-(load "~/.emacs.d/tomorrow/tomorrow-day-theme.el")
-(require 'tomorrow-day-theme)
-(load-theme `tomorrow-day t)
+
+
 
 ;; tron-theme.el
-;(load "~/.emacs.d/tron-theme.el")
-;(require 'tron-theme)
-;(load-theme `tron t)
+;; (load "~/.emacs.d/tron-theme.el")
+;; (require 'tron-theme)
+;; (load-theme `tron t)
+
+(load   "/home/guoding/.emacs.d/elpa/pastelmac-theme-20151030.1936/pastelmac-theme.el")
+(require 'pastelmac-theme)
+(load-theme `pastelmac t)
+;;dgl melpa
+;(add-to-list 'package-archives
+;             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
+
+;; (load "/home/guoding/.emacs.d/elpa/solarized-theme-20160311.1447/solarized.el")
+;; (load "/home/guoding/.emacs.d/elpa/solarized-theme-20160311.1447/solarized-light-theme.el")
+;; (require 'solarized-light-theme)
+;; (load-theme `solarized-light t)
 
 ;; 让dired只使用一个buffer
 (load "~/.emacs.d/dired-single.el")
@@ -563,12 +608,6 @@ auto-mode-alist))
 ;(custom-set-faces
 ;   '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil)))))
 
-;; 像 Window 中那样用 Ctrl-Tab 来切换窗口
-(load "~/.emacs.d/wcy-swbuff.el")
-(global-set-key (kbd "<f6>") 'wcy-switch-buffer)
-(setq wcy-switch-buffer-active-buffer-face  'highlight)
-(setq wcy-switch-buffer-inactive-buffer-face  'secondary-selection)
-
 ;; color-theme
 (add-to-list 'load-path' "~/.emacs.d/color-theme/")
 (require 'color-theme)
@@ -594,6 +633,18 @@ auto-mode-alist))
      (eshell-prompt-face ((t (:bold t :foreground "gold"))))
 )))
 (provide 'color-theme-eshell)
+
+;;dgl_328
+;; tomorrow theme dgl -temp
+;; (load "~/.emacs.d/tomorrow/color-theme-tomorrow.el")
+;; (load "~/.emacs.d/tomorrow/tomorrow-day-theme.el")
+;; (require 'tomorrow-day-theme)
+;; (load-theme `tomorrow-day t)
+
+(load "~/.emacs.d/emacs-color-theme-solarized/color-theme-solarized.el")
+(load "~/.emacs.d/emacs-color-theme-solarized/solarized-theme.el")
+(require 'color-theme-solarized)
+(load-theme 'solarized t)
 
 ;; evernote
 ;(load "~/.emacs.d/evernote-mode.el")
@@ -711,46 +762,51 @@ auto-mode-alist))
 ;; )
 ;
 ;;; w3m
-;;(add-to-list 'load-path' "~/.emacs.d/emacs-w3m/")
-;;(setq w3m-coding-system 'utf-8
+;; (add-to-list 'load-path' "~/.emacs.d/emacs-w3m/")
+;; (require 'w3m-load)  
+;; (setq w3m-coding-system 'utf-8
 ;;          w3m-file-coding-system 'utf-8
 ;;          w3m-file-name-coding-system 'utf-8
 ;;          w3m-input-coding-system 'utf-8
 ;;          w3m-output-coding-system 'utf-8
 ;;          w3m-terminal-coding-system 'utf-8)
-;;(setq w3m-display-inline-image t)
-;;(setq w3m-tab-width 8)
-;;(setq w3m-home-page "http://127.0.0.1/wiki")
+;; (setq w3m-display-inline-image t)
+;; (setq w3m-tab-width 8)
+;; (setq w3m-home-page "http://127.0.0.1/")
+;; (global-set-key (kbd "C-c C-w") 'w3m-browse-url)
+
 ;;;使用工具包
-;;(setq w3m-use-toolbar t)
-;;(setq browse-url-generic-program "w3m")
+;; (setq w3m-use-toolbar t)
+;; (setq browse-url-generic-program "w3m")
 
 ;; calendar
-(require 'calendar)
-(setq calendar-latitude +30.15)
-(setq calendar-longitude +120.10)
-(setq calendar-location-name "Shanghai, China")
-;; 设置颜色显示                         
-(setq calendar-load-hook  
-      '(lambda ()  
-         (set-face-foreground 'diary-face   "skyblue")  
-         (set-face-background 'holiday-face "slate blue")  
-         (set-face-foreground 'holiday-face "white")))
-;; display chinese holidays
-(setq calendar-chinese-all-holidays-flag t)
-;; by default show all holidays
-(setq calendar-mark-holidays-flag t)
-;; 设置阴历显示，在 calendar 上用 pC 显示阴历
-(setq chinese-calendar-celestial-stem
-      ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"])
-(setq chinese-calendar-terrestrial-branch
-      ["子" "丑" "寅" "卯" "辰" "巳" "戊" "未" "申" "酉" "戌" "亥"])
-;; 设置 calendar 的显示
-(setq calendar-remove-frame-by-deleting t)
-(setq calendar-week-start-day 1)            ; 设置星期一为每周的第一天
-(setq mark-diary-entries-in-calendar t)     ; 标记calendar上有diary的日期
-(setq mark-holidays-in-calendar t)   ; 为了突出有diary的日期，calendar上不标记节日
-(setq view-calendar-holidays-initially t) ; 打开calendar的时候不显示一堆节日
+
+;;do not need calendar speedup 
+;; (require 'calendar)
+;; (setq calendar-latitude +30.15)
+;; (setq calendar-longitude +120.10)
+;; (setq calendar-location-name "Shanghai, China")
+;; ;; 设置颜色显示                         
+;; (setq calendar-load-hook  
+;;       '(lambda ()  
+;;          (set-face-foreground 'diary-face   "skyblue")  
+;;          (set-face-background 'holiday-face "slate blue")  
+;;          (set-face-foreground 'holiday-face "white")))
+;; ;; display chinese holidays
+;; (setq calendar-chinese-all-holidays-flag t)
+;; ;; by default show all holidays
+;; (setq calendar-mark-holidays-flag t)
+;; ;; 设置阴历显示，在 calendar 上用 pC 显示阴历
+;; (setq chinese-calendar-celestial-stem
+;;       ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"])
+;; (setq chinese-calendar-terrestrial-branch
+;;       ["子" "丑" "寅" "卯" "辰" "巳" "戊" "未" "申" "酉" "戌" "亥"])
+;; ;; 设置 calendar 的显示
+;; (setq calendar-remove-frame-by-deleting t)
+;; (setq calendar-week-start-day 1)            ; 设置星期一为每周的第一天
+;; (setq mark-diary-entries-in-calendar t)     ; 标记calendar上有diary的日期
+;; (setq mark-holidays-in-calendar t)   ; 为了突出有diary的日期，calendar上不标记节日
+;; (setq view-calendar-holidays-initially t) ; 打开calendar的时候不显示一堆节日
 
 ;; 也许有的事情没有那么重要，写不成todo的，这个时候就用 appointment 。
 ;; 约会提醒，用appt-add命令就可以加入新的约会提醒，用 M-x appt-delete命令删掉提醒好了。
@@ -809,6 +865,9 @@ auto-mode-alist))
 ;; 注销 C-SPC,在输入法无法使用的时候可用
 (global-set-key (kbd "C-SPC") 'nil)
 ;; 既然 emacs 默认 C-c C-c 为对源代码选区进行注释，那么就用我们就用 C-c C-v 进行反注释
+;; (global-set-key (kbd "C-x a") 'semantic-mrub-switch-tags)
+(global-set-key (kbd "\C-x\C-b") 'semantic-mrub-switch-tags)
+;; dgl_2015 12
 (global-set-key "\C-c\C-v" 'uncomment-region)
 
 (global-set-key (kbd "M-i") 'feng-highlight-at-point)
@@ -819,9 +878,9 @@ auto-mode-alist))
 
 
 ;auto complete
-(add-to-list 'load-path "/home/guoliang/.emacs.d/")
+(add-to-list 'load-path "/home/guoding/.emacs.d/")
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "/home/guoliang/.emacs.d/ac-dict")
+(add-to-list 'ac-dictionary-directories "/home/guoding/.emacs.d/ac-dict")
 (ac-config-default)
 
 
@@ -887,7 +946,7 @@ auto-mode-alist))
 ;;======================            Load cscope                =====================  
 ;(add-to-list 'load-path "~/emacs.d/plugins/cscope-15.7a/contrib/xcscope/")  
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/")  
-(require 'xcscope)  
+(require 'xcscope)
 
 
 
@@ -907,13 +966,23 @@ auto-mode-alist))
 ;;http://ann77.stu.cdut.edu.cn/EmacsCscope.html  
 ;;----------------------              END    cscop                ---------------------  
  (require 'package)
-  (push '("marmalade" . "http://marmalade-repo.org/packages/")
-        package-archives )
-  (push '("melpa" . "http://melpa.milkbox.net/packages/")
-        package-archives)
-(add-to-list 'load-path "~/.emacs.d/evil")
-(require 'evil)
-(evil-mode 0)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+;; (when (< emacs-major-version 24)
+;;   ;; For important compatibility libraries like cl-lib
+;;   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+
+  ;; (push '("marmalade" . "http://marmalade-repo.org/packages/")
+  ;;       package-archives )
+  ;; ;; (push '("melpa" . "http://melpa.milkbox.net/packages/")
+  ;; (push '("melpa" . "http://elpa.gnu.org/packages/")
+  ;;       package-archives)
+(package-initialize) ;; You might already have this line
+
+;;do not use evil mode ...vi mode
+;; (add-to-list 'load-path "~/.emacs.d/evil")
+;; (require 'evil)
+;; (evil-mode 0)
 
 ;(load-file "/usr/share/emacs/site-lisp/xcscope.el")
 ;(require 'xcscope)
@@ -1002,3 +1071,39 @@ auto-mode-alist))
 ;;         (insert filename)
 ;;         (clipboard-kill-region (point-min) (point-max)))
 ;;       (message filename))))
+
+
+(defun cpp-highlight-if-0/1 ()
+  "Modify the face of text in between #if 0 ... #endif."
+  (interactive)
+  (setq cpp-known-face '(background-color . "dim gray"))
+  (setq cpp-unknown-face 'default)
+  (setq cpp-face-type 'dark)
+  (setq cpp-known-writable 't)
+  (setq cpp-unknown-writable 't)
+  (setq cpp-edit-list
+        '((#("1" 0 1
+             (fontified nil))
+           nil
+           (background-color . "dim gray")
+           both nil)
+          (#("0" 0 1
+             (fontified nil))
+           (background-color . "dim gray")
+           nil
+           both nil)))
+  (cpp-highlight-buffer t))
+
+(defun jpk/c-mode-hook ()
+  (cpp-highlight-if-0/1)
+  (add-hook 'after-save-hook 'cpp-highlight-if-0/1 'append 'local)
+  )
+
+(add-hook 'c-mode-common-hook 'jpk/c-mode-hook)
+
+
+(defun lovestar ()
+  print "aa"
+  setq abcdef 1
+  print abcdef
+)

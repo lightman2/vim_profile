@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 2005-2011 Free Software Foundation, Inc.
 
-;; Author: guoliang <guoliang@ubuntu>
-;; Created: 2015-04-30 17:26:03+0800
+;; Author: guoding <guoding@ubuntu>
+;; Created: 2015-11-26 19:26:49-0800
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 
@@ -389,6 +389,10 @@
 ;;
 (require 'semantic-lex)
 
+(define-lex-keyword-type-analyzer wisent-javascript-jv-wy--<keyword>-keyword-analyzer
+  "keyword analyzer for <keyword> tokens."
+  "\\(\\sw\\|\\s_\\)+")
+
 (define-lex-block-type-analyzer wisent-javascript-jv-wy--<block>-block-analyzer
   "block analyzer for <block> tokens."
   "\\s(\\|\\s)"
@@ -405,6 +409,11 @@
   "\\(\\sw\\|\\s_\\)+"
   nil
   'VARIABLE)
+
+(define-lex-sexp-type-analyzer wisent-javascript-jv-wy--<string>-sexp-analyzer
+  "sexp analyzer for <string> tokens."
+  "\\s\""
+  'STRING)
 
 (define-lex-regex-type-analyzer wisent-javascript-jv-wy--<number>-regexp-analyzer
   "regexp analyzer for <number> tokens."
@@ -456,15 +465,6 @@
     (BITWISE_AND . "&")
     (ASSIGN_SYMBOL . "="))
   'punctuation)
-
-(define-lex-sexp-type-analyzer wisent-javascript-jv-wy--<string>-sexp-analyzer
-  "sexp analyzer for <string> tokens."
-  "\\s\""
-  'STRING)
-
-(define-lex-keyword-type-analyzer wisent-javascript-jv-wy--<keyword>-keyword-analyzer
-  "keyword analyzer for <keyword> tokens."
-  "\\(\\sw\\|\\s_\\)+")
 
 
 ;;; Epilogue

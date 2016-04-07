@@ -1,0 +1,422 @@
+#include <linux/init.h>
+#include <linux/module.h>
+#include <linux/slab.h>
+#include <linux/tty.h>
+#include <linux/uaccess.h>
+#include <linux/tty_driver.h>
+#include <linux/timer.h>
+#include <linux/sched.h>
+#include <linux/kthread.h>
+#include <linux/workqueue.h>
+#include "vtty.h"
+#include "vtty_agent_fsm.h"
+
+extern struct file *pActFile;
+
+typedef struct{
+	enum ZAGENT_FSM_TYPE type;
+	zwave_agent_fsm_t fsm;
+}zwaFsmInfo_t;
+
+zwaFsmInfo_t gFsmInfo={
+	.type = ZAGENT_FSM_TYPE_NONE,
+	.fsm = {
+		.state = 0,
+		.id = {
+			.tty = NULL
+		}
+	}
+};
+
+static enum ZAGENT_REQ_TYPE gReqCmdList[256];
+static struct mutex gFsmLock;
+
+extern enum ZAGENT_FSM_RESULT fsm_get1_handle_event(zwave_agent_fsm_t *pFsm,enum ZAGENT_FSM_EVENT event,frameInfo_t *pFrameInfo, vttyDevId_t *pId);
+extern enum ZAGENT_FSM_RESULT fsm_set1_handle_event(zwave_agent_fsm_t *pFsm,enum ZAGENT_FSM_EVENT event,frameInfo_t *pFrameInfo, vttyDevId_t *pId);
+extern enum ZAGENT_FSM_RESULT fsm_get2_handle_event(zwave_agent_fsm_t *pFsm,enum ZAGENT_FSM_EVENT event,frameInfo_t *pFrameInfo, vttyDevId_t *pId);
+extern void zwave_session_end(void);
+
+void zwave_fsm_handle_event(enum ZAGENT_FSM_EVENT event,frameInfo_t *pFrameInfo,vttyDevId_t *pId);
+
+/*************************************************************************/
+
+static void init_sapi_reg_cmd_list(void)
+{
+	int i;
+
+	for(i=0;i<256;i++){
+		gReqCmdList[i] = ZAGENT_REQ_TYPE_INVALID;
+	}
+
+	gReqCmdList[SAPI_CMD_SELF_CAPA] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_SELF_NODE_LIST] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_SELF_SET_TIMEOUT] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_APP_REQ_NODE_INFO] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_APP_REQ_SLAVE_NODE_INFO] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_BASIS_REQ_INCLUSION] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_BASIS_GET_PROTO_STATUS] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_BASIS_GET_RANDOM_WORD] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_BASIS_RANDOM] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_BASIS_PWR_LEVEL_SET] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_BASIS_PWR_LEVEL_GET] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_BASIS_REQ_NET_UPDATE] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_BASIS_PWR_LEVEL_REDISCOVER_SET] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_BASIS_SEND_NODE_INFO] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_BASIS_SEND_TEST_FRAME] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_BASIS_SET_EXT_INT_LEVEL] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_BASIS_SET_PROM_MODE] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_BASIS_SET_RX_MODE] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_BASIS_TYPE_LIB] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_BASIS_ZW_VERSION] = ZAGENT_REQ_TYPE_GET1;
+
+	gReqCmdList[SAPI_CMD_BASIS_WATCH_DOG_ENABLE] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_BASIS_WATCH_DOG_DISABLE] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_BASIS_WATCH_DOG_KICK] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_BASIS_GET_TX_TIMER] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_BASIS_CLEAR_TX_TIMER] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_TRANSPORT_SEND_DATA] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_TRANSPORT_SEND_DATA_BRIDGE] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_TRANSPORT_SEND_DATA_MULTI] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_TRANSPORT_SEND_DATA_MULTI_BRIDGE] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_TRANSPORT_SEND_DATA_ABORT] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_TRANSPORT_LOCK_ROUTE] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_FW_UPDATE] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_NVM_MEM_GET_ID] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_NVM_GET_BYTE] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_NVM_PUT_BYTE] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_NVM_GET_BUFFER] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_NVM_PUT_BUFFER] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_NVM_GET_ID] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_NVM_NVR_GET_VALUE] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_NVM_EXT_READ_LONG] = ZAGENT_REQ_TYPE_GET1;
+
+	gReqCmdList[SAPI_CMD_NVM_EXT_WRITE_LONG] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_NVM_EXT_READ_LONG_BUFFER] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_NVM_EXT_WRITE_LONG_BUFFER] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_PWR_CTRL_SLEEP_MODE] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_PWR_CTRL_SET_WUT_TIMEOUT] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_FLASH_AUTO_PROG_SET] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_ADD_NODE] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_ARE_NODES_NEIGHBOURS] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_ASSIGN_RETURN_ROUTE] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_CONTROLLER_ASSIGN_SUC_RETURN_ROUTE] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_CONTROLLER_CHANGE] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_DEL_RETURN_ROUTE] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_CONTROLLER_DEL_SUC_RETURN_ROUTE] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_CONTROLLER_GET_CTRL_CAP] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_GET_NEIGHBOR_COUNT] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_GET_LAST_WORK_ROUTE] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_SET_LAST_WORK_ROUTE] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_GET_NODE_PROTO_INFO] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_GET_ROUTING_INFO] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_GET_SUC_NODE_ID] = ZAGENT_REQ_TYPE_GET1;
+
+	gReqCmdList[SAPI_CMD_CONTROLLER_IS_FAILED_NODE] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_REMOVE_FAILED_NODE] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_CONTROLLER_REPLACE_FAILED_NODE] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_CONTROLLER_REMOVE_NODE] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_REP_RECV_COMPLETE] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_REP_SEND] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_CONTROLLER_REQ_NODE_INFO] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_REQ_NODE_NEIGHBOR_UPDATE] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_SEND_SUC_ID] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_CONTROLLER_SET_DEFAULT] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_SET_LEARN_MODE] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_SET_ROUTING_INFO] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_SET_ROUTING_MAX] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_CONTROLLER_SET_SUC_NODE_ID] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_STATIC_CTRL_CREATE_NEW_PRIMARY_CTRL] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_BRIDGE_CTRL_SEND_SLAVE_NODE_INFO] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_BRIDGE_CTRL_SET_SLAVE_LEARN_MODE] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_BRIDGE_CTRL_IS_VIRTUAL_NODE] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_BRIDGE_CTRL_GET_VIRTUAL_NODES] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_PORTABLE_CTRL_GET_TRANSMIT_COUNT] = ZAGENT_REQ_TYPE_GET1;
+
+	gReqCmdList[SAPI_CMD_PORTABLE_CTRL_RESET_TRANSMIT_COUNT] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_PORTABLE_CTRL_STORE_NODE_INFO] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_PORTABLE_CTRL_STORE_HOME_ID] = ZAGENT_REQ_TYPE_SET1;
+	gReqCmdList[SAPI_CMD_ROUTING_IS_WITHIN_DIRECT_RANGE] = ZAGENT_REQ_TYPE_GET1;
+	gReqCmdList[SAPI_CMD_ROUTING_REDISCOVER_NEEDED] = ZAGENT_REQ_TYPE_GET2;
+	gReqCmdList[SAPI_CMD_ROUTING_REQ_NEW_ROUTE_DEST] = ZAGENT_REQ_TYPE_GET2;
+
+	gReqCmdList[SAPI_CMD_APP_REQ_CMD_HANDLER] = ZAGENT_REQ_TYPE_FOREIGN_FRAME_REQ;
+	gReqCmdList[SAPI_CMD_APP_REQ_CMD_HANDLER_PROM] = ZAGENT_REQ_TYPE_FOREIGN_FRAME_REQ;
+}
+
+void zwave_agent_fsm_init(void)
+{
+	mutex_init(&gFsmLock);
+	init_sapi_reg_cmd_list();
+}
+
+void zwave_agent_fsm_deinit(void)
+{
+	mutex_destroy(&gFsmLock);
+}
+
+static void zwave_agent_fsm_lock(void)
+{
+	mutex_lock(&gFsmLock);
+}
+
+static void zwave_agent_fsm_unlock(void)
+{
+	mutex_unlock(&gFsmLock);
+}
+
+void fsm_work(struct work_struct *pData)
+{
+	fsmWork_t *pWork = (fsmWork_t *)pData;
+	VTTY_LOG(KERN_DEBUG,"enter %s\n",__FUNCTION__);
+
+	zwave_fsm_handle_event(pWork->event,NULL,NULL);
+
+	VTTY_LOG(KERN_DEBUG,"exit %s\n",__FUNCTION__);
+}
+
+static enum ZAGENT_REQ_TYPE zwave_agent_get_req_type(unsigned char *pFrame, int length)
+{
+	return(gReqCmdList[pFrame[3]]);
+}
+
+static enum ZAGENT_FSM_EVENT zwave_agent_get_data_frame_event(unsigned char *pFrame, int length, int direction)
+{
+	enum ZAGENT_FSM_EVENT event;
+	enum ZAGENT_REQ_TYPE reqType;
+
+	switch(pFrame[2]){
+		case(ZWAVE_DATA_FRAME_RES):
+			if(direction == ZWAVE_AGENT_DIR_SEND)
+				event = ZAGENT_FSM_EVENT_REQ_REPLY;
+			else
+				event = ZAGENT_FSM_EVENT_IND_REPLY;
+		break;
+		case(ZWAVE_DATA_FRAME_REQ):
+			reqType = zwave_agent_get_req_type(pFrame, length);
+			if(direction==ZWAVE_AGENT_DIR_SEND){
+				switch(reqType){
+					case(ZAGENT_REQ_TYPE_GET1):
+						event = ZAGENT_FSM_EVENT_REQ_GET1;
+					break;
+					case(ZAGENT_REQ_TYPE_GET2):
+						event = ZAGENT_FSM_EVENT_REQ_GET2;
+					break;
+					case(ZAGENT_REQ_TYPE_SET1):
+						event = ZAGENT_FSM_EVENT_REQ_SET1;
+					break;
+					default:
+						event = ZAGENT_FSM_EVENT_INVALID;
+					break;
+				}
+			}else{
+				switch(reqType){
+					case(ZAGENT_REQ_TYPE_GET1):
+						event = ZAGENT_FSM_EVENT_IND_GET1;
+					break;
+					case(ZAGENT_REQ_TYPE_GET2):
+						event = ZAGENT_FSM_EVENT_IND_GET2;
+					break;
+					case(ZAGENT_REQ_TYPE_SET1):
+						event = ZAGENT_FSM_EVENT_IND_SET1;
+					break;
+					case(ZAGENT_REQ_TYPE_FOREIGN_FRAME_REQ):
+						event = ZAGENT_FSM_EVENT_IND_FOREIGN_FRAME_REQ;
+					break;
+					default:
+						event = ZAGENT_FSM_EVENT_INVALID;
+					break;
+				}
+			}
+		break;
+		default:
+			event = ZAGENT_FSM_EVENT_INVALID;
+		break;
+	}
+
+	return(event);
+}
+
+enum ZAGENT_FSM_EVENT zwave_agent_get_packet_event(unsigned char *pFrame, int length, int direction)
+{
+	enum ZAGENT_FSM_EVENT event;
+
+	switch(direction){
+		case(ZWAVE_AGENT_DIR_RCV):
+			switch(pFrame[0]){
+				case(ZWAVE_FRAME_ACK):
+					event = ZAGENT_FSM_EVENT_IND_ACK;
+				break;
+				case(ZWAVE_FRAME_NAK):
+					event = ZAGENT_FSM_EVENT_IND_NAK;
+				break;
+				case(ZWAVE_FRAME_CAN):
+					event = ZAGENT_FSM_EVENT_IND_CAN;
+				break;
+				case(ZWAVE_FRAME_SOF):
+					event = zwave_agent_get_data_frame_event(pFrame, length, direction);
+				break;
+				default:
+					event = ZAGENT_FSM_EVENT_INVALID;
+				break;
+			}
+		break;
+		case(ZWAVE_AGENT_DIR_SEND):
+			switch(pFrame[0]){
+				case(ZWAVE_FRAME_ACK):
+					event = ZAGENT_FSM_EVENT_REQ_ACK;
+				break;
+				case(ZWAVE_FRAME_NAK):
+					event = ZAGENT_FSM_EVENT_REQ_NAK;
+				break;
+				case(ZWAVE_FRAME_CAN):
+					event = ZAGENT_FSM_EVENT_REQ_CAN;
+				break;
+				case(ZWAVE_FRAME_SOF):
+					event = zwave_agent_get_data_frame_event(pFrame, length, direction);
+				break;
+				default:
+					event = ZAGENT_FSM_EVENT_INVALID;
+				break;
+			}
+		break;
+		default:
+			event = ZAGENT_FSM_EVENT_INVALID;
+		break;
+	}
+
+	return(event);
+}
+
+int send_lock_decision(vttyDevId_t *pId)
+{
+	int result=0;
+
+	zwave_agent_fsm_lock();
+	switch(gFsmInfo.type){
+		case(ZAGENT_FSM_TYPE_1GET):
+		case(ZAGENT_FSM_TYPE_2GET):
+		case(ZAGENT_FSM_TYPE_SET):
+			if(gFsmInfo.fsm.id.tty == pId->tty)
+				result = 0;
+			else
+				result = 1;
+		break;
+		
+		default:
+			result = 0;
+		break;
+	}
+	zwave_agent_fsm_unlock();
+
+	if(result){
+		VTTY_LOG(KERN_DEBUG,"Sending is locked\n");
+	}
+	return(result);
+}
+
+void zwave_fsm_handle_rcv_frame(unsigned char *pFrame, int length, vttyDevId_t *pId)
+{
+	enum ZAGENT_FSM_EVENT event;
+
+	event = zwave_agent_get_packet_event(pFrame,length, ZWAVE_AGENT_DIR_RCV);
+	zwave_fsm_handle_event(event,(frameInfo_t *)pFrame, pId);
+}
+
+void zwave_fsm_handle_send_frame(unsigned char *pFrame, int length, vttyDevId_t *pId)
+{
+	enum ZAGENT_FSM_EVENT event;
+
+	event = zwave_agent_get_packet_event(pFrame,length, ZWAVE_AGENT_DIR_SEND);
+	zwave_fsm_handle_event(event,(frameInfo_t *)pFrame, pId);
+}
+
+static enum ZAGENT_FSM_RESULT fsm_none_handle_event(zwave_agent_fsm_t *pFsm,enum ZAGENT_FSM_EVENT event,frameInfo_t *pFrameInfo, vttyDevId_t *pId)
+{
+	enum ZAGENT_FSM_RESULT result;
+
+	VTTY_LOG(KERN_DEBUG,"FSM_None rcv event(%d) in state(%d)",event,pFsm->state);
+	switch(event){
+		case(ZAGENT_FSM_EVENT_REQ_GET1):
+			gFsmInfo.type = ZAGENT_FSM_TYPE_1GET;
+			pFsm->state = ZAGENT_FSM_GET1_STATE_INIT;
+			result = fsm_get1_handle_event(pFsm,event,pFrameInfo,pId);
+		break;
+		case(ZAGENT_FSM_EVENT_REQ_GET2):
+			gFsmInfo.type = ZAGENT_FSM_TYPE_2GET;
+			pFsm->state = ZAGENT_FSM_GET2_STATE_INIT;
+			if((pFrameInfo->sapiCmd == SAPI_CMD_TRANSPORT_SEND_DATA) ||
+			   (pFrameInfo->sapiCmd == SAPI_CMD_TRANSPORT_SEND_DATA_BRIDGE))
+				pFsm->rpcInd = 1;
+			else
+				pFsm->rpcInd = 0;
+			result = fsm_get2_handle_event(pFsm,event,pFrameInfo,pId);
+		break;
+		case(ZAGENT_FSM_EVENT_REQ_SET1):
+			gFsmInfo.type = ZAGENT_FSM_TYPE_SET;
+			pFsm->state = ZAGENT_FSM_SET1_STATE_INIT;
+			result = fsm_set1_handle_event(pFsm,event,pFrameInfo,pId);
+		break;
+
+		case(ZAGENT_FSM_EVENT_REQ_REPLY):
+		case(ZAGENT_FSM_EVENT_REQ_ACK):
+		case(ZAGENT_FSM_EVENT_REQ_NAK):
+		case(ZAGENT_FSM_EVENT_REQ_CAN):
+			result = ZAGENT_FSM_RESULT_CURR_FSM;
+		break;
+
+		case(ZAGENT_FSM_EVENT_IND_ACK):
+		case(ZAGENT_FSM_EVENT_IND_NAK):
+		case(ZAGENT_FSM_EVENT_IND_CAN):
+		case(ZAGENT_FSM_EVENT_IND_REPLY):
+		case(ZAGENT_FSM_EVENT_IND_GET1):
+		case(ZAGENT_FSM_EVENT_IND_GET2):
+		case(ZAGENT_FSM_EVENT_IND_SET1):
+		case(ZAGENT_FSM_EVENT_IND_FOREIGN_FRAME_REQ):
+			pId->tty = NULL;
+			pId->pid = -1;
+			result = ZAGENT_FSM_RESULT_CURR_FSM;
+		break;
+
+		default:
+			result = ZAGENT_FSM_RESULT_CURR_FSM;
+		break;
+	}
+
+	VTTY_LOG(KERN_DEBUG,"Exit fsm_none_handle_event(%d)\n",result);
+	return(result);
+}
+
+void zwave_fsm_handle_event(enum ZAGENT_FSM_EVENT event,frameInfo_t *pFrameInfo,vttyDevId_t *pId)
+{
+	enum ZAGENT_FSM_RESULT result;
+
+	zwave_agent_fsm_lock();
+
+	switch(gFsmInfo.type){
+		case(ZAGENT_FSM_TYPE_NONE):
+			result = fsm_none_handle_event(&gFsmInfo.fsm,event,pFrameInfo,pId);
+		break;
+		case(ZAGENT_FSM_TYPE_1GET):
+			result = fsm_get1_handle_event(&gFsmInfo.fsm,event,pFrameInfo,pId);
+		break;
+		case(ZAGENT_FSM_TYPE_2GET):
+			result = fsm_get2_handle_event(&gFsmInfo.fsm,event,pFrameInfo,pId);
+		break;
+		case(ZAGENT_FSM_TYPE_SET):
+			result = fsm_set1_handle_event(&gFsmInfo.fsm,event,pFrameInfo,pId);
+		break;
+		default:
+			result = ZAGENT_FSM_RESULT_CURR_FSM;
+		break;
+	}
+
+	zwave_agent_fsm_unlock();
+
+	if(result == ZAGENT_FSM_RESULT_NO_FSM){
+		gFsmInfo.type = ZAGENT_FSM_TYPE_NONE;
+		gFsmInfo.fsm.id.tty = NULL;
+		zwave_session_end();
+		VTTY_LOG(KERN_DEBUG,"FSM -> None, Sending is unlocked\n");
+	}
+}
+
