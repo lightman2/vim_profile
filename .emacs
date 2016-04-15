@@ -502,15 +502,6 @@ auto-mode-alist))
 (load   "/home/guoding/.emacs.d/elpa/pastelmac-theme-20151030.1936/pastelmac-theme.el")
 (require 'pastelmac-theme)
 (load-theme `pastelmac t)
-;;dgl melpa
-;(add-to-list 'package-archives
-;             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-
-
-;; (load "/home/guoding/.emacs.d/elpa/solarized-theme-20160311.1447/solarized.el")
-;; (load "/home/guoding/.emacs.d/elpa/solarized-theme-20160311.1447/solarized-light-theme.el")
-;; (require 'solarized-light-theme)
-;; (load-theme `solarized-light t)
 
 ;; 让dired只使用一个buffer
 (load "~/.emacs.d/dired-single.el")
@@ -970,13 +961,6 @@ auto-mode-alist))
              '("melpa" . "http://melpa.org/packages/") t)
 ;; (when (< emacs-major-version 24)
 ;;   ;; For important compatibility libraries like cl-lib
-;;   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-
-  ;; (push '("marmalade" . "http://marmalade-repo.org/packages/")
-  ;;       package-archives )
-  ;; ;; (push '("melpa" . "http://melpa.milkbox.net/packages/")
-  ;; (push '("melpa" . "http://elpa.gnu.org/packages/")
-  ;;       package-archives)
 (package-initialize) ;; You might already have this line
 
 ;;do not use evil mode ...vi mode
@@ -1107,3 +1091,24 @@ auto-mode-alist))
   setq abcdef 1
   print abcdef
 )
+
+(setq
+ gdb-many-windows t
+ gdb-show-main t
+ )
+
+
+
+(require 'ac-helm) ;; Not necessary if using ELPA package
+(global-set-key (kbd "C-:") 'ac-complete-with-helm)
+(define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-helm)
+
+
+(global-set-key (kbd "C-p") `comint-previous-input)
+(global-set-key (kbd "C-n") `comint-next-input)
+(global-set-key (kbd "C-c <left>") `windmove-left)
+(global-set-key (kbd "C-c <right>") `windmove-right)
+(global-set-key (kbd "C-c <up>") `windmove-up)
+(global-set-key (kbd "C-c <down>") `windmove-down)
+
+

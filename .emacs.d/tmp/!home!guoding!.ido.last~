@@ -1,0 +1,29 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/guoding/Public/study/package/" . "ncurses/")
+ ("/home/guoding/Public/study/" . "package/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/guoding/Public/study/package/ncurses/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "Makefile"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/guoding/Public/study/package/ncurses/" (22098 56115 337344 881000) "../" "patches/" "Makefile" "./")
+
+ ("/home/guoding/Public/study/package/" (22277 54041 427659 294000) "bridge-utils/" "../" "ncurses/" "./")
+
+ ("/home/guoding/Public/study/" (22278 22347 718786 489000) "src.2e.tar.gz" "cut.sh" "git_clone2/" "package/" "git/" "apue.3e/" "aaan" "../" "lib.h" "aaa.sh" "program1.c" "shell/" "driver/" "linux1.0/" "lib.so" "git_clone/" "src.3e.tar.gz" "main" "321" "main.o" "aaa" "lib.c" "main.c" "test" "1233" "1234" "apue.2e/" "111" "a.out" "./" "123" "apue.43e/" "gcc/" "linux0.11/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

@@ -1,0 +1,13 @@
+ls
+pwd
+whoami
+pwd
+ls
+find 
+find abc
+find 123
+find 123 -R
+find 123 -r
+man find
+find -H
+find . -perm -220

@@ -1,0 +1,16 @@
+
+;; ----- smex-history -----
+(
+ kill-whole-line
+ cd
+ em
+ 5x5
+ arp
+ dbx
+ dig
+)
+
+;; ----- smex-data -----
+(
+ (kill-whole-line . 1)
+)

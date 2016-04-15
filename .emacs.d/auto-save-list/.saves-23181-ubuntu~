@@ -1,3 +1,5 @@
+/home/guoding/Public/study/main.c
+/home/guoding/Public/study/#main.c#
 /home/guoding/study/kernelmodule/kernel/crypto/aes_generic.c
 /home/guoding/study/kernelmodule/kernel/crypto/#aes_generic.c#
 /home/guoding/study/kernelmodule/kernel/kernel/locking/semaphore.c
@@ -178,5 +180,3 @@
 /home/guoding/.emacs.d/nxhtml/etc/schema/#xhtml-loader.rnc#
 /home/guoding/study/kernelmodule/ldd3/tty/123
 /home/guoding/study/kernelmodule/ldd3/tty/#123#
-/home/guoding/Public/study/main.c
-/home/guoding/Public/study/#main.c#
