@@ -38,7 +38,7 @@
 ;;       )
 
 
-(desktop-save-mode 1)
+;; (desktop-save-mode 1) duplicated tobe removed dgl
 
 (defun spw()
   (interactive)  
@@ -101,6 +101,13 @@
 
 ;; 自动打开上次的文件
 (desktop-save-mode 1)
+;;(require 'session) 
+(add-hook 'after-init-hook 'session-initialize) 
+
+
+(load "desktop") 
+(desktop-load-default) 
+(desktop-read) 
 ;dgl
 
 ;;Emacs窗口大小
@@ -863,44 +870,16 @@ auto-mode-alist))
 
 (global-set-key (kbd "M-i") 'feng-highlight-at-point)
 
-
-(load-file "/usr/share/emacs/site-lisp/xcscope.el")
-(require 'xcscope)
-
-
-;auto complete
+;;plugin auto complete
 (add-to-list 'load-path "/home/guoding/.emacs.d/")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "/home/guoding/.emacs.d/ac-dict")
 (ac-config-default)
 
 
-;tab equals 4 space
-;dgl
-;(set )
-;(setq tab-width 2) ; or any other preferred value
-;(defvaralias 'c-basic-offset 'tab-width)
-;(defvaralias 'cperl-indent-level 'tab-width)
-
-;(setq indent-tabs-mode nil)
-;(setq-default indent-tabs-mode nil)
+;;formate tab equals 4 space
 ;(load-file "/home/guoliang/.emacs.d/smart-tab.el")
 ;(require 'smart-tab)
-
-
-;(setq indent-tabs-mode nil)
-;(setq default-tab-width 4)
-
-; And I have tried
-;(setq indent-tabs-mode nil)
-;(setq tab-width 4)
-;(setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
-;(customize-variable (quote tab-stop-list))
-
-
-;(load-file "/home/guoliang/.emacs.d/smart-tab.el")
-;(require 'smart-tab)
-
 (setq tab-width 4)
 (setq default-tab-width 4)
 (setq indent-tabs-mode nil)
@@ -928,14 +907,6 @@ auto-mode-alist))
 ;             (setq-default 'indent-tabs-mode nil)
              (setq c-basic-offset 4)))
 
-
-;(setq c-default-style "bsd"
-;  c-basic-offset 0)
-
-
-  
-;;======================            Load cscope                =====================  
-;(add-to-list 'load-path "~/emacs.d/plugins/cscope-15.7a/contrib/xcscope/")  
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/")  
 (require 'xcscope)
 
@@ -1086,24 +1057,18 @@ auto-mode-alist))
 (add-hook 'c-mode-common-hook 'jpk/c-mode-hook)
 
 
-(defun lovestar ()
-  print "aa"
-  setq abcdef 1
-  print abcdef
-)
-
-(setq
- gdb-many-windows t
- gdb-show-main t
- )
-
-
-
+;;open the helm mode 
 (require 'ac-helm) ;; Not necessary if using ELPA package
 (global-set-key (kbd "C-:") 'ac-complete-with-helm)
 (define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-helm)
 
-
+;;;gdb settings
+;;set the gdb multiwindow mode
+(setq
+ gdb-many-windows t
+ gdb-show-main t
+ )
+;;set the shortcut key for last command or next command on gdb; and gdb multiwindow
 (global-set-key (kbd "C-p") `comint-previous-input)
 (global-set-key (kbd "C-n") `comint-next-input)
 (global-set-key (kbd "C-c <left>") `windmove-left)
