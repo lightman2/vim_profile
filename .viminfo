@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~mSle0~/tgz
+~mSle0~/gz
 
 # Last Substitute Search Pattern:
 ~mSle0&\n
@@ -18,47 +18,107 @@ $
 
 # Command Line History (newest to oldest):
 :qall
+:q
 :wqall
 :w
-:%s/\n/ /g
-:qall!
-:qa!
+:e ccsp-mainline-patches/apply_patch.sh.rej
 :e 123
-:qal
-:e .gitmodules
-:q!
-:all
+:!git diff Utopia/Makefile
+:!git diff Utopia/source/sysevent/lib/sysevent.h
+:%s/\n/ /g
 :qa
-:q
-:'<,'>q
+:e 1234
+:!git diff Utopia/source/syscfg/lib/syscfg_lib.h
+:! git diff Utopia/source/syscfg/lib/Makefile
+:!git diff Utopia/source/ccsp_ut_utils/cosa_drg_common.c
 :e
+:e buildConfig.cfg
+:set nonu
+:e 
+:wq
+:jjjkk
+:q!
+:wqal
+:wqa
+:w!
+:e /etc/sysctl.d/
+:e /var/log/messages.0
+:e ./platform_repo/hal/source/libcm_mgnt/
+:e build.sh
+:e -L/home/guoding/Public/tmp/ccsp_mainline_pc_simulation/ccsp/Stage/pc-ubunt:qal
+:e Makefile
+:qalll
+:e /var/log/
+:e /var/local/
+:qal
+:e /usr/share/emacs/site-lisp/
+:e history.el
+:NNN
+:!man install
+:e moca
+:file
+:b 3
+:history
+:811
+:2178
+:nonu
+:!bash 123.bash aaa bbb
+:!bash 123.bash aaa
+:!bash 123.bash
+:e .emacs_old
+:<F6>
 
 # Search String History (newest to oldest):
-?/tgz
-?/(
+?/gz
+?/load-path
+?/emacs.d
+?/rg
+?/common
+?/gpl
+?/mainline
+?/script
+?/makefile
 ? \n
-?/guoliang
-?/zwnode
-?/node
-?/ssh
-?/guoding
-?/json
-?/webui
-?/control
-?/init_submodules_cdc
-?/config
-?/sh
-?/build
+?/syscfg
+?/syscfg_lib
+?/simple
+?/path
+?/gcc
+?/ccspmainline
 ?/ccsp
-?/$USER
-?/git
-?/git clone
-?/suer
-?/username
-?/submodule
-?/Customer
-?/Synchronizing submodule
-?/git 
+?/tar
+?/mapc
+?/0505
+?/cross_compile
+?/cross
+?/cc
+?/arm
+?/cm
+?/mta
+?/%.so
+?/instance
+?/root
+?/LineTable
+?/DHCPOption8
+?/pktcMtaDevRealmOrgName
+?/ClearDSXLog
+?/HazardousPotential
+?/number
+?/count
+?/entry
+?/LineTable_GetEntryCount
+?/193
+?/fail
+?/faile
+?/cflags
+?/make
+?/register empty
+?/register
+?/181
+?/grep
+?/color
+?/docsis_SetUSChannelId
+?/platform
 
 # Expression History (newest to oldest):
 
@@ -66,272 +126,235 @@ $
 
 # Input Line History (newest to oldest):
 
-# Registers:
-"0	CHAR	0
-	cl-git-mirror.crdc.chs.cisco.com
-"1	BLOCK	3
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-	#	
-"2	BLOCK	702
-	#	.filezilla/
-	#	.fontconfig/
-	#	.gconf/
-	#	.gitconfig
-	#	.gitk
-	#	.gksu.lock
-	#	.gnome2/
-	#	.gnupg/
-	#	.gstreamer-0.10/
-	#	.gtk-bookmarks
-	#	.ido.last
-	#	.ido.last~
-	#	.install4j
-	#	.java/
-	#	.jline-bsh.Interpreter.history
-	#	.kde/
-	#	.lesshst
-	#	.local/
-	#	.lvm_history
-	#	.m2/
-	#	.macromedia/
-	#	.mission-control/
-	#	.mozilla/
-	#	.nvm/
-	#	.oracle_jre_usage/
-	#	.profile
-	#	.pulse-cookie
-	#	.pulse/
-	#	.recentf
-	#	.recentf~
-	#	.semanticdb/
-	#	.shotwell/
-	#	.smartbear/
-	#	.smartgit/
-	#	.srecode/
-	#	.ssh/
-	#	.subversion/
-	#	.thunderbird/
-	#	.vim.tgz
-	#	.viminfo.tmp
-	#	.xsession-errors
-	#	.xsession-errors.old
-	#	111
-	#	123
-	#	1234
-	#	3211.sh
-	#	Apr2204:06:02/
-	#	Downloads/
-	#	Projects/
-	#	Public/.DS_Store
-"3	CHAR	0
-	#	.cache/
-	#	.cola
-	#	.compiz-1/
-	#	.config/
-	#	.dbus/
-	#	.dmrc
-	
-"4	CHAR	0
-	#	#*message*-20150521-110429#
-	#	#*message*-20151109-174025#
-	#	#.bashrc#
-	#	#123#
-	#	*message*-20150521-110429
-	#	.ICEauthority
-	#	.Xauthority
-	
+# å¯„å­˜å™¨:
+"0	LINE	0
+				./platform_broadcom/ccspmainlinebuild.sh ${toolchain_rg}
+""1	LINE	0
+	>>>>>>> a8d3d0a7c5570c67f2bbf2049fb787924461a5a1
+"2	LINE	0
+	#patch -p0 < $CCSP_PATCH_PATH/ccsp_utopia_override.patch
+"3	LINE	0
+	=======
+"4	LINE	0
+	<<<<<<< HEAD
 "5	LINE	0
-	#
-	# Untracked files:
-	#   (use "git add <file>..." to include in what will be committed)
-	#
+	>>>>>>> Stashed changes
 "6	LINE	0
-	
-"7	BLOCK	15
-	#	modified:   
-	#	deleted:    
-	#	modified:   
-	#	deleted:    
-	#	deleted:    
-	#	deleted:    
-	#	deleted:    
-	#	deleted:    
-	#	deleted:    
-	#	modified:   
-	#	modified:   
-	#	modified:   
-	#	modified:   
-	#	modified:   
-	#	modified:   
-	#	modified:   
-	#	modified:   
-"8	CHAR	0
-	# Changes not staged for commit:
-	#   (use "git add/rm <file>..." to update what will be committed)
-	#   (use "git checkout -- <file>..." to discard changes in working directory)
-	#   (commit or discard the untracked or modified content in submodules)
-	#
+	#include $(CCSP_ROOT_DIR)/CcspCommonLib/Utopia/1.1/platform.inc
+"7	LINE	0
+	=======
+"8	LINE	0
+	<<<<<<< Updated upstream
 "9	LINE	0
-	#
-""-	CHAR	0
-	.emacs.d/toolchain.tgz
+	>>>>>>> Stashed changes
+"a	CHAR	0
+	ll
+"k	CHAR	0
+	808
+<kkkkkkkkkkkkkkkkkkkkkkkkkkkks30o		:wabreak:w€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd,x:wwwkkjkllljjjk:w€ku€kuddjjkp:w€kd€kd€kd€ku€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd23Gk$a;:w€kN€kPkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk,x:w€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kdo	fflush(stdout);:w€ku€ku€ku€ku€ku€ku€kl€kls2:whhhhs0:w€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kujjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkj,xwwwhx:w€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kukkkkkkkkkkkkkkkkkkkkkkkkkkk,xo		execl()€kl""€kl/bing€kb/ls:wlli,bb:wbbbbK wwwwwwblllhiNULL€@7;:w22GK Kq
+"v	CHAR	0
+	/dev/zwave/ttty0_up
+	
+"w	CHAR	0
+	wwbwsist€kb€kb€kbstdin:wbbbia = :wkbbdwiint :wjwwwwwdw:wo	p€kb	putchar(a);:wbbbbKq
+"-	CHAR	0
+	#	modified:   
 
-# File marks:
-'0  1  2  ~/123
-'1  41  18  /etc/passwd
-'2  3  0  ~/Public/work2/night.sh
-'3  1  0  ~/Public/work/2CL/.git/config
-'4  29  0  ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/ZwSupport.cpp
-'5  1  0  ~/Public/work2/intel_usg/123
-'6  17  21  ~/Public/work2/intel_usg/build_helper.sh
-'7  10  15  ~/Public/work2/intel_usg/build.sh
-'8  1  1  ~/Public/work2/intel_usg/build_helper.sh
-'9  68  6  ~/Public/work2/intel_usg/build.sh
+# æ–‡ä»¶æ ‡è®°:
+'0  13  0  /usr/local/share/emacs/24.5/lisp/international/README
+'1  4  0  /usr/local/share/emacs/24.5/lisp/NERD_tree_1
+'2  28  0  ~/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/apply_patch.sh
+'3  4  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/Makefile
+'4  44  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/Makefile
+'5  3  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/Makefile
+'6  1  0  ~/.emacs.desktop
+'7  1091  0  ~/.emacs
+'8  402  2  ~/123
+'9  1  0  ~/.emacs.d/NERD_tree_2
 
-# Jumplist (newest first):
--'  1  2  ~/123
--'  2  0  ~/123
--'  41  18  /etc/passwd
--'  1  0  /etc/passwd
--'  9  0  /etc/passwd
--'  3  0  ~/Public/work2/night.sh
--'  1  0  ~/Public/work2/night.sh
--'  1  0  ~/Public/work/2CL/.git/config
--'  11  0  ~/Public/work/2CL/NERD_tree_3
--'  1  0  ~/Public/work/2CL/.git/description
--'  12  0  ~/Public/work/2CL/NERD_tree_3
--'  1  0  ~/Public/work/2CL/.git/FETCH_HEAD
--'  13  0  ~/Public/work/2CL/NERD_tree_3
--'  1  0  ~/Public/work/2CL/.git/HEAD
--'  14  0  ~/Public/work/2CL/NERD_tree_3
--'  1  0  ~/Public/work/2CL/.git/index
--'  15  0  ~/Public/work/2CL/NERD_tree_3
--'  1  0  ~/Public/work/2CL/.git/ORIG_HEAD
--'  16  0  ~/Public/work/2CL/NERD_tree_3
--'  1  0  ~/Public/work/2CL/.git/packed-refs
--'  17  0  ~/Public/work/2CL/NERD_tree_3
--'  1  0  ~/Public/work/2CL/NERD_tree_3
--'  17  0  ~/Public/work/2CL/NERD_tree_1
--'  1  0  ~/Public/work/2CL/NERD_tree_1
--'  29  0  ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/ZwSupport.cpp
--'  21  1  ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/ZwSupport.h
--'  1  0  ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/ZwSupport.cpp
--'  85  6  ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/ZwSupport.h
--'  133  0  ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/ZwSupport.h
--'  56  15  ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/ZwSupport.h
--'  41  19  ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/ZwSupport.h
--'  37  0  ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/ZwSupport.h
--'  136  0  ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/ZwSupport.h
--'  1  0  ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/ZwSupport.h
--'  1  0  ~/Public/work2/intel_usg/123
--'  1  0  ~/Public/work2/intel_usg/1123
--'  17  21  ~/Public/work2/intel_usg/build_helper.sh
--'  1  0  ~/Public/work2/intel_usg/build.sh
--'  1  0  ~/Public/work2/intel_usg/build_helper.sh
--'  10  15  ~/Public/work2/intel_usg/build.sh
--'  86  61  ~/Public/work2/intel_usg/build.sh
--'  85  22  ~/Public/work2/intel_usg/build.sh
--'  84  19  ~/Public/work2/intel_usg/build.sh
--'  78  94  ~/Public/work2/intel_usg/build.sh
--'  71  93  ~/Public/work2/intel_usg/build.sh
--'  13  15  ~/Public/work2/intel_usg/build.sh
--'  575  6  ~/Public/work2/intel_usg/build.sh
--'  68  6  ~/Public/work2/intel_usg/build.sh
--'  1  0  ~/Public/work2/intel_usg/build
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work2/intel_usg/build
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work2/intel_usg/build
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work2/intel_usg/build
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work2/intel_usg/build
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work2/intel_usg/build
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work2/intel_usg/build
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work2/intel_usg/build
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  7  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  1  0  ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
--'  17  21  ~/Public/work2/intel_usg/build_helper.sh
--'  41  18  /etc/passwd
--'  1  0  /etc/passwd
--'  9  0  /etc/passwd
--'  3  0  ~/Public/work2/night.sh
--'  1  0  ~/Public/work2/night.sh
--'  1  0  ~/Public/work/2CL/.git/config
--'  41  18  /etc/passwd
+# è·³è½¬åˆ—è¡¨ (ä»Žæ–°åˆ°æ—§):
+-'  13  0  /usr/local/share/emacs/24.5/lisp/international/README
+-'  1  0  /usr/local/share/emacs/24.5/lisp/international/README
+-'  4  0  /usr/local/share/emacs/24.5/lisp/NERD_tree_1
+-'  528  0  /usr/local/share/emacs/24.5/lisp/NERD_tree_1
+-'  1  0  /usr/local/share/emacs/24.5/lisp/NERD_tree_1
+-'  1  0  /usr/local/share/emacs/24.5/lisp/international/mule.el.gz
+-'  28  0  ~/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/apply_patch.sh
+-'  1  0  ~/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/apply_patch.sh
+-'  4  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/Makefile
+-'  1  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/Makefile
+-'  44  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/Makefile
+-'  4  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/Makefile
+-'  3  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/Makefile
+-'  1  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/Makefile
+-'  1  0  ~/.emacs.desktop
+-'  1091  0  ~/.emacs
+-'  2  1  ~/.emacs
+-'  1  1  ~/.emacs
+-'  402  2  ~/123
+-'  1  0  ~/.emacs.d/NERD_tree_2
+-'  4  0  ~/.emacs.d/NERD_tree_2
+-'  6  0  ~/.emacs.d/NERD_tree_2
+-'  401  60  ~/123
+-'  400  60  ~/123
+-'  399  59  ~/123
+-'  398  60  ~/123
+-'  343  56  ~/123
+-'  342  56  ~/123
+-'  200  51  ~/123
+-'  199  34  ~/123
+-'  198  50  ~/123
+-'  143  56  ~/123
+-'  142  39  ~/123
+-'  97  59  ~/123
+-'  1  0  ~/123
+-'  442  60  ~/123
+-'  443  59  ~/123
+-'  444  60  ~/123
+-'  445  60  ~/123
+-'  447  60  ~/123
+-'  448  60  ~/123
+-'  449  60  ~/123
+-'  450  63  ~/123
+-'  451  71  ~/123
+-'  452  59  ~/123
+-'  454  62  ~/123
+-'  455  21  ~/123
+-'  456  21  ~/123
+-'  457  21  ~/123
+-'  458  60  ~/123
+-'  459  59  ~/123
+-'  460  60  ~/123
+-'  461  60  ~/123
+-'  463  60  ~/123
+-'  464  60  ~/123
+-'  465  60  ~/123
+-'  466  63  ~/123
+-'  467  71  ~/123
+-'  468  59  ~/123
+-'  470  62  ~/123
+-'  473  69  ~/123
+-'  1171  0  ~/123
+-'  441  73  ~/123
+-'  430  21  ~/123
+-'  429  21  ~/123
+-'  428  62  ~/123
+-'  426  71  ~/123
+-'  425  63  ~/123
+-'  424  60  ~/123
+-'  423  60  ~/123
+-'  422  60  ~/123
+-'  420  60  ~/123
+-'  419  60  ~/123
+-'  418  59  ~/123
+-'  417  60  ~/123
+-'  416  21  ~/123
+-'  415  21  ~/123
+-'  414  21  ~/123
+-'  413  21  ~/123
+-'  412  85  ~/123
+-'  411  68  ~/123
+-'  410  62  ~/123
+-'  408  59  ~/123
+-'  407  71  ~/123
+-'  406  63  ~/123
+-'  405  60  ~/123
+-'  404  60  ~/123
+-'  403  60  ~/123
+-'  402  2  ~/123
+-'  1  0  ~/.emacs.d/NERD_tree_2
+-'  4  0  ~/.emacs.d/NERD_tree_2
+-'  6  0  ~/.emacs.d/NERD_tree_2
+-'  401  60  ~/123
+-'  400  60  ~/123
+-'  399  59  ~/123
+-'  398  60  ~/123
+-'  343  56  ~/123
+-'  342  56  ~/123
+-'  4  0  /usr/local/share/emacs/24.5/lisp/NERD_tree_1
+-'  528  0  /usr/local/share/emacs/24.5/lisp/NERD_tree_1
 
-# History of marks within files (newest to oldest):
+# æ–‡ä»¶å†…çš„æ ‡è®°åŽ†å²è®°å½• (ä»Žæ–°åˆ°æ—§):
 
-> ~/123
-	"	1	2
-	.	1	1633
-	+	2	29
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
+> /usr/local/share/emacs/24.5/lisp/international/README
+	"	13	0
+
+> /usr/local/share/emacs/24.5/lisp/international/NERD_tree_1
+	"	4	0
+	.	1	0
 	+	1	0
-	+	1	618
-	+	1	1633
+
+> /usr/local/share/emacs/24.5/lisp/international/mule.el.gz
+	"	1365	0
+	.	2561	0
+	+	2561	0
+
+> /usr/local/share/emacs/24.5/lisp/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/apply_patch.sh
+	"	28	0
+	.	28	0
+	+	10	0
+	+	27	0
+	+	28	0
+
+> ~/Public/brcm_61/platform_broadcom/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/Makefile
+	"	4	0
+	.	4	0
+	+	3	0
+	+	4	0
+
+> ~/Public/brcm_61/ccsp/CcspCommonLib/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/Makefile
+	"	44	0
+	.	4	0
+	+	3	0
+	+	4	0
+
+> ~/.emacs.desktop
+	"	1	0
 
 > ~/NERD_tree_1
 	"	4	0
@@ -345,27 +368,22 @@ $
 	+	1	0
 	+	1	0
 	+	1	0
-
-> /etc/passwd
-	"	41	18
-	^	41	19
-	.	41	18
-	+	41	18
-	a	41	13
-
-> ~/Public/work2/night.sh
-	"	3	0
-
-> ~/Public/work2/NERD_tree_1
-	"	18	0
-	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
 	+	1	0
 
-> ~/Public/work/2CL/source/user/iot/m2m/things/zwave/ZwDeviceMgrCli.cpp
-	"	53	5
+> ~/.emacs
+	"	1091	0
+	.	1091	0
+	+	1091	0
 
-> ~/Public/work/2CL/tools/build_tools/NERD_tree_1
-	"	35	0
+> ~/.emacs.d/NERD_tree_1
+	"	4	0
 	.	1	0
 	+	1	0
 	+	1	0
@@ -373,41 +391,44 @@ $
 	+	1	0
 	+	1	0
 	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
+
+> ~/.emacs.d/NERD_tree_2
+	"	1	0
+	.	1	0
 	+	1	0
 
-> ~/Public/work/2CL/source/user/iot/m2m/things/zwave/ZwDeviceApi.cpp
-	"	28	16
-	a	45	13
+> ~/123
+	"	402	2
+	a	403	60
 
-> ~/Public/work/2CL/tools/build_tools/-MiniBufExplorer-
-	"	1	22
+> ~/.emacs.d/-MiniBufExplorer-
+	"	1	15
 	.	2	0
 	+	2	0
 
-> ~/Public/work2/intel_usg2/build_helper.sh
-	"	18	64
-	^	29	36
-	.	29	35
-	+	18	28
-	+	20	27
-	+	22	29
-	+	25	30
-	+	27	38
-	+	29	35
-	a	32	0
+> ~/Public/brcm_61/build_package.sh
+	"	127	3
+	^	1401	5
+	.	1401	4
+	+	1405	0
+	+	1	0
+	+	88	15
+	+	90	0
+	+	90	59
+	+	90	9
+	+	89	20
+	+	90	0
+	+	1403	3
+	+	1403	3
+	+	1404	1
+	+	1403	59
+	+	1402	21
+	+	62	8
+	+	1401	4
+	b	1245	3
 
-> ~/Public/work2/intel_usg2/NERD_tree_1
-	"	17	0
+> ~/Public/brcm_61/NERD_tree_1
+	"	4	0
 	.	1	0
 	+	1	0
 	+	1	0
@@ -417,21 +438,68 @@ $
 	+	1	0
 	+	1	0
 	+	1	0
-	+	1	0
-	+	1	0
+
+> ~/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/apply_patch.sh.rej
+	"	1	0
+
+> ~/Public/brcm_61/platform_broadcom/-MiniBufExplorer-
+	"	1	0
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/Public/brcm_61/platform_broadcom/platform_broadcom.diff.patch
+	"	3	6
+
+> ~/Public/brcm_61/platform_broadcom/broadcom/epc4911/make/1.1/ccsp_build_common.mk
+	"	141	0
+
+> ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/hal/include/utopia_platform.h
+	"	1	0
+
+> ~/Public/brcm_61/-MiniBufExplorer-
+	"	1	20
+	.	2	0
+	+	2	0
+	+	2	0
+
+> ~/Public/brcm_61/ccsp/NERD_tree_1
+	"	4	0
+	.	1	0
 	+	1	0
 	+	1	0
 	+	1	0
 
-> ~/Public/work2/intel_usg2/.gitmodules
-	"	9	20
-	^	9	21
-	.	9	20
-	+	3	20
-	+	6	20
-	+	9	20
+> ~/Public/brcm_61/ccsp/CcspCommonLib/123
+	"	1	98
+	^	1	62
+	.	1	61
+	+	1	0
+	+	1	0
+	+	1	1
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	2	0
+	+	1	0
+	+	1	0
+	+	2	0
+	+	2	0
+	+	1	0
+	+	2	0
+	+	1	61
 
-> ~/Public/work2/intel_usg2/-MiniBufExplorer-
+> ~/Public/brcm_61/ccsp/CcspCommonLib/-MiniBufExplorer-
 	"	1	19
 	.	2	0
 	+	2	0
@@ -439,145 +507,145 @@ $
 	+	2	0
 	+	2	0
 	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
 
-> ~/Public/work2/intel_usg2/build.sh
-	"	1	0
-	^	67	4
-	.	67	3
-	+	67	3
-	a	64	2
-	b	612	0
-
-> ~/Public/work2/intel_usg2/NERD_tree_2
-	"	4	0
+> ~/Public/brcm_61/platform_broadcom/123
+	"	1	1
+	^	1	49
 	.	1	0
 	+	1	0
-
-> ~/Public/work2/intel_usg2/NERD_tree_3
-	"	12	2
-	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	72
+	+	1	0
+	+	1	0
+	+	1	0
+	+	2	0
+	+	1	0
+	+	2	0
 	+	1	0
 
-> ~/Public/work2/intel_usg2/.git/config
-	"	7	13
+> ~/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/1.1/platform.inc
+	"	16	0
+	.	16	0
+	+	16	0
 
-> ~/Public/work/2CL/.git/config
+> ~/Public/brcm_61/ccsp/CcspCommonLib/1234
+	"	9	28
+
+> ~/commitlog
+	"	4	57
+	^	4	58
+	.	5	0
+	+	6	76
+	+	1	3
+	+	6	76
+	+	4	69
+	+	5	0
+	+	4	58
+	+	5	0
+
+> ~/Public/brcm_61/platform_broadcom/.git/COMMIT_EDITMSG
 	"	7	0
-	^	7	34
-	.	8	0
-	+	7	34
-	+	8	0
 
-> ~/Public/work2/intel_usg2/321
-	"	27	95
-	^	46	0
-	.	45	87
-	+	45	87
-
-> ~/Public/work2/intel_usg2/123
+> ~/Public/brcm_61/ccsp/CcspCommonLib/12345
 	"	1	0
 
-> ~/Public/work2/intel_usg2/bui
-	"	1	0
+> ~/Public/brcm_61/123
+	"	94	90
 
-> ~/Public/work/2CL/NERD_tree_1
-	"	1	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
+> ~/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/revertpatch.sh
+	"	18	0
+	.	18	0
+	+	18	0
 
-> ~/Public/work/2CL/NERD_tree_2
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work/2CL/NERD_tree_3
-	"	5	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work2/intel_usg/NERD_tree_1
-	"	1	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/work2/intel_usg/NERD_tree_2
+> ~/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/NERD_tree_1
 	"	4	0
 	.	1	0
 	+	1	0
 
-> ~/Public/work2/intel_usg/NERD_tree_3
-	"	12	0
+> ~/Public/brcm_61/ccsp/CcspCommonLib/NERD_tree_2
+	"	4	0
 	.	1	0
 	+	1	0
 
-> ~/Public/work2/intel_usg/.git/config
-	"	7	33
-	^	7	34
-	.	7	30
-	+	7	30
-
-> ~/Public/work/2CL/tools/NERD_tree_1
-	"	12	11
+> ~/Public/brcm_61/ccsp/CcspCommonLib/NERD_tree_3
+	"	8	0
 	.	1	0
 	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
 
-> ~/Public/work/2CL/tools/__Tag_List__
+> /proc/14871/fd/63
+	"	3	0
+
+> /proc/14871/fd/62
 	"	2	0
-	.	1	0
-	+	1	0
 
-> ~/Public/work2/Connected-Life/source/user/fmc/cisco/private/bundle/com.cisco.cl.device_mgmt/target/surefire-reports/TEST-com.cisco.cl.dm.testSuite1.DevicesResourceTest.xml
-	"	61	81
+> ~/Public/ccsp_mainline_pc_simulation/build.sh
+	"	39	0
 
-> ~/Public/work2/Connected-Life/NERD_tree_1
+> ~/Public/intel_usg/build.sh
+	"	27	20
+
+> ~/tools/build_package.sh
+	"	759	1
+
+> ~/tools/NERD_tree_1
 	"	4	0
 	.	1	0
 	+	1	0
 	+	1	0
 
-> ~/Public/work2/Connected-Life/README
-	"	31	5
-
-> ~/Public/work/2CL/.git/packed-refs
+> ~/tools/build
 	"	1	0
 
-> ~/Public/work/2CL/.git/ORIG_HEAD
+> ~/tools/buildConfig.cfg
 	"	1	0
 
-> ~/Public/work/2CL/-MiniBufExplorer-
-	"	1	77
+> ~/tools/-MiniBufExplorer-
+	"	1	9
+	.	2	0
+	+	2	0
+
+> ~/Public/ccsp_mainline_pc_simulation/ccsp/utilities/pc_build/ccsp_setenv_pc.sh
+	"	25	7
+
+> ~/Public/ccsp_mainline_pc_simulation/ccsp/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/ccsp_mainline_pc_simulation/ccsp/utilities/opensource/build_modules.sh
+	"	87	1
+
+> ~/Public/intel_usg/build_helper.sh
+	"	1	0
+
+> ~/Public/intel_usg/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/intel_usg/-MiniBufExplorer-
+	"	1	0
 	.	2	0
 	+	2	0
 	+	2	0
@@ -586,73 +654,418 @@ $
 	+	2	0
 	+	2	0
 	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
 
-> ~/Public/work/2CL/.git/index
-	"	1	0
-
-> ~/Public/work/2CL/.git/HEAD
-	"	1	0
-
-> ~/Public/work/2CL/.git/FETCH_HEAD
-	"	1	0
-
-> ~/Public/work/2CL/.git/description
-	"	1	0
-
-> ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/ZwSupport.h
-	"	85	6
-
-> ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/NERD_tree_1
+> ~/Public/intel_usg/NERD_tree_2
 	"	4	0
 	.	1	0
 	+	1	0
 
-> ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/ZwSupport.cpp
-	"	29	0
-	a	29	14
+> ~/Public/intel_usg/NERD_tree_3
+	"	6	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
 
-> ~/Public/work/2CL/source1/user/iot/m2m/things/zwave/-MiniBufExplorer-
-	"	1	15
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
+> ~/Public/intel_usg/platform_repo/make/arm/ccsp_build_common.mk
+	"	96	13
 
-> ~/Public/work2/intel_usg/1123
+> ~/.emacs.d/123
+	"	3	2
+
+> ~/study/linuxapplicationmanual/debug/examples/memtest/Makefile
+	"	4	9
+	^	4	10
+	.	4	9
+	+	2	0
+	+	1	0
+	+	2	3
+	+	7	17
+	+	7	0
+	+	5	0
+	+	4	9
+
+> ~/study/linuxapplicationmanual/debug/examples/memtest/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/ccsp_mainline_pc_simulation/log
+	"	15	0
+	^	8	47
+	.	8	46
+	+	1	44
+	+	7	46
+	+	13	69
+	+	7	31
+	+	8	46
+
+> ~/Public/build_test/ccsp_mainline_pc_simulation2/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/build_test/ccsp_mainline_pc_simulation2/ccsp/Out/pc-ubuntu32/123
+	"	1857	60
+
+> ~/Public/build_test/ccsp_mainline_pc_simulation2/ccsp/Out/pc-ubuntu32/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/build_test/ccsp_mainline_pc_simulation2/platform_repo/CcspCommonLib/pc/scripts/cosa_start.sh
+	"	180	10
+	^	180	11
+	.	180	10
+	+	192	10
+	+	180	10
+
+> ~/study/main
 	"	1	0
 
-> ~/Public/work2/intel_usg/123
+> ~/study/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/Out/pc-ubuntu32/123
+	"	86	59
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/Out/pc-ubuntu32/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/build_test/ccsp_mainline_pc_simulation/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/build_test/ccsp_mainline_pc_simulation/1234
 	"	1	0
 
-> ~/Public/work2/intel_usg/-MiniBufExplorer-
-	"	1	8
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
+> ~/Public/build_test/ccsp_mainline_pc_simulation/123
+	"	82	59
 
-> ~/Public/work2/intel_usg/build_helper.sh
-	"	17	21
+> ~/Public/build_test/ccsp_mainline_pc_simulation/Makefile
+	"	88	26
+	.	204	0
+	+	87	0
+	+	87	0
+	+	89	0
+	+	144	0
+	+	146	0
+	+	201	0
+	+	204	0
 
-> ~/Public/work2/intel_usg/build.sh
+> ~/Public/build_test/ccsp_mainline_pc_simulation/111
+	"	65	88
+
+> ~/Public/build_test/ccsp_mainline_pc_simulation/ccsp/Out/pc-ubuntu32/cosa_start.sh
+	"	195	14
+
+> ~/Public/build_test/ccsp_mainline_pc_simulation/ccsp/Out/pc-ubuntu32/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspCMAgent/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/Out/pc-ubuntu32/1234
+	"	86	59
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/Out/pc-ubuntu32/cosa_start.sh
+	"	2	0
+	.	201	0
+	+	201	0
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/source.sh
+	"	1	0
+	.	4	0
+	+	2	0
+	+	4	0
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspCMAgent/.git
+	"	1	6
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspCMAgent/Makefile
+	"	54	0
+
+> ~/.install4j
+	"	11	0
+
+> ~/vmware-tools-distrib/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/make/ccsp_common.mk
+	"	194	47
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/ccsp_common.mk
 	"	1	0
 
-> ~/Public/work2/intel_usg/build
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/NERD_tree_1
 	"	1	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
 
-> ~/Public/work/temp/Toolchain/toolchain_atom/README_toolchain.txt
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/NERD_tree_2
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/NERD_tree_3
 	"	7	0
+	.	1	0
+	+	1	0
+	+	1	0
 
-> ~/Public/work/temp/Toolchain/toolchain_atom/NERD_tree_1
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/source/MtaAgentSsp/ssp_action.c
+	"	1	0
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/123
+	"	1	0
+	.	1	0
+	+	1	0
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/123333
+	"	1	0
+	^	12	16
+	.	12	15
+	+	13	16
+	+	13	0
+	+	14	0
+	+	15	0
+	+	16	0
+	+	17	0
+	+	18	0
+	+	19	0
+	+	20	0
+	+	32	1
+	+	13	7
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	17
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	13	0
+	+	1	0
+	+	11	3
+	+	5	0
+	+	6	0
+	+	7	0
+	+	8	0
+	+	9	0
+	+	10	0
+	+	12	15
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/hal/include/mta_hal.h
+	"	290	36
+
+> ~/.bashrc
+	"	124	19
+	^	124	20
+	.	124	19
+	+	122	16
+	+	121	0
+	+	122	0
+	+	124	19
+
+> /etc/sudoers
+	"	30	0
+	^	30	1
+	.	30	0
+	+	29	0
+	+	30	0
+	+	29	0
+	+	30	0
+
+> /usr/bin/gdb
+	"	1	14
+	^	1	15
+	.	1	14
+	+	1	14
+
+> /etc/sysctl.d/10-ptrace.conf
+	"	1	0
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/NERD_tree_2
 	"	4	0
 	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/tmp/ccsp_mainline_pc_simulation/NERD_tree_3
+	"	1	0
+	.	1	0
+	+	1	0
 	+	1	0

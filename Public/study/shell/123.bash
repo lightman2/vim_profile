@@ -24,7 +24,7 @@
 #sed -n "/$PRODUCT_MODEL/p" version.ini
 
 #export sbcis=250
-sbcis=111
+#sbcis=111
 
 #include version.ini
 
@@ -64,13 +64,49 @@ ret=0;
 #fi
 
 
-echo 111;
-ls adfafa;
+#echo 111;
+#ls adfafa;
 
-if [ "$?" -ne "0" ]||[ $ret -ne "0" ]
+#if [ "$?" -ne "0" ]||[ $ret -ne "0" ]
+#then
+#    echo aaaaaaaaaaaaaaaa
+#else
+#    echo $?
+#fi
+
+echo "\$\$"$$
+
+echo "\$\@"$@
+echo "\$\*"$*
+
+echo "\$\0"$0
+echo "entering circulation"
+for var in $*
+do
+    echo "\$var = $var"
+done
+
+
+echo "\$\@"$@
+echo "\$\*"$*
+
+echo "\$1"$1
+
+echo "\$\@"$@
+echo "\$\*"$*
+
+#abc="abc"
+abcset=`echo "abcset"`
+
+#test "$abc+set
+if test  "${abc+set}"="set"; 
 then
-    echo aaaaaaaaaaaaaaaa
+    echo $abcset + "aaa"
 else
-    echo $?
+#    echo $abc
+#    echo ${abc +set}
+    echo $abcset
 fi
+
+#if test "${with_kbuild+set}" = set; then : 
 

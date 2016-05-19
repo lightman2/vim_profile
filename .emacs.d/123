@@ -1,11 +1,457 @@
-.
-./elpa
-./elpa/archives
-./elpa/archives/melpa
-./elpa/archives/melpa/archive-contents
-./elpa/archives/marmalade
-./elpa/archives/marmalade/archive-contents
-./elpa/archives/gnu
-./elpa/archives/gnu/archive-contents
-./elpa/w3m-readme.txt
-
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   .emacs.desktop
+#	modified:   .emacs.desktop.lock
+#	new file:   .session
+#	modified:   ac-comphist.dat
+#	new file:   auto-save-list/.saves-13110-ubuntu~
+#	new file:   auto-save-list/.saves-14894-ubuntu~
+#	new file:   auto-save-list/.saves-16885-ubuntu~
+#	new file:   auto-save-list/.saves-25598-ubuntu~
+#	new file:   auto-save-list/.saves-27215-ubuntu~
+#	new file:   auto-save-list/.saves-32486-ubuntu~
+#	new file:   auto-save-list/.saves-4394-ubuntu~
+#	new file:   auto-save-list/.saves-5004-ubuntu~
+#	new file:   auto-save-list/.saves-5615-ubuntu~
+#	new file:   auto-save-list/.saves-6516-ubuntu~
+#	new file:   auto-save-list/.saves-9716-ubuntu~
+#	modified:   elpa/archives/gnu/archive-contents
+#	new file:   elpa/archives/gnu/archive-contents~
+#	modified:   elpa/archives/melpa/archive-contents
+#	new file:   elpa/autobookmarks-20160413.328/autobookmarks-autoloads.el
+#	new file:   elpa/autobookmarks-20160413.328/autobookmarks-pkg.el
+#	new file:   elpa/autobookmarks-20160413.328/autobookmarks.el
+#	new file:   elpa/autobookmarks-readme.txt
+#	new file:   elpa/bookmark+-20151231.1219/bookmark+-1.el
+#	new file:   elpa/bookmark+-20151231.1219/bookmark+-autoloads.el
+#	new file:   elpa/bookmark+-20151231.1219/bookmark+-bmu.el
+#	new file:   elpa/bookmark+-20151231.1219/bookmark+-chg.el
+#	new file:   elpa/bookmark+-20151231.1219/bookmark+-doc.el
+#	new file:   elpa/bookmark+-20151231.1219/bookmark+-key.el
+#	new file:   elpa/bookmark+-20151231.1219/bookmark+-lit.el
+#	new file:   elpa/bookmark+-20151231.1219/bookmark+-mac.el
+#	new file:   elpa/bookmark+-20151231.1219/bookmark+-pkg.el
+#	new file:   elpa/bookmark+-20151231.1219/bookmark+.el
+#	new file:   elpa/bookmark+-readme.txt
+#	new file:   elpa/dash-readme.txt
+#	new file:   elpa/emms-readme.txt
+#	new file:   elpa/function-args-20160206.517/function-args-autoloads.el
+#	new file:   elpa/function-args-20160206.517/function-args-pkg.el
+#	new file:   elpa/function-args-20160206.517/function-args.el
+#	new file:   elpa/function-args-20160206.517/semantic-directory.el
+#	new file:   elpa/function-args-20160206.517/semantic-directory.elc
+#	new file:   elpa/function-args-readme.txt
+#	new file:   elpa/irony-readme.txt
+#	new file:   elpa/rtags-20160427.1129/company-rtags.el
+#	new file:   elpa/rtags-20160427.1129/company-rtags.elc
+#	new file:   elpa/rtags-20160427.1129/flycheck-rtags.el
+#	new file:   elpa/rtags-20160427.1129/rtags-ac.el
+#	new file:   elpa/rtags-20160427.1129/rtags-ac.elc
+#	new file:   elpa/rtags-20160427.1129/rtags-autoloads.el
+#	new file:   elpa/rtags-20160427.1129/rtags-pkg.el
+#	new file:   elpa/rtags-20160427.1129/rtags.el
+#	new file:   elpa/rtags-20160427.1129/rtags.elc
+#	new file:   elpa/rtags-readme.txt
+#	new file:   elpa/session-20120510.1700/session-autoloads.el
+#	new file:   elpa/session-20120510.1700/session-pkg.el
+#	new file:   elpa/session-20120510.1700/session-pkg.elc
+#	new file:   elpa/session-20120510.1700/session.el
+#	new file:   elpa/session-20120510.1700/session.elc
+#	new file:   elpa/session-readme.txt
+#	modified:   org-clock-save.el
+#	new file:   session.1098e6967a6c2698b146163827267375600000021660043
+#	modified:   tmp/!home!guoding!.emacs.d!elpa!archives!gnu!archive-contents~
+#	modified:   tmp/!home!guoding!.emacs.d!elpa!archives!melpa!archive-contents~
+#	new file:   tmp/!home!guoding!.emacs.d!elpa!autobookmarks-readme.txt~
+#	new file:   tmp/!home!guoding!.emacs.d!elpa!bookmark+-readme.txt~
+#	new file:   tmp/!home!guoding!.emacs.d!elpa!function-args-20160206.517!function-args-autoloads.el~
+#	new file:   tmp/!home!guoding!.emacs.d!elpa!function-args-readme.txt~
+#	new file:   tmp/!home!guoding!.emacs.d!elpa!rtags-20160427.1129!rtags-autoloads.el~
+#	new file:   tmp/!home!guoding!.emacs.d!elpa!rtags-readme.txt~
+#	new file:   tmp/!home!guoding!.emacs.d!elpa!session-20120510.1700!session-autoloads.el~
+#	new file:   tmp/!home!guoding!.emacs.d!elpa!session-readme.txt~
+#	new file:   tmp/!home!guoding!.recentf.~213~
+#	new file:   tmp/!home!guoding!.recentf.~214~
+#	new file:   tmp/!home!guoding!.recentf.~215~
+#	new file:   tmp/!home!guoding!123.~1~
+#	new file:   tmp/!home!guoding!Public!tmp!ccsp_mainline_pc_simulation!ccsp!Out!pc-ubuntu32!cosa_start.sh.~1~
+#	new file:   tmp/!home!guoding!Public!tmp!ccsp_mainline_pc_simulation!ccsp!Stage!pc-ubuntu32!include!mta_hal.h.~1~
+#	new file:   tmp/!home!guoding!Public!tmp!ccsp_mainline_pc_simulation!ccsp!Stage!pc-ubuntu32!include!mta_hal.h.~2~
+#	new file:   tmp/!home!guoding!study!main.c.~1~
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#   (commit or discard the untracked or modified content in submodules)
+#
+#	modified:   ../.bash_history
+#	modified:   ../.bashrc
+#	modified:   ../.emacs
+#	modified:   ../.emacs-history.el
+#	modified:   123
+#	deleted:    auto-save-list/.saves-17025-ubuntu~
+#	deleted:    auto-save-list/.saves-3928-ubuntu~
+#	modified:   emacs-w3m (untracked content)
+#	deleted:    tmp/!home!guoding!.emacs.d!org-clock-save.el.~8~
+#	deleted:    tmp/!home!guoding!.emacs.d!org-clock-save.el.~9~
+#	deleted:    tmp/!home!guoding!.recentf.~182~
+#	deleted:    tmp/!home!guoding!.recentf.~183~
+#	deleted:    tmp/!home!guoding!.recentf.~184~
+#	deleted:    tmp/!home!guoding!.recentf.~199~
+#	deleted:    tmp/!home!guoding!.recentf.~200~
+#	deleted:    tmp/!home!guoding!.recentf.~201~
+#	deleted:    w3m/ChangeLog
+#	deleted:    w3m/ChangeLog.1
+#	deleted:    w3m/bookmark-w3m.el
+#	deleted:    w3m/bookmark-w3m.elc
+#	deleted:    w3m/mew-w3m.el
+#	deleted:    w3m/mime-w3m.el
+#	deleted:    w3m/octet.el
+#	deleted:    w3m/w3m-antenna.el
+#	deleted:    w3m/w3m-antenna.elc
+#	deleted:    w3m/w3m-bookmark.el
+#	deleted:    w3m/w3m-bookmark.elc
+#	deleted:    w3m/w3m-bug.el
+#	deleted:    w3m/w3m-bug.elc
+#	deleted:    w3m/w3m-ccl.el
+#	deleted:    w3m/w3m-ccl.elc
+#	deleted:    w3m/w3m-cookie.el
+#	deleted:    w3m/w3m-cookie.elc
+#	deleted:    w3m/w3m-dtree.el
+#	deleted:    w3m/w3m-dtree.elc
+#	deleted:    w3m/w3m-ems.el
+#	deleted:    w3m/w3m-ems.elc
+#	deleted:    w3m/w3m-favicon.el
+#	deleted:    w3m/w3m-favicon.elc
+#	deleted:    w3m/w3m-fb.el
+#	deleted:    w3m/w3m-fb.elc
+#	deleted:    w3m/w3m-filter.el
+#	deleted:    w3m/w3m-filter.elc
+#	deleted:    w3m/w3m-form.el
+#	deleted:    w3m/w3m-form.elc
+#	deleted:    w3m/w3m-hist.el
+#	deleted:    w3m/w3m-hist.elc
+#	deleted:    w3m/w3m-image.el
+#	deleted:    w3m/w3m-image.elc
+#	deleted:    w3m/w3m-lnum.el
+#	deleted:    w3m/w3m-lnum.elc
+#	deleted:    w3m/w3m-load.el
+#	deleted:    w3m/w3m-mail.el
+#	deleted:    w3m/w3m-mail.elc
+#	deleted:    w3m/w3m-namazu.el
+#	deleted:    w3m/w3m-namazu.elc
+#	deleted:    w3m/w3m-perldoc.el
+#	deleted:    w3m/w3m-perldoc.elc
+#	deleted:    w3m/w3m-proc.el
+#	deleted:    w3m/w3m-proc.elc
+#	deleted:    w3m/w3m-rss.el
+#	deleted:    w3m/w3m-rss.elc
+#	deleted:    w3m/w3m-search.el
+#	deleted:    w3m/w3m-search.elc
+#	deleted:    w3m/w3m-session.el
+#	deleted:    w3m/w3m-session.elc
+#	deleted:    w3m/w3m-symbol.el
+#	deleted:    w3m/w3m-symbol.elc
+#	deleted:    w3m/w3m-tabmenu.el
+#	deleted:    w3m/w3m-tabmenu.elc
+#	deleted:    w3m/w3m-ucs.el
+#	deleted:    w3m/w3m-util.el
+#	deleted:    w3m/w3m-util.elc
+#	deleted:    w3m/w3m-weather.el
+#	deleted:    w3m/w3m-weather.elc
+#	deleted:    w3m/w3m.el
+#	deleted:    w3m/w3m.elc
+#	deleted:    ../.emacs.swn
+#	deleted:    ../.emacs.swo
+#	deleted:    ../.emacs.swp
+#	modified:   ../.vim/.netrwhist
+#	modified:   ../.viminfo
+#	modified:   ../Public/study/a.out
+#	modified:   ../Public/study/main.c
+#	modified:   ../Public/study/shell/123.bash
+#	modified:   ../study/kernelmodule/Makefile
+#	modified:   ../study/kernelmodule/downloaded_tiny_tty.c
+#	modified:   ../study/kernelmodule/tiny_tty.c
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	../#*message*-20160119-003502#
+#	../#123#
+#	../#orgnotes.org#
+#	../.#123
+#	../.#orgnotes.org
+#	../.123
+#	../.ICEauthority
+#	../.Xauthority
+#	../.cache/
+#	../.cola
+#	../.compiz-1/
+#	../.config/
+#	../.dbus/
+#	../.dmrc
+#	../.dropbox-dist/
+#	../.dropbox/
+#	../.emacs.desktop
+#	../.emacs.desktop.lock
+#	../.fontconfig/
+#	../.gconf/
+#	../.gitconfig
+#	../.gitk
+#	../.gksu.lock
+#	../.gnome2/
+#	../.goutputstream-AY9CEY
+#	../.goutputstream-BXYWAY
+#	../.goutputstream-ERH89X
+#	../.goutputstream-FCYWAY
+#	../.goutputstream-FHVWAY
+#	../.goutputstream-ZL6RAY
+#	../.gstreamer-0.10/
+#	../.gtk-bookmarks
+#	../.ibus/
+#	../.ido.last
+#	../.install4j
+#	../.java/
+#	../.lesshst
+#	../.local/
+#	../.macromedia/
+#	../.mission-control/
+#	../.mozilla/
+#	../.pam_environment
+#	../.profile
+#	../.pulse-cookie
+#	../.pulse/
+#	../.recentf
+#	../.rnd
+#	../.semanticdb/
+#	../.smartbear/
+#	../.srecode/
+#	../.ssh/
+#	../.subversion/
+#	../.swo
+#	../.swp
+#	../.thumbnails/
+#	../.w3m/
+#	../.wireshark/
+#	../.xsession-errors
+#	../.xsession-errors.old
+#	../.zwave_tty_note
+#	../123
+#	../1233
+#	../1234
+#	../123_moca_map
+#	../123_s
+#	../123_wifi_map
+#	../Downloads/
+#	../Dropbox (Old)/
+#	../Dropbox/
+#	../Makefile
+#	../Public/#test#
+#	../Public/123
+#	../Public/1234
+#	../Public/12345
+#	../Public/backup/
+#	../Public/build_test/
+#	../Public/ccollab_client_7_3_7304_unix.sh
+#	../Public/ccsp_mainline_pc_simulation/
+#	../Public/intel_usg/
+#	../Public/study/package/bridge-utils/
+#	../Public/study/package/ncurses/#cosa_start.sh#
+#	../Public/test
+#	../Public/tmp/
+#	../Public/usr.tgz
+#	../Public/w3m-0.5.3.tar.gz
+#	../VMwareTools-9.6.6-2649738.tar.gz
+#	../aaa
+#	../aaaaa
+#	../bin/
+#	../c.tgz
+#	../ccollab-cmdline/
+#	../ccollab-cmdline2/
+#	../etc/
+#	../examples.desktop
+#	../experiment.sh
+#	../hello.c
+#	../ipset_configure
+#	../libexec/
+#	../minicom.log
+#	../neotree.el
+#	../old_ccollab-cmdline/
+#	../recv.c
+#	../run_upgrader.sh
+#	../send.c
+#	../share/
+#	../study.tgz
+#	../study/111
+#	../study/1111
+#	../study/123
+#	../study/1233
+#	../study/123321312
+#	../study/1234
+#	../study/321
+#	../study/CA/
+#	../study/LinuxKernelLearn/
+#	../study/a.out
+#	../study/aaa
+#	../study/aaa.sh
+#	../study/aaan
+#	../study/adfaaaa
+#	../study/apue.2e/
+#	../study/apue.3e/
+#	../study/apue.43e/
+#	../study/clg/
+#	../study/cut.sh
+#	../study/driver/
+#	../study/emacs/
+#	../study/gcc/
+#	../study/git/
+#	../study/git_clone/
+#	../study/git_clone2/
+#	../study/git_test2/
+#	../study/git_test3/
+#	../study/helloworld
+#	../study/kernelmodule/#downloaded_tiny_tty.c#
+#	../study/kernelmodule/#keyboardsimu.c#
+#	../study/kernelmodule/.emacs.desktop
+#	../study/kernelmodule/.log.swp
+#	../study/kernelmodule/.pseudo_tty_1.ko.cmd
+#	../study/kernelmodule/.pseudo_tty_1.mod.o.cmd
+#	../study/kernelmodule/.pseudo_tty_1.o.cmd
+#	../study/kernelmodule/.pseudo_tty_2.ko.cmd
+#	../study/kernelmodule/.pseudo_tty_2.mod.o.cmd
+#	../study/kernelmodule/.pseudo_tty_2.o.cmd
+#	../study/kernelmodule/.tiny_tty.c.swp
+#	../study/kernelmodule/.tiny_tty.o.cmd
+#	../study/kernelmodule/.tiny_tty_dev2.o.cmd
+#	../study/kernelmodule/.tmp_versions/
+#	../study/kernelmodule/111
+#	../study/kernelmodule/11111
+#	../study/kernelmodule/123
+#	../study/kernelmodule/123~
+#	../study/kernelmodule/222
+#	../study/kernelmodule/3211
+#	../study/kernelmodule/3321/
+#	../study/kernelmodule/Module.symvers
+#	../study/kernelmodule/_downloaded_tiny_tty.c
+#	../study/kernelmodule/a.out
+#	../study/kernelmodule/aa
+#	../study/kernelmodule/aaaa
+#	../study/kernelmodule/abc
+#	../study/kernelmodule/abcd
+#	../study/kernelmodule/backup_test_udp/
+#	../study/kernelmodule/bbb
+#	../study/kernelmodule/copyofdownloaded_tinytty.c
+#	../study/kernelmodule/core
+#	../study/kernelmodule/coreutils/
+#	../study/kernelmodule/cscope.files
+#	../study/kernelmodule/cscope.out
+#	../study/kernelmodule/downloaded_tiny_tty.h
+#	../study/kernelmodule/fdklasfjlaksdfjkl
+#	../study/kernelmodule/glibc/
+#	../study/kernelmodule/gperf/
+#	../study/kernelmodule/hash/
+#	../study/kernelmodule/hello.c
+#	../study/kernelmodule/huang_tiny.c
+#	../study/kernelmodule/jeremy.sh
+#	../study/kernelmodule/kernel-history/
+#	../study/kernelmodule/kernel/
+#	../study/kernelmodule/ldd3/
+#	../study/kernelmodule/libshared.so
+#	../study/kernelmodule/log
+#	../study/kernelmodule/log1
+#	../study/kernelmodule/log2
+#	../study/kernelmodule/log3
+#	../study/kernelmodule/log_port
+#	../study/kernelmodule/main.c
+#	../study/kernelmodule/modules.order
+#	../study/kernelmodule/note
+#	../study/kernelmodule/old_tiny_tty.c
+#	../study/kernelmodule/olddowloaded_tiny_tty.c
+#	../study/kernelmodule/open.c
+#	../study/kernelmodule/proc.c
+#	../study/kernelmodule/proc2.c
+#	../study/kernelmodule/pseudo_tty_1.ko
+#	../study/kernelmodule/pseudo_tty_1.mod.c
+#	../study/kernelmodule/pseudo_tty_1.mod.o
+#	../study/kernelmodule/pseudo_tty_1.o
+#	../study/kernelmodule/pseudo_tty_2.ko
+#	../study/kernelmodule/pseudo_tty_2.mod.c
+#	../study/kernelmodule/pseudo_tty_2.mod.o
+#	../study/kernelmodule/pseudo_tty_2.o
+#	../study/kernelmodule/remserial/
+#	../study/kernelmodule/sda.blktrace.0
+#	../study/kernelmodule/sda1.blktrace.0
+#	../study/kernelmodule/shell.sh
+#	../study/kernelmodule/shell_double.sh
+#	../study/kernelmodule/socket/
+#	../study/kernelmodule/tcp_client
+#	../study/kernelmodule/tcp_client.c
+#	../study/kernelmodule/tcp_client_new.c
+#	../study/kernelmodule/tcp_server
+#	../study/kernelmodule/tcp_server.c
+#	../study/kernelmodule/tcp_server_d.c
+#	../study/kernelmodule/tcp_server_new.c
+#	../study/kernelmodule/temp
+#	../study/kernelmodule/test.sh
+#	../study/kernelmodule/test1.blktrace.0
+#	../study/kernelmodule/test_udp/
+#	../study/kernelmodule/tiny_tty.h
+#	../study/kernelmodule/tiny_tty.o
+#	../study/kernelmodule/tiny_tty2.c
+#	../study/kernelmodule/tiny_tty3.c
+#	../study/kernelmodule/tiny_tty4.c
+#	../study/kernelmodule/tiny_tty_dev1.c
+#	../study/kernelmodule/tiny_tty_dev2.c
+#	../study/kernelmodule/tiny_tty_dev2.o
+#	../study/kernelmodule/tmp/
+#	../study/kernelmodule/to_jason.tgz
+#	../study/kernelmodule/udev/
+#	../study/kernelmodule/usbview/
+#	../study/kernelmodule/vtty.h
+#	../study/kernelmodule/vtty/
+#	../study/kernelmodule/vtty_agent.c
+#	../study/kernelmodule/vtty_agent_fsm.c
+#	../study/kernelmodule/vtty_agent_fsm.h
+#	../study/kernelmodule/vtty_agent_fsm_get1.c
+#	../study/kernelmodule/vtty_agent_fsm_get2.c
+#	../study/kernelmodule/vtty_agent_send.c
+#	../study/lib.c
+#	../study/lib.h
+#	../study/lib.so
+#	../study/linux/
+#	../study/linux0.11/
+#	../study/linux1.0/
+#	../study/linuxapplicationmanual/
+#	../study/losslessh264/
+#	../study/main
+#	../study/main.c
+#	../study/main.c~
+#	../study/main.o
+#	../study/main2.c
+#	../study/package/
+#	../study/program1.c
+#	../study/shell/
+#	../study/src.2e.tar.gz
+#	../study/src.3e.tar.gz
+#	../study/test.c
+#	../study/test/
+#	../study/thread.c
+#	../study/thread.o
+#	../study/thread3.c
+#	../study/thread_test2.c
+#	../study/training/
+#	"../study/\345\275\223\345\210\240\351\231\244\351\207\215\345\273\272\346\226\207\344\273\266\345\220\216\357\274\214\347\264\242\345\274\225\350\212\202\347\202\271\345\217\267\347\224\261\346\223\215\344\275\234\347\263\273\347\273\237\346\240\271\346\215\256\345\275\223\346\227\266\346\226\207\344\273\266\347\263\273\347\273\237\347\232\204\344\275\277\347\224\250\346\203\205\345\206\265\345\210\206\351\205\215\357\274\214\345\233\240\346\255\244\344\270\216\345\216\237\346\235\245\344\270\215\345\220\214\357\274\214\346\211\200\344\273\245\345\276\227\345\210\260\347\232\204\347\264\242\345\274\225\350\212\202\347\202\271\345\217\267\344\271\237\344\270\215\345\220\214\343\200\202"
+#	../tcp_client.c
+#	../tcp_server.c
+#	../tcp_server[1].c
+#	../tcp_server_new.c
+#	../tiny_tty.c
+#	../tiny_tty2.c
+#	../tmp/
+#	../to_jason.tgz
+#	../vim_profile/
+#	../vmware-tools-distrib/
+#	../vmware-tools-upgrader-32
+#	../world/

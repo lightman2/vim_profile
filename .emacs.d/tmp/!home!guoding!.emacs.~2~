@@ -4,8 +4,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (solarized)))
  '(pyim-dicts nil)
- '(safe-local-variable-values (quote ((TeX-master . "master")))))
+ '(safe-local-variable-values (quote ((TeX-master . "master"))))
+ '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -18,7 +20,9 @@
 (setq frame-title-format  
       '("%S" (buffer-file-name "%f"  
                          (dired-directory dired-directory "%b"))))  
-;;dgl
+;;dgl add directory for other els
+(add-to-list 'load-path "~/.emacs.d/otherel")
+(add-to-list 'load-path' "~/.emacs.d/auctex/")
 
 (global-set-key (kbd "<f5>")  'goto-line)
 (global-set-key (kbd "<f7>") 'recentf-open-files)
@@ -38,7 +42,7 @@
 ;;       )
 
 
-(desktop-save-mode 1)
+;; (desktop-save-mode 1) duplicated tobe removed dgl
 
 (defun spw()
   (interactive)  
@@ -55,7 +59,7 @@
 (global-set-key (kbd "<f6>") 'wcy-switch-buffer)
 (setq wcy-switch-buffer-active-buffer-face  'highlight)
 (setq wcy-switch-buffer-inactive-buffer-face  'secondary-selection)
-
+(ido-mode 1)
 
 ;(global-set-key (kbd "C-x g") 'webjump)
 
@@ -101,6 +105,14 @@
 
 ;; 自动打开上次的文件
 (desktop-save-mode 1)
+;;dgl_0505
+;; ;;(require 'session) 
+(add-hook 'after-init-hook 'session-initialize) 
+
+
+(load "desktop") 
+(desktop-load-default) 
+(desktop-read) 
 ;dgl
 
 ;;Emacs窗口大小
@@ -167,7 +179,7 @@
 (column-number-mode t)
 
 ;; 显示行号
-;;(global-linum-mode t)
+(global-linum-mode t)
 
 ;; 以 y/n代表 yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -346,10 +358,10 @@ auto-mode-alist))
 (unless (file-exists-p erc-log-channels-directory)
 (mkdir erc-log-channels-directory t))
 
-;;org mode 自动折行
+;; ;;org mode 自动折行
 (require 'org-install)
-(require 'org-publish)
-(require 'org-latex)
+;; (require 'org-publish)
+;; (require 'org-latex)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-hook 'org-mode-hook 'turn-on-font-lock)
 (add-hook 'org-mode-hook
@@ -357,7 +369,7 @@ auto-mode-alist))
 (setq org-mobile-directory "~/Dropbox/note")
 
 
-;(add-to-list 'load-path "~/.emacs.d/cedet-1.1")
+(add-to-list 'load-path "~/.emacs.d/cedet-1.1")
 
 (load-file "~/.emacs.d/cedet-1.1/./common/cedet.el")
 (global-ede-mode 1)                      ; Enable the Project management system
@@ -369,57 +381,57 @@ auto-mode-alist))
 
 
 
-;;iimage mode
-;;M-x org-toggle-iimage-in-org 或 M-x iimage-mode 命令来激活 iimage模式
-(load "~/.emacs.d/iimage.el")
-(require 'iimage)
-(autoload 'iimage-mode "iimage" "Support Inline image minor mode." t)
-(autoload 'turn-on-iimage-mode "iimage" "Turn on Inline image minor mode." t)
-; 显示图片
-(setq org-startup-with-inline-images t)
-;org mode show image
-(defun org-toggle-iimage-in-org ()
-  "display images in your org file"
-  (interactive)
-  (if (face-underline-p 'org-link)
-      (set-face-underline-p 'org-link)
-      (set-face-underline-p 'org-link t))
-  (iimage-mode))
-;; org capture
-(define-key global-map (kbd "C-c c") 'org-capture)
-(setq org-default-notes-file (concat org-directory "~/Dropbox/note/notes.org"))
-(setq org-capture-templates
-      '(("j" "Journal" plain (file+datetree (concat org-directory "journal.org"))
-         "* %?\n  -- %T\n")
-	("n" "Note" entry (file+headline (concat org-directory "notes.org") "Notes")
-	 "* %?\t%^G\nTime: %U\n %i")
-	("t" "Todo" entry (file+headline (concat org-directory "Todo.org") "Tasks")
-	 "* TODO %?\t%^G \nTime: %U\n %i")))
-;; 在一个任务完成后，写心得或者备注并加上时间戳
-(setq org-log-done 'time)
-(setq org-log-done 'note)
-;; org-clock 计时功能
-(setq org-clock-persist 'history)
-(org-clock-persistence-insinuate)
-;; M-x gtd 命令之后，在新的窗口中就打开了我的Org-mode文件
-;; (defun gtd ()
+;; ;;iimage mode
+;; ;;M-x org-toggle-iimage-in-org 或 M-x iimage-mode 命令来激活 iimage模式
+;; (load "~/.emacs.d/iimage.el")
+;; (require 'iimage)
+;; (autoload 'iimage-mode "iimage" "Support Inline image minor mode." t)
+;; (autoload 'turn-on-iimage-mode "iimage" "Turn on Inline image minor mode." t)
+;; ; 显示图片
+;; (setq org-startup-with-inline-images t)
+;; ;org mode show image
+;; (defun org-toggle-iimage-in-org ()
+;;   "display images in your org file"
 ;;   (interactive)
-;;   (find-file "c:/homes/charles/gtd/gtd/mygtd.org")
-;; )
+;;   (if (face-underline-p 'org-link)
+;;       (set-face-underline-p 'org-link)
+;;       (set-face-underline-p 'org-link t))
+;;   (iimage-mode))
+;; ;; org capture
+;; (define-key global-map (kbd "C-c c") 'org-capture)
+;; (setq org-default-notes-file (concat org-directory "~/Dropbox/note/notes.org"))
+;; (setq org-capture-templates
+;;       '(("j" "Journal" plain (file+datetree (concat org-directory "journal.org"))
+;;          "* %?\n  -- %T\n")
+;; 	("n" "Note" entry (file+headline (concat org-directory "notes.org") "Notes")
+;; 	 "* %?\t%^G\nTime: %U\n %i")
+;; 	("t" "Todo" entry (file+headline (concat org-directory "Todo.org") "Tasks")
+;; 	 "* TODO %?\t%^G \nTime: %U\n %i")))
+;; ;; 在一个任务完成后，写心得或者备注并加上时间戳
+;; (setq org-log-done 'time)
+;; (setq org-log-done 'note)
+;; ;; org-clock 计时功能
+;; (setq org-clock-persist 'history)
+;; (org-clock-persistence-insinuate)
+;; ;; M-x gtd 命令之后，在新的窗口中就打开了我的Org-mode文件
+;; ;; (defun gtd () 
+;; ;;   (interactive)
+;; ;;   (find-file "c:/homes/charles/gtd/gtd/mygtd.org")
+;; ;; )
 
-;; org docbook
-(load "~/.emacs.d/org-docbook.el")
-(require 'org-docbook)
+;; ;; org docbook
+;; (load "~/.emacs.d/org-docbook.el")
+;; (require 'org-docbook)
 
-;; org w3m
-;; 从w3m拷贝到org，自动标记语法，如加粗等
-(load "~/.emacs.d/org-w3m.el")
-(require 'org-w3m)
+;; ;; org w3m
+;; ;; 从w3m拷贝到org，自动标记语法，如加粗等
+;; (load "~/.emacs.d/org-w3m.el")
+;; (require 'org-w3m)
 
-;; org-tree-slide-mode org 幻灯片演示
-;(load "~/.emacs.d/org-tree-slide.el")
-;(require 'org-tree-slide)
-;(global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
+;; ;; org-tree-slide-mode org 幻灯片演示
+;; ;(load "~/.emacs.d/org-tree-slide.el")
+;; ;(require 'org-tree-slide)
+;; ;(global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
 
 ;; deft
 (load "~/.emacs.d/deft.el")
@@ -502,15 +514,6 @@ auto-mode-alist))
 (load   "/home/guoding/.emacs.d/elpa/pastelmac-theme-20151030.1936/pastelmac-theme.el")
 (require 'pastelmac-theme)
 (load-theme `pastelmac t)
-;;dgl melpa
-;(add-to-list 'package-archives
-;             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-
-
-;; (load "/home/guoding/.emacs.d/elpa/solarized-theme-20160311.1447/solarized.el")
-;; (load "/home/guoding/.emacs.d/elpa/solarized-theme-20160311.1447/solarized-light-theme.el")
-;; (require 'solarized-light-theme)
-;; (load-theme `solarized-light t)
 
 ;; 让dired只使用一个buffer
 (load "~/.emacs.d/dired-single.el")
@@ -577,27 +580,27 @@ auto-mode-alist))
 (require 'rect-mark)
 
 ;; lazy-set-key.el
-;(load "~/.emacs.d/lazy-set-key.el")
-;(require 'lazy-set-key)
-;(lazy-set-key
-; '(
-;   ("s-M" . rm-set-mark)                         ;矩形标记
-;   ("s-X" . rm-exchange-point-and-mark)          ;矩形对角交换
-;   ("s-D" . rm-kill-region)                      ;矩形删除
-;   ("s-S" . rm-kill-ring-save)                   ;矩形保存
-;   ("s-Y" . yank-rectangle)                      ;粘帖矩形
-;   ("s-O" . open-rectangle)                      ;用空白填充矩形, 并向右移动文本
-;   ("s-C" . clear-rectangle)                     ;清空矩形
-;   ("s-T" . string-rectangle)                    ;用字符串替代矩形的每一行
-;   ("s-I" . string-insert-rectangle)             ;插入字符串在矩形的每一行
-;   ("s-F" . delete-whitespace-rectangle)         ;删除矩形中空格
-;   ("s-:" . mark-rectangle-to-end)               ;标记矩形到行末
-;   ("s-H" . execute-command-with-region-replace) ;在选择的区域中执行命令并替换
-;   ("s-P" . execute-command-with-region-kill)    ;在选择的区域中执行命令并删除
-;   ("s-\"" . copy-rectangle-to-register)         ;拷贝矩形到寄存器
-;  ))
-
-;; 把文件或buffer彩色输出成html
+(load "~/.emacs.d/lazy-set-key.el")
+(require 'lazy-set-key)
+(lazy-set-key
+'(
+  ("s-M" . rm-set-mark)                         ;矩形标记
+  ("s-X" . rm-exchange-point-and-mark)          ;矩形对角交换
+  ("s-D" . rm-kill-rhxegion)                      ;矩形删除
+  ("s-S" . rm-kill-ring-save)                   ;矩形保存
+  ("s-Y" . yank-rectangle)                      ;粘帖矩形
+  ("s-O" . open-rectangle)                      ;用空白填充矩形, 并向右移动文本
+  ("s-C" . clear-rectangle)                     ;清空矩形
+  ("s-T" . string-rectangle)                    ;用字符串替代矩形的每一行
+  ("s-I" . string-insert-rectangle)             ;插入字符串在矩形的每一行
+  ("s-F" . delete-whitespace-rectangle)         ;删除矩形中空格
+  ("s-:" . mark-rectangle-to-end)               ;标记矩形到行末
+  ("s-H" . execute-command-with-region-replace) ;在选择的区域中执行命令并替换
+  ("s-P" . execute-command-with-region-kill)    ;在选择的区域中执行命令并删除
+  ("s-\"" . copy-rectangle-to-register)         ;拷贝矩形到寄存器
+  ("C-g" . goto-line)
+ ))
+; 把文件或buffer彩色输出成html
 (load "~/.emacs.d/htmlize.el")
 (require 'htmlize)
 
@@ -661,40 +664,41 @@ auto-mode-alist))
 ;(global-set-key "\C-ceb" 'evernote-browser)
 
 ;; AucTex
-(add-to-list 'load-path' "~/.emacs.d/")
-(add-to-list 'load-path' "~/.emacs.d/auctex/")
-(load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
-;; 多文件进行组织和管理
-;; 通知所有的文件 master 文件总为 master.tex 文件
-(setq-default TeX-master "master")
+;; (add-to-list 'load-path' "~/.emacs.d/")
+;; (add-to-list 'load-path' "~/.emacs.d/auctex/")
+;; (load "auctex.el" nil t t)
+;; (load "preview-latex.el" nil t t)
+;; ;; 多文件进行组织和管理
+;; ;; 通知所有的文件 master 文件总为 master.tex 文件
+;; (setq-default TeX-master "master")
 ;; 加入 hook 自动换行，数学公式，reftex 和显示行号的功能
-(mapc (lambda (mode)
-      (add-hook 'LaTeX-mode-hook mode))
-      (list 'auto-fill-mode
-            'LaTeX-math-mode
-            'turn-on-reftex
-            'linum-mode))
+;;dgl_0505
+;; (mapc (lambda (mode)
+;;       (add-hook 'LaTeX-mode-hook mode))
+;;       (list 'auto-fill-mode
+;;             'LaTeX-math-mode
+;;             'turn-on-reftex
+;;             'linum-mode))
 ;; 默认使用 xelatex 直接生成 pdf 文件，而不用每次用 ‘C-c C-t C-p’ 进行切换
 ;; 设置 ‘Tex-show-compilation’ 为 t，在另一个窗口显示编译信息，对于错误的排除很方便
 ;; 编译时默认直接保存文件，绑定补全符号到 TAB 键
-(add-hook 'LaTeX-mode-hook
-          (lambda ()
-            (setq TeX-auto-untabify t     ; remove all tabs before saving
-                  TeX-engine 'xetex       ; use xelatex default
-                  TeX-show-compilation t) ; display compilation windows
-            (TeX-global-PDF-mode t)       ; PDF mode enable, not plain
-            (setq TeX-save-query nil)
-            (imenu-add-menubar-index)
-            (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)))
-;; AucTeX 预定义的 viewer
-;; 对于 windows 平台而言，需要确保命令在 PATH 路径下，如果没有在 PATH 路径下，使用路径全名进行调。
-(setq TeX-view-program-list
-      '(("zathura" "zathura %o")
-        ("Okular" "okular --unique %o")
-        ("Evince" "evince %o")
-        ("SumatraPDF" "SumatraPDF.exe %o")
-	("Firefox" "firefox %o")))
+;; (add-hook 'LaTeX-mode-hook
+;;           (lambda ()
+;;             (setq TeX-auto-untabify t     ; remove all tabs before saving
+;;                   TeX-engine 'xetex       ; use xelatex default
+;;                   TeX-show-compilation t) ; display compilation windows
+;;             (TeX-global-PDF-mode t)       ; PDF mode enable, not plain
+;;             (setq TeX-save-query nil)
+;;             (imenu-add-menubar-index)
+;;             (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)))
+;; ;; AucTeX 预定义的 viewer
+;; ;; 对于 windows 平台而言，需要确保命令在 PATH 路径下，如果没有在 PATH 路径下，使用路径全名进行调。
+;; (setq TeX-view-program-list
+;;       '(("zathura" "zathura %o")
+;;         ("Okular" "okular --unique %o")
+;;         ("Evince" "evince %o")
+;;         ("SumatraPDF" "SumatraPDF.exe %o")
+;; 	("Firefox" "firefox %o")))
 
 ;;; emms
 ;(add-to-list 'load-path "~/.emacs.d/emms/")
@@ -872,44 +876,16 @@ auto-mode-alist))
 
 (global-set-key (kbd "M-i") 'feng-highlight-at-point)
 
-
-(load-file "/usr/share/emacs/site-lisp/xcscope.el")
-(require 'xcscope)
-
-
-;auto complete
-(add-to-list 'load-path "/home/guoding/.emacs.d/")
+;;plugin auto complete
+;; (add-to-list 'load-path "/home/guoding/.emacs.d/")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "/home/guoding/.emacs.d/ac-dict")
 (ac-config-default)
 
 
-;tab equals 4 space
-;dgl
-;(set )
-;(setq tab-width 2) ; or any other preferred value
-;(defvaralias 'c-basic-offset 'tab-width)
-;(defvaralias 'cperl-indent-level 'tab-width)
-
-;(setq indent-tabs-mode nil)
-;(setq-default indent-tabs-mode nil)
+;;formate tab equals 4 space
 ;(load-file "/home/guoliang/.emacs.d/smart-tab.el")
 ;(require 'smart-tab)
-
-
-;(setq indent-tabs-mode nil)
-;(setq default-tab-width 4)
-
-; And I have tried
-;(setq indent-tabs-mode nil)
-;(setq tab-width 4)
-;(setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
-;(customize-variable (quote tab-stop-list))
-
-
-;(load-file "/home/guoliang/.emacs.d/smart-tab.el")
-;(require 'smart-tab)
-
 (setq tab-width 4)
 (setq default-tab-width 4)
 (setq indent-tabs-mode nil)
@@ -937,14 +913,6 @@ auto-mode-alist))
 ;             (setq-default 'indent-tabs-mode nil)
              (setq c-basic-offset 4)))
 
-
-;(setq c-default-style "bsd"
-;  c-basic-offset 0)
-
-
-  
-;;======================            Load cscope                =====================  
-;(add-to-list 'load-path "~/emacs.d/plugins/cscope-15.7a/contrib/xcscope/")  
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/")  
 (require 'xcscope)
 
@@ -967,18 +935,10 @@ auto-mode-alist))
 ;;----------------------              END    cscop                ---------------------  
  (require 'package)
 (add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+             '("melpa" . "http://melpa.org/packages/") t)
+;; (when (< emacs-major-version 24)
+;;   ;; For important compatibility libraries like cl-lib
 (package-initialize) ;; You might already have this line
-
-
-  (push '("marmalade" . "http://marmalade-repo.org/packages/")
-        package-archives )
-  ;; (push '("melpa" . "http://melpa.milkbox.net/packages/")
-  (push '("melpa" . "http://elpa.gnu.org/packages/")
-        package-archives)
 
 ;;do not use evil mode ...vi mode
 ;; (add-to-list 'load-path "~/.emacs.d/evil")
@@ -1072,3 +1032,62 @@ auto-mode-alist))
 ;;         (insert filename)
 ;;         (clipboard-kill-region (point-min) (point-max)))
 ;;       (message filename))))
+
+
+(defun cpp-highlight-if-0/1 ()
+  "Modify the face of text in between #if 0 ... #endif."
+  (interactive)
+  (setq cpp-known-face '(background-color . "dim gray"))
+  (setq cpp-unknown-face 'default)
+  (setq cpp-face-type 'dark)
+  (setq cpp-known-writable 't)
+  (setq cpp-unknown-writable 't)
+  (setq cpp-edit-list
+        '((#("1" 0 1
+             (fontified nil))
+           nil
+           (background-color . "dim gray")
+           both nil)
+          (#("0" 0 1
+             (fontified nil))
+           (background-color . "dim gray")
+           nil
+           both nil)))
+  (cpp-highlight-buffer t))
+
+(defun jpk/c-mode-hook ()
+  (cpp-highlight-if-0/1)
+  (add-hook 'after-save-hook 'cpp-highlight-if-0/1 'append 'local)
+  )
+
+(add-hook 'c-mode-common-hook 'jpk/c-mode-hook)
+
+
+;;open the helm mode 
+(require 'ac-helm) ;; Not necessary if using ELPA package
+(global-set-key (kbd "C-:") 'ac-complete-with-helm)
+(define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-helm)
+
+;;;gdb settings
+;;set the gdb multiwindow mode
+(setq
+ gdb-many-windows t
+ gdb-show-main t
+ )
+;;set the shortcut key for last command or next command on gdb; and gdb multiwindow
+(global-set-key (kbd "C-p") `comint-previous-input)
+(global-set-key (kbd "C-n") `comint-next-input)
+(global-set-key (kbd "C-c <left>") `windmove-left)
+(global-set-key (kbd "C-c <right>") `windmove-right)
+(global-set-key (kbd "C-c <up>") `windmove-up)
+(global-set-key (kbd "C-c <down>") `windmove-down)
+(global-set-key (kbd "C-x c") `copy-file-name-to-clipboard)
+
+(setq mac-command-modifier 'meta) ; make cmd key do Meta
+(setq mac-option-modifier 'super) ; make opt key do Super
+(setq mac-control-modifier 'control) ; make Control key do Control
+(setq ns-function-modifier 'hyper)  ; make Fn key do Hypery
+
+
+;;dgl_note to remove boring warning 
+;(setq load-path (delq "~/.emacs.d/" 'load-path))

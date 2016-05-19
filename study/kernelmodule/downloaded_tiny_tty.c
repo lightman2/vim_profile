@@ -73,6 +73,20 @@ struct tiny_serial {
 static struct tiny_serial *tiny_table[TINY_TTY_MINORS];	/* initially all NULL */
 
 
+
+
+static struct mutex vttyDevLock;
+static void vtty_dev_lock(void)
+{
+	mutex_lock(&vttyDevLock);
+}
+
+static void vtty_dev_unlock(void)
+{
+	mutex_unlock(&vttyDevLock);
+}
+
+
 static void tiny_timer(unsigned long timer_data)
 {
 	struct tiny_serial *tiny = (struct tiny_serial *)timer_data;
@@ -93,7 +107,7 @@ static void tiny_timer(unsigned long timer_data)
 	/* /\* send the data to the tty layer for users to read.  This doesn't */
 	/*  * actually push the data through unless tty->low_latency is set *\/ */
    #if 1
-   for (i = 0; i < len; ++i) {
+   for (i = 0; i < len  ; ++i) {
        if (!tty_buffer_request_room(port, 1))
            tty_flip_buffer_push(port);//dgl_temp
        tty_insert_flip_char(port, tty_proc_buffer[i], TTY_NORMAL);
@@ -105,7 +119,9 @@ static void tiny_timer(unsigned long timer_data)
     //  printk("copied number = %d\n", number);
 //        tty_insert_flip_string(port, "bc", len);//dgl_temp len 
      //tty_insert_flip_char(port, "d", TTY_NORMAL);
+     vtty_dev_unlock();
 	 tty_flip_buffer_push(port);
+     vtty_dev_lock();
      //len = 0;
      //memset(tty_proc_buffer, 0, STRINGLEN);
 exit:
@@ -171,7 +187,7 @@ static int tiny_open(struct tty_struct *tty, struct file *file)
         printk("tiny_open timer added  %d jiffies = %d expires = %d\n", __LINE__, jiffies,jiffies+DELAY_TIME);
 
 	}
-
+    zwave_port->low_latency = (zwave_port->flags & ASYNC_LOW_LATENCY) ? 1 :0;
     tty_port_tty_set(&zwave_port, tty);
 	up(&tiny->sem);
 
@@ -626,8 +642,10 @@ static int proc_write_hello(struct file *file,const unsigned char *buffer,unsign
         len = count;
     temp = len;
     printk("buffer = %s   count = %d\n", buffer, count);
-    memset(tty_proc_buffer, 0, STRINGLEN);
-    memcpy(tty_proc_buffer, buffer, count);
+     memset(tty_proc_buffer, 0, STRINGLEN); 
+ sprintf(tty_proc_buffer, buffer);
+    /* memset(tty_proc_buffer, 0, STRINGLEN); */
+    /* memcpy(tty_proc_buffer, buffer, len); */
 /*    int ret = copy_from_user(tty_proc_buffer, buffer, len);*/
 /*     sprintf(tty_proc_buffer, buffer, len); */
 //dgl_temp     sprintf(tty_proc_buffer, buffer); 

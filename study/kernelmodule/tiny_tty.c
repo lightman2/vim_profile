@@ -24,6 +24,7 @@
 //#include <linux/string.h>
 #include "tiny_tty.h"
 
+/*assume tty->index was the proc number*/
 
 #define DRIVER_VERSION "v1.0"
 #define DRIVER_AUTHOR "dgl"
@@ -49,9 +50,11 @@ static int tty_device_num;
 #define ZWAVE_TEC_DATA_CHARACTER	't'
 
 #define ZWAVE_TEC_TTY_MAJOR		240	/* experimental range */
-#define ZWAVE_TEC_TTY_MINORS		1	/* only have 4 devices */
+#define ZWAVE_TEC_TTY_MINORS	   20	/* only have 4 devices */
 #define STRINGLEN 1024
 
+
+static dev_occupied[ZWAVE_TEC_TTY_MINORS];
 typedef struct _BUFFER_ {
 char buf[STRINGLEN];
 int len;
@@ -60,22 +63,22 @@ int len;
 
 
 /* static BUFFER buf_pool[ZWAVE_TEC_TTY_MINORS][10];// = {{0}}; */
-static BUFFER buf_pool[10];// = {{0}};
+static BUFFER buf_pool[ZWAVE_TEC_TTY_MINORS][10];// = {{0}};
 
 
-int buf_rd_index = 0, buf_wr_index = 0;
-int flag = 0;
+int buf_rd_index[ZWAVE_TEC_TTY_MINORS] = {0}, buf_wr_index[ZWAVE_TEC_TTY_MINORS] = {0};
+static int flag[ZWAVE_TEC_TTY_MINORS];
 
 
 struct file *file = NULL;
-#define MY_FILE "/var/tmp/vtty/ttty0_up"
+#define MY_FILE "/var/tmp/vtty/ttty%d_up"
 
 
 
 static int len;
 unsigned char tty_proc_buffer[STRINGLEN]; //currently use one buffer for test 
 static int proc_up_write_zwave(struct file *file, const unsigned char *buffer,unsigned long count,void *data) ;
-static int proc_zwave_write_zwave(struct file *file,const unsigned char *buffer,unsigned long count,void *data);
+static int proc_zwave_write_zwave(int index,const unsigned char *buffer,unsigned long count,void *data);
 static struct proc_dir_entry *zwave_proc_dir = NULL;
 
 struct zwave_tec_serial {
@@ -125,10 +128,36 @@ static void zwave_tec_timer(unsigned long timer_data)
 }
 #endif
 
-inline int dev_name_get(char *devname)
+static int dev_malloc(void)
 {
-    char *numberend, *endptr;
-    int numbernum,rc;
+    int i ;
+    for(i=0;i<ZWAVE_TEC_TTY_MINORS; i++)
+    {
+        if(dev_occupied[i]==0)
+        {
+            dev_occupied[i]=1;
+            return i;
+        }
+    }
+    return -1;
+}
+
+static int dev_free(int i)
+{
+    if(i<ZWAVE_TEC_TTY_MINORS&& i>=0)
+    {
+        dev_occupied[i] = 0;
+        return 0;
+    }
+    else
+        return -1;    
+}
+
+static int dev_name_get(char *devname)//inline
+{
+    char *numberend;
+    long int numbernum;
+    int rc;
     numberend = strstr(devname, "_up");
     int len = numberend - (devname+4);
     char number[10];
@@ -278,8 +307,8 @@ static int zwave_tec_write(struct tty_struct *tty,
 //
 
 //&zwave_tec_table[i]->por
-
-    proc_zwave_write_zwave(NULL, buffer, count,NULL);//dgl_temp write proc write the array
+    printk("tty->index = %d\n", tty->index);
+    proc_zwave_write_zwave(tty->index, buffer, count,NULL);//dgl_temp write proc write the array
 	//tty_insert_flip_string(port, buffer, count);
     //tty_flip_buffer_push(port);
 //
@@ -555,7 +584,7 @@ static int zwave_tec_ioctl(struct tty_struct *tty,
                     icount.dcd	= cnow.dcd;
                     icount.rx	= cnow.rx;
                     icount.tx	= cnow.tx;
-                    icount.frame	= cnow.frame;
+                               icount.frame	= cnow.frame;
                     icount.overrun	= cnow.overrun;
                     icount.parity	= cnow.parity;
                     icount.brk	= cnow.brk;
@@ -573,7 +602,7 @@ static int zwave_tec_ioctl(struct tty_struct *tty,
 static int zwave_tec_ioctl(struct tty_struct *tty,
                       unsigned int cmd, unsigned long arg)
 {
-    printk("ioctl\n");
+    printk("ioctl  cmd = %d\n", cmd);
 	switch (cmd) {
 	case TIOCGSERIAL:
 		return zwave_tec_ioctl_tiocgserial(tty, cmd, arg);
@@ -583,8 +612,10 @@ static int zwave_tec_ioctl(struct tty_struct *tty,
 		return zwave_tec_ioctl_tiocgicount(tty, cmd, arg);
     case ZWAVE_ADD_DEV:
         printk("%s %d add device called\n", __func__, __LINE__);
+        return dev_malloc();
     case ZWAVE_DEL_DEV:
         printk("%s %d del device called\n", __func__, __LINE__);
+        return dev_free((int)arg);
 	}
 
 	return -ENOIOCTLCMD;
@@ -620,16 +651,24 @@ static const struct tty_port_operations zwave_tec_port_ops = {
 	.shutdown		= zwave_tec_shutdown,
 };
 
-
+//the proc direction write function
 static int proc_up_write_zwave(struct file *file,const unsigned char *buffer,unsigned long count,void *data) {
+    int index = -1;
     if(count >= STRINGLEN)
     {
         len = STRINGLEN - 1;
     }
     else
         len = count;
-	tty_insert_flip_string(&zwave_tec_table[0]->port, buffer, len);
-    tty_flip_buffer_push(&zwave_tec_table[0]->port);//dgl_note
+    
+    index = dev_name_get(file->f_path.dentry->d_iname);
+    if(index<0)
+    {
+        print_debug("dev_name_get error %d\n", 1);
+        return index;
+    }
+	tty_insert_flip_string(&zwave_tec_table[index]->port, buffer, len);
+    tty_flip_buffer_push(&zwave_tec_table[index]->port);//dgl_note
     print_debug("written: %d buffer3 = %s, end\n", len, tty_proc_buffer);
     return len;
 }
@@ -676,8 +715,10 @@ static  int selectfile_for_notify(char *filename)
     return 0;
 
 }
-
-static int proc_zwave_write_zwave(struct file *file,const unsigned char *buffer,unsigned long count,void *data) {
+//the dev direction write function 
+static int proc_zwave_write_zwave(int index,const unsigned char *buffer,unsigned long count,void *data) {
+    char notify_name[30];
+    memset(notify_name, 0, 30);
     if(count >= STRINGLEN)
     {
         len = STRINGLEN - 1;
@@ -691,14 +732,14 @@ static int proc_zwave_write_zwave(struct file *file,const unsigned char *buffer,
         writeoffset +=len+1;
     }
 
-    memcpy(buf_pool[buf_wr_index].buf, buffer, len);
-    buf_pool[buf_wr_index].len = len;
-    buf_wr_index++;
-    if(buf_wr_index>=10)
-    	buf_wr_index = 0;
-    flag++;
-    selectfile_for_notify(MY_FILE);
-/* #define MY_FILE "/var/tmp/vtty/ttty0_up" */
+    memcpy(buf_pool[index][buf_wr_index[index]].buf, buffer, len);
+    buf_pool[index][buf_wr_index[index]].len = len;
+    buf_wr_index[index]++;
+    if(buf_wr_index[index]>=10)
+    	buf_wr_index[index] = 0;
+    flag[index]++;
+    snprintf(notify_name, 30, MY_FILE,index);
+    selectfile_for_notify(notify_name);
 
    /* printk("file name = %s\n", file->f_path.entry->d_iname); */
 //    printk("file name = %s\n", file->f_path->dentry->d_iname);  //->d_iname);
@@ -713,21 +754,32 @@ static int proc_zwave_write_zwave(struct file *file,const unsigned char *buffer,
 
 static int proc_read_zwave(struct file *filp,char *buf,size_t count,loff_t *offp ) 
 {
-    print_debug("in proc_read_zwave, flag: %d\n",flag);
-    if(flag>0)
+    int index = -1;
+    char notify_filename[30];
+        print_debug("filp name = %s\n", filp->f_path.dentry->d_iname);
+    index = dev_name_get(filp->f_path.dentry->d_iname);
+    if(index <0)
+    {
+        printk("%s dev_name_get failed\n", __func__);
+        return index;
+    }
+
+    print_debug("in proc_read_zwave, flag: %d\n",flag[index]);
+    if(flag[index]>0)
     {
         int bytesread;
-        copy_to_user(buf, buf_pool[buf_rd_index].buf, buf_pool[buf_rd_index].len);
-        bytesread = buf_pool[buf_rd_index].len;
-        print_debug("buf_wr_index=%d,buf_rd_index:%d\n",buf_wr_index,buf_rd_index);
+        copy_to_user(buf, buf_pool[index][buf_rd_index[index]].buf, buf_pool[index][buf_rd_index[index]].len);
+        bytesread = buf_pool[index][buf_rd_index[index]].len;
+        print_debug("buf_wr_index=%d,buf_rd_index:%d\n",buf_wr_index[index],buf_rd_index[index]);
 
-        buf_rd_index++;
-        if(buf_rd_index>=10)
-            buf_rd_index = 0;
-        flag--;
-        if(buf_rd_index!=buf_wr_index)
+        buf_rd_index[index]++;
+        if(buf_rd_index[index]>=10)
+            buf_rd_index[index] = 0;
+        flag[index]--;
+        if(buf_rd_index[index]!=buf_wr_index[index])
         {
-            selectfile_for_notify("/var/tmp/vtty/ttty0_up");
+            snprintf(notify_filename,30, MY_FILE, index);
+            selectfile_for_notify(notify_filename);
         }
         return bytesread;
     }
@@ -842,7 +894,7 @@ static int __init zwave_tec_init(void)
 	}
     char  procfile_name_init[20];
     filp_open("/var/tmp/vtty", O_CREAT|O_DIRECTORY, 0777);
-    selectfile_for_notify("/var/tmp/vtty/ttty0_up");
+    //selectfile_for_notify("/var/tmp/vtty/ttty0_up");not necessary to create
 	BUG_ON(zwave_proc_dir != NULL);
 	if (!(zwave_proc_dir = proc_mkdir("zwave", NULL)))
 		return -1;

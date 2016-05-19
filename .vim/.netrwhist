@@ -1,4 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/guoliang/Public/work/2CL/source'
-let g:netrw_dirhist_2='/home/guoliang/Public/work2/intel_usg2/.git'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/Stage/pc-ubuntu32/etc/utopia'
+let g:netrw_dirhist_2='/var/log'
+let g:netrw_dirhist_3='/proc/4013'
+let g:netrw_dirhist_4='/home/guoding/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspCommonLib'
+let g:netrw_dirhist_5='/etc'
+let g:netrw_dirhist_6='/home/guoding/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/source'
+let g:netrw_dirhist_7='/home/guoding/Public/intel_usg/platform_repo/make'
+let g:netrw_dirhist_8='/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/platform_repo'

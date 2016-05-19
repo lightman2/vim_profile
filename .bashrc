@@ -116,3 +116,9 @@ export PATH=/home/guoliang/Public/work/cov-analysis-linux-7.0.0/bin:$PATH
 
 export NVM_DIR="/home/guoliang/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+#alias emacs="export LC_CTYPE=zh_CN.UTF-8;emacs";
+#alias ls="ls -alt"
+alias ccollab='~/ccollab-cmdline/ccollabgui'
+alias gdb='sudo gdb'
