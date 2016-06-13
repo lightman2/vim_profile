@@ -1,16 +1,62 @@
 
 ;; ----- smex-history -----
 (
- kill-whole-line
- cd
- em
- 5x5
- arp
- dbx
- dig
+ magit-log-current
+ magit-log
+ magit-diff-buffer-file
+ git-log-files
+ magit-log-buffer-file
+ customize-themes
+ desktop-save
 )
 
 ;; ----- smex-data -----
 (
  (kill-whole-line . 1)
+ (package-list-packages . 6)
+ (shell . 12)
+ (git-log . 2)
+ (git-pull-ff-only . 1)
+ (magit-log . 4)
+ (magit-log-all . 6)
+ (hfyview-window . 1)
+ (eww . 7)
+ (copy-file-name-to-clipboard . 1)
+ (git-log-files . 2)
+ (magit-log-current . 4)
+ (customize-themes . 3)
+ (magit-log-bury-buffer . 1)
+ (magit-log-half-commit-limit . 1)
+ (magit-log-all-branches . 2)
+ (magit-diff . 1)
+ (magit-diff-buffer-file . 9)
+ (speedbar . 4)
+ (package-initialize . 1)
+ (browse-kill-ring . 1)
+ (ska-point-to-register . 1)
+ (ska-jump-to-register . 1)
+ (calendar . 1)
+ (deft . 5)
+ (dframe-click . 1)
+ (customize-variable . 1)
+ (desktop-clear . 1)
+ (desktop-change-dir . 2)
+ (desktop-save-mode . 1)
+ (session-initialize . 1)
+ (recover-session . 2)
+ (gdb . 1)
+ (gud-gdb . 1)
+ (kill-buffer . 1)
+ (bongo . 6)
+ (customize . 1)
+ (delete-blank-lines . 2)
+ (irony-mode . 2)
+ (tiny-expand . 4)
+ (semantic-show-unmatched-syntax-mode . 2)
+ (tiny-up-list . 3)
+ (find-variable . 1)
+ (cscope-find-this-text-string . 2)
+ (load-library . 1)
+ (desktop-save . 2)
+ (magit-log-buffer-file . 1)
 )

@@ -2,9 +2,26 @@
 
 ;; ----- ido-last-directory-list -----
 (
- ("/home/guoding/Public/brcm_61/" . "ccsp/")
+ ("/home/guoding/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/config/" . "epc4911/")
+ ("/home/guoding/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/" . "config/")
+ ("/home/guoding/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/" . "Utopia/")
+ ("/home/guoding/Public/tmp/brcm_61/customer_lgi/lgi/" . "CcspCommonLib/")
+ ("/home/guoding/Public/tmp/brcm_61/customer_lgi/" . "lgi/")
+ ("/home/guoding/Public/tmp/" . "brcm_61/")
+ ("/home/guoding/.emacs.d/cedet-1.1/" . "common/")
+ ("/home/guoding/Public/tmp/brcm_61/rg/" . "rootfs/")
+ ("/home/guoding/Public/tmp/brcm_61/webui/ga/walled_garden/parcon/" . "siteblk/")
+ ("/home/guoding/Public/tmp/brcm_61/webui/ga/walled_garden/" . "parcon/")
+ ("/home/guoding/Public/tmp/brcm_61/webui/ga/" . "code/")
+ ("/home/guoding/Public/tmp/brcm_61/" . "customer_lgi/")
+ ("/home/guoding/study/shell/" . "awk/")
+ ("/home/guoding/study/" . "shell/")
+ ("/ssh:guoding@10.74.123.215:/home/guoding/" . "brcm_61/")
+ ("/home/" . "guoding/")
+ ("/ssh:guoding@10.74.123.215:/" . "home/")
+ ("/home/guoding/Public/brcm_61/" . "platform_broadcom/")
  ("/home/guoding/study/kernelmodule/ldd3/" . "tty/")
- ("/home/guoding/.emacs.d/" . "auto-save-list/")
+ ("/home/guoding/.emacs.d/" . "cedet-1.1/")
  ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/sysevent/" . "proxy/")
  ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/" . "apply_system_defaults/")
  ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/" . "src/")
@@ -12,9 +29,9 @@
  ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/" . "service_routed/")
  ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/" . "platform_repo/")
  ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/" . "Utopia/")
- ("/home/guoding/Public/brcm_61/ccsp/" . "make/")
+ ("/home/guoding/Public/brcm_61/ccsp/" . "CcspDataPathMgr/")
  ("/home/guoding/Public/brcm_61/platform_broadcom/" . "broadcom/")
- ("/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/1.1/" . "include/")
+ ("/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/1.1/" . "source/")
  ("/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/" . "1.1/")
  ("/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/" . "Utopia/")
  ("/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/" . "CcspCommonLib/")
@@ -33,18 +50,40 @@
  ("/home/guoding/Public/intel_usg/platform_repo/" . "CcspCommonLib/")
  ("/home/guoding/Public/intel_usg/" . "ccsp/")
  ("/home/guoding/Public/" . "brcm_61/")
- ("/home/guoding/" . "Public/")
+ ("/home/guoding/" . "Downloads/")
  ("/usr/share/emacs/site-lisp/" . "autoconf/")
  ("/usr/share/emacs/" . "site-lisp/")
- ("/" . "etc/")
+ ("/" . "tftpboot/")
  ("/home/guoding/Public/study/package/" . "ncurses/")
  ("/home/guoding/Public/study/" . "package/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
- "/home/guoding/Public/brcm_61/ccsp/make/"
  "/home/guoding/"
+ "/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/"
+ "/home/guoding/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/config/epc4911/"
+ "/tftpboot/"
+ "/home/guoding/Public/tmp/brcm_61/"
+ "/home/guoding/Public/study/package/ncurses/"
+ "/home/guoding/.emacs.d/cedet-1.1/common/"
+ "/etc/"
+ "/home/guoding/Public/tmp/brcm_61/webuiPrebuilt/www/"
+ "/home/guoding/Public/tmp/brcm_61/webuiPrebuilt/"
+ "/home/guoding/Public/tmp/brcm_61/webui/ga/walled_garden/parcon/siteblk/"
+ "/home/guoding/Public/tmp/brcm_61/webui/ga/code/"
+ "/home/guoding/Public/tmp/brcm_61/webui/ga/code/i18n/../cmn/./../"
+ "/home/guoding/Public/tmp/brcm_61/webui/"
+ "/home/guoding/Public/brcm_61/"
+ "/home/guoding/study/shell/awk/"
+ "/home/guoding/Public/brcm_61/ccsp/CcspDataPathMgr/"
+ "/home/guoding/.emacs.d/emacs-color-theme-solarized/"
+ "/home/guoding/.emacs.d/"
+ "/home/guoding/Public/"
+ "/home/guoding/Public/brcm_61/platform_broadcom/"
+ "/home/guoding/Public/brcm_61/ccsp/make/"
+ "/ssh:guoding@10.74.123.215:/home/guoding/brcm_61/"
+ "/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/1.1/source/"
  "/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/"
  "/home/guoding/study/kernelmodule/ldd3/tty/"
  "/home/guoding/study/kernelmodule/ldd3/pci/"
@@ -67,45 +106,197 @@
  "/..//home/guoding/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/"
  "/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/1.1/"
  "/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/1.1/include/"
- "/home/guoding/Public/brcm_61/platform_broadcom/"
  "/home/guoding/Public/brcm_61/ccsp/"
  "/home/guoding/Public/intel_usg/ccsp/make/"
  "/home/guoding/Public/intel_usg/ccsp/CcspCommonLib/Utopia/source/service_routed/"
  "/home/guoding/Public/intel_usg/platform_repo/CcspCommonLib/Utopia/arm/"
- "/usr/share/emacs/site-lisp/"
- "/home/guoding/study/linuxapplicationmanual/debug/examples/memtest/"
- "/home/guoding/Public/study/package/ncurses/"
 )
 
 ;; ----- ido-work-file-list -----
 (
- "ccsp_common.mk"
  ".emacs"
  "Makefile"
- "123"
- "LICENSE"
- "commitlog"
- "platform.inc"
- "main.c"
- "keyboard"
- "ccsp_sysevent_helperpath.patch"
+ "system_defaults"
+ "apps_3390_rg.tgz"
+ "build_package.sh"
+ "get_filer.sh"
+ "apply_system_defaults.c"
+ "cedet.el"
+ "services"
+ "email_notification.php"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/guoding/Public/brcm_61/ccsp/make/" (22331 65223 327539 90000) "ccsp_common.mk" "../" "platform_repo/" "ccsp_inc_path.mk" "./" "ccsp_lib_path.mk")
+ ("/home/guoding/" (22365 12673 662793 87000) "tcp_server_new.c" "Public/" ".mozilla/" ".subversion/" "vmware-tools-upgrader-32" "13" ".macromedia/" ".pulse-cookie" "#orgnotes.org#" "Templates/" ".gnupg/" ".zwave_tty_note" "lib/" ".goutputstream-ERH89X" ".config/" ".ido.last~" "solarized-light-theme.el" "Music/" ".thumbnails/" ".srecode/" "recv.c" "ccollab-cmdline2/" "123_s" "README.md" "child-theme-example/" "solarized-theme-utils.el" "UCG3390_6.1.1alpha2_tools.tar.gz" "#1234#" ".w3m/" "old_ccollab-cmdline/" ".viminfo" "tmp_emacs.d/" "solarized.el" "Documents/" "tcp_server.c" ".goutputstream-FHVWAY" "123_moca_map" "solarized-theme.el" "../" "Desktop/" "share/" "Dropbox/" ".gnome2/" "experiment.sh" "neotree.el" "ccollab-cmdline/" ".recentf" ".Xauthority" ".cache/" "tiny_tty2.c" "Dropbox (Old)/" ".lesshst" "tmp/" "world/" ".goutputstream-BXYWAY" ".ssh/" "hello.c" "solarized-dark-theme.el" ".bash_history" "Pictures/" ".bashrc.swp" ".bumpversion.cfg" "tiny_tty.c" ".goutputstream-ZL6RAY" ".erc/" "run_upgrader.sh" ".compiz-1/" ".wireshark/" "quail.el" "DEV-GUIDE.md" ".bash_logout" "commitlog" "123_wifi_map" ".ibus/" ".smartbear/" "aaaaa" "editorconfig.tgz" ".semanticdb/" "VMwareTools-9.6.6-2649738.tar.gz" ".backupemacs" ".mypaint/" ".install4j" "study/" ".gstreamer-0.10/" ".swp" ".rnd" ".swo" "Videos/" ".profile" ".#orgnotes.org" "ipset_configure" "vmware-tools-distrib/" "bin/" ".pulse/" "c.tgz" "Downloads/" "quail.el.gz" ".emacs~" ".local/" "aaa" "libexec/" ".gksu.lock" ".mission-control/" "solarized-theme-pkg.el" ".13.swp" ".ICEauthority" "examples.desktop" ".dmrc" ".emacs.desktop.lock" ".emacs.desktop" ".emacs-history.el" ".123" ".ido.last" ".gvfs/" "1233" ".adobe/" ".java/" ".dropbox-dist/" "#123#" ".vimrc" ".fontconfig/" "Makefile" "1234" ".emacs.d.old/" "send.c" "tcp_client.c" ".xsession-errors" ".cola" ".vim/" "minicom.log" "tests/" ".vnc/" ".goutputstream-AY9CEY" "tools/" ".pam_environment" "etc/" ".dropbox/" "./" ".gtk-bookmarks" ".bashrc" "#*message*-20160119-003502#" "123" ".gitk" ".gitconfig" ".xsession-errors.old" "tcp_server[1].c" ".gnome2_private/" "vim_profile/" "#%2Amail%2A#5198nmK#" ".git/" ".emacs" ".dbus/" ".goutputstream-FCYWAY" ".emacs.d/" ".emacs." ".gconf/")
 
- ("/home/guoding/" (22332 8203 412879 356000) "tcp_server_new.c" "Public/" ".mozilla/" ".subversion/" "vmware-tools-upgrader-32" ".macromedia/" ".pulse-cookie" "#orgnotes.org#" "Templates/" ".gnupg/" ".zwave_tty_note" ".goutputstream-ERH89X" ".config/" ".ido.last~" "solarized-light-theme.el" "Music/" ".thumbnails/" ".srecode/" "recv.c" "ccollab-cmdline2/" "123_s" "README.md" "child-theme-example/" "solarized-theme-utils.el" "UCG3390_6.1.1alpha2_tools.tar.gz" ".w3m/" "old_ccollab-cmdline/" ".viminfo" "solarized.el" "Documents/" "tcp_server.c" ".goutputstream-FHVWAY" "123_moca_map" "solarized-theme.el" "../" "Desktop/" "share/" "Dropbox/" ".gnome2/" "experiment.sh" "neotree.el" "ccollab-cmdline/" ".recentf" ".Xauthority" ".cache/" "tiny_tty2.c" "Dropbox (Old)/" ".lesshst" "tmp/" "world/" ".goutputstream-BXYWAY" ".ssh/" "hello.c" "solarized-dark-theme.el" ".bash_history" "Pictures/" ".bashrc.swp" ".bumpversion.cfg" "tiny_tty.c" ".goutputstream-ZL6RAY" ".erc/" "run_upgrader.sh" ".compiz-1/" ".wireshark/" "quail.el" "DEV-GUIDE.md" ".bash_logout" "commitlog" "123_wifi_map" ".ibus/" ".smartbear/" "aaaaa" "editorconfig.tgz" ".semanticdb/" "VMwareTools-9.6.6-2649738.tar.gz" ".backupemacs" ".install4j" "study/" ".gstreamer-0.10/" ".swp" ".rnd" ".swo" "Videos/" ".profile" ".#orgnotes.org" "ipset_configure" "vmware-tools-distrib/" "bin/" ".pulse/" "c.tgz" "Downloads/" "quail.el.gz" ".emacs~" ".local/" "aaa" "libexec/" ".gksu.lock" ".mission-control/" "solarized-theme-pkg.el" ".ICEauthority" "examples.desktop" ".dmrc" ".emacs.desktop.lock" ".emacs.desktop" ".emacs-history.el" ".123" ".ido.last" ".gvfs/" "1233" ".adobe/" ".java/" ".dropbox-dist/" "#123#" ".vimrc" ".fontconfig/" "Makefile" "1234" ".emacs.d.old/" "send.c" "tcp_client.c" ".xsession-errors" ".cola" ".vim/" "minicom.log" "tests/" ".goutputstream-AY9CEY" "tools/" ".pam_environment" "etc/" ".dropbox/" "./" ".gtk-bookmarks" ".bashrc" "#*message*-20160119-003502#" "123" ".gitk" ".gitconfig" ".xsession-errors.old" "tcp_server[1].c" ".gnome2_private/" "vim_profile/" "#%2Amail%2A#5198nmK#" ".git/" ".emacs" ".dbus/" ".goutputstream-FCYWAY" ".emacs.d/" ".emacs." ".gconf/")
+ ("/etc/" (22365 12622 502062 616000) "wireshark/" "minicom/" "lsb-base/" "services" "kermit/" "lvm/" "java-7-openjdk/" "netconfig" "brltty/" "thunderbird/" "pkcs11/" "rc6.d/" "ldap/" "fstab" "rc5.d/" "xml/" "firefox/" "python3/" "lsb-release" "avahi/" "cron.monthly/" "rsyslog.d/" "modprobe.d/" "w3m/" "mysql/" "vlc/" "netscsid.conf" "apache2/" "gnome-vfs-2.0/" "asciidoc/" "securetty" "sysctl.d/" "newt/" "rsyslog.conf" "sound/" "rcS.d/" "dnsmasq.conf" "login.defs" "icedtea-web/" "sysctl.conf" "environment" "resolv.conf" "sensors3.conf" "sensors.d/" "rpc" "python2.7/" "ucf.conf" "apparmor.d/" "pulse/" "emacs24/" "crontab" "rc1.d/" "gshadow" "insserv/" "gnome-app-install/" "nanorc" "wpa_supplicant/" "lsb-base-logging.sh" "modules" "debian_version" "update-notifier/" "mime.types" "group-" "hdparm.conf" "NetworkManager/" "pam.conf" "libpaper.d/" "ghostscript/" "texmf/" "UPower/" "papersize" "velocity/" "gnome-settings-daemon/" "aliases.db" "cron.d/" "pam.d/" "samba/" "speech-dispatcher/" "mke2fs.conf" "gshadow-" "pm/" "subversion/" "sane.d/" "python3.2/" "ConsoleKit/" "rc.local" "gtk-2.0/" "ufw/" "lightdm/" "networks" "ltrace.conf" "group" "default/" "iproute2/" "python/" "TZ" "rc2.d/" "wgetrc" "udev/" "mtab.fuselock" "passwd-" "anacrontab" "legal" "dbus-1/" "exports" "timezone" "fstab.d/" "xinetd.d/" "kerneloops.conf" "vim/" "cupshelpers/" "polkit-1/" "blkid.conf" "chatscripts/" "java-6-openjdk/" "hosts" "perl/" "profile" "squid3/" "hostname" "libnl-3/" "os-release" "sudoers" "mtools.conf" "xul-ext/" "X11/" "apparmor/" "idmapd.conf" "lighttpd/" "obex-data-server/" "groff/" "screenrc" "locale.alias" "utopia/" "magic" "profile.d/" "maven2/" "updatedb.conf" "mailcap" "at.deny" "javascript-common/" "ifplugd/" "apt/" "fuse.conf" "gnome/" "ODBCDataSources/" "shadow" "ssh/" "fop.conf.d/" "dnsmasq.d/" "logrotate.d/" "rc4.d/" "bind/" "motd" "hosts.allow" "skel/" "foomatic/" "hosts.deny" "resolvconf/" "ca-certificates.conf" "gconf/" "gdb/" "lynx-cur/" "manpath.config" "insserv.conf.d/" "colord.conf" "mtab" "kernel/" "vmware-tools/" "ssl/" "terminfo/" "bash.bashrc" "postfix/" "qt3/" "apport/" "issue" "ca-certificates.conf.dpkg-old" "ssmtp.conf" "mailcap.order" "bonobo-activation/" "bash_completion.d/" "brltty.conf" ".java/" "update-manager/" "odbcinst.ini" "kbd/" "pnm2ppa.conf" "hp/" "popularity-contest.conf" "emacs/" "gai.conf" "passwd" "snmp/" "init/" "dhcp/" "ts.conf" "depmod.d/" "shadow-" "usb_modeswitch.d/" "ld.so.cache" "logcheck/" "ripd.conf" "aliases" "dpkg/" "xinetd.conf" "nsswitch.conf" "ld.so.conf.d/" "apg.conf" "ImageMagick/" "xdg/" "debconf.conf" "bash_completion" "shishi/" "ld.so.conf" "ca-certificates/" "opt/" "console-setup/" "printcap" "libuser.conf" "vtrgb" "compizconfig/" "smi.conf" "emacs23/" "java/" "apm/" "iftab" "rmt" "libreoffice/" "fonts/" "bindresvport.blacklist" "systemd/" "host.conf" "issue.net" "brlapi.key" "inputrc" "adduser.conf" "bluetooth/" "pcmcia/" "gssapi_mech.conf" "usb_modeswitch.conf" "gitweb.conf" "alternatives/" "ppp/" "cups/" "shells" "cron.hourly/" "logrotate.conf" "dictionaries-common/" "blkid.tab" "init.d/" "cron.daily/" "checkbox.d/" "update-motd.d/" "security/" "kernel-img.conf" "dhcp3/" "initramfs-tools/" "acpi/" "calendar/" "odbc.ini" "at-spi2/" "sudoers.d/" "grub.d/" "magic.mime" "rc3.d/" "zsh_command_not_found" ".pwd.lock" "adjtime" "ginn/" "gtk-3.0/" "mail.rc" "protocols" "rc0.d/" "network/" "sgml/" "wodim.conf" "sbcl.rc" "localtime" "doc-base/" "cron.weekly/" "insserv.conf" "deluser.conf" "tpvmlp.conf" "../" "./")
 
- ("/home/guoding/study/" (22323 59875 385343 658000) "src.2e.tar.gz" "当删除重建文件后，索引节点号由操作系统根据当时文件系统的使用情况分配，因此与原来不同，所以得到的索引节点号也不同。" "cut.sh" "git_clone2/" "thread.o" "1111" "LinuxKernelLearn/" "losslessh264/" "package/" "git/" "git_test2/" "apue.3e/" "aaan" "../" "lib.h" "aaa.sh" "program1.c" "training/" "thread_test2.c" "test.c" "main.c~" "helloworld" "shell/" "driver/" "linux1.0/" "lib.so" "thread3.c" "git_clone/" "src.3e.tar.gz" "main" "321" "cscope.out" "main.o" "adfaaaa" "aaa" "lib.c" "thread.c" "main.c" "linux/" "123321312" "test/" "kernelmodule/" "1233" "emacs/" "1234" "apue.2e/" "111" "a.out" "pip" "clg/" "./" "123" "apue.43e/" "git_test3/" "CA/" "gcc/" "main2.c" "linux0.11/" "linuxapplicationmanual/")
+ ("/home/guoding/Public/tmp/brcm_61/platform_broadcom/nw_config/" (22349 19745 43926 292000) "../" "ccsp_intf_cfg.h" "./")
 
- ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/" (22331 65223 347539 0) "customer_repo/" "hal/" "../" "README" "custom/" "platform_repo/" "Doxygen.dox" "Makefile" "source/" "Makefile.orig" "./")
+ ("/home/guoding/Public/tmp/brcm_61/" (22365 10554 299868 379000) "setup_submodules.sh" "patch.log" "images/" "rg/" "brcm_patches/" "cm/" "mibs/" "build_config/" "builds/" "ccsp_tags_latest.txt" "webuiPrebuilt/" "webui/" "ccsp/" "../" "README.txt" "opensource/" "webui_tags.txt" "get_filer.sh" "cscope.out" "brcm_vexts/" "sdk/" "webui_tags_latest.txt" "monolithic_image/" ".gitignore" ".emacs.desktop" "customer_lgi/" "1234" "cscope.files" "ccsp_tags.txt" "111" "platform_broadcom/" "tools/" "project_definitions" "./" "123" "stb/" ".git/" "checkout_working_copy.sh" "create_tag.sh" "build_package.sh")
 
- ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/" (22331 65223 331539 72000) "Version.txt" "build-broadcom-epc4911/" "customer_repo/" "LICENSE" "ccsp_configs/" "Doxyfile" "manifest" "../" "README" "Utopia/" "custom/" "platform_repo/" "Doxygen.dox" ".gitignore" "Makefile" "1234" "OpenSource/" "source/" "./" "123" "DoxygenLayout.xml" ".git")
+ ("/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/" (22365 11287 896587 993000) "build-broadcom-epc4911/" "apply_system_defaults.c" "../" "Makefile" "./" "#apply_system_defaults.c#")
 
- ("/home/guoding/Public/brcm_61/ccsp/" (22331 65223 295539 234000) "CcspCMAgent/" "CcspDmCli/" "CcspCr/" "CcspMisc/" "Lm_host/" "CcspHomeSecurity/" "make/" "CcspCommonLib/" "CONTRIBUTING.md" "CcspWebui/" "manifest" "CcspRebootMgr/" "CcspSampleComponent/" "CcspMtaAgent/" "LanManager/" "../" "TR-181/" "CcspMocaAgent/" "CcspTr069Pa/" "CcspMBus/" "ConfRecover/" "hotspot/" "ccsp_config/" "ExtDependency/" "CcspCli/" "tst.tst" "CcspDataPathMgr/" "CcspWifiApMgr/" "SecureSoftwareDownload/" "DnsProxy/" ".gitignore" "CcspTestAndDiag/" "CcspPsm/" "FirmwareUpgrade/" "utilities/" "CcspSnmpPa/" "Stage/" "CcspHnapPaSsp/" ".gitmodules" "CcspWifiExtMgr/" "#tst.tst#" "CcspPandM/" "CommandTools/" "AppEnvManager/" "ComponentTemplate/" "./" "Out/" ".git/" "TR135/" "CcspLMLite/")
+ ("/home/guoding/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/config/epc4911/" (22365 7032 943842 950000) "../" "system_defaults" "./")
 
- ("/home/guoding/Public/brcm_61/" (22331 65221 375547 890000) "setup_submodules.sh" "1234.diff" "patch.log" "images/" "rg/" "brcm_patches/" "cm/" "mibs/" "build_config/" "builds/" "ccsp_tags_latest.txt" "webuiPrebuilt/" "webui/" "ccsp/" "../" "README.txt" "opensource/" "webui_tags.txt" "get_filer.sh" "brcm_vexts/" "sdk/" "webui_tags_latest.txt" "monolithic_image/" ".gitignore" ".emacs.desktop" "customer_lgi/" "cscope.files" "ccsp_tags.txt" "platform_broadcom/" "project_definitions" "./" "123" "stb/" ".git/" "checkout_working_copy.sh" "create_tag.sh" "build_package.sh")
+ ("/home/guoding/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/config/" (22349 19749 439906 550000) "../" "./" "epc4911/")
+
+ ("/home/guoding/Public/tmp/brcm_61/customer_lgi/" (22365 7050 579771 474000) "lgi/" "../" ".gitignore" "./" ".git/")
+
+ ("/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/" (22349 47685 117282 98000) "customer_repo/" "hal/" "../" "README" "custom/" "platform_repo/" "Doxygen.dox" "Makefile" "source/" "./")
+
+ ("/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/" (22349 23450 947085 411000) "services/" "service_ipv6/" "scripts/" "service_multinet/" "macclone/" "mldproxy/" "pal/" "service_routed/" "igd/" "../" "ulog/" "dslite/" "README.txt" "firewall_log/" "ipsec_vpn/" "firewall/" "include/" "igmp_snooper/" "pmon/" "linkmgr/" "utctx/" "ccsp_ut_utils/" "newhost/" "sysevent/" "utapi/" "syscfg/" "trigger/" "hdk2/" "wmon/" "walled_garden/" "dhcpproxy/" "service_wan/" "./" "switchpmon/" "hnap/")
+
+ ("/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/" (22349 20121 234193 430000) "../" "Makefile" "init/" "./")
+
+ ("/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/" (22349 20121 246193 380000) "service.d/" "registration/" "../" "syslog_conf/" "README" "c_registration/" "defaults/" "src/" "inittab/" "etc/" "./" "system/")
+
+ ("/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/" (22349 20121 246193 380000) "../" "apply_system_defaults/" "init_inter_subsystem/" "execute_dir/" "dhcp_client_done/" "./")
+
+ ("/tftpboot/" (22323 7536 537919 220000) "initrd.img" "../" "vmlinuz-3390a0" "build.sh" "test" "vmlinuz-initrd-3390a0" "dgwsdk.puma6.img" "apps_3390_rg.tgz" "rootfs_3390_rg.tgz" "./")
+
+ ("/home/guoding/Public/tmp/brcm_61/builds/3390/A0/build_logs/" (22364 65362 250448 436000) "../" "rg_bcm93390smwvg.log" "CmBldr_3390.log" "bolt_3390.log" "rg_ubifs.log" "pc15_prod_bcm93390smwvg_pc15.log" "./")
+
+ ("/home/guoding/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/" (22349 19749 439906 550000) "scripts/" "../" "config/" "./")
+
+ ("/home/guoding/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/" (22349 19749 439906 550000) "ccsp_configs/" "../" "Utopia/" "customer.inc" "./")
+
+ ("/home/guoding/Public/tmp/brcm_61/customer_lgi/lgi/" (22349 19749 443906 532000) "CcspCommonLib/" "../" "CcspDataPathMgr/" "CcspPsm/" "CcspPandM/" "./")
+
+ ("/home/guoding/Public/tmp/" (22359 39389 582753 751000) "../" "brcm" "brcm_61/" "1234" "./" "webuiPrebuilt.tgz" "123")
+
+ ("/home/guoding/Public/tmp/brcm_61/build_config/" (22364 56713 528342 930000) "buildConfigA0_NB.cfg" "DPC4912_CCSP_PC15_GA.cfg" "CGM4140COM_CCSP_PC15_GA.cfg" "../" "CBTEPC4911_CCSP_PC15_GA.cfg" "DPC4011_GA.cfg" "CGM4231_CCSP_PC15_GA.cfg" "buildConfig.cfg" "CGM4231_CCSP_PC20_GA.cfg" "DPC4912_CCSP_PC20_GA.cfg" "CGM4140COM_CCSP_PC20_GA.cfg" "buildConfigB0.cfg" "./" "buildConfigA0.cfg")
+
+ ("/home/guoding/Public/tmp/brcm_61/ccsp/" (22364 54203 295691 48000) "CcspCMAgent/" "CcspDmCli/" "CcspCr/" "CcspMisc/" "Lm_host/" "CcspHomeSecurity/" "make/" "CcspCommonLib/" "CONTRIBUTING.md" "CcspWebui/" "manifest" "CcspRebootMgr/" "CcspSampleComponent/" "CcspMtaAgent/" "LanManager/" "../" "TR-181/" "CcspMocaAgent/" "CcspTr069Pa/" "CcspMBus/" "ConfRecover/" "hotspot/" "ccsp_config/" "ExtDependency/" "CcspCli/" "tst.tst" "CcspDataPathMgr/" "CcspWifiApMgr/" "SecureSoftwareDownload/" "DnsProxy/" ".gitignore" "CcspTestAndDiag/" "CcspPsm/" "FirmwareUpgrade/" "utilities/" "CcspSnmpPa/" "Stage/" "CcspHnapPaSsp/" ".gitmodules" "CcspWifiExtMgr/" "CcspPandM/" "CommandTools/" ".gitmodules.bak" "AppEnvManager/" "ComponentTemplate/" "./" "Out/" ".git/" "TR135/" "CcspLMLite/")
+
+ ("/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/ccsp_configs/ccspintfcfg/" (22364 54636 97705 590000) "../" ".#ccsp_intf_cfg.h" "#ccsp_intf_cfg.h#" "ccsp_intf_cfg.h" "./")
+
+ ("/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/" (22349 47685 849208 936000) "Version.txt" "build-broadcom-epc4911/" "customer_repo/" "LICENSE" "ccsp_configs/" "Doxyfile" "manifest" "../" "README" "Utopia/" "custom/" "platform_repo/" "Doxygen.dox" ".gitignore" "Makefile" "OpenSource/" "source/" "./" "DoxygenLayout.xml" ".git")
+
+ ("/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/ccsp_configs/" (22349 23450 959085 357000) "build_ccspconfig.sh" "../" "generic/" "ccspintfcfg/" "./")
+
+ ("/home/guoding/Public/intel_usg/ccsp/CcspCommonLib/Utopia/source/service_routed/" (22304 22033 351622 355000) "service_routed.c" "../" "Makefile" "./")
+
+ ("/home/guoding/Public/intel_usg/ccsp/make/" (22323 59936 195910 948000) "ccsp_common.mk" "../" "platform_repo/" "ccsp_inc_path.mk" "./" "ccsp_lib_path.mk")
+
+ ("/etc/default/" (22323 4424 163936 40000) "crda" "brltty" "keyboard" "whoopsie" "apache2" "grub" "cron" "rsync" "dbus" "alsa" "locale" "../" "samba" "speech-dispatcher" "acct" "acpid" "ufw" "nfs-common" "dnsmasq" "ssh" "rcS" "bind9" "apport" "bootlogd" "rsyslog" "irqbalance" "ntfs-3g" "nfs-kernel-server" "cacerts" "kerneloops" "console-setup" "xinetd" "acpi-support" "pulseaudio" "useradd" "./" "cups" "ntpdate" "saned" "devpts" "halt" "avahi-daemon" "nss")
+
+ ("/home/guoding/.emacs.d/" (22364 52731 22654 107000) "bookmarks" "color-theme/" "thumbs.el" "ac-comphist.dat" "emacs-color-theme-solarized/" "emms/" "session.10dda0ac51b2861091145092647324882300000027160041" "eww-bookmarks" "window-number.el" "#iman.el#" "%backup%~" "iimage.el" "markdown-mode.el" "w3m-0.5.3.tar.gz" "tomorrow/" ".#iman.el" "session.10fd80c1a7a1e1ff3145092267036231900000027060041" "smex-items" "session.10c048da68552a1d4c1450927931724300000028120041" "w3m_old/" "saved-places" "otherel/" "cedet-1.1/" "vimpulse.el" "easymenu.el" "../" "tex-site.el" "temp" ".session" "neotree.el" "linum+.el" "tmp/" "auto-save-list/" "fuzzy.el" "thinks.el" "dired-single.el" "tab-display.el" "switch-window.el" "ac-dict/" "ecb-2.40/" "smart-tab.el" "muse/" "auctex/" "pyim/" "ede-projects.el" "session.103186042a3a557986145040763448841600000028650041" "git-emacs/" "emacs-color-theme-solarized_2/" "eshell/" "popup.elc" "session.10e11a5715f2fe0cf9144600566052576000000027990041" "cedet-1.1.tar.gz" "webjump-plus.el" "sr-speedbar.el" "fuzzy.elc" "evernote-mode.el" "deft.el" "nxhtml/" "mediawiki.el" ".emacs.desktop.lock" ".emacs.desktop" "3211.sh" "url/" "evil/" "hexrgb.el" "#browse-kill-ring.el#" "htmlize.el" "111" "session.1057339ea799c5ec8a145091498755928800000028970041" "history.el" "lazy-set-key.el" "session.1098e6967a6c2698b146163827267375600000021660043" "./" "123" "tmp2/" "w3m-0.5.3/" "powerline.el" "elpa/" "ecb-2.40.tar.gz" "iman.el" "browse-kill-ring.el" "rect-mark.el" "wcy-swbuff.el" "tron-theme.el" "tramp" "emacs-w3m/" "saveplace.el")
+
+ ("/home/guoding/.emacs.d/cedet-1.1/common/" (22350 40966 662508 681000) "inversion.elc" "#cedet.el#" "cedet-m3.el" "cedet-edebug.el" "cedet-java.elc" "data-debug.elc" "cedet-files.el" "cedet-cscope.elc" "cedet-utests.el" "cedet.info" "fame.el" "cedet-android.elc" "cedet-idutils.elc" "tests-compile-script" "mode-local.elc" "../" "cedet-compat.el" "cedet-load.elc" "data-debug.el" "pulse.elc" "ChangeLog" "fame.elc" "cedet-cscope.el" "cedet-compat.elc" "cedet-loaddefs.el~" "ezimage.elc" "cedet-autogen.el" "autoloads-compile-script" "cedet-utests.elc" "cedet-loaddefs.el" "pulse.el" "cedet-graphviz.elc" "Makefile" "ezimage.el" "cedet.texi" "pprint.el" "cedet-global.elc" "cedet-idutils.el" "cedet-autogen.elc" "inversion.el" "init-compile-script" "cedet-files.elc" "cedet.elc" "cedet-java.el" "icons/" "cedet-android.el" "cedet.el" "pprint.elc" "common-compile-script" "mode-local.el" "cedet-edebug.elc" "working.elc" "./" "cedet-global.el" "cedet-load.el" "Project.ede" "setup-compile-script" "working.el" "cedet-m3.elc" "cedet-graphviz.el")
+
+ ("/home/guoding/Public/study/package/ncurses/" (22359 58008 131975 513000) "../" "patches/" "Makefile" "#cosa_start.sh#" "./")
+
+ ("/home/guoding/Public/study/package/" (22277 54041 427659 294000) "bridge-utils/" "../" "ncurses/" "./")
+
+ ("/home/guoding/Public/study/" (22359 39356 132158 627000) "src.2e.tar.gz" "cut.sh" "git_clone2/" "package/" "git/" "apue.3e/" "aaan" "../" "lib.h" "aaa.sh" "program1.c" "shell/" "driver/" "linux1.0/" "lib.so" "git_clone/" "src.3e.tar.gz" "main" "321" "cscope.out" "main.o" "aaa" "lib.c" "main.c" "test" "1233" "1234" "apue.2e/" "#main.c#" "111" "a.out" "./" "123" "apue.43e/" "gcc/" "linux0.11/")
+
+ ("/home/guoding/Downloads/emacs-24.5/" (22330 51657 755092 12000) "configure.ac" "admin/" "leim/" "msdos/" "lib/" "config.log" "lib-src/" "config.status" "oldXMenu/" ".dir-locals.el" "../" "doc/" "lisp/" "README" "site-lisp/" "lwlib/" "COPYING" "ChangeLog" "configure" "BUGS" "Makefile.in" "nt/" "src/" "make-dist" "Makefile" "info/" "build-aux/" "autogen.sh" "nextstep/" "aclocal.m4" "etc/" "./" "m4/" "INSTALL" "config.bat")
+
+ ("/home/guoding/Downloads/" (22342 49865 933076 111000) "ccsp-mainline/" "ccollab_client_7_3_7304_unix.sh" "dropbox_2015.10.28_i386.deb" "../" "cedet-1.1.tar" "checkpatch.pl" "xmlcopyeditor_1.2.1.3-1_i386.deb" "emacs-24.5.tar.gz" "emacs-24.5/" "fig1.png" "./" "CCSP Training/" "iman.el" "【批量下载】ねこまむしの旦那に会いに行こう等.zip")
+
+ ("/home/guoding/study/linuxapplicationmanual/debug/examples/memtest/" (22306 57325 346829 833000) "memwatch.log" "memwatch.h" "../" "memtest" "memtest.c" "memwatch.o" "Makefile" "memwatch.c" "a.out" "./" "memtest.o")
+
+ ("/usr/share/emacs/site-lisp/" (22261 5181 631673 181000) "w3m/" "el-get/" "desktop-entry-mode.el" "debian-startup.el" "quilt.el" "../" "psvn.el" "autoconf/" "xcscope.el" "./" "dictionaries-common/")
+
+ ("/home/guoding/Public/intel_usg/platform_repo/CcspCommonLib/Utopia/arm/" (22304 21587 920962 503000) "platform.inc" "../" "include/" "boards/" "source/" "./")
+
+ ("/home/guoding/study/kernelmodule/ldd3/tty/" (22344 8745 867657 350000) "tiny_serial.c" "zwave_tty.c" ".tmp_versions/" "../" "tiny_tty.c" "temp.sh" "Module.symvers" "old_tiny_tty.c" "cscope.out" ".emacs.desktop.lock" ".emacs.desktop" "Makefile" "cscope.files" "./" "#zwave_tty.c#" "123" "syslist/")
+
+ ("/home/guoding/Public/" (22349 24593 211850 309000) "w3m-0.5.3.tar.gz" "ccollab_client_7_3_7304_unix.sh" "../" "tmp/" "12345" "backup/" "study/" "test" "1234" "build_test/" "./" "123" "ccsp_mainline_pc_simulation/" "#test#" "usr.tgz" "intel_usg/")
+
+ ("/home/guoding/Public/tmp/brcm_61/webuiPrebuilt/www/" (22350 36401 475534 964000) "dlna_settings.php" "at_a_glance.php" "#email_notification.php#" "managed_services_add.php" "connected_devices_computers_add.php" "parental_reports_sample.php" "cordless_handsets.php" "firewall_settings_ipv4.php" "digital_media_index_video.php" "wireless_network_configuration_edit_public.php" "mta_sip_packet_log.php" "wireless_network_configuration.php" "wireless_network_configuration_wps.php" "hardware.php" "samba_server_foldertree.php" "digital_media_index_picture.php" "port_forwarding.php" "at_downloading.php" "remote_management.php" "restore_reboot.php" "managed_devices_edit_allowed.php" "dynamic_dns_edit.php" "../" "troubleshooting_logs_sample.php" "range_extenders_add.php" "local_users.php" "password_change.php" "wifi.php" "software.php" "connection_status.php" "email_notification.php" "includes/" "managed_services_edit.php" "network_diagnostic_tools.php" "port_triggering_add.php" "actionHandler/" "digital_media_index.php" "managed_devices_add_computer_allowed.php" "usb.php" "managed_devices_add_computer_blocked.php" "range_extenders_edit1.php" "battery.php" "managed_apps.php" "port_triggering.php" "port_triggering_edit.php" "connected_devices_computers.php" "dynamic_dns.php" "managed_devices.php" "at_mycomputer_upload.php" "dmz.php" "samba_server_edit.php" "managed_sites.php" "check.php" "managed_devices_edit_blocked.php" "device_discovery.php" "styleguide.php" "managed_services.php" "dynamic_dns_add.php" "hs_port_forwarding.php" "range_extenders.php" "index.php" "qos1.php" "mta_Line_Diagnostics.php" "cmn/" "digital_media_players.php" "digital_media_servers.php" "parental_reports.php" "port_forwarding_add.php" "local_user_edit.php" "wireless_network_configuration_edit.php" "network_storage_edit.php" "managed_sites_add_site.php" "firewall_settings_ipv6.php" "cordless_handsets_add.php" "troubleshooting_logs.php" "qos.php" "backup_restore.php" "samba_server_config.php" "home_loggedout.php" "routing.php" "managed_apps_add.php" "DSXlog.php" "comcast_network.php" "wizard_step2.php" "digital_media_index_tvshow.php" "./" "callsignallog.php" "local_user_add.php" "managed_sites_add_keyword.php" "network_storage.php" "local_ip_configuration.php" "HnapPcSiteBlocked.php" "moca.php" "lan.php" "voice_quality_metrics.php" "at_mycomputer.php" "hs_port_forwarding_add.php" "range_extenders_edit.php" "wizard_step1.php" "port_forwarding_edit.php" "mta_Line_Status.php")
+
+ ("/home/guoding/.emacs.d/cedet-1.1/" (22103 52938 612450 688000) "PRERELEASE_CHECKLIST" "../" "ede/" "speedbar/" "common/" "cedet-build.el" "contrib/" "eieio/" "Makefile" "tests/" "srecode/" "cogre/" "semantic/" "./" "NEWS" "cedet-update-version.el" "INSTALL" "USING_CEDET_FROM_BZR")
+
+ ("/home/guoding/Downloads/emacs-24.5/src/" (22330 51782 167138 37000) "terminal.o" "callproc.c" "cm.h" "w32gui.h" "terminfo.o" "dispextern.h" "casetab.o" "coding.h" "minibuf.o" "callint.o" "scroll.o" "atimer.h" "ChangeLog.4" "inotify.c" "emacs-icon.h" "character.o" "ChangeLog.2" "ChangeLog.12" "ftxfont.c" "print.c" "gtkutil.c" "xsettings.h" "lastfile.o" "w32inevt.h" "editfns.c" "frame.o" "stamp-h1" "terminfo.c" "ralloc.c" "category.o" "msdos.c" "syntax.o" "casefiddle.c" "ccl.c" "scroll.c" "buffer.o" "intervals.c" "lisp.mk" "casetab.c" "keymap.c" "xftfont.o" "term.c" "atimer.o" "callint.c" "image.o" "keyboard.h" "minibuf.c" "xsmfns.o" "systime.h" "config.in" "insdel.c" "dispnew.c" "category.c" "region-cache.h" "composite.c" "gnutls.h" "search.o" "emacsgtkfixed.h" "region-cache.o" "ftfont.c" "fringe.c" "dosfns.c" "doprnt.o" "xfont.c" "w32inevt.c" ".dbxinit" "menu.o" "dired.o" "lread.c" "chartab.c" "widget.c" "dbusbind.c" "emacs.o" "w32term.h" "decompress.c" "sysdep.c" "firstfile.c" "unexw32.c" "w32font.c" "unexelf.o" "fns.c" "xdisp.c" "emacsgtkfixed.c" "keyboard.o" "xdisp.o" "w32heap.c" "epaths.in" "editfns.o" "w32heap.h" "xfaces.c" "w32fns.c" "menu.c" "unexelf.c" "intervals.o" "intervals.h" "README" "macfont.h" "undo.o" "fns.o" "ChangeLog.5" "widgetprv.h" "bidi.o" "syswait.h" "syntax.h" "marker.o" "gfilenotify.c" "fringe.o" "terminal.c" "buffer.c" "composite.h" "sheap.c" "keymap.h" "w32select.c" "xterm.o" "ChangeLog.1" "macros.o" "xmenu.c" "cm.o" "window.c" "ChangeLog.8" "keymap.o" "buffer.h" "process.o" "fileio.c" "callproc.o" "nsgui.h" "xfns.o" ".gdbinit" "lread.o" "COPYING" "epaths.h" "syntax.c" "region-cache.c" "process.h" "tparam.h" "ChangeLog" "unexcoff.c" "nsfont.m" "unexcw.c" "image.c" "w32notify.c" "regex.o" "xselect.c" "emacs-24.5.1" "ftfont.h" "ChangeLog.6" "cygw32.c" "systty.h" "gnutls.o" "floatfns.c" "ccl.o" "deps/" "nsterm.h" "w32select.h" "menu.h" "alloc.o" "search.c" "w16select.c" "ChangeLog.11" "textprop.o" "config.h" "xsettings.o" "indent.c" "casefiddle.o" "process.c" "filelock.o" "buildobj.h" "autodeps.mk" "undo.c" "xml.o" "xterm.h" "eval.c" "makefile.w32-in" "decompress.o" "bitmaps/" "disptab.h" "termopts.h" "keyboard.c" "dired.c" "termcap.c" "w32font.h" "temacs" "unexec.h" "termhooks.h" "Makefile.in" "textprop.c" "w32term.c" "fontset.o" "profiler.o" "blockinput.h" "xselect.o" "xrdb.o" "window.o" "data.o" "xml.c" "ccl.h" "unexmacosx.c" "unexaix.c" "ChangeLog.3" "xrdb.c" "xmenu.o" "xgselect.o" "unexsol.c" "xgselect.h" "macfont.m" "vm-limit.o" "vm-limit.c" "stamp-h.in" "puresize.h" "lastfile.c" "data.c" "gtkutil.h" "w32menu.c" "chartab.o" "emacs" "macros.h" "Makefile" "doc.c" "termchar.h" "insdel.o" "bootstrap-emacs" "sound.c" "composite.o" "xsettings.c" "bytecode.c" "fontset.c" "w32reg.c" "coding.c" "nsfns.m" "w32console.c" "marker.c" "profiler.c" "msdos.h" "xgselect.c" "conf_post.h" "dbusbind.o" "macuvs.h" "commands.h" "deps.mk" "lisp.h" "syssignal.h" "cmds.o" "xterm.c" "w32.h" "xfont.o" "font.c" "print.o" "ftxfont.o" "gnutls.c" "frame.h" "gl-stamp" "gmalloc.c" "font.h" "dispnew.o" "macros.c" "ChangeLog.10" "term.o" "charset.c" "w32uniscribe.c" "doc.o" "floatfns.o" "w32proc.c" "xfns.c" "font.o" "fileio.o" "regex.h" "fontset.h" "ftfont.o" "nsimage.m" "window.h" "indent.h" "gfilenotify.o" "atimer.c" "xfaces.o" "w32xfns.c" "emacsgtkfixed.o" "nsterm.m" "emacs.c" "character.h" "w32.c" "charset.o" "eval.o" "alloc.c" "category.h" "ChangeLog.7" "cygw32.h" "unexhp9k800.c" "tparam.c" "sound.o" "frame.c" "regex.c" "coding.o" "w32common.h" "cm.c" "gtkutil.o" "dosfns.h" "bytecode.o" "getpagesize.h" "bidi.c" "cmds.c" "sysstdio.h" "xftfont.c" "character.c" "indent.o" "sysselect.h" "charset.h" "nsmenu.m" "sysdep.o" "globals.h" "doprnt.c" "nsselect.m" "filelock.c" "widget.h" "ChangeLog.9" "xsmfns.c" "../" "./")
+
+ ("/home/guoding/Public/tmp/brcm_61/webuiPrebuilt/" (22350 40252 881811 536000) "mod_access.so" "mod_redirect.so" "mod_indexfile.so" "php-fpm.conf" "libmysqlclient.so.16" "mod_setenv.so" "mod_staticfile.so" "mod_ssi.so" "../" "mod_dirlisting.so" "mod_accesslog.so" "libsqlite3.so.0" "libssl.so.1.0.0" "lighttpd" "mod_chunked.so" "mod_proxy_backend_http.so" "cosa.so" "libpcre.so.1" "libgthread-2.0.so.0" "lighttpd.conf" "mod_proxy_backend_fastcgi.so" "php-fpm" "libcrypto.so.1.0.0" "mod_cgi.so" "./" "www/" "libpam.so.0" "libglib-2.0.so.0" "mod_proxy_core.so" "php.ini")
+
+ ("/home/guoding/Public/tmp/brcm_61/rg/rootfs/" (22349 45756 622699 141000) "lib/" "user/" "misc/" "../" "config/" "version" "tmp/" "COPYING" "host/" "bin/" "skel/" "romfs/" "linux/" "defaults/" "Makefile" "./" "rg_apps/" "config.arch" "rg_tools/")
+
+ ("/home/guoding/Public/tmp/brcm_61/rg/bin/" (22349 24403 422033 586000) "build_3390_images.sh" "ubinize" "packageit.sh" "mkfs.jffs2" "../" "ProgramStore2" "config.pl" "./" "mkfs.ubifs" "build_3384_images.sh")
+
+ ("/home/guoding/Public/tmp/brcm_61/rg/" (22349 50430 323973 809000) "images/" "Makefile.3390" "bcm_local_kernel_include/" "make.release" "aeolus/" "bcm_local_kernel_arch_uapi_include/" "../" "rootfs/" "version" "tmp/" "bin/" "linux/" "toolchain" ".target" "Makefile" ".arch" "bcm_local_kernel_uapi_include/" "Makefile.3384" "Makefile.extra_targets" "bcm_local_kernel_arch_include/" "./" ".dirty" "rg_apps/" "config.arch" "arm-linux/")
+
+ ("/home/guoding/Public/tmp/brcm_61/webui/ga/walled_garden/parcon/siteblk/" (22349 20140 86114 689000) "../" "index.php" "./")
+
+ ("/home/guoding/Public/tmp/brcm_61/webui/ga/walled_garden/parcon/" (22349 20140 86114 689000) "../" "siteblk/" "./" "timeblk/")
+
+ ("/home/guoding/Public/tmp/brcm_61/webui/ga/walled_garden/" (22349 20140 86114 689000) "../" "./" "guest/" "parcon/")
+
+ ("/home/guoding/Public/tmp/brcm_61/webui/ga/" (22349 20140 86114 689000) "code/" "../" "config/" "walled_garden/" "./")
+
+ ("/home/guoding/Public/tmp/brcm_61/webui/ga/code/i18n/../cmn/./../" (22349 23462 663023 992000) "PortRangeTriggering.php" "Docsis_status.php" "WSecurity.php" "parental_reports_sample.php" "parental_control_log.php" "WMACFilter.php" "Setup_routing.php" "AppGaming.php" "Factorydefaults.php" "Docsis_log.php" "WNetwork.php" "at_downloading.php" "logout.php" "Log.php" "../" "Setup_DDNS.php" "help/" "RgIpFiltering.php" "login.php" "Docsis_system.php.rej" "IPPassthrough.php" "actionHandler/" "vpn_main.php" "Devicerestart.php" "Homepage.php" "include/" "managed_devices.php" "at_mycomputer_upload.php" "Backup.php" "managed_sites.php" "check.php" "DMZ.php" "Summary_page.php" "MoCA.php" "managed_services.php" "bitmask/" "i18n/" "Diagnostics.php" "index.php" "QoS.php" "ui_build.prop" "LocalNetwork.php" "cmn/" "log_data.php" "vpn_sum.php" "Quick_setup.php" "readme" "RgMacFiltering.php" "Administration.php" "LanSetup.php" "menu/" "tests/" "WGuestNetwork.php" "LanIPv6Setup.php" "Security.php" "Guest_access.php" "VPNPassthrough.php" "Docsis_system.php" "./" "AdvancedWSettings.php" "ChannelsSelection.php" "WPS.php" "HnapPcSiteBlocked.php" "error_login.php" "Status.php" "vpn_log.php" "HnapPcTodBlocked.php" "WRadioSettings.php" "SingleForwarding.php")
+
+ ("/home/guoding/Public/tmp/brcm_61/webui/ga/code/i18n/../cmn/./" (22349 20140 74114 740000) "../" "js/" "img/" "css/" "./")
+
+ ("/home/guoding/Public/tmp/brcm_61/webui/ga/code/i18n/../cmn/" (22349 20140 74114 740000) "../" "js/" "img/" "css/" "./")
+
+ ("/home/guoding/Public/tmp/brcm_61/webui/ga/code/i18n/../" (22349 23462 663023 992000) "PortRangeTriggering.php" "Docsis_status.php" "WSecurity.php" "parental_reports_sample.php" "parental_control_log.php" "WMACFilter.php" "Setup_routing.php" "AppGaming.php" "Factorydefaults.php" "Docsis_log.php" "WNetwork.php" "at_downloading.php" "logout.php" "Log.php" "../" "Setup_DDNS.php" "help/" "RgIpFiltering.php" "login.php" "Docsis_system.php.rej" "IPPassthrough.php" "actionHandler/" "vpn_main.php" "Devicerestart.php" "Homepage.php" "include/" "managed_devices.php" "at_mycomputer_upload.php" "Backup.php" "managed_sites.php" "check.php" "DMZ.php" "Summary_page.php" "MoCA.php" "managed_services.php" "bitmask/" "i18n/" "Diagnostics.php" "index.php" "QoS.php" "ui_build.prop" "LocalNetwork.php" "cmn/" "log_data.php" "vpn_sum.php" "Quick_setup.php" "readme" "RgMacFiltering.php" "Administration.php" "LanSetup.php" "menu/" "tests/" "WGuestNetwork.php" "LanIPv6Setup.php" "Security.php" "Guest_access.php" "VPNPassthrough.php" "Docsis_system.php" "./" "AdvancedWSettings.php" "ChannelsSelection.php" "WPS.php" "HnapPcSiteBlocked.php" "error_login.php" "Status.php" "vpn_log.php" "HnapPcTodBlocked.php" "WRadioSettings.php" "SingleForwarding.php")
+
+ ("/home/guoding/Public/tmp/brcm_61/webui/ga/code/i18n/" (22349 20140 742111 914000) "i18nReader.php" "../" "lang.json" "./")
+
+ ("/home/guoding/Public/tmp/brcm_61/webui/ga/code/" (22349 23462 663023 992000) "PortRangeTriggering.php" "Docsis_status.php" "WSecurity.php" "parental_reports_sample.php" "parental_control_log.php" "WMACFilter.php" "Setup_routing.php" "AppGaming.php" "Factorydefaults.php" "Docsis_log.php" "WNetwork.php" "at_downloading.php" "logout.php" "Log.php" "../" "Setup_DDNS.php" "help/" "RgIpFiltering.php" "login.php" "Docsis_system.php.rej" "IPPassthrough.php" "actionHandler/" "vpn_main.php" "Devicerestart.php" "Homepage.php" "include/" "managed_devices.php" "at_mycomputer_upload.php" "Backup.php" "managed_sites.php" "check.php" "DMZ.php" "Summary_page.php" "MoCA.php" "managed_services.php" "bitmask/" "i18n/" "Diagnostics.php" "index.php" "QoS.php" "ui_build.prop" "LocalNetwork.php" "cmn/" "log_data.php" "vpn_sum.php" "Quick_setup.php" "readme" "RgMacFiltering.php" "Administration.php" "LanSetup.php" "menu/" "tests/" "WGuestNetwork.php" "LanIPv6Setup.php" "Security.php" "Guest_access.php" "VPNPassthrough.php" "Docsis_system.php" "./" "AdvancedWSettings.php" "ChannelsSelection.php" "WPS.php" "HnapPcSiteBlocked.php" "error_login.php" "Status.php" "vpn_log.php" "HnapPcTodBlocked.php" "WRadioSettings.php" "SingleForwarding.php")
+
+ ("/home/guoding/Public/tmp/brcm_61/webui/" (22349 20140 726111 982000) "../" "ga/" "Makefile" "./" ".git/")
+
+ ("/home/guoding/Public/brcm_61/" (22342 48455 935275 55000) "setup_submodules.sh" "1234.diff" "patch.log" "images/" "rg/" "brcm_patches/" "cm/" "mibs/" "build_config/" "builds/" "ccsp_tags_latest.txt" "webuiPrebuilt/" "webui/" "ccsp/" "../" "README.txt" "opensource/" "webui_tags.txt" "get_filer.sh" "brcm_vexts/" "sdk/" "ccsp_old/" "webui_tags_latest.txt" "monolithic_image/" ".gitignore" ".emacs.desktop" "customer_lgi/" "build_package2.sh" "cscope.files" "ccsp_tags.txt" "platform_broadcom/" "bfcsrc/" "project_definitions" "./" "123" "stb/" ".git/" "checkout_working_copy.sh" "create_tag.sh" "build_package.sh")
+
+ ("/home/guoding/study/shell/awk/" (22342 40285 920809 307000) "../" "data" "./" "shell.sh")
+
+ ("/home/guoding/Public/brcm_61/ccsp/CcspDataPathMgr/" (22341 32348 664719 721000) "build-broadcom-epc4911/" "customer_repo/" "hal/" "manifest" "../" "custom/" "platform_repo/" "Makefile" "source/" "./")
+
+ ("/home/guoding/Public/brcm_61/ccsp/" (22342 37456 373638 658000) "CcspCMAgent/" "CcspDmCli/" "CcspCr/" "CcspMisc/" "Lm_host/" "CcspHomeSecurity/" "make/" "CcspCommonLib/" "CONTRIBUTING.md" "CcspWebui/" "manifest" "CcspRebootMgr/" "CcspSampleComponent/" "CcspMtaAgent/" "LanManager/" "../" "TR-181/" "CcspMocaAgent/" "CcspTr069Pa/" "CcspMBus/" "ConfRecover/" "hotspot/" "ccsp_config/" "ExtDependency/" "CcspCli/" "tst.tst" "CcspDataPathMgr/" "CcspWifiApMgr/" "SecureSoftwareDownload/" "DnsProxy/" ".gitignore" "CcspTestAndDiag/" "CcspPsm/" "FirmwareUpgrade/" "utilities/" "CcspSnmpPa/" "Stage/" "1234" "CcspHnapPaSsp/" ".gitmodules" "CcspWifiExtMgr/" "#tst.tst#" "CcspPandM/" "CommandTools/" "AppEnvManager/" "ComponentTemplate/" "./" "123" "Out/" ".git/" "TR135/" "CcspLMLite/")
+
+ ("/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/1.1/include/" (22341 19761 205458 812000) "firewall_custom.h" "../" "utopia_platform_ov.h" "./")
+
+ ("/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/1.1/" (22341 20916 688253 405000) "scripts/" "platform.inc" "../" "include/" "source/" "./")
+
+ ("/..//home/guoding/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/" (22341 20916 688253 405000) "ccsp_CcspCommonLib_Utopia.patch" "apply_patch.sh" "ccsp_syscfg_path.patch" "../" "ccsp_CcspCommonLib_dhcp_ip.patch" "ccsp_sysevent_helperpath.patch" "ccsp_CcspWifiApMgr.patch" "ccsp_webui_demo.patch" "ccsp_utopia_override.patch" "ccsp_service_wan.patch" "ccsp_sysevent.patch" "ccsp_debug.patch" "ccsp_datapathmgr_moca.patch" "ccsp_CcspCMAgent.patch" "ccsp_CcspPsm.patch" "ccsp_CcspDataPathMgr_dhcp_client.patch" "ccsp_CcspPandM.patch" "ccsp_pnm_customer.patch" "ccsp_CcspMtaAgent.patch" "ccsp_CcspDataPathMgr_gre.patch" "ccsp_CcspMisc.patch" "ccsp_make.patch" "ccsp_psmcli_subsystem.patch" "./" "ccsp_wifi_enabledms.patch" "ccsp_utopia_serviced.patch" "ccsp_gwprovapp.patch" "ccsp_CcspCommonLib.patch")
+
+ ("/../home/guoding/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/" (22341 20916 688253 405000) "ccsp_CcspCommonLib_Utopia.patch" "apply_patch.sh" "ccsp_syscfg_path.patch" "../" "ccsp_CcspCommonLib_dhcp_ip.patch" "ccsp_sysevent_helperpath.patch" "ccsp_CcspWifiApMgr.patch" "ccsp_webui_demo.patch" "ccsp_utopia_override.patch" "ccsp_service_wan.patch" "ccsp_sysevent.patch" "ccsp_debug.patch" "ccsp_datapathmgr_moca.patch" "ccsp_CcspCMAgent.patch" "ccsp_CcspPsm.patch" "ccsp_CcspDataPathMgr_dhcp_client.patch" "ccsp_CcspPandM.patch" "ccsp_pnm_customer.patch" "ccsp_CcspMtaAgent.patch" "ccsp_CcspDataPathMgr_gre.patch" "ccsp_CcspMisc.patch" "ccsp_make.patch" "ccsp_psmcli_subsystem.patch" "./" "ccsp_wifi_enabledms.patch" "ccsp_utopia_serviced.patch" "ccsp_gwprovapp.patch" "ccsp_CcspCommonLib.patch")
+
+ ("/home/guoding/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/" (22341 20916 688253 405000) "ccsp_CcspCommonLib_Utopia.patch" "apply_patch.sh" "ccsp_syscfg_path.patch" "../" "ccsp_CcspCommonLib_dhcp_ip.patch" "ccsp_sysevent_helperpath.patch" "ccsp_CcspWifiApMgr.patch" "ccsp_webui_demo.patch" "ccsp_utopia_override.patch" "ccsp_service_wan.patch" "ccsp_sysevent.patch" "ccsp_debug.patch" "ccsp_datapathmgr_moca.patch" "ccsp_CcspCMAgent.patch" "ccsp_CcspPsm.patch" "ccsp_CcspDataPathMgr_dhcp_client.patch" "ccsp_CcspPandM.patch" "ccsp_pnm_customer.patch" "ccsp_CcspMtaAgent.patch" "ccsp_CcspDataPathMgr_gre.patch" "ccsp_CcspMisc.patch" "ccsp_make.patch" "ccsp_psmcli_subsystem.patch" "./" "ccsp_wifi_enabledms.patch" "ccsp_utopia_serviced.patch" "ccsp_gwprovapp.patch" "ccsp_CcspCommonLib.patch")
+
+ ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/" (22341 32348 644719 812000) "Version.txt" "build-broadcom-epc4911/" "customer_repo/" "LICENSE" "ccsp_configs/" "Doxyfile" "manifest" "../" "README" "Utopia/" "custom/" "platform_repo/" "Doxygen.dox" ".gitignore" "Makefile" "1234" "OpenSource/" "source/" "./" "123" "DoxygenLayout.xml" ".git")
+
+ ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/platform_repo/" (22341 20916 688253 405000) "scripts/" "platform.inc" "../" "include/" "source/" "./")
+
+ ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/" (22341 32348 648719 794000) "customer_repo/" "hal/" "../" "README" "custom/" "platform_repo/" "Doxygen.dox" "Makefile" "source/" "Makefile.orig" "./")
+
+ ("/home/guoding/Public/brcm_61/ccsp/make/" (22341 32348 640719 831000) "ccsp_common.mk" "../" "platform_repo/" "ccsp_inc_path.mk" "./" "ccsp_lib_path.mk")
+
+ ("/home/guoding/Public/brcm_61/platform_broadcom/" (22341 20916 688253 405000) "ccsp-rdkb-patches/" "../" "tmp/" ".gitignore" "nw_config/" "ccsprdkbbuild.sh" "unity/" "ccspmainlinebuild.sh" "ccsp-mainline-patches/" "1234" "./" "test.txt" "123" "setup_pr_cr.sh" "broadcom/" ".git/")
+
+ ("/home/guoding/study/shell/" (22342 40047 157892 402000) "hello.py" "../" "temp" "123.bash" "version.ini" "awk/" "aaa/" "3211.sh" "./")
+
+ ("/home/guoding/study/" (22341 25648 189854 13000) "opensource_tools/" "src.2e.tar.gz" "当删除重建文件后，索引节点号由操作系统根据当时文件系统的使用情况分配，因此与原来不同，所以得到的索引节点号也不同。" "cut.sh" "#main2.c#" "git_clone2/" "thread.o" "1111" "LinuxKernelLearn/" "losslessh264/" "package/" "git/" "git_test2/" "apue.3e/" "aaan" "../" "lib.h" "aaa.sh" "program1.c" "training/" "thread_test2.c" "test.c" "main.c~" "helloworld" "shell/" "driver/" "linux1.0/" "lib.so" "thread3.c" "git_clone/" "src.3e.tar.gz" "main" "321" "cscope.out" "main.o" "adfaaaa" "aaa" "lib.c" "thread.c" "main.c" "linux/" "123321312" "test/" "kernelmodule/" "1233" "emacs/" "1234" "apue.2e/" "111" "a.out" "pip" "clg/" "./" "123" "apue.43e/" "git_test3/" "CA/" "gcc/" "main2.c" "linux0.11/" "linuxapplicationmanual/")
+
+ ("/home/guoding/.emacs.d/emacs-color-theme-solarized/" (22340 13646 951547 423000) "LICENSE" "color-theme-solarized-pkg.el" "README.md" "solarized-theme.el" "../" "makepkg.sh" ".gitignore" "Makefile" "color-theme-solarized.el" "ert-tests/" "solarized-definitions.el" ".travis.yml" "./")
+
+ ("/home/" (22338 32446 885965 955000) "../" "team/" "guoding/" "guoding2/" "./")
+
+ ("/usr/share/emacs/24.3/etc/" (22103 60452 968708 678000) "NEWS.19" "ETAGS.README" "e/" "images/" "TODO" "NXML-NEWS" "ORDERS" "DEBUG" "sex.6" "ORG-NEWS" "emacs-buffer.gdb" "ps-prin1.ps" "SERVICE" "../" "schema/" "CONTRIBUTE" "MAILINGLISTS" "DOC-24.3.1" "README" "themes/" "MH-E-NEWS" "NEXTSTEP" "emacs.icon" "COPYING" "condom.1" "ps-prin0.ps" "DISTRIB" "gnus/" "forms/" "TERMS" "NEWS.23" "compilation.txt" "ERC-NEWS" "tutorials/" "charsets/" "THE-GNU-PROJECT.dfsg" "grep.txt" "MACHINES" "GNUS-NEWS" "publicsuffix.txt" "nxml/" "gnus-tut.txt" "spook.lines" "enriched.doc" "future-bug" "ETAGS.EBNF" "ses-example.ses" "HELLO" "PROBLEMS" "NEWS.22" "celibacy.1" "NEWS.18" "NEWS.21" "srecode/" "yow.lines" "MORE.STUFF" "./" "org/" "NEWS" "FTP" "NEWS.1-17" "echo.msg" "rgb.txt" "AUTHORS" "refcards/" "NEWS.20" "edt-user.el")
+
+ ("/home/guoding/.emacs.d/elpa/" (22332 3260 895733 47000) "seq-readme.txt" "git-commit-20160425.430/" "google-c-style-readme.txt" "swiper-20160412.130/" "avy-20160402.1049/" "dash-functional-20150828.413/" "popup-20151222.1339/" "company-lua-readme.txt" "elpy-20160131.118/" "magit-readme.txt" "pastelmac-theme-readme.txt" "rectangle-utils-20150528.1228/" "f-20160306.447/" "session-20120510.1700/" "with-editor-20160408.201/" "s-20160405.920/" "flymake-shell-20121104.1100/" "undo-tree-20140509.522/" "dash-readme.txt" "function-args-20160206.517/" "../" "find-file-in-project-20160404.2330/" "let-alist-1.0.4/" "flymake-shell-readme.txt" "w3m-readme.txt" "nvm-20151113.55/" "auto-complete-readme.txt" "evil-magit-readme.txt" "goto-chg-20131228.1459/" "tmp/" "ac-helm-readme.txt" "seq-2.15/" "popup-readme.txt" "dash-20160306.1222/" "flymake-easy-20140818.55/" "smex-readme.txt" "helm-core-20160323.407/" "chinese-pyim-20160101.420/" "js-comint-20160220.350/" "ace-jump-helm-line-20160329.1218/" "hydra-20160413.926/" "bookmark+-20151231.1219/" "magit-popup-20160512.328/" "autobookmarks-20160413.328/" "pastelmac-theme-20151030.1936/" "ace-jump-mode-20140616.115/" "spinner-1.7.1/" "evil-readme.txt" "ace-jump-helm-line-readme.txt" "ac-helm-20160318.1933/" "emms-readme.txt" "hydra-readme.txt" "irony-readme.txt" "ace-jump-mode-readme.txt" "bookmark+-readme.txt" "magit-20160517.838/" "gnupg/" "helm-20160323.349/" "cl-lib-0.5/" "company-20160325.1650/" "auto-complete-20160329.2321/" "pos-tip-20150318.813/" "archives/" "session-readme.txt" "rtags-readme.txt" "google-c-style-20140929.1118/" "./" "smex-20151212.1409/" "let-alist-readme.txt" "elpy-readme.txt" "highlight-indentation-20150307.208/" "muse-3.20/" "autobookmarks-readme.txt" "multi-term-20150220.520/" "js-comint-readme.txt" "rtags-20160427.1129/" "async-20160223.146/" "function-args-readme.txt" "yasnippet-20160411.1605/" "multi-term-readme.txt" "paradox-readme.txt" "pyvenv-20160108.28/" "spinner-readme.txt")
+
+ ("/home/guoding/study/kernelmodule/kernel/" (22292 39410 272389 286000) "REPORTING-BUGS" "signing_key.priv" "scripts/" "mm/" ".config.old" "lib/" "sound/" ".config" "arch/" ".mailmap" "../" "certs/" "README" "usr/" "crypto/" ".#*tty*" "Kbuild" "COPYING" "checkpatch.pl" "CREDITS" "Module.symvers" "MAINTAINERS" ".version" "virt/" "include/" "signing_key.x509" "net/" "cscope.out" "#*tty*#" "kernel/" "ipc/" ".gitignore" ".emacs.desktop" "Kconfig" "Documentation/" "drivers/" "Makefile" "init/" "cscope.files" "block/" "samples/" "111" "tools/" "firmware/" "fs/" "./" "123" "security/" "x509.genkey" ".git/")
+
+ ("/home/guoding/study/kernelmodule/kernel/fs/proc/" (22292 43008 539031 718000) "stat.c" "nommu.c" "fd.h" "#proc_tty.c#" "fd.c" "base.c" "kcore.c" "namespaces.c" "proc_net.c" "vmcore.c" "proc_devtree.c" "consoles.c" "../" "loadavg.c" "task_nommu.c" "kmsg.c" "cmdline.c" "uptime.c" "generic.c" "proc_sysctl.c" "internal.h" "cpuinfo.c" "Kconfig" "interrupts.c" "Makefile" "inode.c" "softirqs.c" "./" "version.c" "array.c" "root.c" "page.c" "task_mmu.c" "devices.c" "self.c" "proc_tty.c" "meminfo.c")
+
+ ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/syscfg/lib/" (22330 64206 846129 260000) "build-broadcom-epc4911/" "../" "syscfg_lib.h.orig" "syscfg_mtd.c" "syscfg_lib.c" "Makefile" "syscfg_mtd.h" "syscfg_lib.h" "./" "syscfg.h")
+
+ ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/sysevent/server/" (22330 64206 846129 260000) "build-broadcom-epc4911/" "syseventd_main.c.orig" "syseventd_main.c" "utils.c" "clientsMgr.h" "dataMgr.c" "../" "README" "se_debug.c" "triggerMgr.c" "triggerMgr.h" "dataMgr.h" "Makefile" "syseventd.h" "worker_threads.c" "Makefile.orig" "./" "clientsMgr.c")
+
+ ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/" (22330 64312 601656 14000) "build-broadcom-epc4911/" "apply_system_defaults.c" "../" "#Makefile#" "Makefile" "Makefile.orig" "./")
+
+ ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/" (22330 64275 73823 758000) "service_routed.c" "build-broadcom-epc4911/" "../" "Makefile" "Makefile.orig" "./")
+
+ ("/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/1.1/source/" (22332 14075 642361 618000) "../" "utopia_platform_ov.c" "./" "firewall_priv.c")
+
+ ("/home/guoding/study/kernelmodule/kernel/init/" (22223 62841 801289 980000) "noinitramfs.c" "do_mounts.c" "do_mounts_initrd.c" "init_task.c" "../" "do_mounts.h" "do_mounts_rd.c" "main.c" "Kconfig" "Makefile" "do_mounts_md.c" "calibrate.c" "./" "version.c" "initramfs.c")
 
  ("/home/guoding/.emacs.d/elpa/magit-20160517.838/" (22332 3264 247718 107000) "magit-subtree.elc" "magit-stash.el" "magit-autorevert.el" "magit-diff.el" "magit-wip.elc" "magit-pkg.el" "magit-submodule.elc" "magit-remote.el" "../" "magit-core.el" "magit-utils.elc" "magit-git.el" "magit-apply.elc" "AUTHORS.md" "magit-log.elc" "COPYING" "magit-process.elc" "magit-ediff.elc" "magit-extras.elc" "magit-stash.elc" "magit.info-1" "magit-autorevert.elc" "magit-remote.elc" "magit-bisect.elc" "git-rebase.el" "magit-extras.el" "magit-git.elc" "magit-commit.el" "magit-autoloads.el" "magit-mode.elc" "magit-section.el" "magit-commit.elc" "magit-submodule.el" "magit-sequence.el" "magit.elc" "magit-subtree.el" "magit-core.elc" "dir" "magit.info" "magit-bisect.el" "magit-section.elc" "magit-apply.el" "magit-mode.el" "./" "magit-blame.elc" "magit.info-2" "magit-diff.elc" "magit.el" "magit-utils.el" "magit-ediff.el" "git-rebase.elc" "magit-sequence.elc" "magit-blame.el" "magit-log.el" "magit-process.el" "magit-wip.el")
 
@@ -115,35 +306,7 @@
 
  ("/home/guoding/study/kernelmodule/ldd3/" (22119 52911 906856 278000) "short/" "LICENSE" "README.Debian" "shortprint/" "scullv/" "skull/" "../" "scull/" "README" "snull/" "tty/" "pci/" "simple/" "include/" "sbull/" "cscope.out" ".gitignore" "misc-modules/" "Makefile" "cscope.files" "scullc/" "scullp/" "./" "usb/" "misc-progs/" "lddbus/" ".git/" "sculld/")
 
- ("/home/guoding/study/kernelmodule/ldd3/tty/" (22139 31064 70704 20000) "tiny_serial.c" "zwave_tty.c" ".tmp_versions/" "../" "tiny_tty.c" "#tiny_tty.c#" "temp.sh" "Module.symvers" "old_tiny_tty.c" "cscope.out" ".emacs.desktop.lock" ".emacs.desktop" "Makefile" "cscope.files" "./" "#zwave_tty.c#" "123" "syslist/")
-
- ("/home/guoding/.emacs.d/" (22330 62846 8468 752000) "bookmarks" "color-theme/" "thumbs.el" "ac-comphist.dat" "emacs-color-theme-solarized/" "emms/" "session.10dda0ac51b2861091145092647324882300000027160041" "window-number.el" "#iman.el#" "iimage.el" "markdown-mode.el" "w3m-0.5.3.tar.gz" "tomorrow/" ".#iman.el" "session.10fd80c1a7a1e1ff3145092267036231900000027060041" "smex-items" "session.10c048da68552a1d4c1450927931724300000028120041" "w3m_old/" "saved-places" "otherel/" "cedet-1.1/" "vimpulse.el" "easymenu.el" "../" "tex-site.el" "temp" ".session" "neotree.el" "linum+.el" "tmp/" "auto-save-list/" "fuzzy.el" "thinks.el" "dired-single.el" "tab-display.el" "switch-window.el" "ac-dict/" "ecb-2.40/" "smart-tab.el" "muse/" "auctex/" "pyim/" "session.103186042a3a557986145040763448841600000028650041" "git-emacs/" "eshell/" "popup.elc" "session.10e11a5715f2fe0cf9144600566052576000000027990041" "cedet-1.1.tar.gz" "webjump-plus.el" "sr-speedbar.el" "fuzzy.elc" "evernote-mode.el" "deft.el" "nxhtml/" "mediawiki.el" ".emacs.desktop.lock" ".emacs.desktop" "3211.sh" "evil/" "hexrgb.el" "#browse-kill-ring.el#" "htmlize.el" "111" "session.1057339ea799c5ec8a145091498755928800000028970041" "history.el" "lazy-set-key.el" "session.1098e6967a6c2698b146163827267375600000021660043" "./" "123" "w3m-0.5.3/" "powerline.el" "elpa/" "ecb-2.40.tar.gz" "iman.el" "browse-kill-ring.el" "rect-mark.el" "wcy-swbuff.el" "tron-theme.el" "tramp" "emacs-w3m/" "saveplace.el")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/" (22330 36641 217 724000) "1234.diff" "ccsp-rdkb-patches/" "../" "platform_broadcom.diff.patch" ".gitignore" "nw_config/" "ccsprdkbbuild.sh" "unity/" "ccspmainlinebuild.sh" "ccsp-mainline-patches/" "./" "test.txt" "123" "setup_pr_cr.sh" "broadcom/" ".git/")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/1.1/include/" (22325 43184 113802 99000) "firewall_custom.h" "../" "utopia_platform_ov.h" "utopia_platform_ov.h.rej" "./")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/1.1/" (22325 43770 621880 543000) "scripts/" "platform.inc" "../" "include/" "source/" "./")
-
- ("/..//home/guoding/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/" (22330 36657 939492 222000) "revertpatch.sh" "ccsp_CcspCommonLib_Utopia.patch" "apply_patch.sh" "ccsp_syscfg_path.patch" "../" "ccsp_CcspCommonLib_dhcp_ip.patch" "apply_patch.sh.orig" "ccsp_sysevent_helperpath.patch" "ccsp_CcspWifiApMgr.patch" "ccsp_webui_demo.patch" "ccsp_utopia_override.patch" "ccsp_service_wan.patch" "ccsp_sysevent.patch" "ccsp_debug.patch" "ccsp_datapathmgr_moca.patch" "ccsp_CcspCMAgent.patch" "ccsp_CcspPsm.patch" "ccsp_CcspDataPathMgr_dhcp_client.patch" "ccsp_CcspPandM.patch" "apply_patch.sh.rej" "ccsp_pnm_customer.patch" "ccsp_CcspMtaAgent.patch" "ccsp_CcspDataPathMgr_gre.patch" "ccsp_CcspMisc.patch" "ccsp_make.patch" "ccsp_psmcli_subsystem.patch" "./" "ccsp_wifi_enabledms.patch" "ccsp_utopia_serviced.patch" "ccsp_gwprovapp.patch" "ccsp_CcspCommonLib.patch")
-
- ("/../home/guoding/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/" (22330 36657 939492 222000) "revertpatch.sh" "ccsp_CcspCommonLib_Utopia.patch" "apply_patch.sh" "ccsp_syscfg_path.patch" "../" "ccsp_CcspCommonLib_dhcp_ip.patch" "apply_patch.sh.orig" "ccsp_sysevent_helperpath.patch" "ccsp_CcspWifiApMgr.patch" "ccsp_webui_demo.patch" "ccsp_utopia_override.patch" "ccsp_service_wan.patch" "ccsp_sysevent.patch" "ccsp_debug.patch" "ccsp_datapathmgr_moca.patch" "ccsp_CcspCMAgent.patch" "ccsp_CcspPsm.patch" "ccsp_CcspDataPathMgr_dhcp_client.patch" "ccsp_CcspPandM.patch" "apply_patch.sh.rej" "ccsp_pnm_customer.patch" "ccsp_CcspMtaAgent.patch" "ccsp_CcspDataPathMgr_gre.patch" "ccsp_CcspMisc.patch" "ccsp_make.patch" "ccsp_psmcli_subsystem.patch" "./" "ccsp_wifi_enabledms.patch" "ccsp_utopia_serviced.patch" "ccsp_gwprovapp.patch" "ccsp_CcspCommonLib.patch")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/" (22330 36657 939492 222000) "revertpatch.sh" "ccsp_CcspCommonLib_Utopia.patch" "apply_patch.sh" "ccsp_syscfg_path.patch" "../" "ccsp_CcspCommonLib_dhcp_ip.patch" "apply_patch.sh.orig" "ccsp_sysevent_helperpath.patch" "ccsp_CcspWifiApMgr.patch" "ccsp_webui_demo.patch" "ccsp_utopia_override.patch" "ccsp_service_wan.patch" "ccsp_sysevent.patch" "ccsp_debug.patch" "ccsp_datapathmgr_moca.patch" "ccsp_CcspCMAgent.patch" "ccsp_CcspPsm.patch" "ccsp_CcspDataPathMgr_dhcp_client.patch" "ccsp_CcspPandM.patch" "apply_patch.sh.rej" "ccsp_pnm_customer.patch" "ccsp_CcspMtaAgent.patch" "ccsp_CcspDataPathMgr_gre.patch" "ccsp_CcspMisc.patch" "ccsp_make.patch" "ccsp_psmcli_subsystem.patch" "./" "ccsp_wifi_enabledms.patch" "ccsp_utopia_serviced.patch" "ccsp_gwprovapp.patch" "ccsp_CcspCommonLib.patch")
-
  ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/platform_repo/" (22329 30574 666196 917000) "scripts/" "platform.inc" "ccsp_configs/" "../" "config/" "./")
-
- ("/home/guoding/Public/study/" (22325 34829 832476 807000) "src.2e.tar.gz" "cut.sh" "git_clone2/" "package/" "git/" "apue.3e/" "aaan" "../" "lib.h" "aaa.sh" "program1.c" "shell/" "driver/" "linux1.0/" "lib.so" "git_clone/" "src.3e.tar.gz" "main" "321" "main.o" "aaa" "lib.c" "main.c" "test" "1233" "1234" "apue.2e/" "111" "a.out" "./" "123" "apue.43e/" "gcc/" "linux0.11/")
-
- ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/syscfg/lib/" (22325 42677 946989 816000) "build-broadcom-epc4911/" "../" "syscfg_lib.h.orig" "syscfg_mtd.c" "syscfg_lib.c" "Makefile" "syscfg_mtd.h" "syscfg_lib.h" "./" "syscfg.h")
-
- ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/sysevent/server/" (22325 42677 950989 680000) "build-broadcom-epc4911/" "syseventd_main.c.orig" "syseventd_main.c" "utils.c" "clientsMgr.h" "dataMgr.c" "../" "README" "se_debug.c" "triggerMgr.c" "triggerMgr.h" "dataMgr.h" "Makefile" "syseventd.h" "worker_threads.c" "Makefile.orig" "./" "clientsMgr.c")
-
- ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/" (22329 42306 32915 8000) "build-broadcom-epc4911/" "apply_system_defaults.c" "../" "#Makefile#" "Makefile" "Makefile.orig" "./")
-
- ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/" (22329 42300 109168 953000) "service_routed.c" "build-broadcom-epc4911/" "../" "Makefile" "Makefile.orig" "./")
-
- ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/platform_repo/" (22325 43770 621880 543000) "scripts/" "platform.inc" "../" "include/" "source/" "./")
 
  ("/home/guoding/.emacs.d/auto-save-list/" (22330 62389 722640 875000) ".saves-3223-ubuntu~" ".saves-3214-ubuntu~" ".saves-17639-ubuntu~" ".saves-6579-ubuntu~" ".saves-3436-ubuntu~" ".saves-9751-ubuntu~" ".saves-3447-ubuntu~" ".saves-19700-ubuntu~" ".saves-4394-ubuntu~" ".saves-3249-ubuntu~" ".saves-23990-ubuntu~" ".saves-3295-ubuntu~" ".saves-26942-ubuntu~" ".saves-4011-ubuntu~" ".saves-4751-ubuntu~" ".saves-4925-ubuntu~" ".saves-25418-ubuntu~" ".saves-3423-ubuntu~" ".saves-3392-ubuntu~" ".saves-4203-ubuntu~" ".saves-5004-ubuntu~" ".saves-8480-ubuntu~" ".saves-28679-ubuntu~" ".saves-3310-ubuntu~" ".saves-12448-ubuntu~" ".saves-3307-ubuntu~" ".saves-3592-ubuntu~" ".saves-31551-ubuntu~" ".saves-23176-ubuntu~" ".saves-9140-ubuntu~" ".saves-23181-ubuntu~" ".saves-3620-ubuntu~" ".saves-5257-ubuntu~" ".saves-870-ubuntu~" ".saves-3893-ubuntu~" ".saves-3828-ubuntu~" ".saves-17854-ubuntu~" ".saves-3213-ubuntu~" ".saves-14984-ubuntu~" ".saves-4949-ubuntu~" ".saves-6790-ubuntu~" ".saves-3577-ubuntu~" ".saves-7591-ubuntu~" ".saves-3717-ubuntu~" ".saves-3913-ubuntu~" ".saves-13110-ubuntu~" ".saves-11236-ubuntu~" ".saves-9985-ubuntu~" ".saves-3375-ubuntu~" ".saves-14894-ubuntu~" ".saves-4013-ubuntu~" ".saves-3719-ubuntu~" ".saves-6283-ubuntu~" ".saves-4566-ubuntu~" ".saves-4281-ubuntu~" ".saves-27861-ubuntu~" ".saves-4133-ubuntu~" ".saves-3714-ubuntu~" ".saves-5752-ubuntu~" ".saves-4564-ubuntu~" ".saves-1356-ubuntu~" ".saves-4703-ubuntu~" ".saves-3500-ubuntu~" ".saves-24678-ubuntu~" ".saves-32486-ubuntu~" ".saves-3522-ubuntu~" ".saves-3255-ubuntu~" ".saves-3654-ubuntu~" ".saves-3463-ubuntu~" ".saves-22501-ubuntu~" ".saves-4083-ubuntu~" ".saves-3349-ubuntu~" ".saves-3842-ubuntu~" ".saves-10110-ubuntu~" ".saves-31201-ubuntu~" ".saves-3258-ubuntu~" ".saves-4503-ubuntu~" ".saves-3810-ubuntu~" ".saves-17658-ubuntu~" ".saves-19408-ubuntu~" ".saves-3401-ubuntu~" ".saves-3199-ubuntu~" ".saves-29024-ubuntu~" ".saves-3432-ubuntu~" ".saves-4255-ubuntu~" ".saves-4548-ubuntu~" ".saves-9479-ubuntu~" ".saves-5823-ubuntu~" ".saves-3250-ubuntu~" ".saves-3573-ubuntu~" ".saves-3478-ubuntu~" ".saves-3948-ubuntu~" ".saves-24401-ubuntu~" ".saves-4216-ubuntu~" ".saves-3623-ubuntu~" ".saves-6547-ubuntu~" ".saves-3275-ubuntu~" ".saves-3809-ubuntu~" ".saves-16885-ubuntu~" ".saves-3610-ubuntu~" ".saves-8820-ubuntu~" ".saves-18766-ubuntu~" ".saves-5745-ubuntu~" ".saves-3206-ubuntu~" ".saves-3449-ubuntu~" ".saves-13815-ubuntu~" ".saves-3521-ubuntu~" ".saves-19148-ubuntu~" ".saves-25598-ubuntu~" ".saves-2988-ubuntu~" ".saves-7151-ubuntu~" ".saves-20589-ubuntu~" ".saves-3261-ubuntu~" ".saves-30903-ubuntu~" ".saves-27215-ubuntu~" ".saves-3578-ubuntu~" ".saves-3498-ubuntu~" ".saves-13014-ubuntu~" ".saves-3629-ubuntu~" ".saves-3484-ubuntu~" ".saves-10275-ubuntu~" ".saves-7382-ubuntu~" ".saves-5615-ubuntu~" ".saves-4374-ubuntu~" ".saves-3547-ubuntu~" ".saves-3210-ubuntu~" ".saves-12460-ubuntu~" ".saves-3912-ubuntu~" ".saves-3636-ubuntu~" ".saves-13922-ubuntu~" ".saves-3678-ubuntu~" ".saves-9716-ubuntu~" ".saves-3783-ubuntu~" ".saves-28020-ubuntu~" ".saves-3192-ubuntu~" ".saves-3353-ubuntu~" ".saves-3618-ubuntu~" ".saves-27162-ubuntu~" ".saves-3131-ubuntu~" ".saves-6516-ubuntu~" ".saves-10619-ubuntu~" ".saves-22371-ubuntu~" ".saves-3464-ubuntu~" ".saves-8494-ubuntu~" ".saves-20385-ubuntu~" ".saves-20450-ubuntu~" ".saves-25169-ubuntu~" ".saves-25807-ubuntu~" ".saves-3653-ubuntu~" ".saves-6256-ubuntu~" ".saves-29039-ubuntu~" ".saves-5740-ubuntu~" ".saves-4550-ubuntu~" ".saves-5198-ubuntu~" "../" "./")
 
@@ -164,110 +327,6 @@
  ("/../" (22303 2606 232766 84000) "initrd.img.old" "lib/" "sbin/" "nvram/" "media/" "initrd.img" "fss/" "../" "usr/" "tftpboot/" "tmp/" "sys/" "lost+found/" "var/" "home/" "root/" "libnss3.so" "bin/" "vmlinuz.old" "auto/" "selinux/" "opt/" "lib64/" "srv/" "etc/" "vmlinuz" "./" "proc/" "dev/" "mnt/" "boot/" "run/" "cdrom/")
 
  ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/" (22323 945 559102 930000) "../" "Makefile" "init/" "./")
-
- ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/" (22323 945 587102 266000) "service.d/" "registration/" "../" "syslog_conf/" "README" "c_registration/" "defaults/" "src/" "inittab/" "etc/" "./" "system/")
-
- ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/" (22323 945 587102 266000) "../" "apply_system_defaults/" "init_inter_subsystem/" "execute_dir/" "dhcp_client_done/" "./")
-
- ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/hal/" (22323 945 463105 206000) "../" "include/" "source/" "./")
-
- ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/hal/source/" (22323 1005 37691 644000) "../" "utopia_platform_plugin.c" "./")
-
- ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/" (22323 1005 37691 644000) "services/" "service_ipv6/" "scripts/" "service_multinet/" "macclone/" "mldproxy/" "pal/" "service_routed/" "igd/" "../" "ulog/" "dslite/" "README.txt" "firewall_log/" "ipsec_vpn/" "firewall/" "include/" "igmp_snooper/" "pmon/" "linkmgr/" "utctx/" "ccsp_ut_utils/" "newhost/" "sysevent/" "utapi/" "syscfg/" "trigger/" "hdk2/" "wmon/" "walled_garden/" "dhcpproxy/" "service_wan/" "./" "switchpmon/" "hnap/")
-
- ("/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/syscfg/" (22323 945 587102 266000) "lib/" "cmd/" "../" "Makefile" "./")
-
- ("/home/guoding/Public/brcm_61//" (22323 65078 201966 780000) "setup_submodules.sh" "1234.diff" "patch.log" "images/" "rg/" "brcm_patches/" "cm/" "mibs/" "build_config/" "builds/" "ccsp_tags_latest.txt" "webuiPrebuilt/" "webui/" "ccsp/" "../" "README.txt" "opensource/" "webui_tags.txt" "get_filer.sh" "cscope.out" "brcm_vexts/" "sdk/" "webui_tags_latest.txt" "monolithic_image/" ".gitignore" "customer_lgi/" "cscope.files" "ccsp_tags.txt" "platform_broadcom/" "project_definitions" "./" "stb/" ".git/" "checkout_working_copy.sh" "create_tag.sh" "build_package.sh")
-
- ("/home/guoding/Public/brcm_61//ccsp/" (22323 60726 61004 153000) "CcspCMAgent/" "CcspDmCli/" "CcspCr/" "CcspMisc/" "Lm_host/" "CcspHomeSecurity/" "make/" "CcspCommonLib/" "CONTRIBUTING.md" "CcspWebui/" "manifest" "CcspRebootMgr/" "CcspSampleComponent/" "CcspMtaAgent/" "LanManager/" "../" "TR-181/" "CcspMocaAgent/" "CcspTr069Pa/" "CcspMBus/" "ConfRecover/" "hotspot/" "ccsp_config/" ".#tst.tst" "ExtDependency/" "CcspCli/" "tst.tst" "CcspDataPathMgr/" "CcspWifiApMgr/" "SecureSoftwareDownload/" "DnsProxy/" ".gitignore" "CcspTestAndDiag/" "CcspPsm/" "FirmwareUpgrade/" "utilities/" "CcspSnmpPa/" "Stage/" "CcspHnapPaSsp/" ".gitmodules" "CcspWifiExtMgr/" "#tst.tst#" "CcspPandM/" "CommandTools/" "AppEnvManager/" "ComponentTemplate/" "./" "Out/" ".git/" "TR135/" "CcspLMLite/")
-
- ("/home/guoding/Public/brcm_61//ccsp/CcspCommonLib/" (22323 7979 241377 981000) "Version.txt" "build-broadcom-epc4911/" "customer_repo/" "LICENSE" "ccsp_configs/" "Doxyfile" "manifest" "../" "README" "Utopia/" "custom/" "platform_repo/" "Doxygen.dox" ".gitignore" "Makefile" "OpenSource/" "source/" "./" "DoxygenLayout.xml" ".git")
-
- ("/home/guoding/Public/brcm_61//ccsp/CcspCommonLib/Utopia/" (22323 7978 789377 871000) "customer_repo/" "hal/" "../" "README" "custom/" "platform_repo/" "Doxygen.dox" "Makefile" "source/" "Makefile.orig" "./")
-
- ("/home/guoding/Public/brcm_61//ccsp/CcspCommonLib/Utopia/source/" (22323 1005 37691 644000) "services/" "service_ipv6/" "scripts/" "service_multinet/" "macclone/" "mldproxy/" "pal/" "service_routed/" "igd/" "../" "ulog/" "dslite/" "README.txt" "firewall_log/" "ipsec_vpn/" "firewall/" "include/" "igmp_snooper/" "pmon/" "linkmgr/" "utctx/" "ccsp_ut_utils/" "newhost/" "sysevent/" "utapi/" "syscfg/" "trigger/" "hdk2/" "wmon/" "walled_garden/" "dhcpproxy/" "service_wan/" "./" "switchpmon/" "hnap/")
-
- ("/home/guoding/Public/brcm_61//ccsp/CcspCommonLib/Utopia/source/syscfg/" (22323 945 587102 266000) "lib/" "cmd/" "../" "Makefile" "./")
-
- ("/home/guoding/Public/brcm_61//ccsp/CcspCommonLib/Utopia/source/syscfg/lib/" (22324 4207 643377 456000) ".#syscfg_lib.h" "build-broadcom-epc4911/" "../" "#syscfg_lib.h#" "syscfg_mtd.c" "syscfg_lib.c" "Makefile" "syscfg_mtd.h" "syscfg_lib.h" "./" "syscfg.h")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/" (22323 881 572575 990000) "../" "1.1/" "./")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/" (22323 881 580575 811000) "gw_scripts/" "CcspCMAgent/" "CcspDmCli/" "CcspCr/" "make/" "CcspCommonLib/" "CcspMtaAgent/" "../" "CcspMocaAgent/" "CcspTr069Pa/" "CcspDataPathMgr/" "CcspWifiApMgr/" "CcspPsm/" "CcspSnmpPa/" "CcspPandM/" "./" "CcspLMLite/")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/broadcom/" (22323 881 572575 990000) "../" "./" "epc4911/")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/./" (22323 60687 185935 504000) "1234.diff" "ccsp-rdkb-patches/" "../" ".gitignore" "nw_config/" "ccsprdkbbuild.sh" "unity/" "ccspmainlinebuild.sh" "ccsp-mainline-patches/" "./" "test.txt" "setup_pr_cr.sh" "broadcom/" ".git/")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/./broadcom/" (22323 881 572575 990000) "../" "./" "epc4911/")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/./broadcom/epc4911/" (22323 881 580575 811000) "gw_scripts/" "CcspCMAgent/" "CcspDmCli/" "CcspCr/" "make/" "CcspCommonLib/" "CcspMtaAgent/" "../" "CcspMocaAgent/" "CcspTr069Pa/" "CcspDataPathMgr/" "CcspWifiApMgr/" "CcspPsm/" "CcspSnmpPa/" "CcspPandM/" "./" "CcspLMLite/")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/./broadcom/epc4911/CcspCommonLib/" (22323 881 572575 990000) "../" "Utopia/" "1.1/" "./")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/./broadcom/epc4911/CcspCommonLib/Utopia/" (22323 881 572575 990000) "../" "1.1/" "./")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/./broadcom/epc4911/CcspCommonLib/Utopia/1.1/" (22323 881 572575 990000) "scripts/" "platform.inc" "../" "include/" "source/" "./")
-
- ("/home/guoding/Public/brcm_61/platform_broadcom/./broadcom/epc4911/CcspCommonLib/Utopia/1.1/include/" (22323 63333 742643 144000) "firewall_custom.h" "../" "utopia_platform_ov.h" "utopia_platform_ov.h.rej" "./")
-
- ("/home/guoding/Public/intel_usg/ccsp/make/" (22323 59936 195910 948000) "ccsp_common.mk" "../" "platform_repo/" "ccsp_inc_path.mk" "./" "ccsp_lib_path.mk")
-
- ("/etc/default/" (22323 4424 163936 40000) "crda" "brltty" "keyboard" "whoopsie" "apache2" "grub" "cron" "rsync" "dbus" "alsa" "locale" "../" "samba" "speech-dispatcher" "acct" "acpid" "ufw" "nfs-common" "dnsmasq" "ssh" "rcS" "bind9" "apport" "bootlogd" "rsyslog" "irqbalance" "ntfs-3g" "nfs-kernel-server" "cacerts" "kerneloops" "console-setup" "xinetd" "acpi-support" "pulseaudio" "useradd" "./" "cups" "ntpdate" "saned" "devpts" "halt" "avahi-daemon" "nss")
-
- ("/home/guoding/Public/" (22323 6823 330512 904000) "w3m-0.5.3.tar.gz" "ccollab_client_7_3_7304_unix.sh" "../" "tmp/" "12345" "backup/" "study/" "brcm_61/" "test" "1234" "build_test/" "./" "123" "ccsp_mainline_pc_simulation/" "#test#" "usr.tgz" "intel_usg/")
-
- ("/etc/" (22323 694 917130 87000) "wireshark/" "minicom/" "lsb-base/" "services" "kermit/" "lvm/" "java-7-openjdk/" "netconfig" "brltty/" "thunderbird/" "pkcs11/" "rc6.d/" "ldap/" "fstab" "rc5.d/" "xml/" "firefox/" "python3/" "lsb-release" "avahi/" "cron.monthly/" "rsyslog.d/" "modprobe.d/" "w3m/" "mysql/" "vlc/" "netscsid.conf" "apache2/" "gnome-vfs-2.0/" "asciidoc/" "securetty" "sysctl.d/" "newt/" "rsyslog.conf" "sound/" "rcS.d/" "dnsmasq.conf" "login.defs" "icedtea-web/" "sysctl.conf" "environment" "resolv.conf" "sensors3.conf" "sensors.d/" "rpc" "python2.7/" "ucf.conf" "apparmor.d/" "pulse/" "emacs24/" "crontab" "rc1.d/" "gshadow" "insserv/" "gnome-app-install/" "nanorc" "wpa_supplicant/" "lsb-base-logging.sh" "modules" "debian_version" "update-notifier/" "mime.types" "group-" "hdparm.conf" "NetworkManager/" "pam.conf" "libpaper.d/" "ghostscript/" "texmf/" "UPower/" "papersize" "velocity/" "gnome-settings-daemon/" "aliases.db" "cron.d/" "pam.d/" "samba/" "speech-dispatcher/" "mke2fs.conf" "gshadow-" "pm/" "subversion/" "sane.d/" "python3.2/" "ConsoleKit/" "rc.local" "gtk-2.0/" "ufw/" "lightdm/" "networks" "ltrace.conf" "group" "default/" "iproute2/" "python/" "TZ" "rc2.d/" "wgetrc" "udev/" "mtab.fuselock" "passwd-" "anacrontab" "legal" "dbus-1/" "exports" "timezone" "fstab.d/" "xinetd.d/" "kerneloops.conf" "vim/" "cupshelpers/" "polkit-1/" "blkid.conf" "chatscripts/" "java-6-openjdk/" "hosts" "perl/" "profile" "squid3/" "hostname" "libnl-3/" "os-release" "sudoers" "mtools.conf" "xul-ext/" "X11/" "apparmor/" "idmapd.conf" "lighttpd/" "obex-data-server/" "groff/" "screenrc" "locale.alias" "utopia/" "magic" "profile.d/" "maven2/" "updatedb.conf" "mailcap" "at.deny" "javascript-common/" "ifplugd/" "apt/" "fuse.conf" "gnome/" "ODBCDataSources/" "shadow" "ssh/" "fop.conf.d/" "dnsmasq.d/" "logrotate.d/" "rc4.d/" "bind/" "motd" "hosts.allow" "skel/" "foomatic/" "hosts.deny" "resolvconf/" "ca-certificates.conf" "gconf/" "gdb/" "lynx-cur/" "manpath.config" "insserv.conf.d/" "colord.conf" "mtab" "kernel/" "vmware-tools/" "ssl/" "terminfo/" "bash.bashrc" "postfix/" "qt3/" "apport/" "issue" "ca-certificates.conf.dpkg-old" "ssmtp.conf" "mailcap.order" "bonobo-activation/" "bash_completion.d/" "brltty.conf" ".java/" "update-manager/" "odbcinst.ini" "kbd/" "pnm2ppa.conf" "hp/" "popularity-contest.conf" "emacs/" "gai.conf" "passwd" "snmp/" "init/" "dhcp/" "ts.conf" "depmod.d/" "shadow-" "usb_modeswitch.d/" "ld.so.cache" "logcheck/" "ripd.conf" "aliases" "dpkg/" "xinetd.conf" "nsswitch.conf" "ld.so.conf.d/" "apg.conf" "ImageMagick/" "xdg/" "debconf.conf" "bash_completion" "ld.so.conf" "ca-certificates/" "opt/" "console-setup/" "printcap" "libuser.conf" "vtrgb" "compizconfig/" "smi.conf" "emacs23/" "java/" "apm/" "iftab" "rmt" "libreoffice/" "fonts/" "bindresvport.blacklist" "systemd/" "host.conf" "issue.net" "brlapi.key" "inputrc" "adduser.conf" "bluetooth/" "pcmcia/" "gssapi_mech.conf" "usb_modeswitch.conf" "gitweb.conf" "alternatives/" "ppp/" "cups/" "shells" "cron.hourly/" "logrotate.conf" "dictionaries-common/" "blkid.tab" "init.d/" "cron.daily/" "checkbox.d/" "update-motd.d/" "security/" "kernel-img.conf" "dhcp3/" "initramfs-tools/" "acpi/" "calendar/" "odbc.ini" "at-spi2/" "sudoers.d/" "grub.d/" "magic.mime" "rc3.d/" "zsh_command_not_found" ".pwd.lock" "adjtime" "ginn/" "gtk-3.0/" "protocols" "rc0.d/" "network/" "sgml/" "wodim.conf" "sbcl.rc" "localtime" "doc-base/" "cron.weekly/" "insserv.conf" "deluser.conf" "tpvmlp.conf" "../" "./")
-
- ("/home/guoding/Public/intel_usg/ccsp/CcspCommonLib/Utopia/source/service_routed/" (22304 22033 351622 355000) "service_routed.c" "../" "Makefile" "./")
-
- ("/home/guoding/Public/intel_usg/ccsp/CcspCommonLib/Utopia/source/" (22304 22033 339622 715000) "services/" "service_ipv6/" "scripts/" "service_multinet/" "macclone/" "mldproxy/" "pal/" "service_routed/" "igd/" "../" "ulog/" "dslite/" "README.txt" "firewall_log/" "ipsec_vpn/" "firewall/" "include/" "igmp_snooper/" "pmon/" "linkmgr/" "utctx/" "ccsp_ut_utils/" "newhost/" "sysevent/" "utapi/" "syscfg/" "trigger/" "hdk2/" "wmon/" "walled_garden/" "dhcpproxy/" "service_wan/" "./" "switchpmon/" "hnap/")
-
- ("/home/guoding/Public/intel_usg/ccsp/CcspCommonLib/Utopia/hal/include/" (22304 22033 339622 715000) "../" "utopia_platform.h" "./" "utopia_platform_plugin.h")
-
- ("/home/guoding/Public/intel_usg/ccsp/CcspCommonLib/Utopia/hal/" (22304 21667 290585 289000) "../" "include/" "source/" "./")
-
- ("/home/guoding/Public/intel_usg/ccsp/CcspCommonLib/Utopia/" (22304 22129 148755 157000) "customer_repo/" "hal/" "../" "README" "custom/" "platform_repo/" "Doxygen.dox" "Makefile" "source/" "./")
-
- ("/home/guoding/Public/intel_usg/ccsp/CcspCommonLib/" (22304 22169 427548 934000) "Version.txt" "customer_repo/" "LICENSE" "ccsp_configs/" "build-intel_usg-dpc3941_arm/" "Doxyfile" "manifest" "../" "README" "Utopia/" "custom/" "platform_repo/" "Doxygen.dox" ".gitignore" "Makefile" "OpenSource/" "source/" "./" "DoxygenLayout.xml" ".git")
-
- ("/home/guoding/Public/intel_usg/ccsp/" (22304 22124 656889 842000) "CcspCMAgent/" "CcspDmCli/" "CcspCr/" "CcspMisc/" "Lm_host/" "CcspHomeSecurity/" "make/" "CcspCommonLib/" "CONTRIBUTING.md" "CcspWebui/" "manifest" "CcspRebootMgr/" "CcspSampleComponent/" "CcspMtaAgent/" "LanManager/" "../" "TR-181/" "CcspMocaAgent/" "CcspTr069Pa/" "CcspMBus/" "ConfRecover/" "hotspot/" "ccsp_config/" "ExtDependency/" "CcspCli/" "tst.tst" "CcspDataPathMgr/" "CcspWifiApMgr/" "SecureSoftwareDownload/" "DnsProxy/" ".gitignore" "CcspTestAndDiag/" "CcspPsm/" "FirmwareUpgrade/" "utilities/" "CcspSnmpPa/" "CcspHnapPaSsp/" ".gitmodules" "CcspWifiExtMgr/" "CcspPandM/" "CommandTools/" "AppEnvManager/" "ComponentTemplate/" "./" ".git" "TR135/" "CcspLMLite/")
-
- ("/home/guoding/Public/intel_usg/platform_repo/CcspCommonLib/Utopia/arm/" (22304 21587 920962 503000) "platform.inc" "../" "include/" "boards/" "source/" "./")
-
- ("/home/guoding/Public/intel_usg/platform_repo/CcspCommonLib/Utopia/" (22304 21587 916962 623000) "../" "./" "arm/")
-
- ("/home/guoding/Public/intel_usg/platform_repo/CcspCommonLib/" (22304 21587 924962 384000) "atom/" "ccsp_configs/" "../" "Utopia/" "./" "arm/")
-
- ("/home/guoding/Public/intel_usg/platform_repo/CcspCMAgent/arm/boards/dpc3848/" (22304 21587 912962 744000) "scripts/" "../" "config/" "overlay/" "include/" "source/" "./")
-
- ("/home/guoding/Public/intel_usg/platform_repo/CcspCMAgent/arm/boards/" (22304 21587 908962 865000) "../" "./" "dpc3848/")
-
- ("/home/guoding/Public/intel_usg/platform_repo/CcspCMAgent/arm/" (22304 21587 916962 623000) "scripts/" "hal/" "platform.inc" "../" "config/" "overlay/" "include/" "boards/" "source/" "./")
-
- ("/home/guoding/Public/intel_usg/platform_repo/CcspCMAgent/" (22304 21587 908962 865000) "../" "./" "arm/")
-
- ("/home/guoding/Public/intel_usg/platform_repo/" (22313 36478 799821 367000) "CcspCMAgent/" "CcspDmCli/" "CcspCr/" "make/" "CcspCommonLib/" "CcspMtaAgent/" "../" "CcspMocaAgent/" "CcspTr069Pa/" "CcspMBus/" "CcspDataPathMgr/" "CcspWifiApMgr/" "CcspPsm/" "CcspSnmpPa/" "CcspWifiExtMgr/" "CcspPandM/" "./" "CcspLMLite/")
-
- ("/home/guoding/Public/intel_usg/" (22313 36656 325525 229000) "customer_repo/" "hal_wifi/" "atom/" "git-ssh-wrapper" "cisco.model.config" "webui/" "ccsp/" "oem_patches/" "../" "config/" "patches/" "platform_repo/" "cscope.out" "build.sh" ".gitignore" "comcast-web/" "getversions" "cscope.files" ".gitmodules" "./" "setup_pr_cr.sh" "cisco.config" ".git/" "arm/" "build_helper.sh")
-
- ("/home/" (22155 32264 798109 971000) "../" "team/" "guoding/" "./")
-
- ("/usr/share/emacs/site-lisp/autoconf/" (22090 64605 440352 886000) "../" "autotest-mode.el" "./")
-
- ("/usr/share/emacs/site-lisp/" (22261 5181 631673 181000) "w3m/" "el-get/" "desktop-entry-mode.el" "debian-startup.el" "quilt.el" "../" "psvn.el" "autoconf/" "xcscope.el" "./" "dictionaries-common/")
-
- ("/usr/share/emacs/" (22103 60451 520708 628000) "../" "site-lisp/" "24.3/" "23.3/" "./")
-
- ("/usr/share/" (22301 54778 285041 690000) "wireshark/" "software-properties/" "emoticons/" "brltty/" "file/" "xml/" "libthai/" "python3/" "eog/" "avahi/" "gir-1.0/" "libsensors4/" "libquvi-scripts/" "w3m/" "gnome-background-properties/" "vlc/" "caribou/" "libgphoto2/" "keyrings/" "apache2/" "GConf/" "usb_modeswitch/" "asciidoc/" "grub/" "checkbox/" "ppd/" "mythes/" "mailutils/" "gettext/" "icedtea-web/" "gnomine/" "gedit/" "farstream/" "automake-1.11/" "gcj/" "wwwconfig-common/" "hal/" "debconf/" "quilt/" "notify-osd/" "fop/" "emacs24/" "libgweather/" "hyphen/" "glade3/" "el-get/" "ubuntu-sso-client/" "insserv/" "misc/" "compiz/" "aptdaemon/" "apt-file/" "pygtk/" "mibs/" "gst-plugins-base/" "mobile-broadband-provider-info/" "simple-scan/" "empathy/" "ant/" "perl5/" "gstreamer-0.10/" "lmbench/" "dblatex/" "update-notifier/" "telepathy/" "gtksourceview-2.0/" "system-config-printer/" "util-macros/" "giggle/" "package-data-downloads/" "zenity/" "espeak-data/" "autostart/" "oneconf/" "bug/" "shotwell/" "usb-creator/" "gstreamer-properties/" "pnm2ppa/" "ghostscript/" "texmf/" "djvu/" "npm/" "alsa/" "im-switch/" "baobab/" "desktop-directories/" "ibus-table/" "javazi/" "libvisual-plugins-0.4/" "locale/" "alsa-base/" "pkg-config-crosswrapper" "gnome-settings-daemon/" "doc/" "gwibber/" "man-db/" "gitk/" "glib-2.0/" "nm-applet/" "tabset/" "media-player-info/" "gnome-applets/" "samba/" "pyshared/" "speech-dispatcher/" "javascript/" "dict/" "omf/" "gdm/" "pixmaps/" "intltool/" "example-content/" "gnome-keyring-3/" "binfmts/" "tcltk/" "help/" "popularity-contest/" "ccsm/" "pyshared-data/" "ufw/" "themes/" "initscripts/" "xmlcopyeditor/" "nautilus-share/" "python/" "xml-core/" "application-registry/" "ncat/" "gnome-games-common/" "zoneinfo/" "launchpad-integration/" "m17n/" "dbus-1/" "sounds/" "intltool-debian/" "nautilus-sendto/" "aisleriot/" "pycentral-data/" "vim/" "gitg/" "debhelper/" "libvirtodbc0/" "polkit-1/" "gnome-tweak-tool/" "evince/" "libnm-gtk/" "libgnomekbd/" "gnome-power-manager/" "gnome-shell/" "foo2qpdl/" "brasero/" "gvfs/" "language-support/" "gnome-user-share/" "backgrounds/" "mime/" "rhythmbox/" "help-langpack/" "perl/" "libaudio2/" "computerjanitor/" "squid3/" "libubuntuoneui/" "apt-xapian-index/" "nfs-common/" "texlive-base/" "os-prober/" "gnome-js/" "file-roller/" "X11/" "pam-configs/" "libwacom/" "language-selector/" "apps/" "locale-langpack/" "gnome-games/" "deja-dup/" "build-essential/" "git-gui/" "groff/" "cdbs/" "qt4/" "unattended-upgrades/" "hunspell/" "ibus-pinyin/" "base-passwd/" "aclocal-1.11/" "gcalctool/" "xgreeters/" "maven2/" "software-center/" "foo2zjs/" "apt/" "gnome/" "applications/" "gnome-vpn-properties/" "hwdata/" "seahorse/" "libtimezonemap/" "xserver-xorg/" "gnome-terminal/" "texi2html/" "awk/" "transmission/" "geoclue-providers/" "mutter/" "foomatic/" "evolution-data-server-3.2/" "appdata/" "gconf/" "gdb/" "jetty/" "ibus/" "filezilla/" "ssl-cert/" "gtk-doc/" "gnome-screenshot/" "cmake/" "i18n/" "myspell/" "po-debconf/" "poppler/" "sgml-base/" "libindicator/" "unity-greeter/" "nano/" "readline/" "python-apt/" "color/" "gitweb/" "gksu/" "ubuntuone-installer/" "gnome-sudoku/" "terminfo/" "bind9/" "screen/" "postfix/" "language-tools/" "qt3/" "gnome-2.0/" "apport/" "gtksourceview-3.0/" "git-core/" "gnome-system-log/" "unity/" "locales/" "rsyslog/" "debianutils/" "consoletrans/" "sgml-data/" "totem/" "directfb-1.2.10/" "libgksu/" "update-manager/" "purple/" "webkitgtk-3.0/" "nfs-kernel-server/" "emacs/" "strigi/" "tex-common/" "thumbnailers/" "seed-gtk3/" "snmp/" "mahjongg/" "gdebi/" "cogl/" "et/" "grub-gfxpayload-lists/" "command-not-found/" "app-install/" "soprano/" "gnome-nettool/" "lintian/" "pam/" "dpkg/" "gnome-control-center/" "info/" "indicator-application/" "nautilus-dropbox/" "nodejs/" "gst-python/" "opencc/" "gnome-bluetooth/" "git-cola/" "ca-certificates/" "kde4/" "libgnome-media-profiles/" "indicators/" "aclocal/" "console-setup/" "yelp/" "nvidia-common/" "gnome-sound-recorder/" "squid-langpack/" "gnupg/" "menu/" "mousetweaks/" "compizconfig/" "bison/" "alacarte/" "emacs23/" "java/" "mime-info/" "adium/" "autoconf/" "iptables/" "icons/" "ontology/" "libreoffice/" "fonts/" "liblouis/" "orca/" "hplip/" "acpi-support/" "nautilus/" "system-config-samba/" "ibus-sunpinyin/" "sysv-rc/" "indicator-datetime/" "omf-langpack/" "vino/" "pulseaudio/" "guile/" "onboard/" "ppp/" "cups/" "meld/" "enchant/" "recovery-mode/" "gjs-1.0/" "docbook-utils/" "dictionaries-common/" "yelp-xsl/" "branding/" "mozilla/" "gcr-3/" "common-licenses/" "consolefonts/" "python-support/" "jockey/" "libexttextcat/" "gnome-session/" "gambas2/" "gnome-panel/" "initramfs-tools/" "nux/" "ubufox/" "calendar/" "mimelnk/" "GeoIP/" "pkgconfig/" "gtk-engines/" "vala/" "adduser/" "xmlto/" "ginn/" "nmap/" "metacity/" "texmf-texlive/" "unity-2d/" "apturl/" "man/" "dstat/" "idl/" "ImageMagick-6.6.9/" "texinfo/" "texlive-bin/" "xsessions/" "sgml/" "stgit/" "gnome-system-monitor/" "linux-sound-base/" "gutenprint/" "doc-base/" "aspell/" "xdiagnose/" "ca-certificates-java/" "maven-repo/" "base-files/" "udhcpc/" "../" "./")
-
- ("/home/guoding/Public/study/package/ncurses/" (22279 16250 502073 461000) "../" "patches/" "Makefile" "#cosa_start.sh#" "./")
-
- ("/usr/" (22100 4623 476077 96000) "lib/" "sbin/" "../" "share/" "include/" "local/" "bin/" "src/" "lib64/" "./" "games/")
-
- ("/home/guoding/study/linuxapplicationmanual/debug/examples/memtest/" (22306 57325 346829 833000) "memwatch.log" "memwatch.h" "../" "memtest" "memtest.c" "memwatch.o" "Makefile" "memwatch.c" "a.out" "./" "memtest.o")
-
- ("/home/guoding/Public/study/package/" (22277 54041 427659 294000) "bridge-utils/" "../" "ncurses/" "./")
 )
 
 ;; ----- ido-unc-hosts-cache -----

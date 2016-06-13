@@ -122,3 +122,4 @@ export NVM_DIR="/home/guoliang/.nvm"
 #alias ls="ls -alt"
 alias ccollab='~/ccollab-cmdline/ccollabgui'
 alias gdb='sudo gdb'
+#alias emacs='emacs -nw'

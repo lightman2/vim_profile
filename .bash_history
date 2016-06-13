@@ -1,796 +1,3 @@
-gcc main2.c -lpthread
-./a.out 
-gcc main2.c -lpthread
-./a.out 
-gcc main2.c -lpthread
-./a.out 
-gcc main2.c -lpthread
-./a.out 
-gcc main2.c -lpthread
-./a.out 
-ls
-gcc main2.c -lpthread
-./a.out 
-gcc main2.c -lpthread
-./a.out 
-gcc main2.c -lpthread
-./a.out 
-/bin/ls -alt
-gcc main2.c -lpthread
-/bin/ls -alt
-./a.out 
-/bin/ls -alt
-gcc main2.c -lpthread
-./a.out 
-gcc main2.c -lpthread
-./a.out 
-gcc main2.c -lpthread
-./a.out 
-gcc main2.c -lpthread
-./a.out 
-gcc main2.c -lpthread
-./a.out 
-gcc main2.c -lpthread
-./a.out 
-man execvp
-gcc main2.c -lpthread
-gcc main2.c  -lpthread
-./a.out 
-gcc main2.c  -lpthread
-./a.out 
-vim main2.c 
-./a.out 
-ping 127.0.0.1
-man open
-strace echo "/proc/zwave/ttty0_up">/proc/zwave/ttty0_up
-strace echo "/proc/zwave/ttty0_up">/proc/zwave/ttty1_up
-strace echo "1111">/proc/zwave/ttty1_up
-kill 11675
-ps -elLf |grep a.out
-cat ~/.ssh/id_rsa.pub 
-ps -af
-ps -ef
-ps -ef|grep dhcp
-ps -ea|grep dhcp
-ps -eA|grep dhcp
-ps -Af|grep dhcp
-
-cat ~/.ssh/id_rsa.pub 
-uname -a
-cat /etc/issue
-uname -a
-df -h
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8Jrz0PASUVcI2+sLDeeI/MxTvuzNnR1yGda7errRK3uzY4PuOmaq2/5xWeedXpbUHBEgV0cf/GfYkbbaR2URp47VLvLmk+VejiYYhWcRMdAAd8q5ZhXHb6BYeeVsiaaZk/twA7mC+y9TRSztpDue5jb+b3C2zfSjmPw6GuMSmC5LqMV0mA0QelvYBDo50WSs6aXJ+2bVDzxFbN/mZC7OE9/bE0Rxr97/zA69nD6nDTannTlfEdjax/lfMRpn8cu95UDSexujHp2FnK+/+6aEgugvo5kdZJH2hrNCxqpyizfwkR8sTWWA4mVXD1g1c3lXHKT09VeP/z64hpsy1JpCp guoding@ubuntu
-guoding@ubuntu:~/study/kernelmodule$ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8Jrz0PASUVcI2+sLDeeI/MxTvuzNnR1yGda7errRK3uzY4PuOmaq2/5xWeedXpbUHBEgV0cf/GfYkbbaR2URp47VLvLmk+VejiYYhWcRMdAAd8q5ZhXHb6BYeeVsiaaZk/twA7mC+y9TRSztpDue5jb+b3C2zfSjmPw6GuMSmC5LqMV0mA0QelvYBDo50WSs6aXJ+2bVDzxFbN/mZC7OE9/bE0Rxr97/zA69nD6nDTannTlfEdjax/lfMRpn8cu95UDSexujHp2FnK+/+6aEgugvo5kdZJH2hrNCxqpyizfwkR8sTWWA4mVXD1g1c3lXHKT09VeP/z64hpsy1JpCp guoding@ubuntu
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8Jrz0PASUVcI2+sLDeeI/MxTvuzNnR1yGda7errRK3uzY4PuOmaq2/5xWeedXpbUHBEgV0cf/GfYkbbaR2URp47VLvLmk+VejiYYhWcRMdAAd8q5ZhXHb6BYeeVsiaaZk/twA7mC+y9TRSztpDue5jb+b3C2zfSjmPw6GuMSmC5LqMV0mA0QelvYBDo50WSs6aXJ+2bVDzxFbN/mZC7OE9/bE0Rxr97/zA69nD6nDTannTlfEdjax/lfMRpn8cu95UDSexujHp2FnK+/+6aEgugvo5kdZJH2hrNCxqpyizfwkR8sTWWA4mVXD1g1c3lXHKT09VeP/z64hpsy1JpCp guoding@ubuntu
-ls
-cd ~
-ls
-cd Public/
-ls
-git clone git@gitlab.chs.cisco.com:CCSP_PLATFORM/ccsp_mainline_pc_simulation.git
-df -h
-ls /media/
-ls
-du -smh
-du . -smh
-ls
-cd /media/
-du . -smh
-ls
-ls |du -smh
-ls |xargs du -smh
-cd 07F0-009C/
-ls
-ls -alt
-ls |xargs du -smh
-cd dvrvol/
-ls
-cd ..
-rm dvrvol/ -rf
-LS
-ls
-mv 3usg/ intel_usg/ ~/Public/
-mv 3usg/ intel_usg/ ~/Public/ -rf
-mv 3usg/ intel_usg/ ~/Public/ 
-cp  3usg/ intel_usg/ ~/Public/ -rf
-ls
-cd ..
-ls
-sudo fdisk -l
-sudo fdisk -lh
-sudo fdisk /dev/sdb2 
-reboot
-sudo reboot
-ls
-cd ..
-ls
-cd ../../../
-ls
-cd ..
-ls
-cd Public/
-ls
-cd ccsp_mainline_pc_simulation/
-ls ../intel_usg/
-cd ..
-du . -smh
-ls|xargs du -smh
-mv 3usg/ intel_usg/ /media/07F0-009C/
-sudo mv 3usg/ intel_usg/ /media/07F0-009C/
-chmod 777 /media/07F0-009C/
-fdisk
-fdisk -l
-fdisk -l /media/
-fdisk -l /media/07F0-009C/
-fdisk -l
-sudo fdisk -l
-ls
-cd /media/
-ls
-sudo fdisk -l
-sudo fdisk /dev/sdb2 
-ls 07F0-009C/
-ls 07F1-0216/
-sudo mkfs.ext4 /dev/sdb2 
-umount /dev/sdb2 
-sudo mkfs.ext4 /dev/sdb2 
-mount
-fdisk -l
-sudo fdisk -l
-umount /dev/sdb1 
-sudo fdisk -l
-sudo reboot
-ls
-pwd
-sudo fdisk -l
-mount |grep sdb
-umount /devsdb2
-umount /dev/sdb2
-umount /dev/sdb1
-mount |grep sdb
-fdisk -l
-sudo fdisk -l
-sudo fdisk /dev/sdb
-sudo fdisk -l
-sudo mkfs.ext3 /dev/sdb1 
-sudo fdisk -l
-mount |grep sdb
-sudo reboot
-df -h
-cd study/
-gcc main.c
-./a.out 
-gcc main.c
-./a.out 
-gcc main.c
-./a.out 
-man signal
-signal(SIG_INT)
-signal
-man signal
-kill -l
-man kill 
-kill -SIGKILL a.out
-kill -SIGKILL 31735
-man kill 
-kill -1
-kill -9 -1
-ls
-cd Public/
-ls
-cd intel_usg/
-git pull.
-git pull
-ls
-./build.sh 
-./build.sh ga pc
-./build.sh 
-pwd
-emacs .
-ps -ef
-reboot
-sudo reboot
-jobs
-sudo jobs
-sudo apt-get install jobs
-cd study/
-cc main.
-cc main.c
-gcc main.c
-./a.out 
-vim main.c
-ls
-cd ..
-ls
-pwd
-ls
-cd study/
-ls
-vim main.c
-ls
-cd ..
-ls
-cd Public/
-ls
-cd study/
-ls
-vim main.c 
-./a.out 
-ls
-cd ../ccsp_mainline_pc_simulation/
-ls
-cd ccsp/Out/pc-ubuntu32/
-ls
-source ./cosa_start.sh 
-ls
-cd Public/intel_usg/
-ls
-git checkout Platform-2015-2-mainline
-sudo mkdir -p /auto/CHS-CCSP/public/opt/cisco-intel-arm-toolchain-4.0.0.7_E
-cd ..
-ls 
-sudo mkdir -p /auto/CHS-CCSP/public/opt/cisco-intel-arm-toolchain-4.0.0.7_E
-sudo tar -zxf ./usr.tgz -C /auto/CHS-CCSP/public/opt/cisco-intel-arm-toolchain-4.0.0.7_E
-ls /auto/CHS-CCSP/public/opt/cisco-intel-arm-toolchain-4.0.0.7_E
-cd intel_usg/
-ls
-./build_helper.sh dpc3941 ga official
-./build_helper.sh dpc3941 ga  atom 
-git submodule foreach --recursive git pull
-ls
-cd atom/
-ls
-cd build_i686/
-ls
-man git
-git clean . -xfd
-ls host_dir/
-cd ../..
-cd ..
-git clean intel_usg/atom -xfd
-cd -
-ls
-cd atom/
-ls
-git clean
-git clean -xfd
-cd ..
-cd arm/
-git clean -xfd
-cd ..
-ls
-git clean intel_usg/atom -xfd
-./build_helper.sh dpc3941 ga  atom
-git checkout Platform-2015-2-mainline
-sudo mkdir -p /auto/CHS-CCSP/public/opt/cisco-intel-arm-toolchain-4.0.0.7_E
-sudo tar -zxf ./usr.tgz -C /auto/CHS-CCSP/public/opt/cisco-intel-arm-toolchain-4.0.0.7_E
-cd ..
-ls
-sudo mkdir -p /auto/CHS-CCSP/public/opt/cisco-intel-arm-toolchain-4.0.0.7_E
-sudo tar -zxf ./usr.tgz -C /auto/CHS-CCSP/public/opt/cisco-intel-arm-toolchain-4.0.0.7_E
-cd -
-ls
-cd atom/
-ls
-./build_helper.sh dpc3941 ga  atom 
-cd ..
-./build_helper.sh dpc3941 ga  atom 
-./build_helper.sh dpc3941 ga  atom ./build_helper.sh dpc3941 ga official
-
-vim ./build_helper.sh 
-ls
-git revert 
-for first time build, run:
-./build_helper.sh dpc3941 ga official
-git clean -xfd
-git reset --hard
-git submodule foreach --recursive git clean -xfd
-git submodule foreach --recursive git reset --hard
-git pull
-git submodule foreach --recursive git pull
-./build_helper.sh dpc3941 ga  atom
-./build_helper.sh dpc3941 arm ga 
-./build_helper.sh dpc3941 ga  atom
-ls
-cd ../ccsp_mainline_pc_simulation/
-ls
-cd ccsp/Out/
-ls
-s
-cd pc-ubuntu32/
-ls
-source ./cosa_start.sh 
-ls
-cd .emacs.d
-ls
-find . |grep window-number
-emacs
-ls
-cd ../Out/pc-ubuntu32/
-ls
-source ./cosa_start.sh
-cd ccsp/Out/pc-ubuntu32/
-ls
-./cosa_start.sh 
-sudo ./cosa_start.sh 
-cd -
-ls
-vi build.sh 
-ls
-cd ccsp/
-ls
-git log
-git remote -v
-cd CcspMocaAgent/
-git remote -v
-cd ..
-ls
-ls |grep data
-ls |grep Data
-cd CcspDataPathMgr/
-ls
-git remote -v
-cd ..
-git submodule 
-git submodule |wl 
-git submodule |wc 
-ls
-cd ..
-ls
-vim
-ls
-cd ccsp/CcspMocaAgent/
-ls
-find . |grep *.o
-find . |grep *.d
-find . 
-vim ./build-pc-ubuntu32/home/guoding/Public/ccsp_mainline_pc_simulation
-ls
-cd ../../..
-ls
-cd intel_usg/
-ls
-cd arm/ti/gw/src/ccsp/src/
-ls
-vi Makefile 
-ls
-pwd
-cd -
-ls
-cd atom/
-find . |grep ccsp
-find . |grep ccsp|grep makefile
-find . |grep ccsp|grep Makefile
-find . |grep CCSP|grep Makefile
-find . |grep CCSP|grep makefile
-vim ./package/ccsp/ccsp.mk
-ls
-cd ..
-ls
-vi build_helper.sh 
-ls
-cd ../ccsp_mainline_pc_simulation/
-ls
-cd ccsp/CcspMocaAgent/
-ls
-gitk
-source ./cosa_start.sh
-cd ../Out/pc-ubuntu32/
-ls
-source ./cosa_start.sh
-ls
-cd ~/.emacs.d
-ls
-cd elpa/
-ls
-ls -alt
-mkdir tmp
-mv dash-* cl-lib-0.5/ solarized-theme-20160311.1447/ dash-20160306.1222/ tmp/
-mv dash-* cl-lib-0.5/ solarized-theme-20160311.1447/ dash-20160306.1222/ tmp/ 
-ls 
-ls -alt
-emacs
-ls
-cd ../..
-ls
-cd Public/ccsp_mainline_pc_simulation/
-ls
-cd ccsp/
-ls
-grep CcspMocaAgent . -R
-find . |grep CcspMocaAgent
-cd CcspMocaAgent/
-ls
-vim Makefile 
-df -h
-ls
-cd ../..
-ls
-cd ~/.emacs.d
-ls
-git clone https://github.com/sellout/emacs-color-theme-solarized.git
-emacs /home/guoding/.emacs
-emacs 
-emacs
-emacs .
-emacs . --debug-init
-emacs
-ls
-cd ../
-ls
-cd Public/ccsp_mainline_pc_simulation/
-ls
-emacs .
-cd ccsp/Out/pc-ubuntu32/
-ls
-source cosa_start.sh 
-ps -ef|grep a.out
-kill -HUP 22559
-ps -ef|grep a.out
-kill -l
-kill -l|grep HUP
-kill 22559
-kill a.out
-ps -ef|grep a.out
-kill -SIG_INT 22638
-kill -SIGINT 22638
-kill  22638
-ls
-cd ..
-ls
-cd ccsp_mainline_pc_simulation/
-ls
-df -h
-cscope . -R
-cscope-indexer  . -r
-ls
-emacs . 
-}
-ls
-cd ~/.emacs.d
-ls
-find .|grep chinese
-vi /home/guoding/.bashrc
-cd ~
-ls
-cd vmware-tools-distrib/
-ls
-sudo ./vmware-install.pl 
-~/ccollab-cmdline/ccollabgui ls /home/guoding/Public/intel_usg./atom/build_i686/staging_dir/usr/include/c++/4.5.1/profile
-ls /home/guoding/Public/intel_usg./atom/build_i686/staging_dir/usr/include/c++/4.5.1/profile
-cd ../Public/ccsp_mainline_pc_simulation/
-ls
-cd ccsp/Out/pc-ubuntu32/
-ls
-vi cosa_start.sh 
-strace source cosa_start.sh >123
-strace  ./cosa_start.sh >123
-./cosa_start.sh >123
-vi 123
-sudo ./cosa_start.sh >123
-sudo source ./cosa_start.sh >123
-vi cosa_start.sh 
-man sources.list  
-man source
-su
-ls
-pwd
-ps -ef|grep node
-ps -ef|grep apache
-vi /etc/init.d/
-vi /etc/apache2/conf.d/
-cd /etc/ap
-cd /etc/apache2/
-find . -name httpd*
-sudo vi httpd.conf 
-ls
-cd ~/study/
-ls
-cd LinuxKernelLearn/
-ls
-cd ..
-ls
-cd linux1.0/
-ls
-find . |grep watchdog
-find . |grep dog
-find . |grep main
-vi ./init/main.c
-cd ..
-ls
-cd ..
-ls
-cd Public/study/
-ls
-cd ..
-ls -alt
-ls ~ -alt
-ls ~/study -alt
-ls
-cd study/
-ls
-cd ..
-ls
-cd intel_usg/
-ls
-cd arm/kernel/
-ls
-cd ti/
-ls
-cd linux-2.6.39.3/
-ls
-find . |grep watchdog
-find . |grep watchdog_core
-vim ./src/Documentation/watchdog/watchdog-api.txt
-pwd
-s
-ls
-make menuconfig
-ls
-cd src/
-ls
-make menuconfig
-vi kernel/ls
-ls
-ls -alt
-vi .config
-cd ~/Public/ccsp_mainline_pc_simulation/
-ls
-ls platform_repo/
-ls
-cd ~
-ls
-mv .emacs .emacs_old
-emacs 
-emacs
-vi .emacs
-emacs
-emacs -v
-emacs --version
-ls
-cd Public/
-ls
-cd .
-cd ..
-emacs .emacs
-mv .emacs_old  .emacs
-emacs  .emacs
-ls
-cd ccsp/Out/pc-ubuntu32/
-ls
-git-cola 
-ls
-cd ~/
-ls
-cd -
-ifconfig
-cd -
-ls
-tar -zxvf c.tgz 
-./ccollab-cmdline/ccollabgui 
-ls
-cd Public/ccsp_mainline_pc_simulation/
-ls
-cd ..
-cd intel_usg/
-find . -name targetFS_gateway_001_cisco_update_path.patch
-vim ./atom/package/targetFS_gateway/targetFS_gateway_001_cisco_update_path.patch
-find . -name profile
-pwd
-file /home/guoding/Public/intel_usg/atom/build_i686/staging_dir/usr/include/c++/4.5.1/profile
-find . -name profile|xargs file
-ls
-cd ../
-ls
-cd ccsp_mainline_pc_simulation/
-ls
-cd ../study/
-cc main.c
-./a.out 
-vim 
-cc main.c
-./a.out 
-cc main.c 
-./a.out 
-cc main.c
-./a.out 
-ls
-ps -ef|grep syslog
-syslog
-ls
-man ps
-sudo ps -aux
-sudo ps -au
-sudo ps -aux
-man ps
-ps -ax
-ps -aux
-ps -ef
-ps -af
-ps -ef
-man ps
-ps -af
-ps -Af
-ps -ef
-man ps 
-ps -aux
-sudo ls /dev/watchdog
-sudo ls /dev/|grep watch
-ls
-cd ~/Public/ccsp_mainline_pc_simulation/
-ls
-git pull
-ls
-git diff build.sh
-ls
-git pull
-git merge build.sh
-ls
-git pull
-grep multilan . -R
-ps -aux
-ps -a
-ps -u
-ps -x
-ps -a
-vi /var/log/syslog
-ls
-ps aux
-ls alt
-ls -alt
-ps aux
-vi /usr/share/udhcpc/
-~/ccollab-cmdline/ccollabgui 
-ps -ef|grep a.out
-kill 1771
-cp ~/Downloads/ /mnt/hgfs/下载/
-cp ~/Downloads/CCSP\ Training/ /mnt/hgfs/下载/  -rf
-ls
-cd ../ccsp_mainline_pc_simulation/
-ls
-vim build.sh 
-cd ccsp/utilities/opensource/modules
-ls
-ls /opt/public/ -alt
-cd -
-ls
-vim build.sh 
-grep CCSP_OPENSOURCE_MODULES_DIR .-R
-grep CCSP_OPENSOURCE_MODULES_DIR . -R
-vim build.sh 
-find . -name *.sh|xargs grep opensource
-find . -name "*.sh"|xargs grep opensource
-vim ./ccsp/utilities/opensource/build_modules.sh
-ls /media/
-ls
-cd ..
-ls
-fdisk -l
-sudo fdisk -l
-ls /mnt/hgfs/guoliang/
-ls /mnt/hgfs/guoliang/Documents/
-sudo cp /mnt/hgfs/guoliang/Documents/Virtual\ Machines.localized/Ubuntu\ 2.vmwarevm  /media/7fc27ae3-db0c-47da-ab1b-6f76c511f064/ -rf
-ls
-md5sum /mnt/hgfs/guoliang/Documents/Virtual\ Machines.localized/Ubuntu\ 2.vmwarevm/
-du  /mnt/hgfs/guoliang/Documents/Virtual\ Machines.localized/Ubuntu\ 2.vmwarevm/
-du  -h /mnt/hgfs/guoliang/Documents/Virtual\ Machines.localized/Ubuntu\ 2.vmwarevm/
-du -h /media/7fc27ae3-db0c-47da-ab1b-6f76c511f064/Ubuntu\ 2.vmwarevm/
-ls
-cd ~/.emacs.d
-ls
-ls -alt
-cd elpa/
-ls
-cd w3m-20121224.1747/
-ls
-emacs 
-cd ../..
-ls
-grep w3m-autoload . -R
-grep "w3m-autoload" . -R
-cd -
-ls
-cd ..
-ls
-find . |grep autoload
-cd ..
-find . |grep autoload
-emacs --debug
-df -h
-fdisk -lh
-fdisk -l
-sudo fdisk -l
-ls
-df -h
-cd ..
-ls
-cd study/
-ls
-cd ..
-ls
-cd Public/
-ls
-cd ../
-ls
-cd study/
-ls
-git clone https://github.com/torvalds/linux.git
-cd linux
-ls
-du . -smh
-ls
-make 
-cd ..
-ls
-ls -alt
-cd linux
-ls
-vi RE
-grep networkmanager . -R
-git log 
-ls
-pwd
-ls
-cscope-indexer  . -R
-cscope-indexer  . -r
-ls -alt
-ls -alth
-cd ~/.emacs.d/
-ls
-cd elpa/
-ls
-emacs . 
-quit
-exit
-emacs .
-man cp
-cp -v dmcli  aaa
-cp -v lm/ aaaa
-cp -v lm/ aaaa -rf
-ls
-exit
-sudo apt-get install dropbox
-ls ~/Dropbox/
-cd ~/Dropbox
-ls
-touch 123
-ls
-ifconfig
-ls
-mkdir note
-cd note/
-touch think.org
-touch note.org
-touch UNIX.org
-pwd
-emacs
-touch Incoming
-cd ~/Public/
-ls
-cd ccsp_mainline_pc_simulation/
-ls
-find . -name firewall*
-file ./ccsp/CcspCommonLib/Utopia/source/firewall/firewall.c
-file ./ccsp/CcspCommonLib/Utopia/source/firewall/firewall.c -l
-man file
-locate ./ccsp/CcspCommonLib/Utopia/source/firewall/firewall.c
-find `pwd`  -name firewall*
-sudo service network-manager stop
-sudo service network-manager start
-vim 123
-cd ..
-ls
-cd study/
-ls
-vi 123
-cd shell/
-ls
-vi 123.bash 
-exit
-ls
-cd ~/.emacs.d
-ls
 find |grep helm
 cd elpa/
 ls
@@ -1998,3 +1205,796 @@ cd ~/Public/brcm_61/ccsp/CcspCommonLib/
 git log --name-only
 git log -p
 git log /home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/apply_system_defaults.c
+emacs --debug-init
+ps -aux|grep 9328
+ifconfig
+ps -aux|grep emacs
+git --version
+cd ~
+git status
+ps |grep emacs
+ps -aux|grep emacs
+kill 23838
+reboot
+sudo reboot
+quit
+ls
+exit
+ifconfig
+quit
+exit
+ls
+exit
+ifconfig
+quit
+exit
+pwd
+ls
+exit
+ls
+vi /home/guoding/.vnc/xstartup 
+vncserver 
+ls
+pwd
+ls
+emacs .
+emacs .
+ps -aux
+top
+ls
+vncserver 
+emacs
+x-window-manager 
+gedit
+exit
+gedit
+x-window-manager 
+exit
+gedit
+x-window-manager 
+exit
+x-window-manager 
+history
+x-window-manager 
+x-window-manager --replace
+telnet localhost 
+history
+ps -aux|grep vnc
+vncserver --help
+vncserver -kill :0
+vncserver -kill :1
+vncserver -kill :2
+vncserver -kill :3
+gedit
+startx
+sudo startx
+echo $DISPLAY
+x-window-manager 
+env>123
+vi 123
+export DISPLAY:1
+export DISPLAY=:1
+echo $DISPLAY
+
+export DISPLAY=:0
+x-window-manager 
+x-window-manager  --replace
+sudo apt-get install xinetd telnetd
+ls /etc/xinetd.d/daytime 
+cat /etc/xinetd.d/daytime 
+cat /etc/services |grep telnet
+sudo service xinetd start
+telnet localhost 
+sudo telnet localhost 
+service 
+service --status-all
+service --status-all|grep tel
+service --status-all>123
+vi 123
+sudo service xinetd start
+sudo service xinetd stop
+sudo service xinetd start
+telnet localhost 
+sudo netstat -atnp|grep xinetd
+sudo netstat -atnp
+sudo /etc/init.d/xinetd restart
+sudo netstat -atnp
+netstat 
+netstat  -a
+netstat  -atnp
+netstat  -at
+netstat  -atn
+netstat  -atnp
+netstat  -atp 
+netstat  -atnp 
+ifconfig
+telnet 192.168.136.129
+ssh localhost 
+sudo apt-get install telnetd
+telnetd
+sudo apt-get install inetutils-telnetd
+telnetd 
+
+netstat 
+netstat  -ntp
+netstat  -ntpa
+sudo service xinetd restart
+netstat  -ntpa
+service dbus restart
+service echo restart
+telnetd  --help
+cat /usr/lib/systemd/system/telnet.socket 
+sudo telnetd 
+service xinetd restart
+sudo service xinetd restart
+netstat -natp|grep 23
+netstat -natp
+telnet localhost 
+sudo service xinetd restart
+pstree
+top 
+pstree>123
+vi 123
+ls
+grep telnet /var/log/*
+grep emacs /var/log/*
+grep netstat /var/log/*
+sudo apt-cache search telnet
+sudo apt-cache search telnet|grep telnet
+sudo apt-get install telnetd
+sudo apt-get install  inetd
+sudo apt-get install  inet
+service xinetd status
+telnet localhost 23
+netstat -natp|grep 23
+man ssh
+apt-cache search vnc|grep vnc
+vncserver
+sudo apt-get install vnc4server
+vnc4server 
+ifconfig
+x
+xwininfo 
+history
+x-window-manager 
+ls
+cd ~
+ls
+x-window-manager 
+evn
+env
+export DISPLAY=:0
+x-window-manager 
+vi /home/guoding/.bashrc
+vncserver 
+T
+export DISPLAY=
+gnome-panel 
+emacs
+x-window-manager 
+x-window-manager --help
+gnome-open 
+gnome-
+vi .vnc/xstartup 
+gnome-panel 
+123
+ls
+ls \.*
+ls
+ls|grep "\.*"
+ls -a|grep "\.*"
+ls
+ls .*
+cd ~
+ls -alt
+vi .xinitrc
+rm  .xinitrc
+ls .[xX]*
+vi .Xauthority 
+vi .xsession-errors
+ls .xsession-errors -alt
+grep guoding /var/log/*
+ls
+ps -aux|grep x
+ps -aux|grep window
+ps -aux|grep guoding
+/usr/bin/gnome-keyring-daemon --daemonize --login
+service xinetd  stop
+sudo service xinetd  stop
+sudo service xinetd  start
+emacs 
+x-window-manager 
+vi
+x-window-manager 
+gnome-session
+sudo gnome-session
+gnome-session
+sudo x-window-manager 
+man x-window-manager 
+ps -ef
+ps -ef|grep window|grep x
+ps -ef|grep window
+cd /etc/console-setup/
+ls
+cd -
+x-window-manager 
+x-window-manager --help
+man x-window-manager 
+vi /etc/rc.local 
+cd /etc/
+ls
+cd init.d/
+ls
+vi passwd 
+ls -alt
+grep x-window /var/log/*
+sudo grep x-window /var/log/*
+sudo x-window-manager 
+sudo grep x-window /var/log/*
+find /var/log/|xargs grep x-windows
+find /var/log/|xargs sudo grep x-windows
+find /var/log/|xargs sudo grep x-windows --colore
+find /var/log/|xargs sudo grep x-windows --color
+find /var/log/|xargs grep x-windows --color
+su &&find /var/log/|xargs grep x-windows --color
+cd ~
+ls
+ps -aux
+ps -aux|grep x
+0 /usr/bin/ssh-agent /usr/bin/dbus-launch --exit-with-session gnome-session --session=ubuntu
+/usr/bin/ssh-agent /usr/bin/dbus-launch --exit-with-session gnome-session --session=ubuntu
+x-window-manager 
+sudo x-window-manager 
+cat /etc/issue
+sudo x-window-manager --replace
+cd ~
+emacs 
+git log get_filer.sh 
+ps -aux|grep emacs
+kill 11787
+sudo reboot
+cd ~
+ls
+ls .Xauthority 
+ls -alt .Xauthority 
+chown guoding .Xauthority 
+sudo chown guoding .Xauthority 
+ps |grep $$
+cd ../../
+ls
+cd ..
+./build_package.sh 
+git pull
+git diff build_package.sh
+mv build_package.sh build_package2.sh
+git pull
+ls
+git log brcm_patches/CGM4231/CM/UCG3390_6.1.0alpha3_set_VendorName_Scientific_Atlanta_CSP974425.patch
+git log -p brcm_patches/CGM4231/CM/UCG3390_6.1.0alpha3_set_VendorName_Scientific_Atlanta_CSP974425.patch
+cd platform_broadcom/
+git pull
+git diff ccsp-mainline-patches/apply_patch.sh
+git resolve ccsp-mainline-patches/apply_patch.sh
+~
+git status
+git status -s
+man git-status
+git checkout ccsp-mainline-patches/apply_patch.sh
+rm ccsp-mainline-patches/apply_patch.sh
+git checkout ccsp-mainline-patches/apply_patch.sh
+git add ccsp-mainline-patches/apply_patch.sh
+git diff ccsp-mainline-patches/apply_patch.sh
+git add ccsp-mainline-patches/apply_patch.sh
+git status -s
+git reset HEAD
+git checkout ccsp-mainline-patches/apply_patch.sh
+git status -s
+git pull
+git stash
+git pull
+man git-pull
+git pull -f
+git diff broadcom/epc4911/gw_scripts/iproute2/rt_tables
+git stash
+git log -p broadcom/epc4911/gw_scripts/iproute2/rt_tables
+rm broadcom/epc4911/gw_scripts/iproute2/rt_tables
+rm broadcom/epc4911/gw_scripts/udhcpc.script
+git pull
+git status
+git add ccsp-mainline-patches/apply_patch.sh
+git pull
+git commit
+git log
+git reset HEAD
+git log
+git commit --help
+git reset HEAD~1
+git log
+date
+git pull
+git diff ccsp-mainline-patches/apply_patch.sh
+man git-reset
+git reset --soft HEAD~
+git log
+git pull
+git status -s
+git stash
+git status -s
+git pull
+git status -s
+ls broadcom/epc4911/gw_scripts/iproute2/rt_tables
+cat broadcom/epc4911/gw_scripts/iproute2/rt_tables
+git log broadcom/epc4911/gw_scripts/iproute2/rt_tables
+rm broadcom/epc4911/gw_scripts/iproute2/rt_tables
+rm broadcom/epc4911/gw_scripts/udhcpc.script
+git pull
+git log ccsp-mainline-patches/apply_patch.sh
+git diff  ccsp-mainline-patches/apply_patch.sh
+git status -s
+git mergetool 
+git diff ccsp-mainline-patches/apply_patch.sh
+git status -s
+git pull
+git reset HEAD
+git pull
+git remote -v
+git pull -f
+git diff ccspmainlinebuild.sh
+git diff broadcom/epc4911/make/1.1/ccsp_build_common.mk
+git stash --help
+git stash --list
+git stash list
+git stash 
+git status -s
+vi 123
+cat 123
+cat 123|xargs rm
+cat 123|xargs rm -rf
+cat 123|xargs ls
+cat 123|xargs ls -alt
+vi 123
+ls platform_broadcom.diff.patch
+ls broadcom/epc4911/CcspCMAgent/1.1/GwProvApp/
+vi 123
+cat 123|xargs -t -i  rm -rf {}
+ls broadcom/epc4911/CcspCMAgent/1.1/GwProvApp/
+ls broadcom/epc4911/CcspCMAgent/1.1/ -alt
+cat 123
+ls broadcom/epc4911/CcspCMAgent/1.1/libgw_prov_abs_layer/
+rm -rf broadcom/epc4911/CcspCMAgent/1.1/libgw_prov_abs_layer/
+ls broadcom/epc4911/CcspCMAgent/1.1/libgw_prov_abs_layer/
+vi 123
+man xargs 
+cat 123|xargs -t -i  rm -rf {}
+touch aaa
+touch bbb
+vi 1234
+cat 1234|xargs -t -i  rm -rf {}
+cat 1234|xargs -t -i  rm  {}
+mkdir tmp
+cat 1234|xargs -t -i  mv  {} tmp
+mv aaa bbb tmp
+iv 1234 
+vi 1234
+vi 123
+cat 123|xargs -t -i  mv  {} tmp
+ls broadcom/epc4911/CcspCMAgent/1.1/GwProvApp/
+mv 1234.diff broadcom/epc4911/CcspCMAgent/1.1/GwProvApp/ broadcom/epc4911/CcspCMAgent/1.1/libgw_prov_abs_layer/ broadcom/epc4911/CcspCommonLib/Utopia/1.1/include/utopia_platform_ov.h.rej broadcom/epc4911/CcspMocaAgent/1.1/libmoca_mgnt/moca_hal.h broadcom/epc4911/gw_scripts/iproute2/ broadcom/epc4911/gw_scripts/udhcpc.script ccsp-mainline-patches/apply_patch.sh.orig ccsp-mainline-patches/apply_patch.sh.rej ccsp-mainline-patches/revertpatch.sh platform_broadcom.diff.patch tmp 
+ls broadcom/epc4911/CcspCMAgent/1.1/GwProvApp/
+git pull
+git status
+git status -s
+git stash
+git log
+git status
+git log
+git reset HEAD
+git log 
+git log -p
+git reset 5fc504c3e49a744ed10e460cc2b5f6da130a5109
+git pull
+git reset hard 5fc504c3e49a744ed10e460cc2b5f6da130a5109
+git revert 5fc504c3e49a744ed10e460cc2b5f6da130a5109
+git stash
+git status
+git log
+git pull
+vi 123
+cat 123|xargs -t -i mv {} tmp/
+mv broadcom/epc4911/CcspCMAgent/1.1/GwProvApp/source/gw_prov_sm.c     broadcom/epc4911/CcspCMAgent/1.1/GwProvApp/source/include/gw_prov_abstraction.h     broadcom/epc4911/CcspCMAgent/1.1/libgw_prov_abs_layer/gw_prov_app-abs.c     broadcom/epc4911/CcspCMAgent/1.1/libgw_prov_abs_layer/gw_prov_plathdr.h     broadcom/epc4911/gw_scripts/iproute2/rt_tables     broadcom/epc4911/gw_scripts/udhcpc.script  tmp/ 
+git pull
+git log -p
+cd ..
+cd ccsp/
+ls
+git submodule foreach git pull
+cd ~/tmp/
+ls
+touch 123
+ls |xargs -t -i mv {} {}.bak
+ls
+ls >123
+vi 123
+cat 123|xargs ls
+cat 123|xargs file
+man xargs 
+ls |xargs  -i mv {} {}.bak
+ls 
+ls |xargs  mv {} {}.bak
+mkdir tmp3
+ls |xargs  mv tmp3
+ls |xargs -i mv {} tmp3
+ls tmp3/
+ls
+ls 
+tree
+ls
+cd ..
+df -h
+cd Public/brcm_61/
+ls
+tmpfs           101M  988K  100M   1% /run
+vim get_filer.sh 
+git log get_filer.sh
+git log -p get_filer.sh
+sudo ~/vmware-tools-distrib/vmware-install.pl 
+./get_filer.sh ccspmainline 6.1.1alpha2 SHN snapshot
+man xargs 
+vi 123
+cat 123|xargs -I ls {}
+cat 123|xargs -i ls {}
+cat 123|xargs -i -t ls {}
+ls .. .
+which sh
+bash
+ls
+cd 3390/A0/
+emacs
+emacs /home/guoding/.emacs
+cat 123|xargs -I ls {}
+cat 123|xargs -i ls {}
+bash && cat 123|xargs -i ls {}
+cat 1234
+emacs
+cd ~/Public/brcm_61/
+emacs
+cd ~
+ls
+git diff .emacs>13
+vi 123
+touch  /home/guoding/Dropbox/note/deft
+rm  /home/guoding/Dropbox/note/deft
+mkdir  /home/guoding/Dropbox/note/deft
+touch  /home/guoding/Dropbox/note/deft/123
+cd ../../.emacs.d
+ls
+find  . |grep solar
+mv emacs-color-theme-solarized/ emacs-color-theme-solarized_2
+git clone https://github.com/sellout/emacs-color-theme-solarized.git
+emacs
+ls
+cd emacs-color-theme-solarized
+ls
+find . -name .git
+rm .git -rf
+git log
+ls
+emacs
+emacs --debug-init
+vi /home/guoding/.emacs
+emacs /home/guoding/.emacs
+emacs --debug-init
+emacs
+emacs
+emacs --debug-init
+emacs --debug-init
+emacs
+emacs --debug-init
+cd Public/brcm_61/
+emacs --debug-init
+top
+ps
+ps |grep $$
+ls |grep $$
+cd ~/
+git log -p  .emacs 
+emacs
+emacs --debug-init
+emacs
+emacs --debug-init
+xauth 
+man xauth 
+sudo vi .Xauthority 
+ls
+passwd guoding
+sudo passwd guoding
+man gnome-
+man gnome-help 
+man gnome-se
+man gnome-session
+gnome-help 
+pwd
+emacs .
+cd Public/brcm_61/
+ls
+emacs .
+ls
+ls -alt 123
+chown guoding 123
+ls -alt 123
+chown 777 123
+chmod 777 123
+ls -alt 123
+chmod 666 123
+ls -alt 123
+ls
+ls 1234  -alt
+emacs 
+cd ~/Music/
+ls
+file 11195470.mp3 
+emacs
+man emacs
+cd ~/Public/
+ls
+cd tmp/
+ls
+git clone https://gerrit.shanghai.ap.thmulti.com:8443/#/admin/projects/docsis-cpe/brcm/brcm_61
+git clone ssh://dingg@gerrit.shanghai.ap.thmulti.com:29418/docsis-cpe/brcm/brcm_61
+cat ~/.ssh/id_rsa.pub 
+git clone ssh://dingg@gerrit.shanghai.ap.thmulti.com:29418/docsis-cpe/brcm/brcm_61
+ls
+cd brcm_61/
+ls
+get_filer.sh ccspmainline
+./get_filer.sh ccspmainline
+history
+vi get_filer.sh 
+./get_filer.sh ccspmainline
+df -h
+cd ..
+ls
+cd ..
+ls
+df -h
+ls
+cd tmp/
+ls
+cd brcm_61/
+ls
+man awk
+cd ../study/
+ls
+cd ../../study/
+ls
+cd shell/
+ls
+mkdir awk
+cd awk
+cat 123|awk -F "|" {print 1}
+cat 123|awk -F "|" {print $1}
+cat 123|awk -F "|" '{print $1}'
+cat data|awk -F "|" '{print $1}'
+cat data|awk -F "|" '{print $2}'
+cat data|awk  '{print $2}'
+cat data|awk  '{print $1}'
+cat data|awk  '{print $2}'
+cat data|awk -F "|" '{print $2}'
+cat data|awk -F "|" '{print $6}'
+cat data|awk -F "|" '{print $4}'
+cat data|awk -F "|" '{print $5}'
+ls
+bash shell.sh 
+man bash
+history
+ps -aux|grep emacs
+which emacs
+ll
+which ll
+alias 
+man emacs
+emacs -nw
+man emacs
+emacs 
+./build_package.sh ccsp_mainline
+./build_package.sh ccspmainline
+./build_package.sh clean
+./build_package.sh ccspmainline
+cd ccsp/
+git status
+cd CcspCommonLib/
+ls
+git status
+cd ../..
+ls
+mv ccsp ccsp_old
+./build_package.sh ccspmainline
+git checkout ccsp
+./get_filer.sh ccspmainline
+cd Public/brcm_61/
+emacs . 
+Error (frameset): Display :1 can't be opened
+cd ~/
+ls
+cd vmware-tools-distrib/
+ls
+sudo ./vmware-install.pl 
+Error (frameset): Display :1 can't be opened
+./get_filer.sh ccspmainline 6.1.1alpha2 SHN snapshot
+cd -
+cd Public/brcm_61/
+./get_filer.sh ccspmainline 6.1.1alpha2 SHN snapshot
+./build_package.sh DPC4912_CCSP_PC15_GA
+
+./get_filer.sh ccspmainline 6.1.1alpha2 SHN snapshot
+emacs
+ls
+cd ~/.emacs.d
+ls
+grep number-or-maker-p . -R
+grep number-or-mar'ker-p . -R
+grep number-or-marker-p . -R
+mkdir ~/tmp_emacs.d
+mv cedet-1.1 ~/tmp_emacs.d/
+emacs 
+emacs
+emacs 
+mv ~/tmp_emacs.d/cedet-1.1/ .
+emacs
+ls
+emacs
+emacs --debug-init
+tftpd
+service 
+service --status-all
+service --status-all|grep tftp
+service --status-all>111
+vi 111
+ls
+find . -name system_defaults
+cd customer_lgi/
+git ls-remote
+git log lgi/CcspCommonLib/Utopia/config/epc4911/system_defaults
+git pull
+vi ../get_filer.sh 
+ls
+cd ..
+ls
+vi build_package.sh 
+ls
+cd ccsp/
+grep lan_ethernet_physical_ifnames . -R
+grep system_default . -R
+find . -name system_default
+find . -name system_defaults
+vi ./CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+vi ./Out/broadcom-epc4911/etc/utopia/system_defaults
+git log  ../customer_lgi/lgi/
+find . -name apply_system_defaults
+file 
+file ./Out/broadcom-epc4911/sbin/apply_system_defaults
+grep apply_system_defaults . -R
+vi ./CcspCommonLib/Utopia/customer_repo/scripts/epc4911/utopia_init.sh
+vi /home/guoding/.bashrc
+emacs
+vi
+emacs .
+sudo reboot
+ls
+cd ccsp/
+lsm
+ls 
+git pull
+git submodule foreach git pull
+cd ..
+ls
+git pull
+git diff get_filer.sh
+git checkout get_filer.sh
+git pull
+git log -p
+./build_package.sh rg clean
+./build_package.sh rg
+./build_package.sh monolithicimage
+./build_package.sh rg clean
+ls /home/guoding/Public/tmp/brcm_61/build_config/DPC4912_CCSP_PC15_GA.cfg.
+
+./get_filer.sh ccspmainline
+./build_package.sh rg cm bolt CmBldr 3390 A0 
+ls /opt/toolchains/stbgcc-4.8-1.5/bin
+ls
+ls /home/guoding/Public/tmp/brcm_61/build_config/DPC4912_CCSP_PC15_GA.cfg
+vi /home/guoding/Public/tmp/brcm_61/build_config/DPC4912_CCSP_PC15_GA.cfg
+cd /opt/toolchains/
+ls
+cd ..
+sl
+ls
+vi /home/guoding/Public/tmp/brcm_61/build_config/DPC4912_CCSP_PC15_GA.cfg
+ls
+./build_package.sh rg cm bolt CmBldr 3390 A0  
+cd ~/Public/tmp/
+ls
+cd brcm_61/
+./build_package.sh rg cm bolt CmBldr 3390 A0  
+find . -name build_logs
+vi ./builds/3390/A0/build_logs
+df -h
+du builds/ -smh
+ls builds/
+tree builds/
+ls
+tree builds/|xargs vi
+vi
+tfttft
+cd /opt/
+ls
+cd toolchains/
+ls
+wget guoding@10.74.123.215:/opt/toolchain/stbgcc-4.8-1.1
+wget guoding@10.74.123.215:/opt/toolchains/stbgcc-4.8-1.1
+scp guoding@10.74.123.215:/opt/toolchains/stbgcc-4.8-1.1 .
+scp -r guoding@10.74.123.215:/opt/toolchains/stbgcc-4.8-1.1 .
+sudo scp -r guoding@10.74.123.215:/opt/toolchains/stbgcc-4.8-1.1 .
+sudo scp -r guoding@10.74.123.215:/opt/toolchains/stbgcc-4.8-1.5 .
+df -h
+ls
+cd ~
+ls
+cd Public/
+ls
+du ccsp_mainline_pc_simulation/ smh
+du -smh
+du . -smh
+df -h
+cd ..
+ls
+du study/ -smh
+cd Public/tmp/brcm_61/
+ls
+git branch 
+git branch  -a
+cd ccsp/
+git branch  -a
+cat ~/.ssh/id_rsa.pub 
+ls toolchain_cm=/opt/toolchains/zOEMtools_eCos/eCos20/gnutools/mipsisa32-elf-i386-linux/bin
+cd ..
+ls toolchain_cm=/opt/toolchains/zOEMtools_eCos/eCos20/gnutools/mipsisa32-elf-i386-linux/bin
+ls /opt/toolchains/zOEMtools_eCos/eCos20/gnutools/mipsisa32-elf-i386-linux/bin
+file /opt/toolchains/zOEMtools_eCos/eCos20/gnutools/mipsisa32-elf-i386-linux/bin
+ls /opt/toolchains/zOEMtools_eCos/eCos20/gnutools/mipsisa32-elf-i386-linux/bin|nm
+ls /opt/toolchains/zOEMtools_eCos/eCos20/gnutools/mipsisa32-elf-i386-linux/bin|wc 
+cd ~/.emacs.d
+ls
+find . -name cc-cmds.el
+emacs 
+emacs --debug-init
+cd ..
+ls
+cd tmp/brcm_61/
+ls
+cscope-indexer . -r
+emacs .
+df -h
+ls
+cd ..
+ls
+cd ..
+ls
+cd Public/br
+cd Public/tmp/
+ls
+rm 10.74.123.243/ -rf
+df -h
+cd brcm_61/
+ls
+scp guoding@10.74.123.215:/home/guoding/123 .
+ssh 10.74.123.215
+ssh guoding@10.74.123.215
+ls
+ssh -v guoding@10.74.123.215
+df -h 
+cd Public/study/
+ls
+emacs . 
+emacs 

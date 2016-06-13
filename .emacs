@@ -6,13 +6,16 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
- '(custom-enabled-themes (quote (tango)))
- '(custom-safe-themes
-   (quote
-    ("1012cf33e0152751078e9529a915da52ec742dabf22143530e86451ae8378c1a" "a1a69b9addb10a29147eb6bc8c3988480d346703d771ea42a4c34182bf354beb" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
+  ;; '(custom-enabled-themes (quote (tango)))
+ ;; '(custom-safe-themes
+ ;;   (quote
+ ;;    ("1012cf33e0152751078e9529a915da52ec742dabf22143530e86451ae8378c1a" "a1a69b9addb10a29147eb6bc8c3988480d346703d771ea42a4c34182bf354beb" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
+ ;; '(custom-enabled-themes (quote (adwaita)))
  '(pyim-dicts nil)
  '(safe-local-variable-values (quote ((TeX-master . "master"))))
  '(session-use-package t))
+ ;; '(session-use-package t nil (session)))
+ ;; '(smex-auto-update t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -109,9 +112,11 @@
 ;(set-variable 'jit-lock-stealth-time 0)
 
 ;; 自动打开上次的文件
+;; (setq desktop-restore-frames nil)
+;;color unormal
 (desktop-save-mode 1)
 ;;dgl_0505
-;; ;;(require 'session) 
+;; (require 'session) 
 (add-hook 'after-init-hook 'session-initialize) 
 
 
@@ -374,69 +379,15 @@ auto-mode-alist))
 (setq org-mobile-directory "~/Dropbox/note")
 
 
-(add-to-list 'load-path "~/.emacs.d/cedet-1.1")
+;; (add-to-list 'load-path "~/.emacs.d/cedet-1.1")
 
-(load-file "~/.emacs.d/cedet-1.1/./common/cedet.el")
-(global-ede-mode 1)                      ; Enable the Project management system
-(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
-(global-srecode-minor-mode 1)            ; Enable template insertion menu
+;; (load-file "~/.emacs.d/cedet-1.1/./common/cedet.el")
+;; (global-ede-mode 1)                      ; Enable the Project management system
+;; (semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
+;; (global-srecode-minor-mode 1)            ; Enable template insertion menu
 ;(require 'ecb)
-(add-to-list 'load-path "~/.emacs.d/ecb-2.40")
-(require 'ecb)
-
-
-
-;; ;;iimage mode
-;; ;;M-x org-toggle-iimage-in-org 或 M-x iimage-mode 命令来激活 iimage模式
-;; (load "~/.emacs.d/iimage.el")
-;; (require 'iimage)
-;; (autoload 'iimage-mode "iimage" "Support Inline image minor mode." t)
-;; (autoload 'turn-on-iimage-mode "iimage" "Turn on Inline image minor mode." t)
-;; ; 显示图片
-;; (setq org-startup-with-inline-images t)
-;; ;org mode show image
-;; (defun org-toggle-iimage-in-org ()
-;;   "display images in your org file"
-;;   (interactive)
-;;   (if (face-underline-p 'org-link)
-;;       (set-face-underline-p 'org-link)
-;;       (set-face-underline-p 'org-link t))
-;;   (iimage-mode))
-;; ;; org capture
-;; (define-key global-map (kbd "C-c c") 'org-capture)
-;; (setq org-default-notes-file (concat org-directory "~/Dropbox/note/notes.org"))
-;; (setq org-capture-templates
-;;       '(("j" "Journal" plain (file+datetree (concat org-directory "journal.org"))
-;;          "* %?\n  -- %T\n")
-;; 	("n" "Note" entry (file+headline (concat org-directory "notes.org") "Notes")
-;; 	 "* %?\t%^G\nTime: %U\n %i")
-;; 	("t" "Todo" entry (file+headline (concat org-directory "Todo.org") "Tasks")
-;; 	 "* TODO %?\t%^G \nTime: %U\n %i")))
-;; ;; 在一个任务完成后，写心得或者备注并加上时间戳
-;; (setq org-log-done 'time)
-;; (setq org-log-done 'note)
-;; ;; org-clock 计时功能
-;; (setq org-clock-persist 'history)
-;; (org-clock-persistence-insinuate)
-;; ;; M-x gtd 命令之后，在新的窗口中就打开了我的Org-mode文件
-;; ;; (defun gtd () 
-;; ;;   (interactive)
-;; ;;   (find-file "c:/homes/charles/gtd/gtd/mygtd.org")
-;; ;; )
-
-;; ;; org docbook
-;; (load "~/.emacs.d/org-docbook.el")
-;; (require 'org-docbook)
-
-;; ;; org w3m
-;; ;; 从w3m拷贝到org，自动标记语法，如加粗等
-;; (load "~/.emacs.d/org-w3m.el")
-;; (require 'org-w3m)
-
-;; ;; org-tree-slide-mode org 幻灯片演示
-;; ;(load "~/.emacs.d/org-tree-slide.el")
-;; ;(require 'org-tree-slide)
-;; ;(global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
+;; (add-to-list 'load-path "~/.emacs.d/ecb-2.40")
+;; (require 'ecb)
 
 ;; deft
 (load "~/.emacs.d/deft.el")
@@ -446,24 +397,6 @@ auto-mode-alist))
 ;(setq deft-text-mode 'markdown-mode)
 (setq deft-use-filename-as-title t)
 (setq deft-directory "~/Dropbox/note/deft")
-
-;;emacs muse
-;(load "~/.emacs.d/muse/muse.el")
-;(require 'muse-mode)
-;(require 'muse-wiki)
-;(require 'muse-html)         ;添加html格式的支持
-;(require 'muse-latex)        ; 添加latex格式的支持
-;(require 'muse-texinfo)      ; 添加texinfo格式的支持
-;(require 'muse-docbook)      ; 添加docbook格式的支持
-;(require 'muse-project)      ; 添加wiki project的支持
-;;muse
-;;设置编码方式为utf-8
-;(setq muse-html-meta-content-type (concat "text/html; charset=utf-8"))
-;;新建一个wiki工程
-;(setq muse-project-alist
-;      '(("Think"
-;         ("~/Dropbox/note/wiki" :default "index")
-;         (:base "html" :path "~/Dropbox/note/wiki/html"))))
 
 ;; linum
 (load "~/.emacs.d/linum+.el")
@@ -476,23 +409,7 @@ auto-mode-alist))
 ;(global-auto-revert-mode 1)
 
 ;; nXhtml
-(load "~/.emacs.d/nxhtml/autostart.el")
-
-;; hexrgd.el
-;(load "~/.emacs.d/hexrgb.el")
-;(require 'hexrgb)
-
-;; vimpulse
-;(load "~/.emacs.d/vimpulse.el")
-;(require 'vimpulse)
-
-;; tab-display 用来'<'字符标识出文件中的tab字符
-;(load "~/.emacs.d/tab-display.el")
-;(require 'tab-display)
-
-;; thumbs.el 图片浏览器
-;(load "~/.emacs.d/thumbs.el")
-;(require 'thumbs)
+;; (load "~/.emacs.d/nxhtml/autostart.el")
 
 ;; window-number buffer快速定位
 ;; M-指定buffer number，如：M-1
@@ -546,33 +463,10 @@ auto-mode-alist))
 (add-hook 'markdown-mode-hook '(lambda() (markdown-custom)))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-;; mediawiki
-;(load "~/.emacs.d/mediawiki.el")
-;(require 'mediawiki)
-;(setq mediawiki-site-alist (quote (("Think" "http://localhost/wiki/" "mudan" "mudan88" "首页"))))
-;"ArchWiki" "wiki.archlinux.org:80" "mudan" "kuchanzhu" "Main Page"
-
-
-;; Web Jump
-;; 快速访问某网站
-;(load "~/.emacs.d/webjump-plus.el")
-;(require 'webjump-plus)
-;(global-set-key (kbd "C-x g") 'webjump)
-;(setq webjump-sites
-;      (append '(
-;        ("Google" . "www.google.com")
-;                ("baidu"   . "www.baidu.com")
-;                )
-;              webjump-sample-sites))
-
 ;; browse-kill-ring
 (load "~/.emacs.d/browse-kill-ring.el")
 (require 'browse-kill-ring)
 (global-set-key (kbd "C-c k") 'browse-kill-ring)
-
-;; 新版 Emacs 自带包管理工具
-;(require 'package)
-;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;; 自动保存上次光标所在的位置
 ;(load "~/.emacs.d/saveplace.el")
@@ -604,43 +498,46 @@ auto-mode-alist))
   ("s-P" . execute-command-with-region-kill)    ;在选择的区域中执行命令并删除
   ("s-\"" . copy-rectangle-to-register)         ;拷贝矩形到寄存器
   ("C-g" . goto-line)
+  ("M-x" . smex)
+  ("M-X" . smex-major-mode-commands)
+  ("C-c C-c M-x" . execute-extended-command)
  ))
 ; 把文件或buffer彩色输出成html
-(load "~/.emacs.d/htmlize.el")
-(require 'htmlize)
+;; (load "~/.emacs.d/htmlize.el")
+;; (require 'htmlize)
 
-;; powerline.el
-;(load "~/.emacs.d/powerline.el")
-;(require 'powerline)
-;(setq powerline-arrow-shape 'arrow)   ;; the default
-;(custom-set-faces
-;   '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil)))))
+;; ;; powerline.el
+;; ;(load "~/.emacs.d/powerline.el")
+;; ;(require 'powerline)
+;; ;(setq powerline-arrow-shape 'arrow)   ;; the default
+;; ;(custom-set-faces
+;; ;   '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil)))))
 
 ;; color-theme
 (add-to-list 'load-path' "~/.emacs.d/color-theme/")
 (require 'color-theme)
-(defun color-theme-eshell ()
-  (interactive)
-  (color-theme-install
-   '(color-theme-eshell
-     nil
-     (eshell-ls-archive-face ((t (:bold t :foreground "indianred1"))))
-     (eshell-ls-backup-face ((t (:foreground "indianred3"))))
-     (eshell-ls-clutter-face ((t (:foreground "DimGray"))))
-     (eshell-ls-directory-face ((t (:bold t :foreground "seagreen3"))))
-     (eshell-ls-executable-face ((t (:foreground "Coral"))))
-     (eshell-ls-missing-face ((t (:foreground "black"))))
-     (eshell-ls-picture-face ((t (:foreground "Violet")))) ; non-standard face
-     (eshell-ls-product-face ((t (:foreground "LightSalmon"))))
-     (eshell-ls-readonly-face ((t (:foreground "Aquamarine"))))
-     (eshell-ls-special-face ((t (:foreground "Gold"))))
-     (eshell-ls-symlink-face ((t (:foreground "White"))))
-     (eshell-ls-text-face ((t (:foreground "medium aquamarine")))) ; non-standard face
-     (eshell-ls-todo-face ((t (:bold t :foreground "aquamarine")))) ; non-standard face
-     (eshell-ls-unreadable-face ((t (:foreground "DimGray"))))
-     (eshell-prompt-face ((t (:bold t :foreground "gold"))))
-)))
-(provide 'color-theme-eshell)
+;; (defun color-theme-eshell ()
+;;   (interactive)
+;;   (color-theme-install
+;;    '(color-theme-eshell
+;;      nil
+;;      (eshell-ls-archive-face ((t (:bold t :foreground "indianred1"))))
+;;      (eshell-ls-backup-face ((t (:foreground "indianred3"))))
+;;      (eshell-ls-clutter-face ((t (:foreground "DimGray"))))
+;;      (eshell-ls-directory-face ((t (:bold t :foreground "seagreen3"))))
+;;      (eshell-ls-executable-face ((t (:foreground "Coral"))))
+;;      (eshell-ls-missing-face ((t (:foreground "black"))))
+;;      (eshell-ls-picture-face ((t (:foreground "Violet")))) ; non-standard face
+;;      (eshell-ls-product-face ((t (:foreground "LightSalmon"))))
+;;      (eshell-ls-readonly-face ((t (:foreground "Aquamarine"))))
+;;      (eshell-ls-special-face ((t (:foreground "Gold"))))
+;;      (eshell-ls-symlink-face ((t (:foreground "White"))))
+;;      (eshell-ls-text-face ((t (:foreground "medium aquamarine")))) ; non-standard face
+;;      (eshell-ls-todo-face ((t (:bold t :foreground "aquamarine")))) ; non-standard face
+;;      (eshell-ls-unreadable-face ((t (:foreground "DimGray"))))
+;;      (eshell-prompt-face ((t (:bold t :foreground "gold"))))
+;; )))
+;; (provide 'color-theme-eshell)
 
 ;;dgl_328
 ;; tomorrow theme dgl -temp
@@ -649,10 +546,10 @@ auto-mode-alist))
 ;; (require 'tomorrow-day-theme)
 ;; (load-theme `tomorrow-day t)
 ;;dgl_favorite solarize theme
-;; (load "~/.emacs.d/emacs-color-theme-solarized/color-theme-solarized.el")
+(load "~/.emacs.d/emacs-color-theme-solarized/color-theme-solarized.el")
 ;; (load "~/.emacs.d/emacs-color-theme-solarized/solarized-theme.el")
-;; (require 'color-theme-solarized)
-;; (load-theme 'solarized t)
+(require 'color-theme-solarized)
+(load-theme 'solarized t)
 
 ;; evernote
 ;(load "~/.emacs.d/evernote-mode.el")
@@ -704,90 +601,6 @@ auto-mode-alist))
 ;;         ("Evince" "evince %o")
 ;;         ("SumatraPDF" "SumatraPDF.exe %o")
 ;; 	("Firefox" "firefox %o")))
-
-;;; emms
-;(add-to-list 'load-path "~/.emacs.d/emms/")
-;(require 'emms-setup)
-;(emms-standard)
-;(require 'emms-score)
-;(emms-score 1)
-;(require 'emms-i18n)
-;(require 'emms-history)
-;(emms-default-players)
-;;; 状态栏
-;(defun bigclean-emms-mode-line-playlist-current ()
-;    "Return a description of the current track."
-;      (let* ((track (emms-playlist-current-selected-track))
-;              (type (emms-track-type track))
-;               (title (emms-track-get track 'info-title)))
-;    (format "[ %s ]"
-;               (cond ((and title)
-;                       title)))))
-;(setq emms-mode-line-mode-line-function
-;      'bigclean-emms-mode-line-playlist-current)
-;(global-set-key (kbd "C-c e e") 'emms)
-;(global-set-key (kbd "C-c e s") 'emms-stop)
-;(global-set-key (kbd "C-c e p") 'emms-pause)
-;(global-set-key (kbd "C-c e f") 'emms-show)
-;;;; ### Emms Playlist ###
-;;;; --- EMMS 播放列表
-;;(lazy-unset-key
-;; '("s" "m" "u" "M-<" "M->")
-;;	emms-playlist-mode-map)                ;卸载按键
-;;(lazy-set-key
-;; '(
-;;   ("C-x C-s" . emms-playlist-save)             ;保存播放列表
-;;   ("C-y" . emms-playlist-mode-yank)            ;剪切
-;;   ("C-k" . emms-playlist-mode-kill-track)      ;删除当前TRACK
-;;   ("C-/" . emms-playlist-mode-undo)            ;撤销
-;;   ("." . emms-playlist-mode-first)             ;浏览最上面一行
-;;   ("," . emms-playlist-mode-last)              ;浏览最下面一行
-;;   ("C-j" . emms-playlist-mode-insert-newline)  ;新建一行
-;;   ("M-n" . emms-playlist-mode-next)            ;下一个播放列表
-;;   ("M-p" . emms-playlist-mode-previous)        ;上一个播放列表
-;;   ("d" . emms-playlist-mode-kill-entire-track) ;从播放列表中移除当前TRACK
-;;   ("C" . emms-playlist-mode-clear)             ;清空当前的播放列表
-;;   ("f" . emms-playlist-mode-play-smart)        ;播放当前TRACK
-;;   ("b" . emms-playlist-set-playlist-buffer)    ;设定当前播放列表BUFFER
-;;   ("n" . emms-next)                            ;播放下一首
-;;   ("p" . emms-previous)                        ;播放上一首
-;;   ("r" . emms-random)                          ;随机播放下一首
-;;   (">" . emms-seek-forward)                    ;前进
-;;   ("<" . emms-seek-backward)                   ;后退
-;;   ("X" . emms-pause)                           ;暂停
-;;   ("T" . emms-stop)                            ;停止
-;;   ("Z" . emms-show)                            ;显示播放信息
-;;   ("q" . emms-playlist-mode-bury-buffer)       ;退出
-;;   ("?" . describe-mode)                        ;帮助
-;;   ("g" . emms-playlist-mode-center-current)    ;跳转到当前播放TRACK
-;;   ("D" . emms-delete-file-from-disk)           ;丛磁盘删除当前的文件
-;;   (";" . emms-tag-editor-edit-marked-tracks)   ;编辑标记的TAG
-;;   ("H" . emms-last-mark-track)                 ;最后一个标记
-;;   ("L" . emms-first-mark-track)                ;第一个标记
-;;   ("N" . emms-next-mark-track)                 ;下一个标记
-;;   ("P" . emms-prev-mark-track)                 ;上一个标记
-;;   )
-;; emms-playlist-mode-map
-;; )
-;
-;;; w3m
-;; (add-to-list 'load-path' "~/.emacs.d/emacs-w3m/")
-;; (require 'w3m-load)  
-;; (setq w3m-coding-system 'utf-8
-;;          w3m-file-coding-system 'utf-8
-;;          w3m-file-name-coding-system 'utf-8
-;;          w3m-input-coding-system 'utf-8
-;;          w3m-output-coding-system 'utf-8
-;;          w3m-terminal-coding-system 'utf-8)
-;; (setq w3m-display-inline-image t)
-;; (setq w3m-tab-width 8)
-;; (setq w3m-home-page "http://127.0.0.1/")
-;; (global-set-key (kbd "C-c C-w") 'w3m-browse-url)
-
-;;;使用工具包
-;; (setq w3m-use-toolbar t)
-;; (setq browse-url-generic-program "w3m")
-
 ;; calendar
 
 ;;do not need calendar speedup 
@@ -840,7 +653,7 @@ auto-mode-alist))
 (setq diary-mail-addr "mudand88@gmail.com")
 (add-hook 'diary-hook 'appt-make-list)
 
-;;临时记号  
+;;临时记号  mark important dgl
 ;;类似 vi 那样的 ma, mb, 'a, 'bnn
 (global-set-key "\C-cp" 'ska-point-to-register)  
 (global-set-key "\C-cn" 'ska-jump-to-register)  
@@ -945,18 +758,11 @@ auto-mode-alist))
 ;;   ;; For important compatibility libraries like cl-lib
 (package-initialize) ;; You might already have this line
 
-;;do not use evil mode ...vi mode
-;; (add-to-list 'load-path "~/.emacs.d/evil")
-;; (require 'evil)
-;; (evil-mode 0)
-
-;(load-file "/usr/share/emacs/site-lisp/xcscope.el")
-;(require 'xcscope)
-;require ‘xcscope
-;cscope-setup
 (put 'downcase-region 'disabled nil)
 (require 'thingatpt)
 
+
+;;mark
 (defface feng-highlight-at-point-face
   `((((class color) (background light))
      (:background "light green"))
@@ -1004,7 +810,6 @@ auto-mode-alist))
     (define-key map (kbd "M-r") 'feng-at-point-replace)
     (define-key map (kbd "M-p") 'feng-at-point-prev)
     map))
-
 (defun feng-highlight-at-point ()
   (interactive)
   (remove-overlays (point-min) (point-max) 'feng-highlight t)
@@ -1023,21 +828,7 @@ auto-mode-alist))
               (overlay-put ovl 'face 'feng-highlight-at-point-face)
               (overlay-put ovl 'feng-highlight t))
             (setq end (re-search-forward regexp nil t))))))))
-
 (provide 'feng-highlight)
-
-;; (defun my-put-file-name-on-clipboard ()
-;;   "Put the current file name on the clipboard"
-;;   (interactive)
-;;   (let ((filename (if (equal major-mode 'dired-mode)
-;;                       default-directory
-;;                     (buffer-file-name))))
-;;     (when filename
-;;       (with-temp-buffer
-;;         (insert filename)
-;;         (clipboard-kill-region (point-min) (point-max)))
-;;       (message filename))))
-
 
 (defun cpp-highlight-if-0/1 ()
   "Modify the face of text in between #if 0 ... #endif."
@@ -1087,6 +878,8 @@ auto-mode-alist))
 (global-set-key (kbd "C-c <up>") `windmove-up)
 (global-set-key (kbd "C-c <down>") `windmove-down)
 (global-set-key (kbd "C-x c") `copy-file-name-to-clipboard)
+
+
 
 (setq mac-command-modifier 'meta) ; make cmd key do Meta
 (setq mac-option-modifier 'super) ; make opt key do Super

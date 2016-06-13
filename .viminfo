@@ -8,25 +8,31 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~mSle0~/gz
+~mSle0~/emacs
 
 # Last Substitute Search Pattern:
 ~mSle0&\n
 
 # Last Substitute String:
-$ 
+$
 
 # Command Line History (newest to oldest):
-:qall
-:q
 :wqall
 :w
+:qall
+:qal
+:e /etc/services
+:e sdk/etc/services
+:!man ping
+:qa
+:%s/\n/ /g
+:q
+:wq
+:'<,'>qall
 :e ccsp-mainline-patches/apply_patch.sh.rej
 :e 123
 :!git diff Utopia/Makefile
 :!git diff Utopia/source/sysevent/lib/sysevent.h
-:%s/\n/ /g
-:qa
 :e 1234
 :!git diff Utopia/source/syscfg/lib/syscfg_lib.h
 :! git diff Utopia/source/syscfg/lib/Makefile
@@ -35,7 +41,6 @@ $
 :e buildConfig.cfg
 :set nonu
 :e 
-:wq
 :jjjkk
 :q!
 :wqal
@@ -50,7 +55,6 @@ $
 :qalll
 :e /var/log/
 :e /var/local/
-:qal
 :e /usr/share/emacs/site-lisp/
 :e history.el
 :NNN
@@ -63,12 +67,30 @@ $
 :2178
 :nonu
 :!bash 123.bash aaa bbb
-:!bash 123.bash aaa
-:!bash 123.bash
-:e .emacs_old
-:<F6>
 
 # Search String History (newest to oldest):
+?/emacs
+?/apply
+?/moca
+?/eth
+?/eth0
+?/lgi
+?/tftp
+?/log
+?/tool
+?/toolchani
+?/80
+?/8080
+?/ping
+? \n
+?/window
+?/guoding
+?/x
+?/display
+?/path
+?/xinet
+?/xinetd
+?/telnet
 ?/gz
 ?/load-path
 ?/emacs.d
@@ -78,11 +100,9 @@ $
 ?/mainline
 ?/script
 ?/makefile
-? \n
 ?/syscfg
 ?/syscfg_lib
 ?/simple
-?/path
 ?/gcc
 ?/ccspmainline
 ?/ccsp
@@ -99,26 +119,6 @@ $
 ?/instance
 ?/root
 ?/LineTable
-?/DHCPOption8
-?/pktcMtaDevRealmOrgName
-?/ClearDSXLog
-?/HazardousPotential
-?/number
-?/count
-?/entry
-?/LineTable_GetEntryCount
-?/193
-?/fail
-?/faile
-?/cflags
-?/make
-?/register empty
-?/register
-?/181
-?/grep
-?/color
-?/docsis_SetUSChannelId
-?/platform
 
 # Expression History (newest to oldest):
 
@@ -127,24 +127,36 @@ $
 # Input Line History (newest to oldest):
 
 # 寄存器:
-"0	LINE	0
-				./platform_broadcom/ccspmainlinebuild.sh ${toolchain_rg}
-""1	LINE	0
-	>>>>>>> a8d3d0a7c5570c67f2bbf2049fb787924461a5a1
+""0	CHAR	0
+	8080
+"1	LINE	0
+	474
+<1234.diff broadcom/epc4911/CcspCMAgent/1.1/GwProvApp/ broadcom/epc4911/CcspCMAgent/1.1/libgw_prov_abs_layer/ broadcom/epc4911/CcspCommonLib/Utopia/1.1/include/utopia_platform_ov.h.rej broadcom/epc4911/CcspMocaAgent/1.1/libmoca_mgnt/moca_hal.h broadcom/epc4911/gw_scripts/iproute2/ broadcom/epc4911/gw_scripts/udhcpc.script ccsp-mainline-patches/apply_patch.sh.orig ccsp-mainline-patches/apply_patch.sh.rej ccsp-mainline-patches/revertpatch.sh platform_broadcom.diff.patch
 "2	LINE	0
-	#patch -p0 < $CCSP_PATCH_PATH/ccsp_utopia_override.patch
-"3	LINE	0
-	=======
+	
+"3	BLOCK	2
+	?? 
+	?? 
+	?? 
+	?? 
+	?? 
+	?? 
+	?? 
+	?? 
+	?? 
+	?? 
+	?? 
+	?? 
 "4	LINE	0
-	<<<<<<< HEAD
+	 broadcom/epc4911/CcspCommonLib/1.1/platform.inc ccsp-mainline-patches/apply_patch.sh
 "5	LINE	0
-	>>>>>>> Stashed changes
+	>>>>>>> a8d3d0a7c5570c67f2bbf2049fb787924461a5a1
 "6	LINE	0
-	#include $(CCSP_ROOT_DIR)/CcspCommonLib/Utopia/1.1/platform.inc
+	#patch -p0 < $CCSP_PATCH_PATH/ccsp_utopia_override.patch
 "7	LINE	0
 	=======
 "8	LINE	0
-	<<<<<<< Updated upstream
+	<<<<<<< HEAD
 "9	LINE	0
 	>>>>>>> Stashed changes
 "a	CHAR	0
@@ -158,123 +170,539 @@ $
 "w	CHAR	0
 	wwbwsist�kb�kb�kbstdin:wbbbia = :wkbbdwiint :wjwwwwwdw:wo	p�kb	putchar(a);:wbbbbKq
 "-	CHAR	0
-	#	modified:   
+	8080
 
 # 文件标记:
-'0  13  0  /usr/local/share/emacs/24.5/lisp/international/README
-'1  4  0  /usr/local/share/emacs/24.5/lisp/NERD_tree_1
-'2  28  0  ~/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/apply_patch.sh
-'3  4  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/Makefile
-'4  44  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/Makefile
-'5  3  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/Makefile
-'6  1  0  ~/.emacs.desktop
-'7  1091  0  ~/.emacs
-'8  402  2  ~/123
-'9  1  0  ~/.emacs.d/NERD_tree_2
+'0  125  13  ~/.bashrc
+'1  252  0  ~/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/scripts/epc4911/utopia_init.sh
+'2  1  0  ~/Public/tmp/brcm_61/ccsp/Out/broadcom-epc4911/etc/utopia/system_defaults
+'3  842  1  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+'4  1  0  ~/Public/tmp/brcm_61/build_package.sh
+'5  1  0  ~/Public/tmp/brcm_61/get_filer.sh
+'6  1  1  ~/Public/tmp/brcm_61/111
+'7  81  0  ~/Public/tmp/brcm_61/NERD_tree_1
+'8  1  0  ~/Public/tmp/brcm_61/CmBldr_3390.log
+'9  38  0  ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_ubifs.log
 
 # 跳转列表 (从新到旧):
--'  13  0  /usr/local/share/emacs/24.5/lisp/international/README
--'  1  0  /usr/local/share/emacs/24.5/lisp/international/README
--'  4  0  /usr/local/share/emacs/24.5/lisp/NERD_tree_1
--'  528  0  /usr/local/share/emacs/24.5/lisp/NERD_tree_1
--'  1  0  /usr/local/share/emacs/24.5/lisp/NERD_tree_1
--'  1  0  /usr/local/share/emacs/24.5/lisp/international/mule.el.gz
--'  28  0  ~/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/apply_patch.sh
--'  1  0  ~/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/apply_patch.sh
--'  4  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/Makefile
--'  1  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/Makefile
--'  44  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/Makefile
--'  4  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/Makefile
--'  3  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/Makefile
--'  1  0  ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_routed/Makefile
--'  1  0  ~/.emacs.desktop
--'  1091  0  ~/.emacs
--'  2  1  ~/.emacs
--'  1  1  ~/.emacs
--'  402  2  ~/123
--'  1  0  ~/.emacs.d/NERD_tree_2
--'  4  0  ~/.emacs.d/NERD_tree_2
--'  6  0  ~/.emacs.d/NERD_tree_2
--'  401  60  ~/123
--'  400  60  ~/123
--'  399  59  ~/123
--'  398  60  ~/123
--'  343  56  ~/123
--'  342  56  ~/123
--'  200  51  ~/123
--'  199  34  ~/123
--'  198  50  ~/123
--'  143  56  ~/123
--'  142  39  ~/123
--'  97  59  ~/123
--'  1  0  ~/123
--'  442  60  ~/123
--'  443  59  ~/123
--'  444  60  ~/123
--'  445  60  ~/123
--'  447  60  ~/123
--'  448  60  ~/123
--'  449  60  ~/123
--'  450  63  ~/123
--'  451  71  ~/123
--'  452  59  ~/123
--'  454  62  ~/123
--'  455  21  ~/123
--'  456  21  ~/123
--'  457  21  ~/123
--'  458  60  ~/123
--'  459  59  ~/123
--'  460  60  ~/123
--'  461  60  ~/123
--'  463  60  ~/123
--'  464  60  ~/123
--'  465  60  ~/123
--'  466  63  ~/123
--'  467  71  ~/123
--'  468  59  ~/123
--'  470  62  ~/123
--'  473  69  ~/123
--'  1171  0  ~/123
--'  441  73  ~/123
--'  430  21  ~/123
--'  429  21  ~/123
--'  428  62  ~/123
--'  426  71  ~/123
--'  425  63  ~/123
--'  424  60  ~/123
--'  423  60  ~/123
--'  422  60  ~/123
--'  420  60  ~/123
--'  419  60  ~/123
--'  418  59  ~/123
--'  417  60  ~/123
--'  416  21  ~/123
--'  415  21  ~/123
--'  414  21  ~/123
--'  413  21  ~/123
--'  412  85  ~/123
--'  411  68  ~/123
--'  410  62  ~/123
--'  408  59  ~/123
--'  407  71  ~/123
--'  406  63  ~/123
--'  405  60  ~/123
--'  404  60  ~/123
--'  403  60  ~/123
--'  402  2  ~/123
--'  1  0  ~/.emacs.d/NERD_tree_2
--'  4  0  ~/.emacs.d/NERD_tree_2
--'  6  0  ~/.emacs.d/NERD_tree_2
--'  401  60  ~/123
--'  400  60  ~/123
--'  399  59  ~/123
--'  398  60  ~/123
--'  343  56  ~/123
--'  342  56  ~/123
--'  4  0  /usr/local/share/emacs/24.5/lisp/NERD_tree_1
--'  528  0  /usr/local/share/emacs/24.5/lisp/NERD_tree_1
+-'  125  13  ~/.bashrc
+-'  1  0  ~/.bashrc
+-'  252  0  ~/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/scripts/epc4911/utopia_init.sh
+-'  253  0  ~/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/scripts/epc4911/utopia_init.sh
+-'  255  21  ~/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/scripts/epc4911/utopia_init.sh
+-'  1  0  ~/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/scripts/epc4911/utopia_init.sh
+-'  1  0  ~/Public/tmp/brcm_61/ccsp/Out/broadcom-epc4911/etc/utopia/system_defaults
+-'  842  1  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  760  3  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  757  3  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  756  2  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  214  40  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  212  46  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  200  25  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  190  31  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  189  40  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  187  46  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  175  25  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  164  13  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  158  31  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  157  40  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  155  46  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  107  61  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  73  15  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  69  15  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  698  28  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  573  43  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  571  53  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  1  0  ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+-'  1  0  ~/Public/tmp/brcm_61/build_package.sh
+-'  1  0  ~/Public/tmp/brcm_61/get_filer.sh
+-'  1  1  ~/Public/tmp/brcm_61/111
+-'  81  0  ~/Public/tmp/brcm_61/NERD_tree_1
+-'  114  0  ~/Public/tmp/brcm_61/NERD_tree_1
+-'  1  0  ~/Public/tmp/brcm_61/NERD_tree_1
+-'  1  0  ~/Public/tmp/brcm_61/CmBldr_3390.log
+-'  1  0  ~/Public/tmp/brcm_61/build_logs
+-'  6  0  ~/Public/tmp/brcm_61/NERD_tree_3
+-'  1  0  ~/Public/tmp/brcm_61/NERD_tree_3
+-'  118  0  ~/Public/tmp/brcm_61/NERD_tree_1
+-'  38  0  ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_ubifs.log
+-'  1  0  ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_ubifs.log
+-'  13  0  ~/Public/tmp/brcm_61/NERD_tree_3
+-'  11345  0  ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_bcm93390smwvg.log
+-'  1  0  ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_bcm93390smwvg.log
+-'  12  0  ~/Public/tmp/brcm_61/NERD_tree_3
+-'  1021  0  ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/pc15_prod_bcm93390smwvg_pc15.log
+-'  1  0  ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/pc15_prod_bcm93390smwvg_pc15.log
+-'  11  0  ~/Public/tmp/brcm_61/NERD_tree_3
+-'  1  0  ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/CmBldr_3390.log
+-'  10  0  ~/Public/tmp/brcm_61/NERD_tree_3
+-'  20  0  ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/bolt_3390.log
+-'  9  0  ~/Public/tmp/brcm_61/NERD_tree_3
+-'  4  0  ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/bolt_3390.log
+-'  126  0  ~/Public/tmp/brcm_61/NERD_tree_1
+-'  8  0  ~/Public/tmp/brcm_61/build_config/DPC4912_CCSP_PC15_GA.cfg
+-'  7  0  ~/Public/tmp/brcm_61/build_config/DPC4912_CCSP_PC15_GA.cfg
+-'  1  0  ~/Public/tmp/brcm_61/build_config/DPC4912_CCSP_PC15_GA.cfg
+-'  144  26  ~/Public/tmp/10.74.123.243/brcm/tmp/webuiPrebuilt/lighttpd.conf
+-'  1  0  ~/Public/tmp/10.74.123.243/brcm/tmp/webuiPrebuilt/lighttpd.conf
+-'  145  15  ~/Public/tmp/10.74.123.243/brcm/webuiPrebuilt/lighttpd.conf
+-'  1  0  ~/Public/tmp/10.74.123.243/brcm/webuiPrebuilt/lighttpd.conf
+-'  85  6  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  1  0  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  487  9  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  486  9  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  485  9  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  454  7  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  453  7  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  403  11  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  402  11  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  362  10  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  299  9  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  298  9  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  86  6  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  505  9  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  490  8  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  489  8  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  488  11  ~/Public/tmp/brcm_61/sdk/etc/services
+-'  437  9  /etc/services
+-'  436  9  /etc/services
+-'  1  0  /etc/services
+-'  201  0  ~/Public/tmp/123
+-'  113  45  ~/Public/tmp/123
+-'  112  45  ~/Public/tmp/123
+-'  111  45  ~/Public/tmp/123
+-'  110  45  ~/Public/tmp/123
+-'  109  45  ~/Public/tmp/123
+-'  108  45  ~/Public/tmp/123
+-'  107  45  ~/Public/tmp/123
+-'  106  36  ~/Public/tmp/123
+-'  105  86  ~/Public/tmp/123
+-'  104  45  ~/Public/tmp/123
+-'  103  45  ~/Public/tmp/123
+-'  102  36  ~/Public/tmp/123
+-'  101  45  ~/Public/tmp/123
+-'  100  43  ~/Public/tmp/123
 
 # 文件内的标记历史记录 (从新到旧):
+
+> ~/.bashrc
+	"	125	13
+	^	124	20
+	.	125	0
+	+	122	16
+	+	121	0
+	+	122	0
+	+	124	19
+	+	125	0
+
+> ~/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/tmp/brcm_61/ccsp/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/scripts/epc4911/utopia_init.sh
+	"	252	0
+
+> ~/Public/tmp/brcm_61/ccsp/Out/broadcom-epc4911/etc/utopia/system_defaults
+	"	1	0
+
+> ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/defaults/system_defaults
+	"	842	1
+
+> ~/Public/tmp/brcm_61/build_package.sh
+	"	1	0
+
+> ~/Public/tmp/brcm_61/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/tmp/brcm_61/get_filer.sh
+	"	1	0
+	^	34	9
+	.	34	8
+	+	34	8
+
+> ~/Public/tmp/brcm_61/customer_lgi/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/tmp/brcm_61/111
+	"	1	1
+
+> ~/Public/tmp/brcm_61/build_logs
+	"	1	0
+
+> ~/Public/tmp/brcm_61/CmBldr_3390.log
+	"	1	0
+
+> ~/Public/tmp/brcm_61/NERD_tree_2
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/tmp/brcm_61/NERD_tree_3
+	"	1	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/tmp/brcm_61/-MiniBufExplorer-
+	"	1	268
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/bolt_3390.log
+	"	20	0
+
+> ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/CmBldr_3390.log
+	"	1	0
+
+> ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/pc15_prod_bcm93390smwvg_pc15.log
+	"	1	0
+
+> ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_bcm93390smwvg.log
+	"	2	0
+
+> ~/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_ubifs.log
+	"	38	0
+
+> ~/Public/tmp/brcm_61/build_config/DPC4912_CCSP_PC15_GA.cfg
+	"	8	0
+
+> /opt/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/tmp/10.74.123.243/brcm/tmp/webuiPrebuilt/lighttpd.conf
+	"	144	26
+
+> ~/Public/tmp/10.74.123.243/brcm/tmp/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/tmp/10.74.123.243/brcm/webuiPrebuilt/lighttpd.conf
+	"	145	15
+	^	145	16
+	.	145	15
+	+	145	15
+
+> ~/Public/tmp/10.74.123.243/brcm/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/tmp/123
+	"	201	0
+
+> ~/Public/tmp/brcm_61/sdk/etc/services
+	"	85	6
+
+> /etc/services
+	"	1	0
+
+> ~/Public/tmp/brcm_61/platform_broadcom/ccsp-mainline-patches/apply_patch.sh
+	"	35	20
+
+> ~/Public/tmp/brcm_61/rg/rootfs/user/mini_httpd/Makefile
+	"	37	0
+	a	18	5
+
+> ~/Public/tmp/brcm_61/rg/rg_apps/targets/93390MWVG/fs.install/etc/lighttpd
+	"	1	0
+
+> ~/Public/tmp/brcm_61/webuiPrebuilt/lighttpd.conf
+	"	40	0
+
+> ~/Public/tmp/1234
+	"	11	0
+
+> ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/service.d/service_httpd.sh
+	"	172	29
+
+> ~/Public/tmp/brcm_61/webuiPrebuilt/php-fpm.conf
+	"	1	0
+
+> ~/Public/tmp/brcm_61/123
+	"	1031	0
+
+> ~/Public/tmp/brcm_61/rg/rootfs/user/busybox/examples/var_service/httpd/p_log
+	"	1	0
+
+> ~/Public/tmp/brcm_61/rg/rootfs/user/busybox/examples/var_service/httpd/run
+	"	1	0
+
+> ~/Public/tmp/brcm_61/rg/rootfs/user/busybox/examples/var_service/httpd/w_log
+	"	1	0
+
+> ~/Public/tmp/brcm_61/rg/rootfs/user/busybox/examples/var_service/httpd/log/run
+	"	6	0
+
+> ~/Public/tmp/brcm_61/1234
+	"	1	0
+	^	5	29
+	.	5	0
+	+	5	0
+
+> ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/etc/etc/services
+	"	1	0
+
+> ~/Public/tmp/brcm_61/rg/rg_apps/targets/fs.src/etc/services
+	"	41	5
+
+> ~/Public/tmp/brcm_61/rg/rootfs/romfs/etc/services
+	"	1	0
+
+> ~/Public/tmp/brcm_61/rg/rootfs/skel/etc/services
+	"	454	7
+
+> ~/Public/tmp/brcm_61/platform_broadcom/ccsp-mainline-patches/ccsp_webui_demo.patch
+	"	1	0
+
+> ~/Public/brcm_61/get_filer.sh
+	"	72	1
+
+> ~/Public/brcm_61/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/tmp/123
+	"	1	0
+	.	1	0
+	+	1	0
+
+> ~/tmp/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/Public/brcm_61/ccsp/123
+	"	1	7
+	^	1	8
+	.	1	7
+	+	1	7
+
+> ~/Public/brcm_61/ccsp/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/brcm_61/platform_broadcom/123
+	"	1	395
+	.	1	395
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	72
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	6
+	+	1	31
+	+	1	0
+	+	1	477
+	+	1	0
+	+	1	0
+	+	1	470
+	+	1	66
+	+	2	45
+	+	1	0
+	+	1	395
+
+> ~/Public/brcm_61/platform_broadcom/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Public/brcm_61/platform_broadcom/1234
+	"	1	0
+	^	1	7
+	.	1	6
+	+	1	6
+
+> ~/Public/brcm_61/platform_broadcom/.git/COMMIT_EDITMSG
+	"	4	0
+
+> ~/.emacs
+	"	1	0
+	.	1	0
+	+	1091	0
+	+	1	0
+
+> ~/.emacs.d/emacs-color-theme-solarized/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/.Xauthority
+	"	1	38
+
+> /var/log/dmesg
+	"	720	42
+
+> /home/team/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/.xsession-errors
+	"	186	0
+
+> ~/.xinitrc
+	"	1	0
+	^	1	1
+	.	1	0
+	+	1	0
+
+> /etc/init.d/passwd
+	"	6	1
+
+> /etc/init.d/NERD_tree_1
+	"	4	0
+	.	1	0
+	+	1	0
+
+> /etc/rc.local
+	"	5	2
+
+> ~/.vnc/xstartup
+	"	16	0
+	^	19	0
+	.	18	16
+	+	13	0
+	+	18	16
+
+> ~/-MiniBufExplorer-
+	"	1	0
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/123
+	"	1	0
+	a	403	60
 
 > /usr/local/share/emacs/24.5/lisp/international/README
 	"	13	0
@@ -300,27 +728,6 @@ $
 	+	10	0
 	+	27	0
 	+	28	0
-
-> ~/Public/brcm_61/platform_broadcom/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
 
 > ~/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/Makefile
 	"	4	0
@@ -356,32 +763,6 @@ $
 > ~/.emacs.desktop
 	"	1	0
 
-> ~/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/.emacs
-	"	1091	0
-	.	1091	0
-	+	1091	0
-
 > ~/.emacs.d/NERD_tree_1
 	"	4	0
 	.	1	0
@@ -396,10 +777,6 @@ $
 	"	1	0
 	.	1	0
 	+	1	0
-
-> ~/123
-	"	402	2
-	a	403	60
 
 > ~/.emacs.d/-MiniBufExplorer-
 	"	1	15
@@ -426,18 +803,6 @@ $
 	+	62	8
 	+	1401	4
 	b	1245	3
-
-> ~/Public/brcm_61/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
 
 > ~/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/apply_patch.sh.rej
 	"	1	0
@@ -466,13 +831,6 @@ $
 	.	2	0
 	+	2	0
 	+	2	0
-
-> ~/Public/brcm_61/ccsp/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
 
 > ~/Public/brcm_61/ccsp/CcspCommonLib/123
 	"	1	98
@@ -508,25 +866,6 @@ $
 	+	2	0
 	+	2	0
 
-> ~/Public/brcm_61/platform_broadcom/123
-	"	1	1
-	^	1	49
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	72
-	+	1	0
-	+	1	0
-	+	1	0
-	+	2	0
-	+	1	0
-	+	2	0
-	+	1	0
-
 > ~/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/1.1/platform.inc
 	"	16	0
 	.	16	0
@@ -547,9 +886,6 @@ $
 	+	4	58
 	+	5	0
 
-> ~/Public/brcm_61/platform_broadcom/.git/COMMIT_EDITMSG
-	"	7	0
-
 > ~/Public/brcm_61/ccsp/CcspCommonLib/12345
 	"	1	0
 
@@ -569,503 +905,4 @@ $
 > ~/Public/brcm_61/ccsp/CcspCommonLib/NERD_tree_2
 	"	4	0
 	.	1	0
-	+	1	0
-
-> ~/Public/brcm_61/ccsp/CcspCommonLib/NERD_tree_3
-	"	8	0
-	.	1	0
-	+	1	0
-
-> /proc/14871/fd/63
-	"	3	0
-
-> /proc/14871/fd/62
-	"	2	0
-
-> ~/Public/ccsp_mainline_pc_simulation/build.sh
-	"	39	0
-
-> ~/Public/intel_usg/build.sh
-	"	27	20
-
-> ~/tools/build_package.sh
-	"	759	1
-
-> ~/tools/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-
-> ~/tools/build
-	"	1	0
-
-> ~/tools/buildConfig.cfg
-	"	1	0
-
-> ~/tools/-MiniBufExplorer-
-	"	1	9
-	.	2	0
-	+	2	0
-
-> ~/Public/ccsp_mainline_pc_simulation/ccsp/utilities/pc_build/ccsp_setenv_pc.sh
-	"	25	7
-
-> ~/Public/ccsp_mainline_pc_simulation/ccsp/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/ccsp_mainline_pc_simulation/ccsp/utilities/opensource/build_modules.sh
-	"	87	1
-
-> ~/Public/intel_usg/build_helper.sh
-	"	1	0
-
-> ~/Public/intel_usg/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/intel_usg/-MiniBufExplorer-
-	"	1	0
-	.	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-	+	2	0
-
-> ~/Public/intel_usg/NERD_tree_2
-	"	4	0
-	.	1	0
-	+	1	0
-
-> ~/Public/intel_usg/NERD_tree_3
-	"	6	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/intel_usg/platform_repo/make/arm/ccsp_build_common.mk
-	"	96	13
-
-> ~/.emacs.d/123
-	"	3	2
-
-> ~/study/linuxapplicationmanual/debug/examples/memtest/Makefile
-	"	4	9
-	^	4	10
-	.	4	9
-	+	2	0
-	+	1	0
-	+	2	3
-	+	7	17
-	+	7	0
-	+	5	0
-	+	4	9
-
-> ~/study/linuxapplicationmanual/debug/examples/memtest/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/ccsp_mainline_pc_simulation/log
-	"	15	0
-	^	8	47
-	.	8	46
-	+	1	44
-	+	7	46
-	+	13	69
-	+	7	31
-	+	8	46
-
-> ~/Public/build_test/ccsp_mainline_pc_simulation2/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/build_test/ccsp_mainline_pc_simulation2/ccsp/Out/pc-ubuntu32/123
-	"	1857	60
-
-> ~/Public/build_test/ccsp_mainline_pc_simulation2/ccsp/Out/pc-ubuntu32/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-
-> ~/Public/build_test/ccsp_mainline_pc_simulation2/platform_repo/CcspCommonLib/pc/scripts/cosa_start.sh
-	"	180	10
-	^	180	11
-	.	180	10
-	+	192	10
-	+	180	10
-
-> ~/study/main
-	"	1	0
-
-> ~/study/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/Out/pc-ubuntu32/123
-	"	86	59
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/Out/pc-ubuntu32/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/build_test/ccsp_mainline_pc_simulation/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/build_test/ccsp_mainline_pc_simulation/1234
-	"	1	0
-
-> ~/Public/build_test/ccsp_mainline_pc_simulation/123
-	"	82	59
-
-> ~/Public/build_test/ccsp_mainline_pc_simulation/Makefile
-	"	88	26
-	.	204	0
-	+	87	0
-	+	87	0
-	+	89	0
-	+	144	0
-	+	146	0
-	+	201	0
-	+	204	0
-
-> ~/Public/build_test/ccsp_mainline_pc_simulation/111
-	"	65	88
-
-> ~/Public/build_test/ccsp_mainline_pc_simulation/ccsp/Out/pc-ubuntu32/cosa_start.sh
-	"	195	14
-
-> ~/Public/build_test/ccsp_mainline_pc_simulation/ccsp/Out/pc-ubuntu32/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspCMAgent/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/Out/pc-ubuntu32/1234
-	"	86	59
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/Out/pc-ubuntu32/cosa_start.sh
-	"	2	0
-	.	201	0
-	+	201	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/source.sh
-	"	1	0
-	.	4	0
-	+	2	0
-	+	4	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspCMAgent/.git
-	"	1	6
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspCMAgent/Makefile
-	"	54	0
-
-> ~/.install4j
-	"	11	0
-
-> ~/vmware-tools-distrib/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/make/ccsp_common.mk
-	"	194	47
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/NERD_tree_1
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/ccsp_common.mk
-	"	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/NERD_tree_1
-	"	1	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/NERD_tree_2
-	"	4	0
-	.	1	0
-	+	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/NERD_tree_3
-	"	7	0
-	.	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/source/MtaAgentSsp/ssp_action.c
-	"	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/123
-	"	1	0
-	.	1	0
-	+	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/123333
-	"	1	0
-	^	12	16
-	.	12	15
-	+	13	16
-	+	13	0
-	+	14	0
-	+	15	0
-	+	16	0
-	+	17	0
-	+	18	0
-	+	19	0
-	+	20	0
-	+	32	1
-	+	13	7
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	17
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	13	0
-	+	1	0
-	+	11	3
-	+	5	0
-	+	6	0
-	+	7	0
-	+	8	0
-	+	9	0
-	+	10	0
-	+	12	15
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/ccsp/CcspMtaAgent/hal/include/mta_hal.h
-	"	290	36
-
-> ~/.bashrc
-	"	124	19
-	^	124	20
-	.	124	19
-	+	122	16
-	+	121	0
-	+	122	0
-	+	124	19
-
-> /etc/sudoers
-	"	30	0
-	^	30	1
-	.	30	0
-	+	29	0
-	+	30	0
-	+	29	0
-	+	30	0
-
-> /usr/bin/gdb
-	"	1	14
-	^	1	15
-	.	1	14
-	+	1	14
-
-> /etc/sysctl.d/10-ptrace.conf
-	"	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/NERD_tree_2
-	"	4	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-
-> ~/Public/tmp/ccsp_mainline_pc_simulation/NERD_tree_3
-	"	1	0
-	.	1	0
-	+	1	0
 	+	1	0

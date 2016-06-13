@@ -4,14 +4,23 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
+ '(custom-enabled-themes (quote (tango)))
+ '(custom-safe-themes
+   (quote
+	("1012cf33e0152751078e9529a915da52ec742dabf22143530e86451ae8378c1a" "a1a69b9addb10a29147eb6bc8c3988480d346703d771ea42a4c34182bf354beb" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
  '(pyim-dicts nil)
- '(safe-local-variable-values (quote ((TeX-master . "master")))))
+ '(safe-local-variable-values (quote ((TeX-master . "master"))))
+ ;; '(session-use-package t nil (session))
+  '(session-use-package t))
+ ;; '(smex-auto-update t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 89 :width normal)))))
+ )
 ;asdlfjaslkdfja;fj;
 ;(setq frame-title-format '("%S" (buffer-file-name "%f"(dired-directory dired-directory "%b"))))
 ;; 标题栏显示文件路径  
@@ -504,14 +513,14 @@ auto-mode-alist))
 
 
 
-;; tron-theme.el
+;; tron-theme.eldepend
 ;; (load "~/.emacs.d/tron-theme.el")
 ;; (require 'tron-theme)
 ;; (load-theme `tron t)
-
-(load   "/home/guoding/.emacs.d/elpa/pastelmac-theme-20151030.1936/pastelmac-theme.el")
-(require 'pastelmac-theme)
-(load-theme `pastelmac t)
+;;dgl_old theme
+;; (load   "/home/guoding/.emacs.d/elpa/pastelmac-theme-20151030.1936/pastelmac-theme.el")
+;; (require 'pastelmac-theme)
+;; (load-theme `pastelmac t)
 
 ;; 让dired只使用一个buffer
 (load "~/.emacs.d/dired-single.el")
@@ -597,6 +606,9 @@ auto-mode-alist))
   ("s-P" . execute-command-with-region-kill)    ;在选择的区域中执行命令并删除
   ("s-\"" . copy-rectangle-to-register)         ;拷贝矩形到寄存器
   ("C-g" . goto-line)
+  ("M-x" . smex)
+  ("M-X" . smex-major-mode-commands)
+  ("C-c C-c M-x" . execute-extended-command)
  ))
 ; 把文件或buffer彩色输出成html
 (load "~/.emacs.d/htmlize.el")
@@ -641,11 +653,11 @@ auto-mode-alist))
 ;; (load "~/.emacs.d/tomorrow/tomorrow-day-theme.el")
 ;; (require 'tomorrow-day-theme)
 ;; (load-theme `tomorrow-day t)
-
-(load "~/.emacs.d/emacs-color-theme-solarized/color-theme-solarized.el")
-(load "~/.emacs.d/emacs-color-theme-solarized/solarized-theme.el")
-(require 'color-theme-solarized)
-(load-theme 'solarized t)
+;;dgl_favorite solarize theme
+;; (load "~/.emacs.d/emacs-color-theme-solarized/color-theme-solarized.el")
+;; (load "~/.emacs.d/emacs-color-theme-solarized/solarized-theme.el")
+;; (require 'color-theme-solarized)
+;; (load-theme 'solarized t)
 
 ;; evernote
 ;(load "~/.emacs.d/evernote-mode.el")
@@ -1080,6 +1092,8 @@ auto-mode-alist))
 (global-set-key (kbd "C-c <up>") `windmove-up)
 (global-set-key (kbd "C-c <down>") `windmove-down)
 (global-set-key (kbd "C-x c") `copy-file-name-to-clipboard)
+
+
 
 (setq mac-command-modifier 'meta) ; make cmd key do Meta
 (setq mac-option-modifier 'super) ; make opt key do Super

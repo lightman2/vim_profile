@@ -2,80 +2,543 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Thu Apr 14 23:33:22 2016
+;; Created Tue May 24 15:28:29 2016
 ;; Desktop file format version 206
-;; Emacs version 24.3.1
+;; Emacs version 24.5.1
 
 ;; Global section:
+(setq desktop-saved-frameset [frameset 1 (22340 669 929946 398000) (desktop . "206") "guoding@ubuntu" nil nil ((((font-backend xft x) (font . "-unknown-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1") (font-parameter . "Ubuntu Mono 13") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (foreground-color . "#2E3436") (background-color . "#EDEDED") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 9) (right-fringe . 9) (scroll-bar-foreground) (scroll-bar-background . "grey75") (menu-bar-lines . 1) (tool-bar-lines . 1) (title) (wait-for-wm . t) (fullscreen) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 14) (alpha) (display-type . color) (background-mode . light) (cursor-color . "#00BBFF") (visibility) (frameset--id . "79A7-5FB0-8197-0F15") (frameset--mini t) (height . 24) (width . 80) (modeline . t) (minibuffer . t) (unsplittable) (left . 0) (top . 0) (icon-name) (display . ":1") (explicit-name)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 6) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 76) (min-pixel-width . 90) (min-pixel-height-ignore . 38) (min-pixel-width-ignore . 54) (min-pixel-height-safe . 19) (min-pixel-width-safe . 18)) leaf (pixel-width . 752) (pixel-height . 437) (total-width . 83) (total-height . 23) (normal-height . 1.0) (normal-width . 1.0) (buffer "*scratch*" (selected) (hscroll . 0) (fringes 9 9 nil) (margins nil) (scroll-bars 14 2 t nil) (vscroll . 0) (dedicated) (point . 1) (start . 1))) (((font-backend xft x) (font . "-unknown-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1") (font-parameter . "Ubuntu Mono 13") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (foreground-color . "#2E3436") (background-color . "#EDEDED") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 9) (right-fringe . 9) (scroll-bar-foreground) (scroll-bar-background . "grey75") (menu-bar-lines . 1) (tool-bar-lines . 1) (title) (wait-for-wm . t) (fullscreen) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 14) (alpha) (horizontal-scroll-bars . t) (display-type . color) (background-mode . light) (cursor-color . "#00BBFF") (sticky) (environment) (frameset--id . "FEC4-F8A6-81B9-AEC2") (frameset--mini t . t) (height . 35) (width . 80) (modeline . t) (minibuffer . t) (unsplittable) (left . 65) (top . 24) (icon-name) (visibility . t) (display . ":1") (explicit-name)) ((min-height . 8) (min-width . 10) (min-height-ignore . 4) (min-width-ignore . 6) (min-height-safe . 2) (min-width-safe . 2) (min-pixel-height . 152) (min-pixel-width . 90) (min-pixel-height-ignore . 76) (min-pixel-width-ignore . 54) (min-pixel-height-safe . 38) (min-pixel-width-safe . 18)) vc (pixel-width . 752) (pixel-height . 646) (total-width . 83) (total-height . 34) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 752) (pixel-height . 323) (total-width . 83) (total-height . 17) (normal-height . 0.5) (normal-width . 1.0) (buffer "desktop.el.gz" (selected . t) (hscroll . 0) (fringes 9 9 nil) (margins nil) (scroll-bars 14 2 t nil) (vscroll . 0) (dedicated) (point . 42253) (start . 41524))) (leaf (last . t) (pixel-width . 752) (pixel-height . 323) (total-width . 83) (total-height . 17) (normal-height . 0.5) (normal-width . 1.0) (buffer "*Backtrace*" (selected) (hscroll . 0) (fringes 9 9 nil) (margins nil) (scroll-bars 14 2 t nil) (vscroll . 0) (dedicated) (point . 9479) (start . 1)))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
-(setq search-ring '("emms" "history" "history.el" "history" "melpa" "history" "paradox" "m-up" "c-p" "previous" "moca" "smex" "gray" "ido" "session" "load"))
+(setq search-ring '("netstat" "telnet" "c-c" "ccsp" "them" "theme" "lattice" "platform" "brcm" "lazy" "m-x" "smex" "ch" "back" "video" "smex"))
 (setq regexp-search-ring '("\\_<ppVarArray\\_>" "\\_<AnscEqualString\\_>"))
-(setq register-alist (list '(119 . "open_count") '(56 . "    printk(\"tiny_write\\n\");\n") (list 52 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk nil (get-buffer " *temp*")))) mk)) (list 51 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 1 (get-buffer "build.sh")))) mk)) (list 50 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk nil (get-buffer " *temp*")))) mk)) (list 49 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk nil (get-buffer " *temp*")))) mk))))
-(setq file-name-history '("~/" "~/.emacs-history.el" "~/.emacs.d/history.el" "~/.emacs" "/var/log/messages" "/home/guoding/Public/study/package/ncurses/Makefile" "~/.emacs" "~/Public/ccsp_mainline_pc_simulation/./ccsp/CcspTestAndDiag/source/diagnostic/BbhmDiagUpload/bbhm_upload_action.c" "~/.emacs" "cosa_start.sh" "~/Public/ccsp_mainline_pc_simulation/" "cosa_start.sh" "~/Public/ccsp_mainline_pc_simulation/" "~/Public/ccsp_mainline_pc_simulation/ccsp/CcspMocaAgent/" "~/Public/ccsp_mainline_pc_simulation/ccsp/CcspWifiExtMgr/" "~/Public/ccsp_mainline_pc_simulation/ccsp/CcspMocaAgent/" "~/Public/ccsp_mainline_pc_simulation/ccsp/CcspMocaAgent/hal/source/moca_hal.c" "/etc/utopia/service.d/" "/etc/utopia/service.d/service_misc.sh" "~/.emacs" "~/.emacs.d/color-theme/" "~/.emacs.d/emacs-color-theme-solarized" "~/.emacs.d" "~/.emacs" "~/.emacs.d" "~/.emacs." "~/.emacs" "/home/guoding/.emacs.d/elpa/solarized-theme-20160311.1447/solarized.el" "~/.emacs" "/home/guoding/.emacs.d/solarized-emacs/solarized.el"))
+(setq register-alist (list '(119 . "open_count") '(56 . "    printk(\"tiny_write\\n\");\n") (list 52 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,nil (get-buffer ," *temp*")))) mk)) (list 51 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,1 (get-buffer ,"build.sh")))) mk)) (list 50 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,nil (get-buffer ," *temp*")))) mk)) (list 49 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,nil (get-buffer ," *temp*")))) mk))))
+(setq file-name-history '("~/" "/sudo:root@ubuntu:/var/log/boot.log" "/sudo:root@ubuntu:/var/log/auth.log" "/sudo:root@ubuntu:/etc/xinetd.d/telnet" "/sudo:root@ubuntu:/etc/xinetd.d/tftp" "/sudo:root@ubuntu:/etc/services" "/sudo:root@ubuntu:/etc/xinetd.conf" "/sudo::/etc/xinetd.conf" "/etc/xinetd.conf" "/usr/include/c++/4.6/i686-linux-gnu/bits/c++config.h" "/usr/include/i386-linux-gnu/sys/cdefs.h" "/usr/include/sys/cdefs.h" "/home/guoding/Public/brcm_61/platform_broadcom/test.txt" "/home/guoding/Public/brcm_61/ccsp/make/ccsp_inc_path.mk" "/home/guoding/.emacs" "/ssh:guoding@10.74.123.215:/home/guoding/brcm_61/build_package.sh" "/bin/bash/bin/bash" "/bin/bash" "/ssh:guoding@10.74.123.215:/home/guoding/brcm_61/build_package.sh" "/ssh:guoding@10.74.123.215:/home/guoding/.bashrc" "/ssh:guoding@10.74.123.215:/home/guoding" "/home/guoding/1234" "~/study/src.3e.tar.gz" "/home/guoding/Public/brcm_61/platform_broadcom/123" "/home/guoding/.emacs.d/smex-items" "/home/guoding/.git/COMMIT_EDITMSG" "/usr/include/bits/wchar.h" "/usr/lib/gcc/i686-linux-gnu/4.6/include/stdarg.h" "/usr/include/wchar.h" "/usr/include/_G_config.h" "/usr/include/bits/typesizes.h" "/usr/include/bits/wordsize.h" "/usr/include/gnu/stubs.h" "/usr/include/bits/predefs.h" "/usr/include/bits/sys_errlist.h" "/usr/include/bits/stdio_lim.h" "/usr/include/libio.h" "/usr/include/bits/types.h" "/usr/lib/gcc/i686-linux-gnu/4.6/include/stddef.h" "/usr/include/features.h" "/usr/include/stdio.h" "/usr/include/c++/4.6/i686-linux-gnu/bits/c++config.h" "/usr/include/i386-linux-gnu/sys/cdefs.h" "/usr/include/sys/cdefs.h" "/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/1.1/source/firewall_priv.c" "~/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/apply_patch.sh" "/home/guoding/.emacs" "/home/guoding/.emacs.d/3211.sh" "/home/guoding/.emacs" "~/Public/brcm_61/ccsp/make/" "/home/guoding/Public/brcm_61/ccsp/make/ccsp_common.mk" "/home/guoding/.emacs" "/usr/include/c++/4.6/i686-linux-gnu/bits/c++config.h" "/usr/include/i386-linux-gnu/sys/cdefs.h" "/usr/include/sys/cdefs.h" "~/study/main2.c" "~/study/main" "/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/Makefile" "~/.emacs.d/elpa/magit-20160517.838/magit-autoloads.el" "/home/guoding/123" "/home/guoding/.emacs" "/home/guoding/study/kernelmodule/ldd3/tty/Makefile" "/home/guoding/study/kernelmodule/ldd3/pci/Makefile" "/home/guoding/study/kernelmodule/ldd3/Makefile" "/home/guoding/study/kernelmodule/ldd3/LICENSE" "/home/guoding/study/kernelmodule/Makefile" "~/.emacs.d/elpa/git-commit-20160425.430/git-commit-autoloads.el" "~/.emacs.d/elpa/with-editor-20160408.201/with-editor-autoloads.el" "~/.emacs.d/elpa/magit-popup-20160512.328/magit-popup-autoloads.el" "~/Public/brcm_61/" "/usr/include/asm-generic/sockios.h" "/usr/include/i386-linux-gnu/asm/sockios.h" "/usr/lib/gcc/i686-linux-gnu/4.6/include/stdarg.h" "/usr/include/asm-generic/socket.h" "/usr/include/wchar.h" "/usr/include/i386-linux-gnu/asm/socket.h" "/usr/include/bits/sockaddr.h" "/usr/include/bits/uio.h" "/usr/include/bits/wchar.h" "/usr/include/bits/endian.h" "/usr/include/_G_config.h" "/usr/include/bits/typesizes.h" "/usr/include/bits/wordsize.h" "/usr/include/gnu/stubs.h" "/usr/include/bits/predefs.h" "/usr/include/bits/byteswap.h" "/usr/include/bits/in.h" "/usr/include/bits/socket.h" "/usr/include/sys/uio.h" "/usr/include/bits/confname.h" "/usr/include/bits/posix_opt.h" "/usr/include/bits/netdb.h" "/usr/include/stdint.h" "/usr/include/bits/stat.h" "/usr/include/bits/time.h" "/usr/include/sys/time.h" "/usr/include/bits/select.h" "/usr/include/endian.h" "/usr/include/bits/errno.h" "/usr/include/bits/signum.h"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 206
-  "/home/guoding/.emacs"
-  ".emacs"
-  'lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode)
-  1158
-  '(1435 nil)
+  "/usr/local/share/emacs/24.5/lisp/desktop.el.gz"
+  "desktop.el.gz"
+  'emacs-lisp-mode
+  nil
+  42253
+  '(42253 t)
   nil
   nil
   '((buffer-file-coding-system . utf-8-unix)))
 
 (desktop-create-buffer 206
-  "/home/guoding/.emacs-history.el"
-  ".emacs-history.el"
+  "/usr/local/share/emacs/24.5/lisp/frameset.el.gz"
+  "frameset.el.gz"
   'emacs-lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode)
-  1474834
+  nil
+  46542
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . prefer-utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/1234"
+  "1234"
+  'fundamental-mode
+  '(linum-mode)
+  1
   '(nil nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
-  "/home/guoding/.emacs.d/history.el"
-  "history.el"
+  "/home/guoding/Public/brcm_61/ccsp/make/ccsp_common.mk"
+  "ccsp_common.mk"
+  'makefile-gmake-mode
+  '(linum-mode auto-revert-mode)
+  1
+  '(885 nil)
+  nil
+  nil
+  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/.emacs.d/elpa/archives/marmalade/archive-contents"
+  "archive-contents"
+  'fundamental-mode
+  '(linum-mode auto-revert-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/main2.c"
+  "main2.c"
+  'c-mode
+  '(abbrev-mode linum-mode)
+  1245
+  '(nil nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "guoding"
+  'dired-mode
+  '(linum-mode)
+  7105
+  '(954 nil)
+  t
+  '("/home/guoding/")
+  nil)
+
+(desktop-create-buffer 206
+  "/etc/xinetd.conf"
+  "xinetd.conf"
+  'conf-space-mode
+  '(linum-mode)
+  261
+  '(261 nil)
+  t
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/kernelmodule/kernel/drivers/tty/tty_io.c"
+  "tty_io.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode)
+  85811
+  '(86168 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/brcm_61/platform_broadcom/test.txt"
+  "test.txt"
+  'text-mode
+  '(linum-mode auto-revert-mode)
+  32
+  '(32 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/kernelmodule/kernel/fs/proc/proc_tty.c"
+  "proc_tty.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode)
+  1095
+  '(1156 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "*info*"
+  'Info-mode
+  '(linum-mode)
+  5147
+  '(1 nil)
+  t
+  '("/home/guoding/.emacs.d/elpa/magit-popup-20160512.328/magit-popup.info" "Usage" ((history ("/usr/share/info/emacs-24/efaq" "Latest version of Emacs" 35368) ("/usr/share/info/emacs-24/efaq" "Status of Emacs" 32542) ("/usr/share/info/emacs-24/efaq" "Top" 3686))))
+  '((tab-width . 8) (buffer-file-coding-system . utf-8-unix) (case-fold-search . t)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/brcm_61/ccsp/make/ccsp_inc_path.mk"
+  "ccsp_inc_path.mk"
+  'makefile-gmake-mode
+  '(linum-mode auto-revert-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/.emacs"
+  ".emacs"
   'emacs-lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode)
-  1720
-  '(1345 nil)
+  '(linum-mode auto-revert-mode)
+  14970
+  '(12998 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "study"
+  'dired-mode
+  '(linum-mode)
+  1577
+  '(3176 nil)
+  t
+  '("/home/guoding/study/")
+  '((tab-width . 4) (indent-tabs-mode)))
+
+(desktop-create-buffer 206
+  "/home/guoding/.emacs.d/3211.sh"
+  "3211.sh"
+  'sh-mode
+  '(linum-mode auto-revert-mode)
+  464
+  '(464 nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
-  "/home/guoding/Public/ccsp_mainline_pc_simulation/build.sh"
-  "build.sh"
-  'sh-mode
-  '(linum-mode window-number-mode auto-complete-mode undo-tree-mode)
-  2439
-  '(2836 nil)
+  "/home/guoding/study/kernelmodule/kernel/arch/alpha/kernel/srmcons.c"
+  "srmcons.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode)
+  4950
+  '(5069 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/src.3e.tar.gz"
+  "src.3e.tar.gz"
+  'tar-mode
+  '(linum-mode)
+  37
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . no-conversion)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/brcm_61/platform_broadcom/123"
+  "123"
+  'fundamental-mode
+  '(linum-mode)
+  87
+  '(87 nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
-  "/home/guoding/study/kernelmodule/kernel/drivers/tty/tty_buffer.c"
-  "tty_buffer.c"
-  'sh-mode
-  '(linum-mode window-number-mode auto-complete-mode)
-  1282
-  '(1031 nil)
+  "/home/guoding/study/kernelmodule/kernel/init/init_task.c"
+  "init_task.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode)
+  673
+  '(639 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/.emacs.d/smex-items"
+  "smex-items"
+  'fundamental-mode
+  '(linum-mode auto-revert-mode)
+  2
+  '(nil nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/1.1/source/firewall_priv.c"
+  "firewall_priv.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode)
+  1223
+  '(891 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/123"
+  "123"
+  'fundamental-mode
+  '(linum-mode)
+  28
+  '(3184 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/brcm_61/platform_broadcom/ccsp-mainline-patches/apply_patch.sh"
+  "apply_patch.sh"
+  'sh-mode
+  '(linum-mode auto-revert-mode)
+  1254
+  '(1248 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix) (overwrite-mode)))
+
+(desktop-create-buffer 206
+  nil
+  "init"
+  'dired-mode
+  '(linum-mode)
+  1024
+  '(1024 nil)
+  t
+  '("/home/guoding/study/kernelmodule/kernel/init/")
+  nil)
+
+(desktop-create-buffer 206
+  "/home/guoding/study/main"
+  "main"
+  'fundamental-mode
+  '(linum-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . no-conversion)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/Makefile"
+  "Makefile"
+  'makefile-gmake-mode
+  '(linum-mode auto-revert-mode)
+  453
+  '(453 nil)
+  nil
+  nil
+  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "Downloads"
+  'dired-mode
+  '(linum-mode)
+  251
+  '(nil nil)
+  t
+  '("/home/guoding/Downloads/")
+  nil)
+
+(desktop-create-buffer 206
+  "/home/guoding/study/kernelmodule/kernel/net/decnet/dn_dev.c"
+  "dn_dev.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode)
+  2480
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/kernelmodule/kernel/kernel/locking/semaphore.c"
+  "semaphore.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode)
+  6623
+  '(1771 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/kernelmodule/ldd3/tty/Makefile"
+  "Makefile"
+  'makefile-gmake-mode
+  '(linum-mode auto-revert-mode)
+  527
+  '(607 nil)
+  nil
+  nil
+  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/kernelmodule/ldd3/pci/Makefile"
+  "Makefile"
+  'makefile-gmake-mode
+  '(linum-mode auto-revert-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/kernelmodule/ldd3/Makefile"
+  "Makefile"
+  'makefile-gmake-mode
+  '(linum-mode auto-revert-mode)
+  230
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/kernelmodule/ldd3/LICENSE"
+  "LICENSE"
+  'fundamental-mode
+  '(linum-mode auto-revert-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/kernelmodule/Makefile"
+  "Makefile"
+  'makefile-gmake-mode
+  '(linum-mode auto-revert-mode)
+  910
+  '(382 nil)
+  nil
+  nil
+  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/kernelmodule/ldd3/tty/123"
+  "123"
+  'fundamental-mode
+  '(linum-mode)
+  243328
+  '(1326806 nil)
+  t
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/brcm_61/ccsp/CcspCommonLib/Utopia/source/sysevent/proxy/proxy_main.c"
+  "proxy_main.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode)
+  1222
+  '(3037 t)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  ".emacs.d"
+  'dired-mode
+  '(linum-mode)
+  3628
+  '(4283 nil)
+  t
+  '("/home/guoding/.emacs.d/")
+  '((tab-width . 4) (indent-tabs-mode)))
+
+(desktop-create-buffer 206
+  nil
+  "brcm_61"
+  'dired-mode
+  '(linum-mode)
+  258
+  '(19 nil)
+  t
+  '("/home/guoding/Public/brcm_61/")
+  '((tab-width . 4) (indent-tabs-mode)))
+
+(desktop-create-buffer 206
+  "/usr/share/emacs/24.3/etc/COPYING"
+  "COPYING"
+  'fundamental-mode
+  '(linum-mode view-mode goto-address-mode)
+  30777
+  '(nil nil)
+  t
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/share/emacs/24.3/etc/TODO"
+  "TODO"
+  'outline-mode
+  '(linum-mode view-mode goto-address-mode)
+  11772
+  '(11772 nil)
+  t
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/share/emacs/24.3/etc/DEBUG"
+  "DEBUG"
+  'outline-mode
+  '(linum-mode view-mode goto-address-mode)
+  17989
+  '(nil nil)
+  t
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/share/emacs/24.3/etc/THE-GNU-PROJECT.dfsg"
+  "THE-GNU-PROJECT.dfsg"
+  'fundamental-mode
+  '(linum-mode view-mode goto-address-mode)
+  423
+  '(423 nil)
+  t
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/main.c"
+  "main.c"
+  'c-mode
+  '(abbrev-mode linum-mode)
+  562
+  '(586 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/share/emacs/site-lisp/xcscope.el"
+  "xcscope.el"
+  'emacs-lisp-mode
+  '(linum-mode)
+  1
+  '(nil nil)
+  t
+  nil
+  '((buffer-file-coding-system . iso-latin-1-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/linuxapplicationmanual/debug/examples/memtest/Makefile"
+  "Makefile"
+  'makefile-gmake-mode
+  '(linum-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/linuxapplicationmanual/debug/examples/memtest/memtest.c"
+  "memtest.c"
+  'c-mode
+  '(abbrev-mode linum-mode)
+  77
+  '(77 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-dos)))
 
 (desktop-create-buffer 206
   "/var/log/messages"
   "messages"
   'fundamental-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   1
   '(1 nil)
   t
@@ -83,11 +546,33 @@
   '((buffer-file-coding-system . iso-latin-1-unix)))
 
 (desktop-create-buffer 206
+  "/home/guoding/Public/ccsp_mainline_pc_simulation/build.sh"
+  "build.sh"
+  'sh-mode
+  '(linum-mode auto-revert-mode)
+  2577
+  '(2836 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/kernelmodule/kernel/drivers/tty/tty_buffer.c"
+  "tty_buffer.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode)
+  1282
+  '(1031 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
   nil
   "ccsp_mainline_pc_simulation"
   'dired-mode
-  '(linum-mode window-number-mode)
-  1325
+  '(linum-mode)
+  1324
   '(1162 nil)
   t
   '("/home/guoding/Public/ccsp_mainline_pc_simulation/")
@@ -97,7 +582,7 @@
   "/home/guoding/Public/study/package/ncurses/Makefile"
   "Makefile"
   'makefile-gmake-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode)
+  '(linum-mode auto-revert-mode)
   667
   '(705 nil)
   nil
@@ -108,7 +593,7 @@
   "/home/guoding/Public/study/main.c"
   "main.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   624
   '(346 nil)
   nil
@@ -119,7 +604,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspTestAndDiag/source/diagnostic/BbhmDiagUpload/bbhm_upload_action.c"
   "bbhm_upload_action.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   10748
   '(10720 nil)
   nil
@@ -130,7 +615,7 @@
   "/home/guoding/study/kernelmodule/kernel/drivers/s390/char/sclp_tty.c"
   "sclp_tty.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   7754
   '(7546 nil)
   nil
@@ -138,21 +623,10 @@
   '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
-  "/usr/share/emacs/24.3/etc/COPYING"
-  "COPYING"
-  'fundamental-mode
-  '(linum-mode window-number-mode view-mode goto-address-mode)
-  1
-  '(nil nil)
-  t
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
   "/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspMocaAgent/source/TR-181/middle_layer_src/cosa_moca_dml.c"
   "cosa_moca_dml.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   11045
   '(10941 nil)
   nil
@@ -163,7 +637,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspMocaAgent/custom/customer/config/TR181-Moca.XML"
   "TR181-Moca.XML"
   'nxml-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode auto-revert-mode)
   2466
   '(1915 nil)
   nil
@@ -174,8 +648,8 @@
   nil
   "config"
   'dired-mode
-  '(linum-mode window-number-mode)
-  313
+  '(linum-mode)
+  312
   '(309 nil)
   t
   '("/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspMocaAgent/custom/customer/config/")
@@ -185,7 +659,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspMocaAgent/hal/source/moca_hal.c"
   "moca_hal.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   1535
   '(16428 nil)
   nil
@@ -196,7 +670,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspWifiExtMgr/custom/platform/config/CcspWecbController_dm.xml"
   "CcspWecbController_dm.xml"
   'nxml-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode auto-revert-mode)
   631
   '(631 nil)
   nil
@@ -207,7 +681,7 @@
   nil
   "config"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   362
   '(nil nil)
   t
@@ -218,7 +692,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspWifiExtMgr/source/TR-181/ml/cosa_apis_busutil.c"
   "cosa_apis_busutil.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   4806
   '(nil nil)
   nil
@@ -229,7 +703,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspWifiExtMgr/Makefile"
   "Makefile"
   'makefile-gmake-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode)
+  '(linum-mode auto-revert-mode)
   2930
   '(nil nil)
   nil
@@ -240,7 +714,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspMocaAgent/source/TR-181/integration_src.shared/cosa_moca_apis.c"
   "cosa_moca_apis.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   34947
   '(35168 nil)
   nil
@@ -251,7 +725,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspCommonLib/source/ccsp/components/common/DataModel/dml/components/DslhDataModelAgent/dslh_dmagnt_utilities.c"
   "dslh_dmagnt_utilities.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   2847
   '(11723 nil)
   nil
@@ -262,7 +736,7 @@
   "/usr/include/dlfcn.h"
   "dlfcn.h"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  '(abbrev-mode linum-mode)
   2901
   '(1851 nil)
   t
@@ -273,7 +747,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspCommonLib/source/cosa/include/ansc_load_library.h"
   "ansc_load_library.h"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   1582
   '(1 nil)
   nil
@@ -284,7 +758,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspCommonLib/Utopia/source/syscfg/lib/syscfg_lib.c"
   "syscfg_lib.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   10610
   '(10323 nil)
   nil
@@ -295,7 +769,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspMocaAgent/Makefile"
   "Makefile"
   'makefile-gmake-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode)
+  '(linum-mode auto-revert-mode)
   914
   '(914 nil)
   nil
@@ -306,7 +780,7 @@
   "/etc/utopia/service.d/cosa_misc.sh"
   "cosa_misc.sh"
   'sh-mode
-  '(linum-mode window-number-mode auto-complete-mode)
+  '(linum-mode)
   3701
   '(3346 nil)
   nil
@@ -317,7 +791,7 @@
   nil
   "service.d"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   3519
   '(230 nil)
   t
@@ -328,7 +802,7 @@
   "/etc/utopia/service.d/service_misc.sh"
   "service_misc.sh"
   'sh-mode
-  '(linum-mode window-number-mode auto-complete-mode)
+  '(linum-mode)
   266
   '(265 nil)
   nil
@@ -337,20 +811,9 @@
 
 (desktop-create-buffer 206
   nil
-  ".emacs.d"
-  'dired-mode
-  '(linum-mode window-number-mode)
-  4330
-  '(4283 nil)
-  t
-  '("/home/guoding/.emacs.d/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
   "color-theme"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   431
   '(nil nil)
   t
@@ -361,7 +824,7 @@
   nil
   "emacs-color-theme-solarized"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   262
   '(286 nil)
   t
@@ -372,7 +835,7 @@
   "/usr/include/asm-generic/ioctls.h"
   "ioctls.h"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode)
   839
   '(1 nil)
   t
@@ -383,7 +846,7 @@
   "/home/guoding/.emacs."
   ".emacs."
   'fundamental-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   1
   '(nil nil)
   nil
@@ -394,7 +857,7 @@
   "/home/guoding/study/kernelmodule/ldd3/tty/tiny_serial.c"
   "tiny_serial.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   461
   '(1 nil)
   nil
@@ -402,21 +865,10 @@
   '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
-  "/home/guoding/.emacs.d/auto-complete-config.elc"
-  "auto-complete-config.elc"
-  'emacs-lisp-byte-code-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode undo-tree-mode)
-  996
-  '(530 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-emacs-unix)))
-
-(desktop-create-buffer 206
   nil
   "emacs-w3m"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   2116
   '(2672 nil)
   t
@@ -427,7 +879,7 @@
   "/home/guoding/study/kernelmodule/kernel/kernel/printk/printk.c"
   "printk.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   39874
   '(56057 nil)
   nil
@@ -438,7 +890,7 @@
   "/home/guoding/.emacs.d/emacs-w3m/w3m-bug.el"
   "w3m-bug.el"
   'emacs-lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   1031
   '(1031 nil)
   nil
@@ -449,7 +901,7 @@
   "/home/guoding/.emacs.d/emacs-w3m/install-sh"
   "install-sh"
   'sh-mode
-  '(linum-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   1
   '(nil nil)
   nil
@@ -460,7 +912,7 @@
   "/home/guoding/.emacs.d/emacs-w3m/Makefile"
   "Makefile"
   'makefile-gmake-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode undo-tree-mode)
+  '(linum-mode)
   1
   '(nil nil)
   nil
@@ -471,7 +923,7 @@
   nil
   "pastelmac-theme-20151030.1936"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   541
   '(541 nil)
   t
@@ -482,7 +934,7 @@
   "/home/guoding/study/kernelmodule/kernel/include/linux/tty_driver.h"
   "tty_driver.h"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   10782
   '(10772 t)
   nil
@@ -493,7 +945,7 @@
   "/home/guoding/.emacs.d/elpa/pastelmac-theme-20151030.1936/pastelmac-theme-pkg.el"
   "pastelmac-theme-pkg.el"
   'emacs-lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   124
   '(124 nil)
   nil
@@ -504,7 +956,7 @@
   "/home/guoding/.emacs.d/elpa/pastelmac-theme-20151030.1936/pastelmac-theme.el"
   "pastelmac-theme.el"
   'emacs-lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   1
   '(nil nil)
   nil
@@ -515,7 +967,7 @@
   "/home/guoding/.emacs.d/elpa/pastelmac-theme-20151030.1936/pastelmac-theme-autoloads.el"
   "pastelmac-theme-autoloads.el"
   'emacs-lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   1
   '(nil nil)
   nil
@@ -526,7 +978,7 @@
   nil
   "elpa"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   792
   '(558 nil)
   t
@@ -534,23 +986,23 @@
   nil)
 
 (desktop-create-buffer 206
+  "/home/guoding/.emacs-history.el"
+  ".emacs-history.el"
+  'emacs-lisp-mode
+  '(linum-mode auto-revert-mode)
+  2351258
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . no-conversion)))
+
+(desktop-create-buffer 206
   "/home/guoding/.emacs.d/temp"
   "temp"
   'emacs-lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   325
   '(325 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/.emacs.d/auctex.el"
-  "auctex.el"
-  'emacs-lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode undo-tree-mode)
-  325
-  '(234 nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-unix)))
@@ -559,7 +1011,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/setup_pr_cr.sh"
   "setup_pr_cr.sh"
   'sh-mode
-  '(linum-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   1735
   '(780 nil)
   nil
@@ -570,7 +1022,7 @@
   nil
   "ccsp"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   262
   '(nil nil)
   t
@@ -581,7 +1033,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/cscope.files"
   "cscope.files"
   'fundamental-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode)
   56024
   '(1430 nil)
   nil
@@ -592,7 +1044,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/.init_submodule_ccsp"
   ".init_submodule_ccsp"
   'fundamental-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode)
   1
   '(nil nil)
   nil
@@ -603,7 +1055,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/Makefile"
   "Makefile"
   'makefile-gmake-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   10787
   '(1457 nil)
   nil
@@ -614,7 +1066,7 @@
   "/home/guoding/study/kernelmodule/proc.c"
   "proc.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode)
   1351
   '(1043 nil)
   nil
@@ -625,7 +1077,7 @@
   "/home/guoding/.emacs.d/emacs-w3m/mew-w3m.el"
   "mew-w3m.el"
   'emacs-lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   15932
   '(7150 nil)
   nil
@@ -636,7 +1088,7 @@
   "/home/guoding/Dropbox/think world/diary"
   "diary"
   'diary-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode)
   49
   '(72 nil)
   nil
@@ -647,7 +1099,7 @@
   nil
   "platform_repo"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   270
   '(nil nil)
   t
@@ -658,7 +1110,7 @@
   "/home/guoding/Public/ccsp_mainline_pc_simulation/.setup_pr_cr.sh.swp"
   ".setup_pr_cr.sh.swp"
   'fundamental-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode)
   1
   '(nil nil)
   nil
@@ -666,21 +1118,10 @@
   '((buffer-file-coding-system . no-conversion)))
 
 (desktop-create-buffer 206
-  "/home/guoding/.emacs.d/auto-complete.el"
-  "auto-complete.el"
-  'emacs-lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode undo-tree-mode)
-  5696
-  '(5434 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
   nil
   "ac-dict"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   238
   '(nil nil)
   t
@@ -691,7 +1132,7 @@
   "/home/guoding/.emacs.d/ac-comphist.dat"
   "ac-comphist.dat"
   'fundamental-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   1
   '(nil nil)
   nil
@@ -702,7 +1143,7 @@
   "/home/guoding/.emacs.d/123"
   "123"
   'fundamental-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   1
   '(nil nil)
   nil
@@ -713,7 +1154,7 @@
   "/home/guoding/.emacs.d/evernote-mode.el"
   "evernote-mode.el"
   'emacs-lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   1
   '(nil nil)
   nil
@@ -724,7 +1165,7 @@
   "/home/guoding/.emacs.d/elpa/w3m-readme.txt"
   "w3m-readme.txt"
   'text-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   119
   '(87 nil)
   nil
@@ -735,7 +1176,7 @@
   "/home/guoding/Dropbox/note/Incoming"
   "Incoming"
   'fundamental-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode)
   1
   '(1 nil)
   nil
@@ -743,21 +1184,10 @@
   nil)
 
 (desktop-create-buffer 206
-  "/home/guoding/123"
-  "123"
-  'fundamental-mode
-  '(linum-mode window-number-mode undo-tree-mode)
-  251
-  '(251 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
   "/home/guoding/Public/ccsp_mainline_pc_simulation/ccsp/CcspCommonLib/Utopia/source/firewall/firewall.c"
   "firewall.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   91948
   '(162955 nil)
   nil
@@ -768,7 +1198,7 @@
   "/home/guoding/Dropbox/note/note.org"
   "note.org"
   'org-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode)
   1
   '(nil nil)
   nil
@@ -779,18 +1209,18 @@
   "/home/guoding/Dropbox/note/diary.org"
   "diary.org"
   'org-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode)
   1
   '(nil nil)
   nil
   nil
-  '((truncate-lines)))
+  '((buffer-file-coding-system . undecided-unix) (truncate-lines)))
 
 (desktop-create-buffer 206
   "/home/guoding/Dropbox/note/UNIX.org"
   "UNIX.org"
   'org-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode)
   1
   '(nil nil)
   nil
@@ -801,7 +1231,7 @@
   "/home/guoding/Public/test"
   "test"
   'fundamental-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode)
   25
   '(25 nil)
   nil
@@ -812,7 +1242,7 @@
   "/home/guoding/Dropbox/note/think.org"
   "think.org"
   'org-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode)
   9
   '(nil nil)
   nil
@@ -823,7 +1253,7 @@
   nil
   "pc-ubuntu32"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   937
   '(937 nil)
   t
@@ -831,21 +1261,10 @@
   nil)
 
 (desktop-create-buffer 206
-  nil
-  "linux-2.6.39.3"
-  'dired-mode
-  '(linum-mode window-number-mode)
-  270
-  '(nil nil)
-  t
-  '("/home/guoding/Public/intel_usg/arm/kernel/ti/linux-2.6.39.3/")
-  nil)
-
-(desktop-create-buffer 206
   "/home/guoding/study/kernelmodule/tiny_tty.c"
   "tiny_tty.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   14875
   '(16470 nil)
   nil
@@ -856,7 +1275,7 @@
   "/home/guoding/study/kernelmodule/tcp_server.c"
   "tcp_server.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode)
   4720
   '(4714 nil)
   nil
@@ -867,7 +1286,7 @@
   nil
   "kernelmodule"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   1319
   '(1549 nil)
   t
@@ -878,7 +1297,7 @@
   nil
   "gperf"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   255
   '(nil nil)
   t
@@ -886,21 +1305,10 @@
   nil)
 
 (desktop-create-buffer 206
-  "/home/guoding/study/kernelmodule/Makefile"
-  "Makefile"
-  'makefile-gmake-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode undo-tree-mode)
-  910
-  '(382 nil)
-  nil
-  nil
-  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
   "/home/guoding/study/kernelmodule/log"
   "log"
   'fundamental-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode)
   23715
   '(23392 nil)
   nil
@@ -911,7 +1319,7 @@
   "/home/guoding/study/kernelmodule/kernel/drivers/usb/misc/ldusb.c"
   "ldusb.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   9886
   '(15343 nil)
   nil
@@ -922,7 +1330,7 @@
   "/home/guoding/study/kernelmodule/tcp_server_new.c"
   "tcp_server_new.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode)
   10980
   '(5333 nil)
   nil
@@ -933,7 +1341,7 @@
   "/home/guoding/study/kernelmodule/tcp_client.c"
   "tcp_client.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode)
   3772
   '(3162 nil)
   nil
@@ -941,21 +1349,10 @@
   '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
-  nil
-  "guoding"
-  'dired-mode
-  '(linum-mode window-number-mode)
-  954
-  '(954 nil)
-  t
-  '("/home/guoding/")
-  nil)
-
-(desktop-create-buffer 206
   "/home/guoding/study/kernelmodule/_downloaded_tiny_tty.c"
   "_downloaded_tiny_tty.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode)
   6851
   '(6846 nil)
   nil
@@ -966,7 +1363,7 @@
   "/home/guoding/study/kernelmodule/ldd3/tty/tiny_tty.c"
   "tiny_tty.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   14002
   '(14569 nil)
   nil
@@ -977,7 +1374,7 @@
   "/home/guoding/study/kernelmodule/kernel/drivers/tty/tty_port.c"
   "tty_port.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   1453
   '(1503 nil)
   nil
@@ -988,7 +1385,7 @@
   "/home/guoding/.emacs.d/tab-display.el"
   "tab-display.el"
   'emacs-lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   1
   '(nil nil)
   nil
@@ -999,7 +1396,7 @@
   "/home/guoding/study/kernelmodule/downloaded_tiny_tty.c"
   "downloaded_tiny_tty.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   5452
   '(3290 t)
   nil
@@ -1010,7 +1407,7 @@
   "/home/guoding/study/kernelmodule/kernel/drivers/tty/ipwireless/hardware.c"
   "hardware.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   20911
   '(20661 nil)
   nil
@@ -1021,7 +1418,7 @@
   "/home/guoding/study/kernelmodule/kernel/drivers/tty/ipwireless/tty.c"
   "tty.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   3209
   '(3186 t)
   nil
@@ -1032,7 +1429,7 @@
   "/home/guoding/study/kernelmodule/kernel/drivers/tty/ipwireless/network.c"
   "network.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   9123
   '(1 nil)
   nil
@@ -1043,7 +1440,7 @@
   "/home/guoding/study/kernelmodule/vtty_agent.c"
   "vtty_agent.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode)
   3757
   '(3904 nil)
   nil
@@ -1054,7 +1451,7 @@
   "/home/guoding/study/kernelmodule/vtty/vtty_agent.c"
   "vtty_agent.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode)
   4331
   '(1094 nil)
   nil
@@ -1065,7 +1462,7 @@
   nil
   "vtty"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   1023
   '(1023 nil)
   t
@@ -1076,7 +1473,7 @@
   "/home/guoding/.emacs.d/elpa/chinese-pyim-20160101.420/chinese-pyim-utils.el"
   "chinese-pyim-utils.el"
   'emacs-lisp-mode
-  '(linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode srecode-minor-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   3151
   '(nil nil)
   nil
@@ -1087,7 +1484,7 @@
   "/home/guoding/study/kernelmodule/hello.c"
   "hello.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode)
   2031
   '(533 nil)
   nil
@@ -1098,7 +1495,7 @@
   "/home/guoding/study/kernelmodule/kernel/include/linux/tty.h"
   "tty.h"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   11621
   '(10863 nil)
   nil
@@ -1109,7 +1506,7 @@
   "/home/guoding/study/kernelmodule/kernel/arch/parisc/kernel/pdc_cons.c"
   "pdc_cons.c"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode auto-revert-mode)
   7525
   '(1 nil)
   nil
@@ -1120,7 +1517,7 @@
   "/usr/include/termios.h"
   "termios.h"
   'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(abbrev-mode linum-mode)
   2263
   '(1902 nil)
   t
@@ -1131,7 +1528,7 @@
   "/home/guoding/.bashrc"
   ".bashrc"
   'sh-mode
-  '(linum-mode window-number-mode auto-complete-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   1245
   '(1122 nil)
   nil
@@ -1142,7 +1539,7 @@
   nil
   "kernel"
   'dired-mode
-  '(linum-mode window-number-mode ede-dired-minor-mode)
+  '(linum-mode)
   814
   '(1294 nil)
   t
@@ -1153,7 +1550,7 @@
   nil
   "tty"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   1212
   '(1212 nil)
   t
@@ -1164,7 +1561,7 @@
   nil
   "ldd3"
   'dired-mode
-  '(linum-mode window-number-mode)
+  '(linum-mode)
   1693
   '(1693 nil)
   t
@@ -1175,142 +1572,10 @@
   "/home/guoding/.emacs.d/elpa/evil-readme.txt"
   "evil-readme.txt"
   'text-mode
-  '(linum-mode window-number-mode undo-tree-mode)
+  '(linum-mode auto-revert-mode)
   610
   '(610 nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/.emacs.d/elpa/archives/marmalade/archive-contents"
-  "archive-contents"
-  'fundamental-mode
-  '(linum-mode window-number-mode undo-tree-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/study/kernelmodule/kernel/drivers/tty/tty_io.c"
-  "tty_io.c"
-  'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
-  86174
-  '(86168 nil)
-  nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/study/kernelmodule/kernel/fs/proc/proc_tty.c"
-  "proc_tty.c"
-  'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
-  2967
-  '(1 nil)
-  nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/study/kernelmodule/kernel/arch/alpha/kernel/srmcons.c"
-  "srmcons.c"
-  'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
-  4950
-  '(5069 nil)
-  nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/study/kernelmodule/kernel/init/init_task.c"
-  "init_task.c"
-  'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
-  729
-  '(729 nil)
-  nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  nil
-  "init"
-  'dired-mode
-  '(linum-mode window-number-mode)
-  255
-  '(nil nil)
-  t
-  '("/home/guoding/study/kernelmodule/kernel/init/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "study"
-  'dired-mode
-  '(linum-mode window-number-mode)
-  233
-  '(nil nil)
-  t
-  '("/home/guoding/study/")
-  nil)
-
-(desktop-create-buffer 206
-  "/home/guoding/study/kernelmodule/kernel/kernel/locking/semaphore.c"
-  "semaphore.c"
-  'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
-  6623
-  '(1771 nil)
-  nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/study/kernelmodule/kernel/net/decnet/dn_dev.c"
-  "dn_dev.c"
-  'c-mode
-  '(abbrev-mode linum-mode senator-minor-mode semantic-idle-scheduler-mode semantic-idle-summary-mode semantic-mru-bookmark-mode window-number-mode auto-complete-mode undo-tree-mode)
-  2480
-  '(1 nil)
-  nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  nil
-  "Downloads"
-  'dired-mode
-  '(linum-mode window-number-mode)
-  251
-  '(nil nil)
-  t
-  '("/home/guoding/Downloads/")
-  nil)
-
-(desktop-create-buffer 206
-  "/home/guoding/.emacs.d/nxhtml/etc/schema/xhtml-loader.rnc"
-  "xhtml-loader.rnc"
-  'fundamental-mode
-  '(linum-mode window-number-mode undo-tree-mode)
-  60
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/study/kernelmodule/ldd3/tty/123"
-  "123"
-  'fundamental-mode
-  '(linum-mode window-number-mode undo-tree-mode)
-  1
-  '(nil nil)
-  t
-  nil
-  '((buffer-file-coding-system . utf-8-unix)))
 
