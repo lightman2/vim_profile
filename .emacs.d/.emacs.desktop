@@ -2,149 +2,270 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Mon Jun 13 13:52:14 2016
+;; Created Wed Jun 29 10:59:37 2016
 ;; Desktop file format version 206
 ;; Emacs version 24.5.1
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (22366 18958 6023 199000) (desktop . "206") "guoding@ubuntu" nil nil ((((font-backend xft x) (font . "-unknown-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1") (font-parameter . "-unknown-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (foreground-color . "#657b83") (background-color . "#fdf6e3") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 9) (right-fringe . 9) (scroll-bar-foreground) (scroll-bar-background . "grey75") (menu-bar-lines . 1) (tool-bar-lines . 0) (title) (wait-for-wm . t) (fullscreen . maximized) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 14) (alpha) (horizontal-scroll-bars . t) (display-type . color) (background-mode . light) (cursor-color . "#657b83") (sticky) (environment) (frameset--id . "1423-CDA3-6B5D-80A5") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (visibility . t) (height . 39) (width . 131) (left . 65) (top . 24)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 6) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 76) (min-pixel-width . 90) (min-pixel-height-ignore . 38) (min-pixel-width-ignore . 54) (min-pixel-height-safe . 19) (min-pixel-width-safe . 18)) leaf (pixel-width . 1215) (pixel-height . 734) (total-width . 135) (total-height . 39) (normal-height . 1.0) (normal-width . 1.0) (buffer "*git diff: ~/Public/tmp/brcm_61/ccsp/CcspCommonLib/ e61ff..<working>*" (selected . t) (hscroll . 0) (fringes 9 9 nil) (margins 3) (scroll-bars 14 2 t nil) (vscroll . 0) (dedicated) (point . 504) (start . 1))))])
+(setq desktop-saved-frameset [frameset 1 (22387 14745 983414 155000) (desktop . "206") "guoding@ubuntu" nil nil ((((font-backend xft x) (font . "-unknown-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1") (font-parameter . "Ubuntu Mono 13") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (foreground-color . "#657b83") (background-color . "#fdf6e3") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 9) (right-fringe . 9) (scroll-bar-foreground) (scroll-bar-background . "grey75") (menu-bar-lines . 1) (tool-bar-lines . 0) (title) (wait-for-wm . t) (fullscreen . maximized) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 14) (alpha) (horizontal-scroll-bars . t) (display-type . color) (background-mode . light) (cursor-color . "#657b83") (sticky) (environment) (frameset--id . "C5F5-AD73-E0EF-5AA3") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (visibility . t) (height . 39) (width . 131) (left . 65) (top . 24)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 6) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 76) (min-pixel-width . 90) (min-pixel-height-ignore . 38) (min-pixel-width-ignore . 54) (min-pixel-height-safe . 19) (min-pixel-width-safe . 18)) leaf (pixel-width . 1215) (pixel-height . 734) (total-width . 135) (total-height . 38) (normal-height . 1.0) (normal-width . 1.0) (buffer "Public/main.c" (selected . t) (hscroll . 0) (fringes 9 9 nil) (margins 3) (scroll-bars 14 2 t nil) (vscroll . 0) (dedicated) (point . 1080) (start . 893))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
-(setq search-ring '("defaults.c" "default_file" "theme" "main" "lan_ethernet_physical_ifnames" "g_plat_info" "an_ethernet_physical_ifnames" "lan_ethernet_physical_ifnames" "g_plat_infolan_ethernet_physical_ifnames" "g_plat_info" "timer" "g_plat_info" "bolt" "timer" "ping" "set_plat_ifname_defaults"))
+(setq search-ring '("cnt" "ccsp_message_bus_connect_thread" "mes" "ccsp_message_bus_loop_thread" "thread_ubus_loop" "pthread_create" "thread_ubus_loop" "current_frame" "current_thread_info" "struct" "pthread_create" "pthread" "create" "main" "main(" "set_sysevent_defaults"))
 (setq regexp-search-ring nil)
-(setq register-alist (list '(8 file-query "/home/guoding/.emacs" 20962) '(119 . "open_count") '(56 . "    printk(\"tiny_write\\n\");\n") (list 52 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,nil (get-buffer ," *temp*")))) mk)) (list 51 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,nil (get-buffer ," *temp*")))) mk)) (list 50 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,nil (get-buffer ," *temp*")))) mk)) (list 49 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,nil (get-buffer ," *temp*")))) mk))))
-(setq file-name-history '("~/Public/tmp/brcm_61/ccsp/CcspCommonLib/source/util_api/slap/components/SlapVarConverter/slap_vco_internal_api.h" "~/Public/tmp/brcm_61/rg/linux/fs/super.c" "/home/guoding/.emacs" "/etc/services" "~/Public/tmp/brcm_61/webuiPrebuilt/php-fpm.conf" "~/Dropbox/think world/diary" "~/.bashrc" "~/study/shell/awk/data" "~/study/shell/awk/shell.sh" "~/study/kernelmodule/ldd3/tty/tiny_tty.c" "~/Public/tmp/brcm_61/brcm_patches/apply_patches.sh" "~/Public/tmp/brcm_61/webui/Makefile" "~/Public/tmp/brcm_61/webui/ga/code/MoCA.php" "~/Public/tmp/brcm_61/webui/ga/code/readme" "~/Public/tmp/brcm_61/webui/ga/code/vpn_log.php" "~/Public/tmp/brcm_61/webui/ga/walled_garden/parcon/siteblk/index.php" "~/Public/tmp/brcm_61/webuiPrebuilt/php.ini" "~/Public/tmp/brcm_61/webuiPrebuilt/www/email_notification.php" "~/Downloads/emacs-24.5/src/keyboard.h" "~/Downloads/emacs-24.5/src/blockinput.h" "~/Downloads/emacs-24.5/src/indent.h" "~/Downloads/emacs-24.5/src/region-cache.h" "~/Downloads/emacs-24.5/src/buffer.h" "~/Downloads/emacs-24.5/src/character.h" "~/Downloads/emacs-24.5/src/commands.h" "~/Downloads/emacs-24.5/src/window.h" "~/Downloads/emacs-24.5/src/intervals.h" "~/Downloads/emacs-24.5/src/lisp.h" "~/Downloads/emacs-24.5/src/config.h" "~/Downloads/emacs-24.5/src/buffer.c" "~/Public/tmp/brcm_61/webuiPrebuilt/lighttpd.conf" "~/Public/tmp/brcm_61/.gitignore" "~/Public/tmp/brcm_61/123" "~/Public/study/main.c" "~/Public/study/123" "~/Public/study/package/ncurses/Makefile" "~/Public/tmp/brcm_61/rg/rg_apps/userspace/private/apps/ssk/ssk.c" "~/Public/tmp/brcm_61/cm/rbb_cm/rbb_cm_src/Bfc/LibSupport/NetSnmp/NetSnmp/include/net-snmp/library/getopt.h" "~/Public/tmp/brcm_61/cm/rbb_cxc/pc20/cablex_tools/dev/TlvFileBldr/getopt.cpp" "~/Public/tmp/brcm_61/rg/rg_apps/userspace/private/apps/ssk/ssk2_connstatus6.c" "~/Public/tmp/brcm_61/get_filer.sh" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/bolt_3390.log" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/CmBldr_3390.log" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/pc15_prod_bcm93390smwvg_pc15.log" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_ubifs.log" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_bcm93390smwvg.log" "~/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/config/epc4911/system_defaults" "~/Public/tmp/brcm_61/ccsp/CcspCommonLib/ccsp_configs/ccspintfcfg/ccsp_intf_cfg.h" "~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/Makefile" "~/Public/tmp/brcm_61/platform_broadcom/nw_config/ccsp_intf_cfg.h" "~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/apply_system_defaults.c" "~/Public/tmp/brcm_61/build_package.sh" "~/.emacs-history.el" "/home/guoding/.emacs" "/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/Makefile" "~/.emacs.d/" "~/Public/tmp/brcm_61/platform_broadcom/nw_config/ccsp_intf_cfg.h" "/home/guoding/.emacs" "/home/guoding/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/config/epc4911/system_defaults" "~/.emacs.d/" "/tftpboot/apps_3390_rg.tgz" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_ubifs.log" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_bcm93390smwvg.log" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/pc15_prod_bcm93390smwvg_pc15.log" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/CmBldr_3390.log" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/bolt_3390.log" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/" "/home/guoding/Public/tmp/brcm_61/build_package.sh" "/home/guoding/.emacs" "/home/guoding/Public/tmp/brcm_61/get_filer.sh" "~/Public/tmp/brcm_61/ccsp/CcspCommonLib/ccsp_configs/ccspintfcfg/ccsp_intf_cfg.h" "/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/apply_system_defaults.c" "~/Public/tmp/brcm_61/cm/rbb_cxc/pc20/cablex_tools/dev/TlvFileBldr/getopt.cpp" "~/Public/tmp/brcm_61/cm/rbb_cm/rbb_cm_src/Bfc/LibSupport/NetSnmp/NetSnmp/include/net-snmp/library/getopt.h" "~/Public/tmp/brcm_61/rg/rg_apps/userspace/private/apps/ssk/ssk.c" "~/Public/tmp/brcm_61/rg/rg_apps/userspace/private/apps/ssk/ssk2_connstatus6.c" "~/Public/tmp/brcm_61/" "/home/guoding/Public/study/package/ncurses/Makefile" "~/Public/study/123" "~/Public/study/" "/home/guoding/Public/study/main.c" "/home/guoding/Public/tmp/brcm_61/123" "/home/guoding/Public/tmp/brcm_61/get_filer.sh" "/home/guoding/Public/tmp/brcm_61/.gitignore" "/home/guoding/.emacs.d/cedet-1.1/common/cedet.el" "/home/guoding/.emacs" "~/Public/tmp/brcm_61/webuiPrebuilt/php-fpm.conf" "~/Public/tmp/brcm_61/webuiPrebuilt/lighttpd.conf" "~/Public/tmp/brcm_61/webuiPrebuilt/*.conf" "/etc/services" "~/Downloads/emacs-24.5/src/keyboard.h" "~/Downloads/emacs-24.5/src/blockinput.h" "~/Downloads/emacs-24.5/src/indent.h" "/home/guoding/Public/tmp/brcm_61/webuiPrebuilt/www/email_notification.php" "/home/guoding/Public/tmp/brcm_61/webuiPrebuilt/php.ini" "/home/guoding/Public/tmp/brcm_61/webui/ga/walled_garden/parcon/siteblk/index.php" "~/Downloads/emacs-24.5/src/region-cache.h" "/home/guoding/Public/tmp/brcm_61/webui/ga/code/vpn_log.php" "~/Public/tmp/brcm_61/webui/ga/code/readme" "/home/guoding/Public/tmp/brcm_61/webui/ga/code/i18n/../cmn/./../readme" "~/Downloads/emacs-24.5/src/buffer.h" "~/Public/tmp/brcm_61/webui/ga/code/MoCA.php"))
+(setq register-alist (list (list 50 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,5740 (get-buffer ,"apply_system_defaults.c")))) mk)) (list 49 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,9972 (get-buffer ,"apply_system_defaults.c")))) mk)) '(119 . "open_count")))
+(setq file-name-history '("~/.emacs.d/" "~/Public/disk2/brcm_61/rg/linux/include/linux/bcm_media_gw/itc_rpc/itc_msg_q.h" "~/Public/disk2/brcm_61/rg/linux/drivers/staging/rtl8188eu/include/rtw_io.h" "~/Public/disk2/brcm_61/cm/rbb_cxc/pc15/cablex/src/mta/inc/krbSaMaintain.h" "~/Public/disk2/brcm_61/cm/rbb_cm/rbb_cm_src/CableModemBsp/bsp_common/nihal/ItcRpc/ItcMsgQ.h" "/home/guoding/Public/disk2/brcm_61/ccsp/CcspCommonLib/Makefile" "~/Public/disk2/brcm_61/ccsp/CcspCommonLib/source/util_api/ansc/AnscPlatform/user_task.c" "~/Public/disk2/brcm_61/ccsp/CcspCommonLib/source/util_api/ccsp_msg_bus/ccsp_message_bus.c" "~/Public/disk2/brcm_61/rg/linux/arch/sh/include/asm/thread_info.h" "~/Public/disk2/brcm_61/rg/linux/arch/mn10300/include/asm/thread_info.h" "/home/guoding/Public/study/apue.3e/threads/mutex3.c" "~/Public/disk2/brcm_61/ccsp/CcspCommonLib/source/util_api/ccsp_msg_ubus/ccsp_message_bus.c" "~/Public/disk2/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_multinet/service_multinet_swfab_deps.c" "/home/guoding/study/main.c" "~/study/main.c" "/home/guoding/Public/study/main.c" "~/Dropbox/think world/diary" "/home/guoding/.emacs" "~/Public/disk2/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_multinet/common_plat/common_plat_map.c" "~/.emacs.d/bookmarks" "~/Public/disk2/brcm_61/ccsp/CcspCommonLib/Utopia/source/syscfg/lib/syscfg.h" "~/Public/disk2/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/config/epc4911/system_defaults" "/home/guoding/Public/disk2/brcm_61/./customer_lgi/lgi/CcspCommonLib/Utopia/config/epc4911/system_defaults" "~/Public/disk2/brcm_61/platform_broadcom/nw_config/ccsp_intf_cfg.h" "~/Public/disk2/brcm_61/ccsp/CcspCommonLib/ccsp_configs/ccspintfcfg/ccsp_intf_cfg.h" "~/Public/disk2/brcm_61/" "~/.emacs-history.el" "~/Public/disk2/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/apply_system_defaults.c" "~/.emacs-history.el" "~/Public/disk2/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/apply_system_defaults.c" "/home/guoding/Public/disk2/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/apply_system_defaults.c" "~/Dropbox/think world/diary" "/home/guoding/Public/disk2/brcm_61/12333" "~/.emacs.d/" "~/Public/disk2/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/config/epc4911/system_defaults" "~/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/config/epc4911/system_defaults" "~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/apply_system_defaults.c" "/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/Makefile" "/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/firewall/firewall.c" "/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/execute_dir/execute_dir.c" "~/.emacs-projects.el" "~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/Makefile" "/home/guoding/.emacs" "/home/guoding/Public/disk2/brcm_61/README.txt" "~/Public/disk2/brcm_61/build_package.sh" "/mnt/hgfs/download/dpc4912_create_usb_image.sh" "/home/guoding/Public/tmp/brcm_61/build_package.sh" "/home/guoding/Public/tmp/brcm_61/my_build_package.sh" "~/Public/tmp/brcm_61/platform_broadcom/broadcom/epc4911/CcspCommonLib/Utopia/1.1/include/utopia_platform_ov.h" "/tmp/git-emacs-tmp15338MEl" "~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/hal/include/utopia_platform.h" "~/Public/tmp/brcm_61/opensource/src/libtasn1/gl/getopt.c" "~/Public/tmp/brcm_61/rg/rootfs/user/utillinux/getopt/gnu/getopt1.c" "~/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/syscfg/lib/syscfg_lib.c" "/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/apply_system_defaults.c" "~/Public/tmp/brcm_61/ccsp/CcspCommonLib/source/util_api/slap/components/SlapVarConverter/slap_vco_internal_api.h" "~/Public/tmp/brcm_61/rg/linux/fs/super.c" "/etc/services" "~/Public/tmp/brcm_61/webuiPrebuilt/php-fpm.conf" "~/.bashrc" "~/study/shell/awk/data" "~/study/shell/awk/shell.sh" "~/study/kernelmodule/ldd3/tty/tiny_tty.c" "~/Public/tmp/brcm_61/brcm_patches/apply_patches.sh" "~/Public/tmp/brcm_61/webui/Makefile" "~/Public/tmp/brcm_61/webui/ga/code/MoCA.php" "~/Public/tmp/brcm_61/webui/ga/code/readme" "~/Public/tmp/brcm_61/webui/ga/code/vpn_log.php" "~/Public/tmp/brcm_61/webui/ga/walled_garden/parcon/siteblk/index.php" "~/Public/tmp/brcm_61/webuiPrebuilt/php.ini" "~/Public/tmp/brcm_61/webuiPrebuilt/www/email_notification.php" "~/Downloads/emacs-24.5/src/keyboard.h" "~/Downloads/emacs-24.5/src/blockinput.h" "~/Downloads/emacs-24.5/src/indent.h" "~/Downloads/emacs-24.5/src/region-cache.h" "~/Downloads/emacs-24.5/src/buffer.h" "~/Downloads/emacs-24.5/src/character.h" "~/Downloads/emacs-24.5/src/commands.h" "~/Downloads/emacs-24.5/src/window.h" "~/Downloads/emacs-24.5/src/intervals.h" "~/Downloads/emacs-24.5/src/lisp.h" "~/Downloads/emacs-24.5/src/config.h" "~/Downloads/emacs-24.5/src/buffer.c" "~/Public/tmp/brcm_61/webuiPrebuilt/lighttpd.conf" "~/Public/tmp/brcm_61/.gitignore" "~/Public/tmp/brcm_61/123" "~/Public/study/main.c" "~/Public/study/123" "~/Public/study/package/ncurses/Makefile" "~/Public/tmp/brcm_61/rg/rg_apps/userspace/private/apps/ssk/ssk.c" "~/Public/tmp/brcm_61/cm/rbb_cm/rbb_cm_src/Bfc/LibSupport/NetSnmp/NetSnmp/include/net-snmp/library/getopt.h" "~/Public/tmp/brcm_61/cm/rbb_cxc/pc20/cablex_tools/dev/TlvFileBldr/getopt.cpp" "~/Public/tmp/brcm_61/rg/rg_apps/userspace/private/apps/ssk/ssk2_connstatus6.c" "~/Public/tmp/brcm_61/get_filer.sh" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/bolt_3390.log" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/CmBldr_3390.log" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/pc15_prod_bcm93390smwvg_pc15.log" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_ubifs.log" "~/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_bcm93390smwvg.log" "~/Public/tmp/brcm_61/ccsp/CcspCommonLib/ccsp_configs/ccspintfcfg/ccsp_intf_cfg.h"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/apply_system_defaults.c"
-  "apply_system_defaults.c"
+  "/home/guoding/Public/study/main.c"
+  "main.c"
   'c-mode
   '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
-  4152
-  '(14663 nil)
+  1080
+  '(1062 t)
   nil
   nil
   '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (overwrite-mode)))
 
 (desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/source/util_api/slap/components/SlapVarConverter/slap_vco_internal_api.h"
-  "slap_vco_internal_api.h"
-  'c-mode
-  '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
-  4171
-  '(4137 nil)
   nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-dos)))
+  "study"
+  'dired-mode
+  '(linum-mode window-number-mode)
+  240
+  '(nil nil)
+  t
+  '("/home/guoding/Public/study/")
+  nil)
 
 (desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/rg/linux/fs/super.c"
-  "super.c"
+  nil
+  "*info*"
+  'Info-mode
+  '(linum-mode window-number-mode)
+  912599
+  '(nil nil)
+  t
+  '("/usr/local/share/info/emacs" "GDB Graphical Interface" nil)
+  '((tab-width . 8) (buffer-file-coding-system . utf-8-unix) (case-fold-search . t)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/disk2/brcm_61/rg/linux/include/linux/bcm_media_gw/itc_rpc/itc_msg_q.h"
+  "itc_msg_q.h"
   'c-mode
   '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  6992
-  '(7010 nil)
+  2734
+  '(2810 nil)
   nil
   nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/webuiPrebuilt/php-fpm.conf"
-  "php-fpm.conf"
-  'conf-windows-mode
-  '(linum-mode window-number-mode)
-  21445
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/.emacs"
-  ".emacs"
-  'emacs-lisp-mode
-  '(linum-mode auto-revert-mode window-number-mode auto-complete-mode)
-  16661
-  '(11758 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix) (overwrite-mode)))
-
-(desktop-create-buffer 206
-  "/etc/services"
-  "services"
-  'conf-space-mode
-  '(linum-mode window-number-mode)
-  14097
-  '(1 nil)
-  t
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/study/kernelmodule/ldd3/tty/tiny_tty.c"
-  "tiny_tty.c"
+  "/home/guoding/Public/disk2/brcm_61/rg/linux/drivers/staging/rtl8188eu/include/rtw_io.h"
+  "rtw_io.h"
   'c-mode
-  '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
-  13016
-  '(12875 nil)
+  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
+  4314
+  '(4329 nil)
   nil
   nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (overwrite-mode)))
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/build_package.sh"
-  "build_package.sh"
-  'sh-mode
-  '(linum-mode auto-revert-mode window-number-mode auto-complete-mode)
-  27299
-  '(2471 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/platform_broadcom/nw_config/ccsp_intf_cfg.h"
-  "ccsp_intf_cfg.h"
+  "/home/guoding/Public/disk2/brcm_61/cm/rbb_cxc/pc15/cablex/src/mta/inc/krbSaMaintain.h"
+  "krbSaMaintain.h"
   'c-mode
-  '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
-  201
+  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
+  2120
   '(1 nil)
   nil
   nil
   '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/Makefile"
+  "/home/guoding/Public/disk2/brcm_61/cm/rbb_cm/rbb_cm_src/CableModemBsp/bsp_common/nihal/ItcRpc/ItcMsgQ.h"
+  "ItcMsgQ.h"
+  'c-mode
+  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
+  2804
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/disk2/brcm_61/ccsp/CcspCommonLib/Makefile"
   "Makefile"
   'makefile-gmake-mode
   '(linum-mode auto-revert-mode window-number-mode)
-  932
-  '(464 nil)
+  12050
+  '(12040 nil)
   nil
   nil
   '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/ccsp/CcspCommonLib/ccsp_configs/ccspintfcfg/ccsp_intf_cfg.h"
+  "/home/guoding/Public/disk2/brcm_61/ccsp/CcspCommonLib/source/util_api/ccsp_msg_ubus/ccsp_message_bus.c"
+  "ccsp_message_bus.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode hi-lock-mode window-number-mode auto-complete-mode)
+  15964
+  '(18169 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-dos)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/disk2/brcm_61/ccsp/CcspCommonLib/source/util_api/ansc/AnscPlatform/user_task.c"
+  "user_task.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
+  515
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/disk2/brcm_61/ccsp/CcspCommonLib/source/util_api/ccsp_msg_bus/ccsp_message_bus.c"
+  "ccsp_message_bus.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
+  12027
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/disk2/brcm_61/rg/linux/arch/sh/include/asm/thread_info.h"
+  "thread_info.h"
+  'c-mode
+  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
+  2138
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/disk2/brcm_61/rg/linux/arch/mn10300/include/asm/thread_info.h"
+  "thread_info.h"
+  'c-mode
+  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
+  2822
+  '(2809 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/study/apue.3e/threads/mutex3.c"
+  "mutex3.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
+  299
+  '(298 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/study/main.c"
+  "main.c"
+  'c-mode
+  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
+  956
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/disk2/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_multinet/common_plat/common_plat_map.c"
+  "common_plat_map.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
+  10092
+  '(9957 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/disk2/brcm_61/ccsp/CcspCommonLib/Utopia/source/service_multinet/service_multinet_swfab_deps.c"
+  "service_multinet_swfab_deps.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
+  328
+  '(4238 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/disk2/brcm_61/platform_broadcom/nw_config/ccsp_intf_cfg.h"
   "ccsp_intf_cfg.h"
   'c-mode
   '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
-  535
-  '(499 nil)
+  490
+  '(478 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/disk2/brcm_61/ccsp/CcspCommonLib/Utopia/source/scripts/init/src/apply_system_defaults/apply_system_defaults.c"
+  "apply_system_defaults.c"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
+  15129
+  '(14540 nil)
   nil
   nil
   '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (overwrite-mode)))
 
 (desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/config/epc4911/system_defaults"
+  "/home/guoding/.emacs"
+  ".emacs"
+  'emacs-lisp-mode
+  '(linum-mode auto-revert-mode window-number-mode auto-complete-mode)
+  12649
+  '(1452 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (overwrite-mode)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/disk2/brcm_61/ccsp/CcspCommonLib/ccsp_configs/ccspintfcfg/ccsp_intf_cfg.h"
+  "ccsp_intf_cfg.h"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
+  671
+  '(214 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/disk2/brcm_61/ccsp/CcspCommonLib/Utopia/source/syscfg/lib/syscfg.h"
+  "syscfg.h"
+  'c-mode
+  '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
+  1540
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/guoding/Public/disk2/brcm_61/customer_lgi/lgi/CcspCommonLib/Utopia/config/epc4911/system_defaults"
   "system_defaults"
   'fundamental-mode
   '(linum-mode auto-revert-mode window-number-mode)
-  457
-  '(440 nil)
+  14049
+  '(9663 nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-unix) (overwrite-mode)))
@@ -154,484 +275,11 @@
   ".emacs-history.el"
   'emacs-lisp-mode
   '(linum-mode auto-revert-mode window-number-mode auto-complete-mode)
-  2740812
+  2784675
   '(1 nil)
   nil
   nil
   '((buffer-file-coding-system . utf-8-unix) (overwrite-mode)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_bcm93390smwvg.log"
-  "rg_bcm93390smwvg.log"
-  'fundamental-mode
-  '(linum-mode window-number-mode)
-  853322
-  '(17678 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  nil
-  "build_logs"
-  'dired-mode
-  '(linum-mode window-number-mode)
-  485
-  '(nil nil)
-  t
-  '("/home/guoding/Public/tmp/brcm_61/builds/3390/A0/build_logs/")
-  nil)
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/builds/3390/A0/build_logs/rg_ubifs.log"
-  "rg_ubifs.log"
-  'fundamental-mode
-  '(linum-mode window-number-mode)
-  1039
-  '(41 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/builds/3390/A0/build_logs/pc15_prod_bcm93390smwvg_pc15.log"
-  "pc15_prod_bcm93390smwvg_pc15.log"
-  'fundamental-mode
-  '(linum-mode window-number-mode)
-  73718
-  '(3415 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/builds/3390/A0/build_logs/CmBldr_3390.log"
-  "CmBldr_3390.log"
-  'fundamental-mode
-  '(linum-mode window-number-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/builds/3390/A0/build_logs/bolt_3390.log"
-  "bolt_3390.log"
-  'fundamental-mode
-  '(linum-mode window-number-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/get_filer.sh"
-  "get_filer.sh"
-  'sh-mode
-  '(linum-mode auto-revert-mode window-number-mode auto-complete-mode)
-  1067
-  '(1053 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix) (overwrite-mode)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/rg/rg_apps/userspace/private/apps/ssk/ssk2_connstatus6.c"
-  "ssk2_connstatus6.c"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  37237
-  '(37214 t)
-  nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/cm/rbb_cxc/pc20/cablex_tools/dev/TlvFileBldr/getopt.cpp"
-  "getopt.cpp"
-  'c++-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  2055
-  '(2048 nil)
-  nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/cm/rbb_cm/rbb_cm_src/Bfc/LibSupport/NetSnmp/NetSnmp/include/net-snmp/library/getopt.h"
-  "getopt.h"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  113
-  '(1 nil)
-  nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/rg/rg_apps/userspace/private/apps/ssk/ssk.c"
-  "ssk.c"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  6860
-  '(6535 nil)
-  nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  nil
-  "brcm_61"
-  'dired-mode
-  '(linum-mode window-number-mode)
-  429
-  '(429 nil)
-  t
-  '("/home/guoding/Public/tmp/brcm_61/")
-  nil)
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/study/package/ncurses/Makefile"
-  "Makefile"
-  'makefile-gmake-mode
-  '(linum-mode auto-revert-mode window-number-mode)
-  2138
-  '(2248 nil)
-  nil
-  nil
-  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix) (overwrite-mode)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/study/123"
-  "123"
-  'fundamental-mode
-  '(linum-mode auto-revert-mode window-number-mode)
-  1163
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  nil
-  "study"
-  'dired-mode
-  '(linum-mode window-number-mode)
-  296
-  '(nil nil)
-  t
-  '("/home/guoding/Public/study/")
-  nil)
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/study/main.c"
-  "main.c"
-  'c-mode
-  '(abbrev-mode linum-mode auto-revert-mode window-number-mode auto-complete-mode)
-  412
-  '(623 nil)
-  nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (overwrite-mode)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/123"
-  "123"
-  'fundamental-mode
-  '(linum-mode window-number-mode)
-  227
-  '(227 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/.gitignore"
-  ".gitignore"
-  'fundamental-mode
-  '(linum-mode auto-revert-mode window-number-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/webuiPrebuilt/lighttpd.conf"
-  "lighttpd.conf"
-  'conf-unix-mode
-  '(linum-mode window-number-mode)
-  6254
-  '(6090 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Downloads/emacs-24.5/src/buffer.c"
-  "buffer.c"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  7880
-  '(7880 nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (fill-column . 70)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Downloads/emacs-24.5/src/config.h"
-  "config.h"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (fill-column . 70)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Downloads/emacs-24.5/src/lisp.h"
-  "lisp.h"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (fill-column . 70)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Downloads/emacs-24.5/src/intervals.h"
-  "intervals.h"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (fill-column . 70)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Downloads/emacs-24.5/src/window.h"
-  "window.h"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (fill-column . 70)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Downloads/emacs-24.5/src/commands.h"
-  "commands.h"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (fill-column . 70)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Downloads/emacs-24.5/src/character.h"
-  "character.h"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (fill-column . 70)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Downloads/emacs-24.5/src/buffer.h"
-  "buffer.h"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (fill-column . 70)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Downloads/emacs-24.5/src/region-cache.h"
-  "region-cache.h"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (fill-column . 70)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Downloads/emacs-24.5/src/indent.h"
-  "indent.h"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (fill-column . 70)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Downloads/emacs-24.5/src/blockinput.h"
-  "blockinput.h"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (fill-column . 70)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Downloads/emacs-24.5/src/keyboard.h"
-  "keyboard.h"
-  'c-mode
-  '(abbrev-mode linum-mode window-number-mode auto-complete-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (fill-column . 70)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/webuiPrebuilt/www/email_notification.php"
-  "email_notification.php"
-  'fundamental-mode
-  '(linum-mode window-number-mode)
-  361
-  '(406 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-dos) (overwrite-mode)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/webuiPrebuilt/php.ini"
-  "php.ini"
-  'conf-windows-mode
-  '(linum-mode window-number-mode)
-  59079
-  '(51268 nil)
-  nil
-  nil
-  '((tab-width . 4) (buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/webui/ga/walled_garden/parcon/siteblk/index.php"
-  "index.php"
-  'fundamental-mode
-  '(linum-mode auto-revert-mode window-number-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/webui/ga/code/vpn_log.php"
-  "vpn_log.php"
-  'fundamental-mode
-  '(linum-mode auto-revert-mode window-number-mode)
-  1054
-  '(3405 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/webui/ga/code/readme"
-  "readme"
-  'fundamental-mode
-  '(linum-mode auto-revert-mode window-number-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/webui/ga/code/MoCA.php"
-  "MoCA.php"
-  'fundamental-mode
-  '(linum-mode auto-revert-mode window-number-mode)
-  8291
-  '(780 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/webui/Makefile"
-  "Makefile"
-  'makefile-gmake-mode
-  '(linum-mode auto-revert-mode window-number-mode)
-  885
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/guoding/Public/tmp/brcm_61/brcm_patches/apply_patches.sh"
-  "apply_patches.sh"
-  'sh-mode
-  '(linum-mode auto-revert-mode window-number-mode auto-complete-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix) (overwrite-mode)))
-
-(desktop-create-buffer 206
-  nil
-  "brcm_patches"
-  'dired-mode
-  '(linum-mode window-number-mode)
-  252
-  '(nil nil)
-  t
-  '("/home/guoding/Public/tmp/brcm_61/brcm_patches/")
-  nil)
-
-(desktop-create-buffer 206
-  "/home/guoding/study/shell/awk/shell.sh"
-  "shell.sh"
-  'sh-mode
-  '(linum-mode window-number-mode auto-complete-mode)
-  64
-  '(34 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix) (overwrite-mode)))
-
-(desktop-create-buffer 206
-  "/home/guoding/study/shell/awk/data"
-  "data"
-  'fundamental-mode
-  '(linum-mode window-number-mode)
-  24
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix) (overwrite-mode)))
-
-(desktop-create-buffer 206
-  "/home/guoding/.bashrc"
-  ".bashrc"
-  'sh-mode
-  '(linum-mode auto-revert-mode window-number-mode auto-complete-mode)
-  1122
-  '(3961 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix) (overwrite-mode)))
 
 (desktop-create-buffer 206
   "/home/guoding/Dropbox/think world/diary"
@@ -642,5 +290,5 @@
   '(nil nil)
   nil
   nil
-  '((buffer-file-coding-system . undecided-unix)))
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
 

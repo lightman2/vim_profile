@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <sys/ioctl.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include "tiny_tty.h"
+FILE *fd;
+
+void main()
+{
+    char buff[5000];
+    int filesize;
+    int fd;
+    /* printf("hello world\n"); */
+    /* fprintf(stdout, "stdout test\n"); */
+    /* fprintf(stdout, "stdout test\n"); */
+    /* fprintf(stdin, "ls"); */
+    /* buff[0]=getc(stdin); */
+    /* fgets(&buff[0],499, stdin); */
+    /* printf("%c\n", buff[0]); */
+    /* printf("%s\n", buff); */
+    /* fgets(&buff[0],499, stdin); */
+    /* printf("%s\n", buff); */
+/*    int _stdin_num= fileno(stdout);*/
+/*    printf("%d\n", _stdin_num);*/
+    /* system(buff); */
+
+    // while(1)
+    {
+
+//	fd = open(name, O_RDWR);
+        fd = open("/dev/ttty0", NULL);
+        printf("%d", fd);
+        if(fd<0)
+            printf("failed to open device ttty0\n");
+        ioctl(fd,ZWAVE_ADD_DEV,NULL);
+        ioctl(fd,ZWAVE_DEL_DEV,NULL);
+
+/* enum{ZWAVE_DEL_DEV, */
+/*      ZWAVE_ADD_DEV */
+        close(fd);
+#if 0
+        memset(buff , 0, sizeof(buff));
+/*        fd = open("/proc/cpuinfo", 0);*/
+        fd = open("/proc/zwave/ttty0_up", 0);
+        // fseek(fd, 0, SEEK_END);
+        //filesize = ftell(fd);
+        read(fd, buff, 200);
+/*        printf("filesize = %d", filesize);*/
+        int i;
+        for(i = 0;i<200; i++)
+            printf("%c", buff[i]);
+        for(i = 0;i<200; i++)
+            printf(" %02x", buff[i]);
+        printf("\n");
+        if(fd)
+            close(fd);
+        sleep(1);
+#endif
+    }
+}

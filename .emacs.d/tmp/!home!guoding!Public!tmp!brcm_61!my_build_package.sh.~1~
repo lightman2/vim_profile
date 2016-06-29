@@ -1,0 +1,1480 @@
+#!/usr/bin/env bash
+#
+# Copyright 2013 Broadcom Corporation
+#
+# This program is the proprietary software of Broadcom Corporation and/or its licensors, and
+# may only be used, duplicated, modified or distributed pursuant to the terms and conditions
+# of a separate, written license agreement executed between you and Broadcom (an "Authorized License").
+# Except as set forth in an Authorized License, Broadcom grants no license (express or implied),
+# right to use, or waiver of any kind with respect to the Software, and Broadcom expressly reserves all
+# rights in and to the Software and all intellectual property rights therein.
+# IF YOU HAVE NO AUTHORIZED LICENSE, THEN YOU HAVE NO RIGHT TO USE THIS SOFTWARE IN ANY WAY,
+# AND SHOULD IMMEDIATELY NOTIFY BROADCOM AND DISCONTINUE ALL USE OF THE SOFTWARE.
+#
+# Except as expressly set forth in the Authorized License,
+#
+# 1.This program, including its structure, sequence and organization, constitutes the valuable
+# trade secrets of Broadcom, and you shall use all reasonable efforts to protect the confidentiality
+# thereof, and to use this information only in connection with your use of Broadcom integrated circuit products.
+#
+# 2. TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE SOFTWARE IS PROVIDED "AS IS" AND WITH ALL
+# FAULTS AND BROADCOM MAKES NO PROMISES, REPRESENTATIONS OR WARRANTIES, EITHER EXPRESS, IMPLIED,
+# STATUTORY, OR OTHERWISE, WITH RESPECT TO THE SOFTWARE.  BROADCOM SPECIFICALLY DISCLAIMS
+# ANY AND ALL IMPLIED WARRANTIES OF TITLE, MERCHANTABILITY, NONINFRINGEMENT, FITNESS FOR
+# A PARTICULAR PURPOSE, LACK OF VIRUSES, ACCURACY OR COMPLETENESS, QUIET ENJOYMENT,
+# QUIET POSSESSION OR CORRESPONDENCE TO DESCRIPTION. YOU ASSUME THE ENTIRE RISK ARISING OUT
+# OF USE OR PERFORMANCE OF THE SOFTWARE.
+#
+# 3. TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL BROADCOM OR ITS LICENSORS BE LIABLE FOR
+# (i) CONSEQUENTIAL, INCIDENTAL, SPECIAL, INDIRECT, OR EXEMPLARY DAMAGES WHATSOEVER ARISING OUT OF OR
+# IN ANY WAY RELATING TO YOUR USE OF OR INABILITY TO USE THE SOFTWARE EVEN IF BROADCOM HAS BEEN ADVISED
+# OF THE POSSIBILITY OF SUCH DAMAGES; OR
+# (ii) ANY AMOUNT IN EXCESS OF THE AMOUNT ACTUALLY PAID FOR THE SOFTWARE ITSELF OR U.S. ,
+# WHICHEVER IS GREATER. THESE LIMITATIONS SHALL APPLY NOTWITHSTANDING ANY FAILURE OF ESSENTIAL
+# PURPOSE OF ANY LIMITED REMEDY.
+
+if [ ! -n "$1" ]; then
+	echo "Usage: `basename $0` all rg cm atlas trellis bolt CmBldr ccspmainline|ccsprdkb [clean|cleanall] [A0|B0]"
+	echo "       `basename $0` CGM4231_CCSP_PC20_GA  :  generate all rg cm(PC20 image) CmBldr"
+	echo "       `basename $0` CGM4231_CCSP_PC15_GA  :  generate all rg cm(PC15 image) CmBldr"
+	echo "       `basename $0` CGM4140COM_CCSP_PC20_GA  :  generate all rg cm(PC20 image) CmBldr"
+	echo "       `basename $0` CGM4140COM_CCSP_PC15_GA  :  generate all rg cm(PC15 image) CmBldr"
+	echo "       `basename $0` monolithicimage          :  generate monolithic image which combined rg DTB cm CmBldr into one image"
+	exit 1
+fi 
+# load the project definitions saved by get_filer.sh (This will also be used for incremental builds/subsequent builds)
+. project_definitions
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+index=1          	# Initialize count.
+rg=""
+cm=""
+atlas=""
+trellis=""
+bolt=""
+CmBldr=""
+clean=""
+cleanall=""
+configFlag=""
+cFileName=""
+firstRG="Y"
+ccsprdkb=""
+ccspmainline=""
+monolithicimage=""
+PWD=`pwd`
+imgDir=$PWD
+buildCfgFile=`pwd`"/build_config/buildConfigA0.cfg"
+appProduct=""
+monolith_filename="monolith.bin"
+datecode=`date +%y%m%d`
+function update_project_definitions
+{
+	# update the value of key/variable($1) with  (new value)$2 in file project_defintions
+	sed  -i "s/\($1 *= *\).*/\1$2/" project_definitions
+}
+for arg in $*
+do 
+	let "index+=1"
+	if [ "$arg" == "-c" ]; then
+		configFlag="Y"
+		continue
+	fi
+	if [ "$configFlag" == "Y" ]; then
+		cFileName=$arg
+		configFlag="N"
+		continue
+	fi
+	case "$arg" in
+		A0) 
+			echo "Will build images for A0 chipset.";
+			ChipSet="A0"
+		;;
+		B0) 
+			echo "Will build images for B0 chipset.";
+			ChipSet="B0"
+			buildCfgFile=`pwd`"/build_config/buildConfigB0.cfg"
+		;;
+		3385)
+			echo "Will build images for 3385 chip.";
+			Chip="3385"
+		;;
+		3390)
+			echo "Will build images for 3390 chip.";
+			Chip="3390"
+		;;
+		rg) 
+			echo "Will build rg.";
+			rg="Y"
+		;;
+		cm)
+			echo "Will build cm.";
+			cm="Y"
+		;;
+		atlas) 
+			echo "Will build atlas.";
+			atlas="Y"
+		;;
+		trellis) 
+			echo "Will build trellis.";
+			trellis="Y"
+		;;
+		bolt) 
+			echo "Will build bolt.";
+			bolt="Y"
+		;;
+		CmBldr) 
+			echo "Will build cm Bootloader.";
+			CmBldr="Y"
+		;;
+		ccsprdkb) 
+			echo "Will build rdk ccsp ";
+			ccsprdkb="Y"
+		;;
+		ccspmainline) 
+			echo "Will build mainline ccsp ";
+			ccspmainline="Y"
+		;;
+		monolithicimage)
+			echo "Will generate monolithic image  ";
+			monolithicimage="Y"
+		;;
+		all) 
+			echo "Will build all components.";
+			rg="Y";
+			cm="Y";
+			atlas="Y";
+			trellis="Y";
+			bolt="Y";
+			CmBldr="Y"				
+			ccspmainline="Y"
+		;;
+		clean) clean="Y"
+		;;
+		cleanall) 
+			cleanall="Y";
+			clean="Y"
+		;;
+		CBTEPC4911_CCSP_PC15_GA)
+			echo "Will build Cybertan EPC4911_CCSP_PC15_GA."
+			tchProject="CBTEPC4911_CCSP_PC15_GA"
+			Chip="3390"
+			ChipSet="A0"
+			rg="Y"
+			cm="Y"
+			bolt="Y"
+			CmBldr="Y"
+			ccspmainline="Y"
+			monolithicimage="Y"
+			monolith_filename="e4911-P15-5-A000-c1200r6101-${datecode}-TEST.bin"
+		;;
+		DPC4011_GA)
+			echo "Will build DPC4011 GA."
+			tchProject="DPC4011_GA"
+			Chip="3390"
+			ChipSet="A0"
+			rg="Y"
+			cm="Y"
+			bolt="Y"
+			CmBldr="Y"
+			monolithicimage="Y"
+			monolith_filename="d4011-c1000r6101-${datecode}-TEST.bin"
+		;;
+		CGM4231_CCSP_PC15_GA)
+			echo "Will build CGM4231_CCSP_PC15_GA."
+			tchProject="CGM4231_CCSP_PC15_GA"
+			Chip="3390"
+			ChipSet="B0"
+			rg="Y"
+			cm="Y"
+			bolt="Y"
+			CmBldr="Y"
+			ccspmainline="Y"
+			monolithicimage="Y"
+			monolith_filename="CGM4231-NA-P15-5-A000-c1200r611a3-${datecode}.bin"
+		;;
+		CGM4231_CCSP_PC20_GA)
+			echo "Will build CGM4231_CCSP_PC20_GA."
+			tchProject="CGM4231_CCSP_PC20_GA"
+			Chip="3390"
+			ChipSet="B0"
+			rg="Y"
+			cm="Y"
+			bolt="Y"
+			CmBldr="Y"
+			ccspmainline="Y"
+			monolithicimage="Y"
+			monolith_filename="CGM4231-NA-P20-5-A000-c1200r611a3-${datecode}.bin"
+		;;	
+		DPC4912_CCSP_PC15_GA)
+			echo "Will build DPC4912_CCSP_PC15_GA."
+			tchProject="DPC4912_CCSP_PC15_GA"
+			Chip="3390"
+			ChipSet="A0"
+			rg="Y"
+			cm="Y"
+			bolt="Y"
+			CmBldr="Y"
+			ccspmainline="Y"
+			monolithicimage="Y"
+			monolith_filename="d4912-P15-5-A000-c1200r6101-${datecode}-TEST.bin"
+		;;
+		DPC4912_CCSP_PC20_GA)
+			echo "Will build DPC4912_CCSP_PC20_GA."
+			tchProject="DPC4912_CCSP_PC20_GA"
+			Chip="3390"
+			ChipSet="A0"
+			rg="Y"
+			cm="Y"
+			bolt="Y"
+			CmBldr="Y"
+			ccspmainline="Y"
+			monolithicimage="Y"
+			monolith_filename="d4912-P20-5-A000-c1200r6101-${datecode}-TEST.bin"
+		;;
+                CGM4140COM_CCSP_PC15_GA)
+                        echo "Will build CGM4140COM_CCSP_PC15_GA."
+                        tchProject="CGM4140COM_CCSP_PC15_GA"
+                        Chip="3390"
+                        ChipSet="B0"
+                        rg="Y"
+                        cm="Y"
+                        bolt="Y"
+                        CmBldr="Y"
+                        #ccspmainline="Y"
+                        monolithicimage="Y"
+                        monolith_filename="CGM4140COM-P15-5-A000-c1200r6101-${datecode}-TEST.bin"
+                ;;
+                CGM4140COM_CCSP_PC20_GA)
+                        echo "Will build CGM4140COM_CCSP_PC20_GA."
+                        tchProject="CGM4140COM_CCSP_PC20_GA"
+                        Chip="3390"
+                        ChipSet="B0"
+                        rg="Y"
+                        cm="Y"
+                        bolt="Y"
+                        CmBldr="Y"
+                #        ccspmainline="Y"
+                        monolithicimage="Y"
+                        monolith_filename="CGM4140COM-P20-5-A000-c1200r6101-${datecode}-TEST.bin"
+                ;;
+
+		*) echo "Invalid input $arg";
+			exit 1;
+		;;
+	esac 
+done		#Unquoted $* sees arguments as separate words.
+# Tch: Apply any project-specific BFC customizations (not already handled by the filer script)
+if [ -n "$tchProject" ] && [ -n "$lastTchProject" ] && [ "$lastTchProject" != "$tchProject" ] ; then
+	echo "Reversing the patches for old project($lastTchProject) and applying the patches for new project($tchProject)"
+	patchApplied="n"
+        model=$(echo $lastTchProject | cut -d _ -f 1)
+        ./brcm_patches/$model/apply_patches.sh $bfcVersion "Reverse" >> patch.log 2>&1
+	# Apply platform  patches for the ccsp builds 
+        if [ "$isLastBuildCcsp" == "y" ]  ; then
+              ./brcm_patches/ccsp_platform_patches/apply_patches.sh   "Reverse" >> patch.log 2>&1          
+        fi	
+fi
+if [ -n "$tchProject" ]  ; then
+	update_project_definitions "patchApplied" "y"
+	update_project_definitions "Chip" "$Chip"
+	update_project_definitions "ChipSet" "$ChipSet"
+	if [ $patchApplied == "n" ] ; then
+                model=$(echo $tchProject | cut -d _ -f 1)
+                ./brcm_patches/$model/apply_patches.sh $bfcVersion "Apply" >> patch.log 2>&1
+		# Apply platform  patches for the ccsp builds 	
+		if [ "$ccspmainline" == "Y" ] || [ "$ccsprdkb" == "Y" ] ; then
+			update_project_definitions "isLastBuildCcsp" "y"
+			./brcm_patches/ccsp_platform_patches/apply_patches.sh	"Apply"	>> patch.log 2>&1		
+		fi
+	fi
+fi
+if [ -n "$tchProject" ] || [ -n "$lastTchProject" ] ; then
+	if [ -n "$tchProject" ] ; then
+		echo "Building Code for $tchProject"
+		update_project_definitions "lastTchProject" $tchProject
+		buildCfgFile=`pwd`"/build_config/${tchProject}.cfg"
+	else
+		echo "Building Code for $lastTchProject"
+		buildCfgFile=`pwd`"/build_config/${lastTchProject}.cfg"			
+		tchProject=$lastTchProject
+	fi
+	echo "Using buildCfgFile = $buildCfgFile"
+fi
+
+
+PKG_ROOT=`pwd`
+BrcmUtilsDir=""
+
+if [ "$ChipSet" == "" ]; then
+	echo "Will build default images for A0 chipset.";
+	ChipSet="A0"
+fi
+if [ "$Chip" == "" ]; then
+	echo "Will build default images for 3390 chip.";
+	Chip="3390"
+fi
+lowerChipSet=`echo $ChipSet | awk '{print tolower($0)}'`
+
+# Giving exicute permission to required directories and files
+if [ -d "cm/rbb_cm/rbb_cm_src/BrcmUtils" ]; then
+	BrcmUtilsDir="${PKG_ROOT}/cm/rbb_cm/rbb_cm_src/BrcmUtils/"
+	chmod -R ug+rw ${BrcmUtilsDir}*
+	chmod ug+x ${PKG_ROOT}/cm/rbb_cxc/pc15/xchg_common/tools/bin/i386-linux/*
+	#chmod ug+x ${PKG_ROOT}/cm/rbb_cxc/pc20/xchg_common/tools/bin/i386-linux/*
+	chmod ug+x ${PKG_ROOT}/cm/rbb_cm/rbb_cm_src/CmDocsisSystem/ecos/Custom/*
+fi
+if [ -d "cm/Bootloader/app" ]; then
+	chmod ug+x ${PKG_ROOT}/cm/Bootloader/*
+	chmod ug+x ${PKG_ROOT}/cm/Bootloader/app/makeapp
+fi
+
+if [ "$BrcmUtilsDir" == "" ]; then
+	echo "Error: No CM source code found."
+	exit 1
+else 
+	echo "Found BrcmUtils at ${BrcmUtilsDir}"
+fi
+
+#Checking for build config file. This file feeds build options to this script.
+if [ -a "$buildCfgFile" ]; then
+	echo "Will use $buildCfgFile as build configuration."
+else
+	echo "ERROR: Unable to locate build config file $buildCfgFile."
+	exit 1
+fi
+
+BUILD_LOG="./builds/${Chip}/${ChipSet}/build_logs/"
+BUILD_DATA="./builds/${Chip}/${ChipSet}/build_data/"
+
+mkdir -p $BUILD_LOG
+mkdir -p $BUILD_DATA
+
+echo "Verifying toolcahins.."
+toolchain_cm=( `cat ${buildCfgFile} | grep ^toolchain_cm | cut -f2 -d"="` )
+toolchain_rg=( `cat ${buildCfgFile} | grep ^toolchain_rg | cut -f2 -d"="` )
+toolchain_stb=( `cat ${buildCfgFile} | grep ^toolchain_stb | cut -f2 -d"="` )
+
+if [ ! -d "$toolchain_cm" ]; then
+	echo "ERROR: Unable to locate toochain_cm $toolchain_cm."
+	echo "       Make sure tollchain is properly installed at location defined in ${buildCfgFile}."
+	exit 1
+else
+	echo "Found: toochain_cm $toolchain_cm."
+fi
+
+if [ ! -d "$toolchain_rg" ]; then
+	echo "ERROR: Unable to locate toochain_rg $toolchain_rg."
+	echo "       Make sure tollchain is properly installed at location defined in ${buildCfgFile}."
+	exit 1
+else
+	echo "Found: toochain_rg $toolchain_rg."
+fi
+
+if [ ! -d "$toolchain_stb" ]; then
+	echo "ERROR: Unable to locate toochain_stb $toolchain_stb."
+	echo "       Make sure tollchain is properly installed at location defined in ${buildCfgFile}."
+	exit 1
+else
+	echo "Found: toochain_stb $toolchain_stb."
+fi
+
+#cmTypeOptions=( `cat ${buildCfgFile} | grep -e ^pc -e ^d30 -e ^d31 | cut -f1,2 -d"|" | sort -u` )
+cmTypeOptions=( `cat ${buildCfgFile} | grep -e ^pc -e ^d30 -e ^d31 | cut -f1,2,3 -d"|" | sort -u` )
+unset i
+compDirAry=()
+cmDirAry=()
+
+if [ "$clean" != "Y" ]; then 
+	for i in "${cmTypeOptions[@]}"
+	do
+		project=`echo $i |awk -F"|" '{print $1}'`
+		product=`echo $i |awk -F"|" '{print $2}'`
+		outDir=`echo $i |awk -F"outputdir=" '{print $2}' | cut -f1 -d" "`
+		if [[ "${outDir}" == "" ]]; then
+			outDir=`echo $i |awk -F"outputdir " '{print $2}' | cut -f1 -d" "`
+		fi
+#		echo "project-${1}"
+#		echo "product-${2}"
+#		echo "outDir-${outDir}"
+		if [[ "${project}" == "pc15_prod" ]]; then 
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_pc15_components_prod/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc15_components_prod/${outDir}/
+		elif [[ "${project}" == "pc15_cert" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_pc15_components_cert/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc15_components_cert/${outDir}/
+		elif [[ "${project}" == "pc20_prod" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_pc20_components_prod/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc20_components_prod/${outDir}/
+		elif [[ "${project}" == "pc20_cert" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_pc20_components_cert/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc20_components_cert/${outDir}/
+		elif [[ "${project}" == "d31_cert" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_d31_components_cert/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d31_components_cert/${outDir}/
+		elif [[ "${project}" == "d30_cert" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_d30_components_cert/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d30_components_cert/${outDir}/
+		elif [[ "${project}" == "d31_prod" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_d31_components_prod/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d31_components_prod/${outDir}/
+		elif [[ "${project}" == "d30_prod" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_d30_components_prod/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d30_components_prod/${outDir}/
+		elif [[ "${project}" == "pc15_prod_euro" ]]; then 
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_pc15_components_prod_euro/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc15_components_prod_euro/${outDir}/
+		elif [[ "${project}" == "pc15_cert_euro" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_pc15_components_cert_euro/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc15_components_cert_euro/${outDir}/
+		elif [[ "${project}" == "pc20_prod_euro" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_pc20_components_prod_euro/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc20_components_prod_euro/${outDir}/
+		elif [[ "${project}" == "pc20_cert_euro" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_pc20_components_cert_euro/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc20_components_cert_euro/${outDir}/
+		elif [[ "${project}" == "d31_cert_euro" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_d31_components_cert_euro/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d31_components_cert_euro/${outDir}/
+		elif [[ "${project}" == "d30_cert_euro" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_d30_components_cert_euro/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d30_components_cert_euro/${outDir}/
+		elif [[ "${project}" == "d31_prod_euro" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_d31_components_prod_euro/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d31_components_prod_euro/${outDir}/
+		elif [[ "${project}" == "d30_prod_euro" ]]; then
+			compDirAry+=("${Chip}/${ChipSet}/$product/rg_cm_d30_components_prod_euro/${outDir}")
+			mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d30_components_prod_euro/${outDir}/
+		fi
+		cmDirAry+=("${Chip}/${ChipSet}/$product")
+		mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/${product}/${project}/${outDir}/
+	done
+fi
+
+build_cm_bfc(){ # This functions is for building cm components images
+	cm_BuildOptions=( `cat ${buildCfgFile} | grep -e ^d30 -e ^d31` )
+	if [ ${#cm_BuildOptions[@]} -ne 0 ]; then
+		echo "*****Building cm d30|d31 images.*****"
+	fi
+	toolchain_cm=( `cat ${buildCfgFile} | grep ^toolchain_cm | cut -f2 -d"="` )
+	CXC_COMPILER_ROOT_DIR=`echo ${toolchain_cm/%bin/}`
+	unset i
+	for i in "${cm_BuildOptions[@]}"
+	do
+		imgDir=$PWD
+		project=`echo $i |awk -F"|" '{print $1}'`
+		product=`echo $i |awk -F"|" '{print $2}'`
+		opt=`echo $i |awk -F"|" '{print $3}'`
+		expEnv=`echo $i |awk -F"|" '{print $4}'`
+
+		pid=`echo $i |awk -F"|" '{print $3}' |awk -F" " '{print $4}'`
+		update_project_definitions pid $pid
+		#Getting environment variables from buildConfig file
+		OIFS="$IFS"
+		IFS=";"
+		read -a envAry<<<"${expEnv}"
+		IFS="$OIFS"
+
+		outDir=`echo $i |awk -F"outputdir " '{print $2}' | cut -f1 -d" "`
+		bashFile=${BUILD_DATA}${project}_${outDir}.bash
+		logFile=${BUILD_LOG}${project}_${outDir}.log
+		prodDir=${PKG_ROOT}/cm/rbb_cm/
+		cm_BUILD_DIR=cm/rbb_cm/rbb_cm_src/CmDocsisSystem/ecos/
+		if [ ! -d "$prodDir" ]; then
+			prodDir=${PKG_ROOT}/cm/rbb_cm/
+			cm_BUILD_DIR=cm/rbb_cm/rbb_cm_src/CmDocsisSystem/ecos/
+		fi
+#		echo project-${project}
+		if [[ "$project" == d30_cert ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d30_components_cert/${outDir}/
+		elif [[ "$project" == d31_cert ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d31_components_cert/${outDir}/
+		elif [[ "$project" == d30_prod ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d30_components_prod/${outDir}/
+		elif [[ "$project" == d31_prod ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d31_components_prod/${outDir}/
+		elif [[ "$project" == d30_cert_euro ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d30_components_cert_euro/${outDir}/
+		elif [[ "$project" == d31_cert_euro ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d31_components_cert_euro/${outDir}/
+		elif [[ "$project" == d30_prod_euro ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d30_components_prod_euro/${outDir}/
+		elif [[ "$project" == d31_prod_euro ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_d31_components_prod_euro/${outDir}/
+		else
+			echo "Invalid BFC entry in build configuration file"
+			exit 1
+		fi
+		if [ ! -d "$cm_BUILD_DIR" ]; then
+			echo "ERROR| Directory $cm_BUILD_DIR does not exist."
+			echo "       Make sure you are in top level directory of the package."
+			exit 1
+		fi
+		if [ "$clean" == "Y" ]; then
+			bashFile=${BUILD_DATA}${project}_${outDir}_clean.bash
+			logFile=${BUILD_LOG}${project}_${outDir}_clean.log
+			CMD="export PATH=${toolchain_cm}:${BrcmUtilsDir}:${PATH}:.:\ncd ${cm_BUILD_DIR}\npwd\n${opt} clean\n"
+		else 
+			CP0="cp ${prodDir}rbb_cm_src/CmDocsisSystem/ecos/${outDir}/${outDir}_sto.bin ${imgDir}/cmrun0.bin\n"
+			CP1="cp ${prodDir}rbb_cm_src/CmDocsisSystem/ecos/${outDir}/${outDir}_sto.bin ${imgDir}/cmrun1.bin\n"
+			CP2="cp ${prodDir}rbb_cm_src/CmDocsisSystem/ecos/${outDir}/monolith.bin ${imgDir}/monolith.bin\n"
+			CHMOD="chmod 755 ${imgDir}/*"
+			CMD="export PATH=${toolchain_cm}:${BrcmUtilsDir}:${PATH}:.:\ncd ${cm_BUILD_DIR}\npwd\n${opt}\n${CP0}${CP1}${CP2}${CHMOD}"
+		fi
+
+		echo "" > $bashFile
+		#including user defined environment variables from the buildConfig file
+		for envStr in "${envAry[@]}"
+		do
+			echo "${envStr}" >> $bashFile
+#			echo "${envStr}"
+		done
+
+		echo -e ${CMD} >> $bashFile
+		chmod 755 $bashFile
+		echo $bashFile
+		$bashFile > $logFile 2>&1 &
+	done
+	echo "*****************************"
+}
+
+build_cm_cxc(){ # This functions is for building cm components images
+	cm_BuildOptions=( `cat ${buildCfgFile} | grep ^pc` )
+	if [ ${#cm_BuildOptions[@]} -ne 0 ]; then
+		echo "*****Building cm cxc images.*****"
+		echo $buildCfgFile
+	fi
+	toolchain_cm=( `cat ${buildCfgFile} | grep ^toolchain_cm | cut -f2 -d"="` )
+	CXC_COMPILER_ROOT_DIR=`echo ${toolchain_cm/%bin/}`
+	unset i
+	for i in "${cm_BuildOptions[@]}"
+	do
+		imgDir=$PWD
+		project=`echo $i |awk -F"|" '{print $1}'`
+		product=`echo $i |awk -F"|" '{print $2}'`
+		opt=`echo $i |awk -F"|" '{print $3}'`
+		expEnv=`echo $i |awk -F"|" '{print $4}'`
+		outDir=`echo $i |awk -F"outputdir=" '{print $2}' | cut -f1 -d" "`
+		bashFile=${BUILD_DATA}${project}_${outDir}.bash
+		logFile=${BUILD_LOG}${project}_${outDir}.log
+
+		#Getting environment variables from buildConfig file
+		OIFS="$IFS"
+		IFS=";"
+		read -a envAry<<<"${expEnv}"
+		IFS="$OIFS"
+
+		if [[ "$project" == pc15_prod ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc15_components_prod/${outDir}/
+		elif [[ "$project" == pc15_cert ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc15_components_cert/${outDir}/
+		elif [[ "$project" == pc20_prod ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc20_components_prod/${outDir}/
+		elif [[ "$project" == pc20_cert ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc20_components_cert/${outDir}/
+		elif [[ "$project" == pc15_prod_euro ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc15_components_prod_euro/${outDir}/
+		elif [[ "$project" == pc15_cert_euro ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc15_components_cert_euro/${outDir}/
+		elif [[ "$project" == pc20_prod_euro ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc20_components_prod_euro/${outDir}/
+		elif [[ "$project" == pc20_cert_euro ]]; then
+			imgDir=${imgDir}/images/${Chip}/${ChipSet}/${product}/rg_cm_pc20_components_cert_euro/${outDir}/
+		else
+			echo "Invalid CxC entry in build configuration file"
+			echo $project
+			exit 1
+		fi
+		if [[ "$project" =~ ^pc15* ]]; then
+			prodDir=${PKG_ROOT}/cm/rbb_cxc/pc15/
+			cm_BUILD_DIR=${prodDir}cablex/
+		elif [[ "$project" =~ ^d30* ]]; then
+			prodDir=${PKG_ROOT}/cm/rbb_cm/
+			cm_BUILD_DIR=${prodDir}rbb_cm_src/CmDocsisSystem/ecos/
+		elif [[ "$project" =~ ^d31* ]]; then
+			prodDir=${PKG_ROOT}/cm/rbb_cm/
+			cm_BUILD_DIR=${prodDir}rbb_cm_src/CmDocsisSystem/ecos/
+		else
+			prodDir=${PKG_ROOT}/cm/rbb_cxc/pc20/
+			cm_BUILD_DIR=${prodDir}cablex/
+		fi
+		if [ ! -d "$cm_BUILD_DIR" ]; then
+			echo "ERROR: Directory $cm_BUILD_DIR does not exist."
+			echo "       Make sure you are in top level directory of the package."
+			exit 1
+		fi
+		prodDir=${PKG_ROOT}/cm/rbb_cm/
+		if [ "$clean" == "Y" ]; then
+			bashFile=${BUILD_DATA}${project}_${outDir}_clean.bash
+			logFile=${BUILD_LOG}${project}_${outDir}_clean.log
+			CMD="export PATH=${toolchain_cm}:${BrcmUtilsDir}:${PATH}:.:\nexport CXC_COMPILER_ROOT_DIR=${CXC_COMPILER_ROOT_DIR}\ncd ${cm_BUILD_DIR}\npwd\nsource setenv_eCos.bash\ncd apps/${product}\n${opt} clean\n"
+		else 
+			CP0="cp ${prodDir}rbb_cm_src/CmDocsisSystem/ecos/${outDir}/${outDir}_sto.bin ${imgDir}/cmrun0.bin\n"
+			CP1="cp ${prodDir}rbb_cm_src/CmDocsisSystem/ecos/${outDir}/${outDir}_sto.bin ${imgDir}/cmrun1.bin\n"
+			CP2="cp ${prodDir}rbb_cm_src/CmDocsisSystem/ecos/${outDir}/monolith.bin ${imgDir}/monolith.bin\n"
+			CHMOD="chmod 755 ${imgDir}/*"
+			if [[ "$project" =~ ^d3* ]]; then
+				CMD="export PATH=${toolchain_cm}:${BrcmUtilsDir}:${PATH}:.:\nexport CXC_COMPILER_ROOT_DIR=${CXC_COMPILER_ROOT_DIR}\ncd ${cm_BUILD_DIR}\npwd\n${opt}\n${CP0}${CP1}${CHMOD}"
+			else
+				CMD="export PATH=${toolchain_cm}:${BrcmUtilsDir}:${PATH}:.:\nexport CXC_COMPILER_ROOT_DIR=${CXC_COMPILER_ROOT_DIR}\ncd ${cm_BUILD_DIR}\npwd\nsource setenv_eCos.bash\ncd apps/${product}\n${opt}\n${CP0}${CP1}${CP2}${CHMOD}"
+			fi
+		fi
+		
+		echo "" > $bashFile
+		#including user defined environment variables from the buildConfig file
+		for envStr in "${envAry[@]}"
+		do
+			echo "${envStr}" >> $bashFile
+#			echo "${envStr}"
+		done
+
+		echo -e ${CMD} >> $bashFile
+		chmod 755 $bashFile
+		echo $bashFile
+		$bashFile > $logFile 2>&1 &
+	done
+	echo "*****************************"
+}
+
+build_CmBldr(){ # This functions is for building cm Bootloader images
+	CmBldr_BuildOptions=( `cat ${buildCfgFile} | grep ^CmBldr` )
+	if [ ${#CmBldr_BuildOptions[@]} -ne 0 ]; then
+		echo "***Building cm bootloader images.***"
+	fi
+	toolchain_cm=( `cat ${buildCfgFile} | grep ^toolchain_cm | cut -f2 -d"="` )
+	unset i
+	for i in "${CmBldr_BuildOptions[@]}"
+	do
+		imgDir=$PWD
+		project=`echo $i |awk -F"|" '{print $1}'`
+		product=`echo $i |awk -F"|" '{print $2}'`
+		opt=`echo $i |awk -F"|" '{print $3}'`
+		expEnv=`echo $i |awk -F"|" '{print $4}'`
+
+		pid=`echo $i |awk -F"|" '{print $3}' |awk -F" " '{print $4}'`
+		update_project_definitions pid $pid
+		#Getting environment variables from buildConfig file
+		OIFS="$IFS"
+		IFS=";"
+		read -a envAry<<<"${expEnv}"
+		IFS="$OIFS"
+
+		bashFile=${BUILD_DATA}${project}_${product}.bash
+		logFile=${BUILD_LOG}${project}_${product}.log
+		CmBldr_BUILD_DIR=${PKG_ROOT}/cm/Bootloader/app
+		if [ ! -d "$CmBldr_BUILD_DIR" ]; then
+			echo "ERROR: Directory $CmBldr_BUILD_DIR does not exist.";
+			echo "       Make sure you are in top level directory of the package.";
+			exit 1
+		fi
+		if [ "$clean" == "Y" ]; then
+			bashFile=${BUILD_DATA}${project}_${product}_clean.bash
+			logFile=${BUILD_LOG}${project}_${product}_clean.log
+			CMD="PATH=${toolchain_cm}:${BrcmUtilsDir}:${PATH}:.:\ncd ${CmBldr_BUILD_DIR}\npwd\n$opt clean\n"
+		else 
+ 			CMD="PATH=${toolchain_cm}:${BrcmUtilsDir}:${PATH}:.:\ncd ${CmBldr_BUILD_DIR}\npwd\n$opt\nmkdir -p ../../../rg/arm-linux/cmboot_images_cert/\nmkdir -p ../../../rg/arm-linux/cmboot_images/\ncp ${CmBldr_BUILD_DIR}/bcm/bootl_${pid}_jtag.bin ../../../rg/arm-linux/cmboot_images_cert/cmboot.bin\ncp ${CmBldr_BUILD_DIR}/bcm/bootl_${pid}_jtag.bin ../../../rg/arm-linux/cmboot_images/cmboot.bin"
+		fi
+
+		echo "" > $bashFile
+		#including user defined environment variables from the buildConfig file
+		for envStr in "${envAry[@]}"
+		do
+			echo "${envStr}" >> $bashFile
+#			echo "${envStr}"
+		done
+
+		echo -e ${CMD} >> $bashFile
+		chmod 755 $bashFile
+		unset ctr
+		for ctr in "${compDirAry[@]}"
+		do
+			echo "cp ${CmBldr_BUILD_DIR}/bcm/bootl_${pid}_jtag.bin ${imgDir}/images/${ctr}/cmboot.bin" >> $bashFile
+		done
+		echo $bashFile
+		$bashFile > $logFile 2>&1 &
+	done
+	echo "************************************"
+}
+
+build_bolt(){ # This functions is for building bolt images
+	bolt_BuildOptions=( `cat ${buildCfgFile} | grep ^bolt` )
+	if [ ${#bolt_BuildOptions[@]} -ne 0 ]; then
+		echo "******Building bolt images******"
+	fi
+	toolchain_bolt=( `cat ${buildCfgFile} | grep ^toolchain_stb | cut -f2 -d"="` )
+	unset i
+	for i in "${bolt_BuildOptions[@]}"
+	do
+		imgDir=$PWD
+		project=`echo $i |awk -F"|" '{print $1}'`
+		product=`echo $i |awk -F"|" '{print $2}'`
+		opt=`echo $i |awk -F"|" '{print $3}'`
+		expEnv=`echo $i |awk -F"|" '{print $4}'`
+
+		#Getting environment variables from buildConfig file
+		OIFS="$IFS"
+		IFS=";"
+		read -a envAry<<<"${expEnv}"
+		IFS="$OIFS"
+
+		bashFile=${BUILD_DATA}${project}_${product}.bash
+		logFile=${BUILD_LOG}${project}_${product}.log
+		bolt_BUILD_DIR=${PKG_ROOT}/stb/bolt/
+		if [ ! -d "$bolt_BUILD_DIR" ]; then
+			echo "ERROR: Directory $bolt_BUILD_DIR does not exist.";
+			echo "       Make sure you are in top level directory of the package.";
+			echo "       Also make sure you have installed common package.";
+			exit 1
+		fi
+		if [ "$clean" == "Y" ]; then
+			bashFile=${BUILD_DATA}${project}_${product}_clean.bash
+			logFile=${BUILD_LOG}${project}_${product}_clean.log
+			CMD="cd ${bolt_BUILD_DIR}\npwd\nmake clean"
+		else 
+			CMD="export PATH=${toolchain_bolt}:${PATH}:.:\ncd ${bolt_BUILD_DIR}\npwd\n$opt\ncp ${bolt_BUILD_DIR}objs/${Chip}${lowerChipSet}/bolt-v*.bin ${imgDir}/images/${Chip}/${ChipSet}/stb/"
+		fi
+
+		echo "" > $bashFile
+		#including user defined environment variables from the buildConfig file
+		for envStr in "${envAry[@]}"
+		do
+			echo "${envStr}" >> $bashFile
+#			echo "${envStr}"
+		done
+
+		echo -e "${CMD}" >> $bashFile
+		echo $bashFile
+		chmod 755 $bashFile
+		$bashFile > $logFile 2>&1 &
+	done
+	echo "********************************"
+}
+
+build_rg(){ # This functions is for building rg linux images
+	rg_BuildOptions=( `cat ${buildCfgFile} | grep ^rg` )
+	if [ ${#rg_BuildOptions[@]} -ne 0 ]; then
+		echo "*****Building rg images.*****"
+	fi
+	toolchain_rg=( `cat ${buildCfgFile} | grep ^toolchain_rg | cut -f2 -d"="` )
+	unset i
+	for i in "${rg_BuildOptions[@]}"
+	do
+		imgDir=$PWD
+		project=`echo $i |awk -F"|" '{print $1}'`
+		product=`echo $i |awk -F"|" '{print $2}'`
+		opt=`echo $i |awk -F"|" '{print $3}'`
+		expEnv=`echo $i |awk -F"|" '{print $4}'`
+		#Getting environment variables from buildConfig file
+		OIFS="$IFS"
+		IFS=";"
+		read -a envAry<<<"${expEnv}"
+		IFS="$OIFS"
+
+		bashFile=${BUILD_DATA}${project}_${product}.bash
+		logFile=${BUILD_LOG}${project}_${product}.log
+		rm -f $bashFile
+		rm -f $logFile
+
+		if [ -f ${PKG_ROOT}/rg/Makefile ] ; then
+			rg_BUILD_DIR=${PKG_ROOT}/rg/
+		else
+			rg_BUILD_DIR=${PKG_ROOT}/rg/rootfs
+		fi
+
+		rg_DIR=${PKG_ROOT}/rg/rg_apps/
+		if [ ! -d "$rg_BUILD_DIR" ]; then
+			echo "ERROR: Directory $rg_BUILD_DIR does not exist.";
+			echo "       Make sure you are in top level directory of the package.";
+			echo "       Also make sure you have installed common package.";
+			exit 1
+		fi
+		if [ ! -d "$rg_DIR" ]; then
+			echo "ERROR: Directory $rg_DIR does not exist.";
+			echo "       Make sure you are in top level directory of the package.";
+			echo "       Also make sure you have installed rg package.";
+			exit 1
+		fi
+		if [ "$clean" == "Y" ]; then
+			bashFile_clean=${BUILD_DATA}${project}_${product}_clean.bash
+	 	        logFile_clean=${BUILD_LOG}${project}_${product}_clean.log
+	 	        rm -f $bashFile_clean $logFile_clean
+			CMD="cd ${rg_BUILD_DIR}\npwd\nmake distclean"
+			echo -e ${CMD} > $bashFile_clean
+		else 
+			CMD="cd ${rg_BUILD_DIR}\npwd\nexport PATH=${toolchain_rg}:${PATH}:.:\n"
+			echo -e ${CMD} > $bashFile	
+		fi
+
+		#including user defined environment variables from the buildConfig file
+		for envStr in "${envAry[@]}"
+		do
+			echo "${envStr}" >> $bashFile
+#			echo "${envStr}"
+		done
+
+		#Including make command
+		echo "${opt}" >> $bashFile
+
+		unset ctr
+		if [ "$Chip" != "3390" ]; then
+			for ctr in "${compDirAry[@]}"
+			do
+				if [[ "$ctr" =~ ^"${Chip}/${ChipSet}/${product}"\/* ]]; then
+					if [[ "${ctr}" == *cert ]]; then
+						echo "cp ${imgDir}/rg/images/rgrun.bin.flashfs.cert ${imgDir}/images/${ctr}/rgrun.bin" >> $bashFile
+					else
+						echo "cp ${imgDir}/rg/images/rgrun.bin.flashfs ${imgDir}/images/${ctr}/rgrun.bin" >> $bashFile
+					fi
+				fi
+			done
+		fi
+		echo -e "cp ${imgDir}/rg/images/rg.*.dtb.tgz ${imgDir}/images/${Chip}/${ChipSet}/stb/\n" >> $bashFile
+		echo -e "cp ${imgDir}/rg/images/vmlinuz-* ${imgDir}/images/${Chip}/${ChipSet}/stb/\n" >> $bashFile
+#		echo -e "echo \"cd ${PKG_ROOT}\ntar czf ${BUILD_DATA}/${project}_${product}.tgz rg/images/ rg/rootfs/romfs rg/.target rg/rg_apps/targets/ rg/linux\n\"\ncd ${PKG_ROOT}\ntar czf ${BUILD_DATA}/${project}_${product}.tgz rg/images/ rg/rootfs/romfs rg/.target rg/rg_apps/targets/ rg/rg_apps/.last_profile rg/linux\n" >> $bashFile
+		if [ "$clean" == "Y" ]; then
+			echo $bashFile_clean
+			chmod 755 $bashFile_clean
+			if [ "$firstRG" == "Y" ]; then
+                        	echo "$bashFile_clean > $logFile_clean 2>&1" > $BUILD_DATA/rg_atlas.bash
+	                else
+                	        echo "$bashFile_clean > $logFile_clean 2>&1" >> $BUILD_DATA/rg_atlas.bash
+        	        fi
+                else
+			echo $bashFile
+			chmod 755 $bashFile
+			if [ "$firstRG" == "Y" ]; then
+                                echo "$bashFile > $logFile 2>&1" > $BUILD_DATA/rg_atlas.bash
+                        else
+                                echo "$bashFile > $logFile 2>&1" >> $BUILD_DATA/rg_atlas.bash
+                        fi
+                fi
+		chmod 755 $BUILD_DATA/rg_atlas.bash
+		firstRG="N"
+	done
+	echo "*****************************"
+}
+
+copy_rg_ubifs() {
+	if [ -n "$tchProject" ] ; then
+		model1=$(echo $tchProject | cut -d _ -f 1)
+	else
+		model1=$(echo $lastTchProject | cut -d _ -f 1)
+	fi
+	if [ "$model1" == "CGM4140COM" ]; then
+		echo "Copy Quantenna binaries to the root fs"
+		mkdir -p	$PWD/rg/rootfs/romfs/lib/firmware
+		cp -a $PWD/brcm_patches/Quantenna-wifi/quantenna/lib/firmware/* $PWD/rg/rootfs/romfs/lib/firmware/
+		cp -a $PWD/brcm_patches/Quantenna-wifi/quantenna/usr/local/sbin/* $PWD/rg/rootfs/romfs/sbin/
+	fi
+	if [ "$model1" == "CGM4231" ]; then
+		echo "Copy Quantenna binaries to the root fs"
+		mkdir -p	$PWD/rg/rootfs/romfs/lib/firmware
+		cp -a $PWD/brcm_patches/Quantenna-wifi/quantenna/lib/firmware/QTP840/* $PWD/rg/rootfs/romfs/lib/firmware/
+		cp -a $PWD/brcm_patches/Quantenna-wifi/quantenna/usr/local/sbin/QTP840/* $PWD/rg/rootfs/romfs/sbin/
+	fi
+	echo $monolith_filename > $PWD/rg/rootfs/romfs/etc/fw_version.txt
+	rg_BuildOptions=( `cat ${buildCfgFile} | grep ^rg` )
+	toolchain_rg=( `cat ${buildCfgFile} | grep ^toolchain_stb | cut -f2 -d"="` )
+	bashFile=""
+	logFile=""
+	unset i
+	allBashFile=${BUILD_DATA}${project}_ubifs.bash
+	allLogFile=${BUILD_LOG}${project}_ubifs.log	
+	rm -f $allBashFile $allLogFile
+	touch $allBashFile
+	touch $allLogFile
+	for i in "${rg_BuildOptions[@]}"
+	do
+		new="Y"
+		imgDir=$PWD
+		project=`echo $i |awk -F"|" '{print $1}'`
+		product=`echo $i |awk -F"|" '{print $2}'`
+		appProduct=`echo ${product#*bcm*} | awk '{print toupper($0)}'`
+		unset ctr
+		bashFile=${BUILD_DATA}${project}_${product}_ubifs.bash
+		logFile=${BUILD_LOG}${project}_${product}_ubifs.log
+		rm -f ${bashFile} ${logFile}
+		echo "========================================"
+		echo "bashFile->${bashFile}"
+		echo "logFile->${logFile}"
+		echo "========================================"
+		for ctr in "${compDirAry[@]}"
+		do
+			prj=`echo $ctr |awk -F"/" '{print $3}'`
+			prd=`echo $ctr |awk -F"/" '{print $4}'`
+			outDir=`echo $ctr |awk -F"/" '{print $5}'`
+#			echo "product-${product}"
+#			echo "prj-${prj}"
+#			echo "outDir=${outDir}"
+			if [ "${product}" == "${prj}" ]; then
+				if [ "$new" == "Y" ]; then
+					#echo -e "echo \"tar xzf ${BUILD_DATA}/${project}_${product}.tgz\"\ntar xzf ${BUILD_DATA}/${project}_${product}.tgz\n" > $bashFile
+#					echo -e "export APPSDIR=../rg_apps/targets/${appProduct}/fs.install\necho APPSDIR=\$APPSDIR\n" >> $bashFile
+					new="N"
+#					if [[ "$product" =~ vcm* ]]; then
+#						echo -e "export APPSDIR=../rg_apps/targets/9${Chip}VCM/fs.install\necho APPSDIR=\$APPSDIR\n" >> $bashFile
+#					else
+#						echo -e "export APPSDIR=../rg_apps/targets/9${Chip}GW/fs.install\necho APPSDIR=\$APPSDIR\n" >> $bashFile
+#					fi
+				fi
+			#	echo "cp ${imgDir}/rg/images/rgrun.bin.flashfs ${imgDir}/images/${ctr}/rgrun.bin" >> $bashFile
+				echo -e "rm -rf ${imgDir}/rg/images/rg_cm_images/\nrm -rf ${imgDir}/rg/images/ubifs-*\nmkdir -p ${imgDir}/rg/images/rg_cm_images/\ncd ${PKG_ROOT}\ncp ${imgDir}/images/${Chip}/${ChipSet}/${prj}/${prd}/${outDir}/cm*.bin ${imgDir}/rg/images/rg_cm_images/\ncd ${imgDir}/rg\npwd\necho \"ls  ${imgDir}/rg/images/rg_cm_images\"\nls ${imgDir}/rg/images/rg_cm_images\necho "TARGET FILE VALUE"\ncat ${imgDir}/rg/.target\npwd\n./rootfs/bin/build_rootfs_images.sh\n" >> $bashFile
+				if [ "$prd" == "rg_cm_pc15_components_cert" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/pc15_cert/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_pc15_components_prod" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/pc15_prod/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_pc20_components_cert" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/pc20_cert/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_pc20_components_prod" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/pc20_prod/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_d30_components_cert" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/d30_cert/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_d31_components_cert" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/d31_cert/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_d30_components_prod" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/d30_prod/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_d31_components_prod" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/d31_prod/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_pc15_components_cert_euro" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/pc15_cert_euro/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_pc15_components_prod_euro" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/pc15_prod_euro/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_pc20_components_cert_euro" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/pc20_cert_euro/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_pc20_components_prod_euro" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/pc20_prod_euro/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_d30_components_cert_euro" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/d30_cert_euro/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_d31_components_cert_euro" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/d31_cert_euro/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_d30_components_prod_euro" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/d30_prod_euro/${outDir}/" >> $bashFile
+				elif [ "$prd" == "rg_cm_d31_components_prod_euro" ]; then
+					echo "cp ${imgDir}/rg/images/ubifs-* ${imgDir}/images/${Chip}/${ChipSet}/${prj}/d31_prod_euro/${outDir}/" >> $bashFile
+				fi
+			fi
+		done
+		#echo "make distclean" >> $bashFile
+		chmod 755 $bashFile
+		echo "$bashFile" >> $allBashFile
+	done
+	chmod 755 $allBashFile
+	echo "$allBashFile > $allLogFile"
+	$allBashFile > $allLogFile 2>&1 &
+}
+
+build_atlas(){ # This functions is for building atlas linux images
+	atlas_BuildOptions=( `cat ${buildCfgFile} | grep ^atlas` )
+	if [ ${#atlas_BuildOptions[@]} -ne 0 ]; then
+		echo "Building atlas images."
+	fi
+	toolchain_atlas=( `cat ${buildCfgFile} | grep ^toolchain_stb | cut -f2 -d"="` )
+
+	unset i
+	for i in "${atlas_BuildOptions[@]}"
+	do
+		imgDir=$PWD
+		project=`echo $i |awk -F"|" '{print $1}'`
+		product=`echo $i |awk -F"|" '{print $2}'`
+		opt=`echo $i |awk -F"|" '{print $3}'`
+		expEnv=`echo $i |awk -F"|" '{print $4}'`
+
+		#Getting environment variables from buildConfig file
+		OIFS="$IFS"
+		IFS=";"
+		read -a envAry<<<"${expEnv}"
+		IFS="$OIFS"
+
+		bashFile=${BUILD_DATA}${project}_${product}.bash
+		logFile=${BUILD_LOG}${project}_${product}.log
+		atlas_BUILD_DIR=${PKG_ROOT}/stb/trellis/BSEAV/app/atlas/build/
+#		if [ ! -d "$atlas_BUILD_DIR" ]; then
+#			echo "ERROR: Directory $atlas_BUILD_DIR does not exist.";
+#			echo "       Make sure you are in top level directory of the package.";
+#			echo "       Also make sure you have installed common package.";
+##			exit 1
+#		fi
+		if [ "$clean" == "Y" ]; then
+			bashFile=${BUILD_DATA}${project}_${product}_clean.bash
+			logFile=${BUILD_LOG}${project}_${product}_clean.log
+			CMD="cd ${atlas_BUILD_DIR}\nmake clean"
+		else 
+#			CMD="cd ${atlas_BUILD_DIR}\n$opt\n"
+			CMD="cd ${atlas_BUILD_DIR}\n$opt\ncp ${imgDir}/stb/trellis/obj.97145/BSEAV/bin/refsw-*.tgz ${imgDir}/images/${Chip}/${ChipSet}/stb/\n"
+		fi
+#		env="export NEXUS_PLATFORM=97145\nexport BCHP_VER=${ChipSet}\nexport PLATFORM=97145\nexport B_REFSW_ARCH=arm-linux\nexport LINUX=${PKG_ROOT}/rg/linux\nexport PATH=${toolchain_atlas}:${PATH}:.:\nexport NEXUS_SECURITY_SUPPORT=n\n"
+		env="export NEXUS_PLATFORM=97145\nexport BCHP_VER=${ChipSet}\nexport PLATFORM=97145\nexport B_REFSW_ARCH=arm-linux\nexport LINUX=${PKG_ROOT}/rg/linux\nexport PATH=${toolchain_atlas}:${PATH}:.:\n"
+
+		#including user defined environment variables from the buildConfig file
+		for envStr in "${envAry[@]}"
+		do
+			echo "${envStr}" >> $bashFile
+#			echo "${envStr}"
+		done
+
+		echo -e "${env}${CMD}" > $bashFile
+		chmod 755 $bashFile
+		if [ "$rg" == "Y" ]; then
+			echo "$bashFile > $logFile 2>&1" >> $BUILD_DATA/rg_atlas.bash
+		else
+			echo "$bashFile > $logFile 2>&1" > $BUILD_DATA/rg_atlas.bash
+		fi
+		chmod 755 $BUILD_DATA/rg_atlas.bash
+		echo $bashFile
+#		$BUILD_DATA/rg_atlas.bash > $logFile 2>&1 &
+#		$bashFile
+	done
+}
+
+build_trellis(){ # This functions is for building trellis linux images
+	trellis_BuildOptions=( `cat ${buildCfgFile} | grep ^trellis` )
+	toolchain_stb=( `cat ${buildCfgFile} | grep ^toolchain_stb | cut -f2 -d"="` )
+	unset i
+	if [ ${#trellis_BuildOptions[@]} -ne 0 ]; then
+		echo "Building trellis images."
+	fi
+	for i in "${trellis_BuildOptions[@]}"
+	do
+		imgDir=$PWD
+		project=`echo $i |awk -F"|" '{print $1}'`
+		product=`echo $i |awk -F"|" '{print $2}'`
+		opt=`echo $i |awk -F"|" '{print $3}'`
+		expEnv=`echo $i |awk -F"|" '{print $4}'`
+
+		#Getting environment variables from buildConfig file
+		OIFS="$IFS"
+		IFS=";"
+		read -a envAry<<<"${expEnv}"
+		IFS="$OIFS"
+
+		bashFile=${BUILD_DATA}${project}_${product}.bash
+		logFile=${BUILD_LOG}${project}_${product}.log
+		trellis_BUILD_DIR=${PKG_ROOT}/stb/trellis/AppLibs/common/
+		if [ ! -d "$trellis_BUILD_DIR" ]; then
+			echo "ERROR: Directory $trellis_BUILD_DIR does not exist.";
+			echo "       Make sure you are in top level directory of the package.";
+			echo "       Also make sure you have installed common package.";
+			exit 1
+		fi
+		if [ "$clean" == "Y" ]; then
+			bashFile=${BUILD_DATA}${project}_${product}_clean.bash
+			logFile=${BUILD_LOG}${project}_${product}_clean.log
+			CMD="cd ${trellis_BUILD_DIR}\nmake clean"
+		else 
+#			CMD="cd ${trellis_BUILD_DIR}\n$opt\n"
+			CMD="cd ${trellis_BUILD_DIR}\n${opt}\ncp ${imgDir}/stb/trellis/AppLibs/target/97145${lowerChipSet}.arm-linux.*.tgz ${imgDir}/images/${Chip}/${ChipSet}/stb/\n"
+		fi
+		env="unset LC_ALL\nexport NEXUS_PLATFORM=97145\nexport BCHP_VER=${ChipSet}\nexport PLATFORM=97145\nexport B_REFSW_ARCH=arm-linux\nexport TRELLIS_HAS_RECORDER=n\nexport TOOLCHAIN=${toolchain_stb}\nexport LINUX=${PKG_ROOT}/rg/linux\nexport NETAPP_WIFI=n\nNETAPP_BLUETOOTH=n\nNETAPP_DISABLE_WIRED_SUPPORT=y\nexport PATH=${toolchain_stb}:${PATH}:.:\n"
+		echo -e "${env}" > $bashFile
+		#including user defined environment variables from the buildConfig file
+		for envStr in "${envAry[@]}"
+		do
+			echo "${envStr}" >> $bashFile
+#			echo "${envStr}"
+		done
+		echo -e "${CMD}" >> $bashFile
+		chmod 755 $bashFile
+
+		echo $bashFile
+		$bashFile > $logFile 2>&1 &
+	done
+}
+
+build_oss(){ #This function is for building Opensource libraries for ccsp
+	# copy net-snmp headers
+	cp -r $PWD/rg/rg_apps/userspace/public/apps/include/net-snmp  $PWD/opensource/include
+	cp -r $PWD/rg/rg_apps/userspace/public/apps/include/ucd-snmp  $PWD/opensource/include
+	# copy expat headers and libraries
+	cp -r $PWD/rg/rg_apps/userspace/gpl/apps/include/expat/*  $PWD/opensource/include
+	cp -r $PWD/rg/rg_apps/targets/${appProduct}/fs.install/lib/gpl/libexpat* $PWD/opensource/lib
+	# copy openssl headers and libraries
+	cp -r $PWD/rg/rg_apps/targets/${appProduct}/fs.install/lib/public/libssl* $PWD/opensource/lib
+	cp -r $PWD/rg/rg_apps/targets/${appProduct}/fs.install/lib/public/libcrypto* $PWD/opensource/lib
+	cp -r $PWD/rg/rootfs/lib/openssl/include/openssl $PWD/opensource/include
+	cp -rv $PWD/rg/rootfs/lib/openssl/crypto/  $PWD/opensource/
+	cp -rv $PWD/rg/rootfs/lib/openssl/ssl/   $PWD/opensource/
+	cp -rv $PWD/rg/rootfs/lib/openssl/e_os2.h   $PWD/opensource/
+	cp -rv $PWD/rg/rg_apps/userspace/public/libs/openssl-patch/crypto/opensslconf.h $PWD/opensource/crypto
+	make -C $PWD/opensource/src zlib fcgi curl libupnp libxml2 dnsmasq pcre
+}
+
+build_ccsprdkb(){ # This functions is for building rdk ccsp images
+	if [ "$clean" == "Y" ]; then
+	    echo "Clean for ccsp is not implemented"
+	else 
+		rg_BuildOptions=( `cat ${buildCfgFile} | grep ^rg` )
+		for i in "${rg_BuildOptions[@]}"
+		do
+		        appProduct=`echo ${product#*bcm*} | awk '{print toupper($0)}'`
+
+			#build oss components needed for ccsp
+			build_oss
+			#update the SDK
+			#echo "romfs directory $PWD/rg/rootfs/romfs"
+			#echo "rgapp directory $PWD/rg/rg_apps/targets/${appProduct}/fs.install"
+			rm -rf $PWD/sdk
+			rm -rf $PWD/rg/rootfs/romfs/usr/lib
+			rm -rf $PWD/rg/rootfs/romfs/fss
+			mkdir -p $PWD/sdk/usr
+			mkdir $PWD/rg/rootfs/romfs/usr/lib
+			mkdir -p $PWD/rg/rootfs/romfs/fss/gw/usr/ccsp
+			(test -d $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib || mkdir -p $PWD/rg/rg_apps/targets/93390MWVG/fs.install/usr/lib)
+			(test -d $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/ccsp || mkdir -p $PWD/rg/rg_apps/targets/93390MWVG/fs.install/usr/ccsp/)
+			cp -r $PWD/rg/rootfs/romfs/* sdk
+			rm $PWD/sdk/webs
+			cp -r $PWD/rg/rg_apps/targets/${appProduct}/fs.install/* sdk
+			cp -r $PWD/opensource/include sdk/usr/
+			cp -r $PWD/opensource/lib sdk/usr/
+			cp -a $PWD/sdk/usr/lib/libssl.* sdk/lib/
+			cp -a $PWD/sdk/usr/lib/libcrypto.* sdk/lib/
+			cp -r webuiPrebuilt/www $PWD/rg/rootfs/romfs/usr/
+			cp webuiPrebuilt/mod_* $PWD/rg/rootfs/romfs/usr/lib/
+			cp webuiPrebuilt/libgthread-2.0.so.0 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/
+			cp webuiPrebuilt/libglib-2.0.so.0 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/
+			cp webuiPrebuilt/libpam.so.0 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/
+			cp webuiPrebuilt/libsqlite3.so.0 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/
+			cp webuiPrebuilt/libmysqlclient.so.16 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/
+			cp webuiPrebuilt/lighttpd $PWD/rg/rg_apps/targets/${appProduct}/fs.install/etc/
+			cp webuiPrebuilt/lighttpd.conf $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/ccsp/
+			cp webuiPrebuilt/php-fpm $PWD/rg/rg_apps/targets/${appProduct}/fs.install/etc/
+			cp webuiPrebuilt/php-fpm.conf $PWD/rg/rg_apps/targets/${appProduct}/fs.install/etc/
+			cp webuiPrebuilt/cosa.so $PWD/rg/rootfs/romfs/fss/gw/usr/ccsp/
+			./platform_broadcom/ccsprdkbbuild.sh
+			cp -r $PWD/ccsp/Out/intel_usg-rdkb_arm/* $PWD/rg/rg_apps/targets/${appProduct}/fs.install/
+			cp -a $PWD/sdk/usr/lib $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/
+			copy_rg_ubifs
+		done
+	fi
+}
+
+make_monolithic_image(){
+	copy_rg_ubifs
+	if [ -d $PWD/monolithic_image ]; then
+		rm -rf $PWD/monolithic_image
+	fi
+	mkdir $PWD/monolithic_image
+
+	chiprev=`echo ${ChipSet:0:1}`
+	echo  $chiprev
+	if [ ! -z "$chiprev" -a "$chiprev" != " " ]; then
+		monolithic_chiprev="$Chip$chiprev"
+		echo "Product Model is                     $model1"
+		echo "monolithic image chip revision is    $monolithic_chiprev"
+	fi
+	
+	# Special case for dcm artifacts having different names
+	echo "Creating monolithic image for $tchProject"
+	if [ "$tchProject" == "DPC4011_GA" ]; then
+		kernel="$PWD/images/${Chip}/${ChipSet}/stb/vmlinuz-${Chip}${lowerChipSet}-dcm"
+		devtree="$PWD/images/${Chip}/${ChipSet}/stb/rg.${Chip}${lowerChipSet}-dcm.dtb.tgz"
+		docsis="$PWD/images/${Chip}/${ChipSet}/${product}/rg_cm_d31_components_prod/${outDir}/cmrun1.bin"
+		cmbldr="$PWD/images/${Chip}/${ChipSet}/${product}/rg_cm_d31_components_prod/${outDir}/cmboot.bin"
+		rgimg="$PWD/images/${Chip}/${ChipSet}/${product}/d31_prod/${outDir}/ubifs-128k-2048-${Chip}${lowerChipSet}-dcm-RG.img"
+		image_dir="$PWD/images/${Chip}/${ChipSet}/${product}/d31_prod"
+		
+		echo "BOOTL: cmboot.bin" > $PWD/monolithic_image/partitions.txt
+		echo "DOCSIS: cmrun1.bin" >> $PWD/monolithic_image/partitions.txt
+		echo "RG: ubifs-128k-2048-${Chip}${lowerChipSet}-dcm-RG.img" >> $PWD/monolithic_image/partitions.txt
+		echo "KERNEL: vmlinuz-${Chip}${lowerChipSet}-dcm" >> $PWD/monolithic_image/partitions.txt
+		echo "DEVTREE: rg.${Chip}${lowerChipSet}-dcm.dtb.tgz" >> $PWD/monolithic_image/partitions.txt
+	else
+		if [ "$tchProject" == "CBTEPC4911_CCSP_PC15_GA" ]; then
+			FLASHCFG="256k-4096"
+		else
+			FLASHCFG="128k-2048"
+		fi
+		if [ "$tchProject" == "DPC4912_CCSP_PC20_GA" ] || [ "$tchProject" == "CGM4140COM_CCSP_PC20_GA" ] || [ "$tchProject" == "CGM4231_CCSP_PC20_GA" ]; then
+			docsis="$PWD/images/${Chip}/${ChipSet}/${product}/rg_cm_pc20_components_prod/${outDir}/cmrun1.bin"
+			cmbldr="$PWD/images/${Chip}/${ChipSet}/${product}/rg_cm_pc20_components_prod/${outDir}/cmboot.bin"
+			rgimg="$PWD/images/${Chip}/${ChipSet}/${product}/pc20_prod/${outDir}/ubifs-${FLASHCFG}-${Chip}${lowerChipSet}-RG.img"
+			image_dir="$PWD/images/${Chip}/${ChipSet}/${product}/pc20_prod"
+		else
+			docsis="$PWD/images/${Chip}/${ChipSet}/${product}/rg_cm_pc15_components_prod/${outDir}/cmrun1.bin"
+			cmbldr="$PWD/images/${Chip}/${ChipSet}/${product}/rg_cm_pc15_components_prod/${outDir}/cmboot.bin"
+			rgimg="$PWD/images/${Chip}/${ChipSet}/${product}/pc15_prod/${outDir}/ubifs-${FLASHCFG}-${Chip}${lowerChipSet}-RG.img"
+			image_dir="$PWD/images/${Chip}/${ChipSet}/${product}/pc15_prod"
+		fi
+		kernel="$PWD/images/${Chip}/${ChipSet}/stb/vmlinuz-${Chip}${lowerChipSet}"
+		devtree="$PWD/images/${Chip}/${ChipSet}/stb/rg.${Chip}${lowerChipSet}.dtb.tgz"
+		# CGM4140 CM software didn't allow monolithic image include cm bootloader
+		if [ "$model1" != "CGM4140COM" ];then
+			echo "BOOTL: cmboot.bin" > $PWD/monolithic_image/partitions.txt
+		fi
+		echo "DOCSIS: cmrun1.bin" >> $PWD/monolithic_image/partitions.txt
+		echo "RG: ubifs-${FLASHCFG}-${Chip}${lowerChipSet}-RG.img" >> $PWD/monolithic_image/partitions.txt
+		echo "KERNEL: vmlinuz-${Chip}${lowerChipSet}" >> $PWD/monolithic_image/partitions.txt
+		echo "DEVTREE: rg.${Chip}${lowerChipSet}.dtb.tgz" >> $PWD/monolithic_image/partitions.txt
+	fi
+	
+	missing_partitions=false
+	[ -f $kernel ]  || { echo "Could not find kernel at $kernel"; missing_partitions=true; }
+	[ -f $devtree ] || { echo "Could not find devtree at $devtree"; missing_partitions=true; }
+	[ -f $docsis ]  || { echo "Could not find docsis image at $docsis"; missing_partitions=true; }
+	[ -f $cmbldr ]  || { echo "Could not find CmBldr at $cmbldr"; missing_partitions=true; }
+	[ -f $rgimg ]   || { echo "Could not find UBIFS RG image at $rgimg"; missing_partitions=true; }
+	if [ "$missing_partitions" = true ]; then
+		echo "make_monolithic_image: Exiting due to one or more missing build artifacts."
+		exit 1
+	fi
+
+	cp $kernel  $PWD/monolithic_image
+	cp $devtree $PWD/monolithic_image
+	cp $docsis  $PWD/monolithic_image
+	cp $cmbldr  $PWD/monolithic_image
+	cp $rgimg   $PWD/monolithic_image
+	cp $BrcmUtilsDir/ProgramStore $PWD/monolithic_image
+	cp $BrcmUtilsDir/mkmonolith/create_monolith_rglinux.sh $PWD/monolithic_image
+	cp $BrcmUtilsDir/mkmonolith/mkmonolith $PWD/monolithic_image
+	cp $BrcmUtilsDir/mkmonolith/mkmonolith_rglinux $PWD/monolithic_image
+	cd $PWD/monolithic_image
+	./create_monolith_rglinux.sh -f partitions.txt -b $monolith_filename -p $pid -c $monolithic_chiprev
+	echo "Created monolithic image at ${PWD}/${monolith_filename}"
+	cp $monolith_filename $image_dir
+	cd ..
+	#cp $PWD/monolithic_image/monolith.bin $PWD/images/${Chip}/${ChipSet}/${product}/pc15_cert
+	#rm -rf $PWD/monolithic_image
+}
+
+build_ccspmainline(){ # This functions is for building mainline ccsp images
+	if [ "$clean" == "Y" ]; then
+	    echo "Clean for ccsp is not implemented"
+	else 		
+		rg_BuildOptions=( `cat ${buildCfgFile} | grep ^rg` )
+		for i in "${rg_BuildOptions[@]}"
+		do
+		    appProduct=`echo ${product#*bcm*} | awk '{print toupper($0)}'`
+			
+			if [ "$appProduct" == "93390SMWVG" ]; then
+				appProduct="93390MWVG"
+				echo "Forcing appProduct to 93390MWVG"
+			fi 			
+
+			build_oss
+			rm -rf sdk
+			rm -rf $PWD/rg/rootfs/romfs/usr/lib
+			rm -rf $PWD/rg/rootfs/romfs/fss
+			rm -rf $PWD/rg/rootfs/romfs/usr/www
+			rm -rf $PWD/rg/rootfs/romfs/bin/dnsmasq
+			mkdir -p $PWD/sdk/usr
+			mkdir $PWD/rg/rootfs/romfs/usr/lib
+			mkdir -p $PWD/rg/rootfs/romfs/fss/gw/usr/ccsp
+			mkdir -p $PWD/rg/rootfs/romfs/usr/www
+			(test -d $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib || mkdir -p $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib)
+			(test -d $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/ccsp || mkdir -p $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/ccsp/)
+			# Addin the below line to bring up the webUI with prebuilt binaries
+			# Later the below line needs to be removed From here
+			rm -rf $PWD/rg/rg_apps/targets/${appProduct}/fs.install/lib/public/libssl.so.1.0.0
+			rm -rf $PWD/rg/rg_apps/targets/${appProduct}/fs.install/lib/public/libcrypto.so.1.0.0
+			rm -rf $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/libssl.so.1.0.0
+			rm -rf $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/libcrypto.so.1.0.0
+			rm -rf $PWD/opensource/lib/libssl.so.1.0.0
+			rm -rf $PWD/opensource/lib/libcrypto.so.1.0.0
+			find webuiPrebuilt/ -type f | xargs ${toolchain_rg}/arm-linux-strip -s 2> /dev/null
+			cp -a webuiPrebuilt/libssl.so.1.0.0 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/lib/public/
+			cp -a webuiPrebuilt/libcrypto.so.1.0.0 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/lib/public/
+			cp -a webuiPrebuilt/libssl.so.1.0.0 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/
+			cp -a webuiPrebuilt/libcrypto.so.1.0.0 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/
+			cp -a webuiPrebuilt/libssl.so.1.0.0 $PWD/opensource/lib/
+			cp -a webuiPrebuilt/libcrypto.so.1.0.0 $PWD/opensource/lib/
+			# Till here
+			cp -r $PWD/rg/rootfs/romfs/* sdk
+			rm sdk/webs
+			cp -r $PWD/rg/rg_apps/targets/${appProduct}/fs.install/* sdk
+			cp -r opensource/include sdk/usr/
+			cp -r opensource/lib sdk/usr/
+			cp -r opensource/crypto $PWD/sdk/usr
+			cp -r opensource/ssl $PWD/sdk/usr
+			cp -r opensource/e_os2.h $PWD/sdk/usr/
+			cp -r $PWD/opensource/opensslconf.h  sdk/usr/crypto/
+			cp -a sdk/usr/lib/libssl.* sdk/lib/
+			cp -a sdk/usr/lib/libcrypto.* sdk/lib/
+			cp -r webui/ga/code/* $PWD/rg/rootfs/romfs/usr/www/
+			# copy the dnsmasq library to the SDK
+			rm -rf sdk/bin/dnsmasq
+			cp -r $PWD/opensource/src/dnsmasq/src/dnsmasq sdk/bin/
+			cp -r $PWD/opensource/src/dnsmasq/src/dnsmasq $PWD/rg/rootfs/romfs/bin/
+
+			cp webuiPrebuilt/mod_* $PWD/rg/rootfs/romfs/usr/lib/
+			cp webuiPrebuilt/libgthread-2.0.so.0 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/
+			cp webuiPrebuilt/libglib-2.0.so.0 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/
+			cp webuiPrebuilt/libpam.so.0 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/
+			cp webuiPrebuilt/libsqlite3.so.0 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/
+			cp webuiPrebuilt/libmysqlclient.so.16 $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/lib/
+			cp webuiPrebuilt/lighttpd $PWD/rg/rg_apps/targets/${appProduct}/fs.install/etc/
+			cp webuiPrebuilt/lighttpd.conf $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/ccsp/
+			cp webuiPrebuilt/php-fpm $PWD/rg/rg_apps/targets/${appProduct}/fs.install/etc/
+			cp webuiPrebuilt/php-fpm.conf $PWD/rg/rg_apps/targets/${appProduct}/fs.install/etc/
+			cp webuiPrebuilt/php.ini $PWD/rg/rg_apps/targets/${appProduct}/fs.install/etc/
+			cp webuiPrebuilt/cosa.so $PWD/rg/rootfs/romfs/fss/gw/usr/ccsp/
+			touch sdk/.config sdk/
+			touch ./sdk/usr/include/autoconf.h
+			./platform_broadcom/ccspmainlinebuild.sh ${toolchain_rg}
+			if [ $? -ne 0 ]; then echo "*** CCSP build failed; Exiting! ***"; exit 2; fi ;
+			find $PWD/ccsp/Out/broadcom-epc4911/ -type f | xargs ${toolchain_rg}/arm-linux-strip -s 2> /dev/null
+			cp -r $PWD/ccsp/Out/broadcom-epc4911/* $PWD/rg/rg_apps/targets/${appProduct}/fs.install/
+			cp -a $PWD/sdk/usr/lib $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/
+			cp -r $PWD/sdk/bin/dnsmasq $PWD/rg/rg_apps/targets/${appProduct}/fs.install/bin/
+			echo -n "VERSION: " >  $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/ccsp/versions.txt
+			git describe --abbrev=0 --tags >> $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/ccsp/versions.txt
+			echo -n "FSSTAMP: " >> $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/ccsp/versions.txt
+			date +%Y%m%d%H%M%S >> $PWD/rg/rg_apps/targets/${appProduct}/fs.install/usr/ccsp/versions.txt
+			copy_rg_ubifs
+		done
+	fi
+}
+
+
+if [ "$cm" == "Y" ]; then
+	build_cm_bfc
+	build_cm_cxc
+fi
+if [ "$CmBldr" == "Y" ]; then
+	build_CmBldr
+fi
+if [ "$bolt" == "Y" ]; then
+	if [ "$clean" != "Y" ]; then
+		mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/stb
+	fi
+	build_bolt
+fi
+if [ "$rg" == "Y" ]; then
+	if [ "$clean" != "Y" ]; then
+		mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/stb
+	fi
+	build_rg
+fi
+if [ "$atlas" == "Y" ]; then
+	if [ "$clean" != "Y" ]; then
+		mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/stb
+	fi
+	build_atlas
+fi
+if [ "$atlas" == "Y" ] || [ "$rg" == "Y" ]; then
+	echo $BUILD_DATA/rg_atlas.bash
+	if [ "$clean" != "Y" ]; then
+		mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/stb
+	fi
+	$BUILD_DATA/rg_atlas.bash 2>&1 &
+fi
+
+echo "****Following jobs assigned *****"
+jobs -l
+echo "*********************************"
+echo "NOTE: Builds are in progress."
+echo "You can review the build logs at ${Chip}/${ChipSet}/builds/build_logs from another session."
+wait
+
+#Validation of CM builds
+if [ "$cm" == "Y" ] && [ "${clean}" != "Y" ]; then
+	cm_error=( `grep -e "FAILED" -e " Error " -e "ERROR - You must specify at least one product orprocessor parameter" -e " Stop." -e "not find :" ${BUILD_LOG}/[d31,d30,pc15,pc20]*bcm*.log` )
+	if [ ${#cm_error[@]} -eq 0 ]; then
+		echo "CM build successfully."
+	else
+		echo "CM build FAILED. Please review builds logs under ${Chip}/${ChipSet}/builds/build_logs/"
+	fi
+fi
+#Validation of CM Bootloader build
+if [ "$CmBldr" == "Y" ] && [ "${clean}" != "Y" ]; then
+	CmBldr_error=( `grep -e "^* Successfully compiled" -e " bootl_${Chip}_jtag.bin" ${BUILD_LOG}/CmBldr_${Chip}.log| grep -v cp` )
+	if [ ${#CmBldr_error[@]} -eq 0 ]; then
+		echo "CM Bootloader build FAILED. Please review builds log ${Chip}/${ChipSet}/builds/build_logs/CmBldr_${Chip}.log"
+	else
+		echo "CM Bootloader build successfully."
+	fi
+fi
+#Validation of bolt build
+if [ "$bolt" == "Y" ] && [ "${clean}" != "Y" ]; then
+	bolt_error=""
+	if [ "$Chip" == "3390" ]; then
+		bolt_error=( `grep -e "^  LD      objs/${Chip}${lowerChipSet}/fsbl.elf" ${BUILD_LOG}/bolt_${Chip}.log` )
+	else
+		bolt_error=( `grep -e "^  LD      objs/7145${lowerChipSet}/fsbl.elf" ${BUILD_LOG}/bolt_${Chip}.log` )
+	fi
+	if [ ${#bolt_error[@]} -eq 0 ]; then
+		echo "Bolt build FAILED. Please review builds log ${Chip}/${ChipSet}/builds/build_logs/bolt_${Chip}.log"
+	else
+		echo "Bolt build successfully."
+	fi
+fi
+#Validation of rg build
+if [ "$rg" == "Y" ] && [ "${clean}" != "Y" ]; then
+	rg_error=( `grep -e "^=== Making usrspc_img ..... finish ===" ${BUILD_LOG}/rg_*.log` )
+	if [ ${#rg_error[@]} -eq 0 ]; then
+		echo "RG build FAILED. Please review builds log ${Chip}/${ChipSet}/builds/build_logs/rg_${Chip}.log"
+	else
+		echo "RG build successfully."
+	fi
+fi
+#Validation of atlas build
+#if [ "$atlas" == "Y" ] && [ "${clean}" != "Y" ]; then
+	atlas_error=( `grep -e "^* Installation tarball created in" ${BUILD_LOG}/atlas_${Chip}.log` )
+#	if [ ${#atlas_error[@]} -eq 0 ]; then
+#		echo "Atlas build FAILED. Please review builds log ${Chip}/${ChipSet}/builds/build_logs/atlas_${Chip}.log"
+#	else
+#		echo "Atlas build successfully."
+#	fi
+#fi
+
+if [ "${rg}" == "Y" ] && [ "${clean}" != "Y" ]; then
+	echo "Making ubifs images."
+	copy_rg_ubifs
+fi
+echo "**** Following jobs assigned ****"
+jobs -l
+echo "*********************************"
+wait
+echo "Done with ubifs images."
+
+# Once Broadcom rg compile completes we can build CCSP/RDKB
+if [ "$ccsprdkb" == "Y" ]; then
+	echo "Building ccsprdkb."
+	build_ccsprdkb
+	echo "Making ubifs images."
+	copy_rg_ubifs
+fi
+if [ "$ccspmainline" == "Y" ]; then
+	echo "Building ccspmainline."
+	build_ccspmainline
+	echo "Making ubifs images."
+	copy_rg_ubifs
+fi
+echo "**** Following jobs assigned ****"
+jobs -l
+echo "*********************************"
+wait
+echo "Done with ubifs images."
+
+if [ "$trellis" == "Y" ]; then
+        mkdir -p ${imgDir}/images/${Chip}/${ChipSet}/stb
+        build_trellis
+fi
+echo "****Following jobs assigned *****"
+jobs -l
+echo "*********************************"
+wait
+#Validation of trellis build
+if [ "$trellis" == "Y" ] && [ "${clean}" != "Y" ]; then
+	trellis_error=( `grep -e "^* Bundle created at " ${BUILD_LOG}/trellis_${Chip}.log` )
+#	if [ ${#trellis_error[@]} -eq 0 ]; then
+#		echo "Trellis build FAILED. Please review builds log ${Chip}/${ChipSet}/builds/build_logs/trellis_${Chip}.log"
+#	else
+#		echo "Trellis build successfully."
+#	fi
+fi
+
+if [ "$monolithicimage" == "Y" ]; then
+	make_monolithic_image
+fi
+
+if [ "$cleanall" == "Y" ]; then
+	echo "Removing up images and builds directory"
+	rm -rf images builds
+fi
+
+echo "Post build cleanup."
+echo "rm -f ${BUILD_DATA}/rg_bcm*tgz"
+rm -f ${BUILD_DATA}/rg_bcm*tgz
+
+echo "Completed all builds."
+echo "You can find images under images directory"
+echo "You can find build logs under ${Chip}/${ChipSet}/builds/build_logs directory"

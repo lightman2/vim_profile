@@ -1,0 +1,88 @@
+/***************************************************************
+			 Desc  : code for ZWave vtty Kernel Module
+			 Author: Song You, soyou@cisco.com
+			 Date  : 2015-1-27
+****************************************************************/
+
+#include <linux/init.h>
+#include <linux/module.h>
+#include <linux/tty.h>
+#include <linux/uaccess.h>
+#include <linux/tty_driver.h>
+#include <linux/timer.h>
+#include "vtty.h"
+
+MODULE_LICENSE("GPL");
+
+static int vnum = 2;
+static char * actPath = NULL;
+
+int debug = 0;
+
+module_param(vnum, int , 0);
+MODULE_PARM_DESC(vnum, "The amount of SCTPA ZWave VTTY devices");
+module_param(actPath, charp, 0);
+MODULE_PARM_DESC(actPath, "The path of the actual ZWave TTY Driver");
+module_param(debug, int , 0);
+MODULE_PARM_DESC(debug, "Whether to log debug information");
+
+/********************************************************************/
+
+void vtty_print_buffer(unsigned char *pBuffer, int len)
+{
+	unsigned char content[512], *p = content;
+	int i,pos=0;
+
+	if(debug!=1)
+		return;
+	printk(KERN_DEBUG "\n-----Content of Buffer:-----\n");
+	for(i=0;i<len;i++){
+		if(i && (0==(i%16))){
+			pos += snprintf(p+pos,sizeof(content)-pos,"\n");
+			if(pos >= sizeof(content))
+				break;
+		}
+		pos += snprintf(p+pos,sizeof(content)-pos,"%02x ",pBuffer[i]);
+		if(pos>=sizeof(content))
+			break;
+	}
+	printk(KERN_DEBUG "%s\n-----End of Buffer-----\n\n",content);
+}
+
+static int init_zwave_vtty(void)
+{
+	printk(KERN_INFO"vtty: Load SCTPA ZWave VTTYs ... \n");
+
+	if(vnum < 2)
+		vnum = 2;
+	VTTY_LOG(KERN_DEBUG, "Amount of VTTY is %d\n", vnum);
+	if(actPath==NULL){
+		printk(KERN_CRIT" vtty: You must specify the path of the actual tty device of the zwave chip\n");
+		return(-1);
+	}
+	VTTY_LOG(KERN_DEBUG, "The actual zwave device is %s\n", actPath);
+
+	if(init_zwave_agent(actPath)){
+		printk(KERN_ERR "vtty: Failed to start zwave agent.");
+		return(-1);
+	}
+	if(init_vtty_device(vnum)){
+		printk(KERN_ERR "vtty: Failed to initialize vtty devices.");
+		clean_zwave_agent();
+				return(-1);
+	}
+
+	printk(KERN_INFO"vtty: Finish loading SCTPA ZWave TTYs\n");
+	return(0);
+}
+
+static void clean_zwave_vtty(void)
+{
+	printk(KERN_INFO"vtty: Unload SCTPA ZWave VTTY\n");
+	clean_zwave_agent();
+	clean_vtty_device();
+}
+
+module_init(init_zwave_vtty);
+module_exit(clean_zwave_vtty);
+

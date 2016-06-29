@@ -1,0 +1,30 @@
+#include <stdio.h>
+FILE *fd;
+
+void main()
+{
+    char buff[5000];
+    int filesize;
+    while(1)
+    {
+        ioctl("/dev/ttty0",)
+#if 0
+        memset(buff , 0, sizeof(buff));
+/*        fd = open("/proc/cpuinfo", 0);*/
+        fd = open("/proc/zwave/ttty0_up", 0);
+        // fseek(fd, 0, SEEK_END);
+        //filesize = ftell(fd);
+        read(fd, buff, 200);
+/*        printf("filesize = %d", filesize);*/
+        int i;
+        for(i = 0;i<200; i++)
+            printf("%c", buff[i]);
+        for(i = 0;i<200; i++)
+            printf(" %02x", buff[i]);
+        printf("\n");
+        if(fd)
+            close(fd);
+        sleep(1);
+#endif
+    }
+}

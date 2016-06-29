@@ -1,0 +1,74 @@
+#!/bin/sh
+TOPDIR=$(cd ./../../../ && /bin/pwd)
+# . ${TOPDIR}/tools/build_tools/Path.sh
+APPS_NAME=$(basename `/bin/pwd`)
+
+# parse_args $@
+
+# if [ ${BUILD_CLEAN} -eq 1 ]; then
+# 	if [ -d ${APPS_NAME} ]; then
+# 		cd ${APPS_NAME}
+# 		if [ -e Makefile -o -e makefile ]; then
+# 			make clean 
+# 		fi
+# 		cd -
+# 	fi
+# 	rm -rf ${USER_PRIVATE_DIR}/common/openzwave
+# 	rm -rf ${USER_OPENSOURCE_DIR}/${APPS_NAME}/ipkg-install
+# 	[ ! ${BUILD_CONFIGURE} -eq 1 ] && exit 0
+# fi
+
+# if [ ${BUILD_CONFIGURE} -eq 1 ]; then
+# 	## 1. unpack
+# 	[ ! -d ${APPS_NAME} ] && tar xf ${APPS_NAME}.tar
+	
+# 	## 2. patch
+# 		# fix a bug in ${APPS_NAME}/cpp/examples/MinOZW/Makefile
+# 		[ ! -f ${APPS_NAME}/cpp/examples/MinOZW/Makefile~ ] && sed -i~ -e "/^LIBS =/s/LIBDIR/top_srcdir/g" ${APPS_NAME}/cpp/examples/MinOZW/Makefile
+	
+# 	## 3. configure
+# 		# no configure script 
+# fi
+
+# # local install location
+# LOCAL_INSTALL_DIR=${USER_OPENSOURCE_DIR}/${APPS_NAME}/ipkg-install
+# mkdir -p ${USER_OPENSOURCE_DIR}/${APPS_NAME}/ipkg-install
+# build_error_check $?
+
+	## 4. build
+# make install (implicitly builds openzwave)
+CROSS_COMPILER_PREFIX=${TOPDIR}"/atom/build_i686/staging_dir/bin/i686-cm-linux-"
+INCLUDE_DIR=${TOPDIR}"/atom/project_build_i686/IntelCE/udev-33.0.13345.339007/udev-161/libudev/"
+USER_OPENSOURCE_DIR=${TOPDIR}"/atom/package"
+CONFIG_MK="CROSS_COMPILE=${CROSS_COMPILER_PREFIX}"
+# CONFIG_CFLAG="CFLAGS+=-I ${INCLUDE_DIR}"
+echo "------------------------"${CONFIG_CFLAG}
+make -C ${USER_OPENSOURCE_DIR}/${APPS_NAME}  \
+		${CONFIG_MK} ${CONFIG_CFLAG}\
+   		DESTDIR="${USER_OPENSOURCE_DIR}/${APPS_NAME}/ipkg-install" install
+# build_error_check $?
+
+# Install compiled binary and header files.
+# copy compiled binary and header files to common dir.
+# mkdir -p ${USER_PRIVATE_DIR}/common/openzwave
+# if [ -d ${USER_OPENSOURCE_DIR}/${APPS_NAME}/ipkg-install/usr/local/lib64/ ]; then
+# 	${COPY} ${USER_OPENSOURCE_DIR}/${APPS_NAME}/ipkg-install/usr/local/lib64 ${USER_OPENSOURCE_DIR}/${APPS_NAME}/ipkg-install/usr/local/lib -rf
+# fi
+
+# build_error_check $?
+# ${COPY} ${USER_OPENSOURCE_DIR}/${APPS_NAME}/ipkg-install/usr/local/lib/     ${USER_PRIVATE_DIR}/common/openzwave/
+# build_error_check $?
+# ${COPY} ${USER_OPENSOURCE_DIR}/${APPS_NAME}/ipkg-install/usr/local/include/ ${USER_PRIVATE_DIR}/common/openzwave/
+# build_error_check $?
+
+# 	# assuming COPY can copy the entire tree and preseve existing entries
+# ${COPY} ${USER_OPENSOURCE_DIR}/${APPS_NAME}/ipkg-install/usr/local/lib/* ${BUILD_ROOTFS_DIR}/usr/lib/
+# ${COPY} ${USER_OPENSOURCE_DIR}/${APPS_NAME}/ipkg-install/usr/local/etc/* ${BUILD_ROOTFS_DIR}/etc/
+# build_error_check $?
+# if [ "X${BUILD_ROOTFS_DIR}" != "X${BASE_ROOTFS_DIR}" ]; then
+# 	# Install binary library into base rootfs
+# 	${COPY} ${USER_OPENSOURCE_DIR}/${APPS_NAME}/ipkg-install/usr/local/lib/* ${BASE_ROOTFS_DIR}/usr/lib/
+# 	${COPY} ${USER_OPENSOURCE_DIR}/${APPS_NAME}/ipkg-install/usr/local/etc/* ${BASE_ROOTFS_DIR}/etc/
+# 	build_error_check $?
+# fi
+

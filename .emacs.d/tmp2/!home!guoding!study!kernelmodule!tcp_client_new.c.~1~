@@ -1,0 +1,172 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<errno.h>
+#include<sys/types.h>
+#include<sys/socket.h>
+#include<netinet/in.h>
+
+#define MAXLINE 4096
+
+void hexDump (char *desc, void *addr, int len) {
+    int i;
+    unsigned char buff[17];
+    unsigned char *pc = (unsigned char*)addr;
+
+    // Output description if given.
+    if (desc != NULL)
+        printf ("%s:\n", desc);
+
+    // Process every byte in the data.
+    for (i = 0; i < len; i++) {
+        // Multiple of 16 means new line (with line offset).
+
+        if ((i % 16) == 0) {
+            // Just don't print ASCII for the zeroth line.
+            if (i != 0)
+                printf ("  %s\n", buff);
+
+            // Output the offset.
+            printf ("  %04x ", i);
+        }
+
+        // Now the hex code for the specific character.
+        printf (" %02x", pc[i]);
+
+        // And store a printable ASCII character for later.
+        if ((pc[i] < 0x20) || (pc[i] > 0x7e))
+            buff[i % 16] = '.';
+        else
+            buff[i % 16] = pc[i];
+        buff[(i % 16) + 1] = '\0';
+    }
+
+    // Pad out last line if not exactly 16 characters.
+    while ((i % 16) != 0) {
+        printf ("   ");
+        i++;
+    }
+
+    // And print the final ASCII bit.
+    printf ("  %s\n", buff);
+}
+
+void parsetcp(unsigned char * file, int len)
+{
+    unsigned char tmp[128];
+    unsigned char *ptr = file;
+    int i = 0, j = 0, len_tmp = 0;
+
+    while(i < len){
+        memset(tmp,0,sizeof(tmp));
+        tmp[0] = ptr[i++];
+        switch(tmp[0]){
+            case 0x01:
+                tmp[1] = ptr[i++];
+                len_tmp = tmp[1] + 2;
+                for (j = 0; j < tmp[1]; j++){
+                    tmp[2 + j] = ptr[i++];
+                }
+                break;
+            case 0x06:
+            case 0x15:
+            case 0x18:
+                len_tmp = 1;
+                break;
+            default:
+                break;
+        }
+        hexDump("Received",tmp,len_tmp);
+    }
+
+    return;
+}
+
+int main(int argc, char** argv)
+{
+    int    sockfd, n, rec_len;
+    char    recvline[4096], sendline[4096];
+    struct sockaddr_in    servaddr;
+    char *ipaddr = "127.0.0.1";
+
+    if( argc != 2)
+        printf("usage: ./client <ipaddress>\ndefault ip address 127.0.0.1\n");
+    else
+        ipaddr = argv[1];
+
+    if( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0){
+        printf("create socket error: %s(errno: %d)\n", strerror(errno),errno);
+        exit(0);
+    }
+
+    memset(&servaddr, 0, sizeof(servaddr));
+    servaddr.sin_family = AF_INET;
+    servaddr.sin_port = htons(6666);
+    if( inet_pton(AF_INET, ipaddr, &servaddr.sin_addr) <= 0){
+        printf("inet_pton error for %s\n",ipaddr);
+        exit(0);
+    }
+#if 0//dgl_temp
+    if( connect(sockfd, (struct sockaddr*)&servaddr, sizeof(servaddr)) < 0){
+        printf("connect error: %s(errno: %d)\n",strerror(errno),errno);
+        exit(0);
+    }
+#endif
+
+    fd_set fdsr;
+    int maxsock, ret, j = 0;
+    struct timeval tv;
+
+    maxsock = sockfd;
+
+    while(j < 500){
+        FD_ZERO(&fdsr);
+        FD_SET(sockfd,&fdsr);
+
+        tv.tv_sec = 10;
+        tv.tv_usec = 0;
+
+        j++;
+
+#if 0
+        printf("send msg to server: \n");
+        fgets(sendline, 4096, stdin);
+        sendline[strlen(sendline)-1] = '\0';
+        if( send(sockfd, sendline, 2*strlen(sendline), 0) < 0) {
+#else
+  //      printf("send test msg to server, waiting response...\n");
+//        if( send(sockfd, "send test message",20,0) < 0) {
+#endif
+    //        printf("send msg error: %s(errno: %d)\n", strerror(errno), errno);
+      //      exit(0);
+      //  }
+#if 0
+        if(strcmp(sendline,"kill\n")==0) break;
+        if(strcmp(sendline,"exit\n")==0) break;
+        else printf("continue loop!!!\n");
+#endif
+        ret = select(maxsock+1, &fdsr, NULL, NULL, &tv);
+        if(ret < 0) {
+            perror("select");
+            break;
+        } else if (ret == 0) {
+            printf("timeout, try again!!!\n");
+            continue;
+        }
+
+        if(FD_ISSET(sockfd,&fdsr)) {
+            if((rec_len = recv(sockfd, recvline, MAXLINE,0)) == -1) {  
+                perror("recv error");  
+                exit(1);  
+            }
+            recvline[rec_len]  = '\0'; 
+            hexDump("received", recvline, rec_len); 
+            parsetcp(recvline,rec_len);
+            //printf("Received : %s \n",recvline);
+            //hexDump("received", recvline, rec_len);
+        }
+    }
+
+    close(sockfd);
+    exit(0);
+}

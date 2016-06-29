@@ -1,0 +1,714 @@
+
+# 请为您的变更输入提交说明。以 '#' 开始的行将被忽略，而一个空的提交
+# 说明将会终止提交。
+# 位于分支 master
+# 您的分支与上游分支 'origin/master' 一致。
+#
+# 要提交的变更：
+#	修改：     .bash_history
+#	修改：     .bashrc
+#	修改：     .emacs
+#	修改：     .emacs-history.el
+#	新文件：   .emacs.d/%backup%~
+#	修改：     .emacs.d/.emacs.desktop
+#	修改：     .emacs.d/.emacs.desktop.lock
+#	修改：     .emacs.d/.session
+#	修改：     .emacs.d/123
+#	修改：     .emacs.d/ac-comphist.dat
+#	重命名：   .emacs.d/auctex.el -> .emacs.d/auctex/auctex.el
+#	重命名：   .emacs.d/auto-complete-config.el -> .emacs.d/auctex/auto-complete-config.el
+#	重命名：   .emacs.d/auto-complete-config.elc -> .emacs.d/auctex/auto-complete-config.elc
+#	重命名：   .emacs.d/auto-complete.el -> .emacs.d/auctex/auto-complete.el
+#	重命名：   .emacs.d/auto-complete.elc -> .emacs.d/auctex/auto-complete.elc
+#	重命名：   .emacs.d/org-clock-save.el -> .emacs.d/auctex/org-clock-save.el
+#	重命名：   .emacs.d/org-docbook.el -> .emacs.d/auctex/org-docbook.el
+#	重命名：   .emacs.d/org-tree-slide.el -> .emacs.d/auctex/org-tree-slide.el
+#	重命名：   .emacs.d/org-w3m.el -> .emacs.d/auctex/org-w3m.el
+#	重命名：   .emacs.d/popup.el -> .emacs.d/auctex/popup.el
+#	重命名：   .emacs.d/preview-latex.el -> .emacs.d/auctex/preview-latex.el
+#	修改：     .emacs.d/auto-save-list/.saves-13110-ubuntu~
+#	新文件：   .emacs.d/auto-save-list/.saves-16739-ubuntu~
+#	删除：     .emacs.d/auto-save-list/.saves-3717-ubuntu~
+#	删除：     .emacs.d/auto-save-list/.saves-3928-ubuntu~
+#	新文件：   .emacs.d/auto-save-list/.saves-5198-ubuntu~
+#	重命名：   .emacs.d/auto-save-list/.saves-17025-ubuntu~ -> .emacs.d/auto-save-list/.saves-9640-ubuntu~
+#	修改：     .emacs.d/elpa/archives/gnu/archive-contents
+#	新文件：   .emacs.d/elpa/archives/gnu/archive-contents.signed
+#	修改：     .emacs.d/elpa/archives/melpa/archive-contents
+#	新文件：   .emacs.d/elpa/evil-magit-readme.txt
+#	新文件：   .emacs.d/elpa/git-commit-20160425.430/git-commit-autoloads.el
+#	新文件：   .emacs.d/elpa/git-commit-20160425.430/git-commit-pkg.el
+#	新文件：   .emacs.d/elpa/git-commit-20160425.430/git-commit-pkg.elc
+#	新文件：   .emacs.d/elpa/git-commit-20160425.430/git-commit.el
+#	新文件：   .emacs.d/elpa/git-commit-20160425.430/git-commit.elc
+#	新文件：   .emacs.d/elpa/gnupg/pubring.gpg
+#	重命名：   .emacs.d/tmp/!home!guoding!.emacs.d!elpa!autobookmarks-readme.txt~ -> .emacs.d/elpa/gnupg/pubring.gpg~
+#	重命名：   .emacs.d/tmp/!home!guoding!.emacs.d!elpa!rtags-readme.txt~ -> .emacs.d/elpa/gnupg/secring.gpg
+#	新文件：   .emacs.d/elpa/gnupg/trustdb.gpg
+#	新文件：   .emacs.d/elpa/magit-20160517.838/AUTHORS.md
+#	新文件：   .emacs.d/elpa/magit-20160517.838/COPYING
+#	新文件：   .emacs.d/elpa/magit-20160517.838/dir
+#	新文件：   .emacs.d/elpa/magit-20160517.838/git-rebase.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/git-rebase.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-apply.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-apply.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-autoloads.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-autorevert.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-autorevert.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-bisect.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-bisect.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-blame.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-blame.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-commit.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-commit.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-core.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-core.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-diff.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-diff.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-ediff.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-ediff.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-extras.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-extras.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-git.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-git.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-log.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-log.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-mode.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-mode.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-pkg.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-process.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-process.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-remote.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-remote.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-section.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-section.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-sequence.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-sequence.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-stash.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-stash.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-submodule.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-submodule.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-subtree.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-subtree.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-utils.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-utils.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-wip.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit-wip.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit.el
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit.elc
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit.info
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit.info-1
+#	新文件：   .emacs.d/elpa/magit-20160517.838/magit.info-2
+#	新文件：   .emacs.d/elpa/magit-popup-20160512.328/dir
+#	新文件：   .emacs.d/elpa/magit-popup-20160512.328/magit-popup-autoloads.el
+#	新文件：   .emacs.d/elpa/magit-popup-20160512.328/magit-popup-pkg.el
+#	新文件：   .emacs.d/elpa/magit-popup-20160512.328/magit-popup.el
+#	新文件：   .emacs.d/elpa/magit-popup-20160512.328/magit-popup.elc
+#	新文件：   .emacs.d/elpa/magit-popup-20160512.328/magit-popup.info
+#	新文件：   .emacs.d/elpa/magit-readme.txt
+#	新文件：   .emacs.d/elpa/with-editor-20160408.201/dir
+#	新文件：   .emacs.d/elpa/with-editor-20160408.201/with-editor-autoloads.el
+#	新文件：   .emacs.d/elpa/with-editor-20160408.201/with-editor-pkg.el
+#	新文件：   .emacs.d/elpa/with-editor-20160408.201/with-editor.el
+#	新文件：   .emacs.d/elpa/with-editor-20160408.201/with-editor.elc
+#	新文件：   .emacs.d/elpa/with-editor-20160408.201/with-editor.info
+#	修改：     .emacs.d/nxhtml/etc/schema/xhtml-loader.rnc
+#	重命名：   .emacs.d/auto-recomp.el -> .emacs.d/otherel/auto-recomp.el
+#	重命名：   .emacs.d/autorevert.el -> .emacs.d/otherel/autorevert.el
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!ac-helm-20160318.1933!ac-helm-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!ac-helm-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!ace-jump-helm-line-20160329.1218!ace-jump-helm-line-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!ace-jump-helm-line-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!ace-jump-mode-20140616.115!ace-jump-mode-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!ace-jump-mode-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!archives!gnu!archive-contents~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!archives!marmalade!archive-contents~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!archives!melpa!archive-contents~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!async-20160223.146!async-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!auto-complete-20160329.2321!auto-complete-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!auto-complete-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!avy-20160402.1049!avy-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!bookmark+-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!chinese-pyim-20160101.420!chinese-pyim-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!cl-lib-0.5!cl-lib-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!company-20160325.1650!company-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!dash-2.12.0!dash-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!dash-20160306.1222!dash-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!dash-functional-20150828.413!dash-functional-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!dash-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!elpy-20160131.118!elpy-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!elpy-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!f-20160306.447!f-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!find-file-in-project-20160404.2330!find-file-in-project-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!flymake-easy-20140818.55!flymake-easy-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!flymake-shell-20121104.1100!flymake-shell-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!flymake-shell-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!function-args-20160206.517!function-args-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!function-args-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!google-c-style-20140929.1118!google-c-style-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!google-c-style-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!helm-20160323.349!helm-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!helm-core-20160323.407!helm-core-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!highlight-indentation-20150307.208!highlight-indentation-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!hydra-20160413.926!hydra-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!hydra-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!js-comint-20160220.350!js-comint-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!js-comint-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!let-alist-1.0.4!let-alist-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!let-alist-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!multi-term-20150220.520!multi-term-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!multi-term-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!nvm-20151113.55!nvm-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!paradox-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!pastelmac-theme-20151030.1936!pastelmac-theme-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!pastelmac-theme-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!popup-20151222.1339!popup-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!pos-tip-20150318.813!pos-tip-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!pyvenv-20160108.28!pyvenv-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!rectangle-utils-20150528.1228!rectangle-utils-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!rtags-20160427.1129!rtags-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!s-20160405.920!s-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!seq-2.15!seq-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!seq-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!session-20120510.1700!session-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!session-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!smex-20151212.1409!smex-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!smex-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!solarized-theme-20160311.1447!solarized-theme-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!spinner-1.7.1!spinner-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!spinner-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!swiper-20160412.130!swiper-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!w3m-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!elpa!yasnippet-20160411.1605!yasnippet-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!iman.el.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!org-clock-save.el.~10~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!org-clock-save.el.~11~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!org-clock-save.el.~12~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!org-clock-save.el.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!org-clock-save.el.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!org-clock-save.el.~8~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.d!org-clock-save.el.~9~
+#	修改：     .emacs.d/tmp/!home!guoding!.emacs.~1~
+#	修改：     .emacs.d/tmp/!home!guoding!.emacs.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!.emacs.~3~
+#	修改：     .emacs.d/tmp/!home!guoding!.ido.last~
+#	删除：     .emacs.d/tmp/!home!guoding!.recentf.~182~
+#	删除：     .emacs.d/tmp/!home!guoding!.recentf.~183~
+#	删除：     .emacs.d/tmp/!home!guoding!.recentf.~184~
+#	删除：     .emacs.d/tmp/!home!guoding!.recentf.~199~
+#	修改：     .emacs.d/tmp/!home!guoding!.recentf.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!.recentf.~200~
+#	删除：     .emacs.d/tmp/!home!guoding!.recentf.~201~
+#	删除：     .emacs.d/tmp/!home!guoding!.recentf.~213~
+#	删除：     .emacs.d/tmp/!home!guoding!.recentf.~214~
+#	删除：     .emacs.d/tmp/!home!guoding!.recentf.~215~
+#	修改：     .emacs.d/tmp/!home!guoding!.recentf.~2~
+#	修改：     .emacs.d/tmp/!home!guoding!123.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!Dropbox!note!note.org.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!Dropbox!note!think.org.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!Dropbox!think world!diary.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!Dropbox!think world!diary.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!Dropbox!think world!diary.~3~
+#	删除：     .emacs.d/tmp/!home!guoding!Public!3usg!atom!package!openzwave-1.2.919!Makefile.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!Public!3usg!atom!package!openzwave-1.2.919!build_openzwave.sh.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!Public!3usg!atom!package!openzwave-1.2.919!build_openzwave.sh.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!Public!3usg!atom!package!openzwave-1.2.919!build_openzwave.sh.~3~
+#	删除：     .emacs.d/tmp/!home!guoding!Public!ccsp_mainline_pc_simulation!test.sh.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!Public!tmp!ccsp_mainline_pc_simulation!ccsp!Out!pc-ubuntu32!cosa_start.sh.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!Public!tmp!ccsp_mainline_pc_simulation!ccsp!Stage!pc-ubuntu32!include!mta_hal.h.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!Public!tmp!ccsp_mainline_pc_simulation!ccsp!Stage!pc-ubuntu32!include!mta_hal.h.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!experiment.sh.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!gcc!main.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!gcc!main.c.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!gcc!main.c.~3~
+#	删除：     .emacs.d/tmp/!home!guoding!study!gcc!main.c.~4~
+#	删除：     .emacs.d/tmp/!home!guoding!study!gcc!thread3.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!Makefile.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!Makefile.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!Makefile.~3~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!Makefile.~4~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!_downloaded_tiny_tty.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!_downloaded_tiny_tty.c.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!_downloaded_tiny_tty.c.~3~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!downloaded_tiny_tty.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!downloaded_tiny_tty.c.~24~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!downloaded_tiny_tty.c.~25~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!downloaded_tiny_tty.c.~26~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!downloaded_tiny_tty.c.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!downloaded_tiny_tty.h.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!downloaded_tiny_tty.h.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!hello.c.~12~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!hello.c.~13~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!hello.c.~14~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!hello.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!hello.c.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!ldd3!tty!zwave_tty.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!log.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!log.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!log.~7~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!log.~8~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!log.~9~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!main.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!main.c.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!main.c.~3~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!main.c.~4~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!main.c.~5~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!note.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!note.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!note.~3~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!proc.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!proc.c.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!proc.c.~3~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!proc.c.~4~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!proc2.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tcp_client.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tcp_client_new.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tcp_client_new.c.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tcp_server.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tcp_server.c.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tcp_server.c.~3~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tcp_server_new.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tcp_server_new.c.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tcp_server_new.c.~3~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tcp_server_new.c.~4~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!test.sh.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!test_udp!tcp_client.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!test_udp!tcp_server_new.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tiny_tty.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tiny_tty.c.~27~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tiny_tty.c.~28~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tiny_tty.c.~29~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tiny_tty.c.~2~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tiny_tty.h.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!tiny_tty_dev2.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!vtty!vtty.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!vtty!vtty.h.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!vtty!vtty_agent.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!vtty!vtty_device.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!vtty.h.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!vtty_agent.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!kernelmodule!vtty_agent_fsm.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoding!study!main.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs-history.el.~1~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs-history.el.~2~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs-history.el.~94~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs-history.el.~95~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs-history.el.~96~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!elpa!archives!gnu!archive-contents~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!elpa!evil-20150212.1328!evil-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!elpa!evil-readme.txt~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!elpa!goto-chg-20131228.1459!goto-chg-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!elpa!undo-tree-20140509.522!undo-tree-autoloads.el~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!emms!history.~1~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!emms!history.~2~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!emms!history.~41~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!emms!history.~42~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!emms!history.~43~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!nxhtml!etc!schema!xhtml-loader.rnc.~16~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!nxhtml!etc!schema!xhtml-loader.rnc.~17~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!nxhtml!etc!schema!xhtml-loader.rnc.~18~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!nxhtml!etc!schema!xhtml-loader.rnc.~1~
+#	删除：     .emacs.d/tmp/!home!guoliang!.emacs.d!nxhtml!etc!schema!xhtml-loader.rnc.~2~
+#	删除：     .emacs.d/tmp/!home!guoliang!.ido.last.~1~
+#	删除：     .emacs.d/tmp/!home!guoliang!.ido.last.~2~
+#	删除：     .emacs.d/tmp/!home!guoliang!.ido.last.~3~
+#	删除：     .emacs.d/tmp/!home!guoliang!.ido.last~
+#	删除：     .emacs.d/tmp/!home!guoliang!.recentf.~1~
+#	删除：     .emacs.d/tmp/!home!guoliang!.recentf.~226~
+#	删除：     .emacs.d/tmp/!home!guoliang!.recentf.~227~
+#	删除：     .emacs.d/tmp/!home!guoliang!.recentf.~228~
+#	删除：     .emacs.d/tmp/!home!guoliang!.recentf.~2~
+#	删除：     .emacs.d/tmp/!home!guoliang!Public!study!thread.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoliang!Public!study!thread3.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoliang!Public!study!thread_test2.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoliang!Public!work2!vdsl!ccsp_simu!CcspPandM!arch!vdsl2!boards!simu_qualcomm!source!TR-181!board_sbapi!ppp!ppp_interface_apis.c.~1~
+#	删除：     .emacs.d/tmp/!home!guoliang!Public!work2!vdsl2!vdsl2!ccsp!Stage!vdsl2-qualcomm!include!utapi!utapi_parental_control.h.~1~
+#	删除：     .emacs.d/tmp/!home!guoliang!Public!work2!vdsl2!vdsl2!ccsp!Stage!vdsl2-qualcomm!include!utapi!utapi_parental_control.h.~2~
+#	删除：     .emacs.d/tmp/!home!guoliang!Public!work2!vdsl2!vdsl2!ccsp!Stage!vdsl2-qualcomm!include!utapi!utapi_parental_control.h.~3~
+#	删除：     .emacs.d/tmp/!home!guoliang!Public!work2!vdsl2!vdsl2!ccsp!Stage!vdsl2-qualcomm!include!utapi!utapi_parental_control.h.~4~
+#	删除：     .emacs.d/tmp/!home!guoliang!Public!work2!vdsl2!vdsl2!qca!configs!qsdk!ipq806x_vdsl2.config.~1~
+#	删除：     .emacs.d/tmp/!home!guoliang!server.js.~1~
+#	删除：     .emacs.d/tmp/!mnt!hgfs!work!ppp_interface_apis.c.~14~
+#	删除：     .emacs.d/tmp/!mnt!hgfs!work!ppp_interface_apis.c.~15~
+#	删除：     .emacs.d/tmp/!mnt!hgfs!work!ppp_interface_apis.c.~16~
+#	删除：     .emacs.d/tmp/!mnt!hgfs!work!ppp_interface_apis.c.~1~
+#	删除：     .emacs.d/tmp/!mnt!hgfs!work!ppp_interface_apis.c.~2~
+#	删除：     .emacs.d/tmp/solarized-emacs
+#	新文件：   .emacs.d/url/cookies
+#	删除：     .emacs.d/w3m/ChangeLog
+#	删除：     .emacs.d/w3m/ChangeLog.1
+#	删除：     .emacs.d/w3m/bookmark-w3m.el
+#	删除：     .emacs.d/w3m/bookmark-w3m.elc
+#	删除：     .emacs.d/w3m/mew-w3m.el
+#	删除：     .emacs.d/w3m/mime-w3m.el
+#	删除：     .emacs.d/w3m/octet.el
+#	删除：     .emacs.d/w3m/w3m-antenna.el
+#	删除：     .emacs.d/w3m/w3m-antenna.elc
+#	删除：     .emacs.d/w3m/w3m-bookmark.el
+#	删除：     .emacs.d/w3m/w3m-bookmark.elc
+#	删除：     .emacs.d/w3m/w3m-bug.el
+#	删除：     .emacs.d/w3m/w3m-bug.elc
+#	删除：     .emacs.d/w3m/w3m-ccl.el
+#	删除：     .emacs.d/w3m/w3m-ccl.elc
+#	删除：     .emacs.d/w3m/w3m-cookie.el
+#	删除：     .emacs.d/w3m/w3m-cookie.elc
+#	删除：     .emacs.d/w3m/w3m-dtree.el
+#	删除：     .emacs.d/w3m/w3m-dtree.elc
+#	删除：     .emacs.d/w3m/w3m-ems.el
+#	删除：     .emacs.d/w3m/w3m-ems.elc
+#	删除：     .emacs.d/w3m/w3m-favicon.el
+#	删除：     .emacs.d/w3m/w3m-favicon.elc
+#	删除：     .emacs.d/w3m/w3m-fb.el
+#	删除：     .emacs.d/w3m/w3m-fb.elc
+#	删除：     .emacs.d/w3m/w3m-filter.el
+#	删除：     .emacs.d/w3m/w3m-filter.elc
+#	删除：     .emacs.d/w3m/w3m-form.el
+#	删除：     .emacs.d/w3m/w3m-form.elc
+#	删除：     .emacs.d/w3m/w3m-hist.el
+#	删除：     .emacs.d/w3m/w3m-hist.elc
+#	删除：     .emacs.d/w3m/w3m-image.el
+#	删除：     .emacs.d/w3m/w3m-image.elc
+#	删除：     .emacs.d/w3m/w3m-lnum.el
+#	删除：     .emacs.d/w3m/w3m-lnum.elc
+#	删除：     .emacs.d/w3m/w3m-load.el
+#	删除：     .emacs.d/w3m/w3m-mail.el
+#	删除：     .emacs.d/w3m/w3m-mail.elc
+#	删除：     .emacs.d/w3m/w3m-namazu.el
+#	删除：     .emacs.d/w3m/w3m-namazu.elc
+#	删除：     .emacs.d/w3m/w3m-perldoc.el
+#	删除：     .emacs.d/w3m/w3m-perldoc.elc
+#	删除：     .emacs.d/w3m/w3m-proc.el
+#	删除：     .emacs.d/w3m/w3m-proc.elc
+#	删除：     .emacs.d/w3m/w3m-rss.el
+#	删除：     .emacs.d/w3m/w3m-rss.elc
+#	删除：     .emacs.d/w3m/w3m-search.el
+#	删除：     .emacs.d/w3m/w3m-search.elc
+#	删除：     .emacs.d/w3m/w3m-session.el
+#	删除：     .emacs.d/w3m/w3m-session.elc
+#	删除：     .emacs.d/w3m/w3m-symbol.el
+#	删除：     .emacs.d/w3m/w3m-symbol.elc
+#	删除：     .emacs.d/w3m/w3m-tabmenu.el
+#	删除：     .emacs.d/w3m/w3m-tabmenu.elc
+#	删除：     .emacs.d/w3m/w3m-ucs.el
+#	删除：     .emacs.d/w3m/w3m-util.el
+#	删除：     .emacs.d/w3m/w3m-util.elc
+#	删除：     .emacs.d/w3m/w3m-weather.el
+#	删除：     .emacs.d/w3m/w3m-weather.elc
+#	删除：     .emacs.d/w3m/w3m.el
+#	删除：     .emacs.d/w3m/w3m.elc
+#	新文件：   .emacs.desktop
+#	删除：     .emacs.swn
+#	删除：     .emacs.swo
+#	删除：     .emacs.swp
+#	修改：     .vim/.netrwhist
+#	修改：     .viminfo
+#	修改：     Public/study/a.out
+#	修改：     Public/study/main.c
+#	修改：     Public/study/shell/123.bash
+#	修改：     study/kernelmodule/Makefile
+#	修改：     study/kernelmodule/downloaded_tiny_tty.c
+#	修改：     study/kernelmodule/tiny_tty.c
+#
+# 尚未暂存以备提交的变更：
+#	修改：     .emacs.d/.emacs.desktop
+#	修改：     .emacs.d/emacs-w3m (未跟踪的内容)
+#
+# 未跟踪的文件:
+#	#%2Amail%2A#5198nmK#
+#	#*message*-20160119-003502#
+#	#123#
+#	#orgnotes.org#
+#	.#orgnotes.org
+#	.123
+#	.ICEauthority
+#	.Xauthority
+#	.cache/
+#	.cola
+#	.compiz-1/
+#	.config/
+#	.dbus/
+#	.dmrc
+#	.dropbox-dist/
+#	.dropbox/
+#	.emacs.d/tmp/!home!guoding!.emacs.d!elpa!git-commit-20160425.430!git-commit-autoloads.el~
+#	.emacs.d/tmp/!home!guoding!.emacs.d!elpa!magit-20160517.838!magit-autoloads.el~
+#	.emacs.d/tmp/!home!guoding!.emacs.d!elpa!magit-popup-20160512.328!magit-popup-autoloads.el~
+#	.emacs.d/tmp/!home!guoding!.emacs.d!elpa!with-editor-20160408.201!with-editor-autoloads.el~
+#	.emacs.d/tmp/!home!guoding!.emacs.d!url!cookies~
+#	.emacs.d/tmp/!home!guoding!.emacs.~7~
+#	.emacs.d/tmp/!home!guoding!.emacs.~8~
+#	.emacs.d/tmp/!home!guoding!.emacs.~9~
+#	.emacs.d/tmp/!home!guoding!.recentf.~10~
+#	.emacs.d/tmp/!home!guoding!.recentf.~8~
+#	.emacs.d/tmp/!home!guoding!.recentf.~9~
+#	.emacs.d/tmp2/
+#	.emacs.desktop.lock
+#	.emacs~
+#	.fontconfig/
+#	.gconf/
+#	.gitconfig
+#	.gitk
+#	.gksu.lock
+#	.gnome2/
+#	.gnupg/
+#	.goutputstream-AY9CEY
+#	.goutputstream-BXYWAY
+#	.goutputstream-ERH89X
+#	.goutputstream-FCYWAY
+#	.goutputstream-FHVWAY
+#	.goutputstream-ZL6RAY
+#	.gstreamer-0.10/
+#	.gtk-bookmarks
+#	.ibus/
+#	.ido.last
+#	.ido.last~
+#	.install4j
+#	.java/
+#	.lesshst
+#	.local/
+#	.macromedia/
+#	.mission-control/
+#	.mozilla/
+#	.pam_environment
+#	.profile
+#	.pulse-cookie
+#	.pulse/
+#	.recentf
+#	.rnd
+#	.semanticdb/
+#	.smartbear/
+#	.srecode/
+#	.ssh/
+#	.subversion/
+#	.swo
+#	.swp
+#	.thumbnails/
+#	.w3m/
+#	.wireshark/
+#	.xsession-errors
+#	.xsession-errors.old
+#	.zwave_tty_note
+#	123
+#	1233
+#	1234
+#	123_moca_map
+#	123_s
+#	123_wifi_map
+#	Downloads/
+#	Dropbox (Old)/
+#	Dropbox/
+#	Makefile
+#	Public/#test#
+#	Public/123
+#	Public/1234
+#	Public/12345
+#	Public/backup/
+#	Public/brcm_61/
+#	Public/ccollab_client_7_3_7304_unix.sh
+#	Public/ccsp_mainline_pc_simulation/
+#	Public/intel_usg/
+#	Public/study/package/bridge-utils/
+#	Public/study/package/ncurses/#cosa_start.sh#
+#	Public/test
+#	Public/usr.tgz
+#	Public/w3m-0.5.3.tar.gz
+#	UCG3390_6.1.1alpha2_tools.tar.gz
+#	VMwareTools-9.6.6-2649738.tar.gz
+#	aaa
+#	aaaaa
+#	bin/
+#	c.tgz
+#	ccollab-cmdline/
+#	ccollab-cmdline2/
+#	commitlog
+#	editorconfig.tgz
+#	etc/
+#	examples.desktop
+#	experiment.sh
+#	hello.c
+#	ipset_configure
+#	lib/
+#	libexec/
+#	minicom.log
+#	neotree.el
+#	old_ccollab-cmdline/
+#	quail.el
+#	quail.el.gz
+#	recv.c
+#	run_upgrader.sh
+#	send.c
+#	share/
+#	study/111
+#	study/1111
+#	study/123
+#	study/1233
+#	study/123321312
+#	study/1234
+#	study/321
+#	study/CA/
+#	study/LinuxKernelLearn/
+#	study/a.out
+#	study/aaa
+#	study/aaa.sh
+#	study/aaan
+#	study/adfaaaa
+#	study/apue.2e/
+#	study/apue.3e/
+#	study/apue.43e/
+#	study/clg/
+#	study/cscope.out
+#	study/cut.sh
+#	study/driver/
+#	study/emacs/
+#	study/gcc/
+#	study/git/
+#	study/git_clone/
+#	study/git_clone2/
+#	study/git_test2/
+#	study/git_test3/
+#	study/helloworld
+#	study/kernelmodule/#downloaded_tiny_tty.c#
+#	study/kernelmodule/#keyboardsimu.c#
+#	study/kernelmodule/.emacs.desktop
+#	study/kernelmodule/.log.swp
+#	study/kernelmodule/.pseudo_tty_1.ko.cmd
+#	study/kernelmodule/.pseudo_tty_1.mod.o.cmd
+#	study/kernelmodule/.pseudo_tty_1.o.cmd
+#	study/kernelmodule/.pseudo_tty_2.ko.cmd
+#	study/kernelmodule/.pseudo_tty_2.mod.o.cmd
+#	study/kernelmodule/.pseudo_tty_2.o.cmd
+#	study/kernelmodule/.tiny_tty.c.swp
+#	study/kernelmodule/.tiny_tty.o.cmd
+#	study/kernelmodule/.tiny_tty_dev2.o.cmd
+#	study/kernelmodule/.tmp_versions/
+#	study/kernelmodule/111
+#	study/kernelmodule/11111
+#	study/kernelmodule/123
+#	study/kernelmodule/123~
+#	study/kernelmodule/222
+#	study/kernelmodule/3211
+#	study/kernelmodule/3321/
+#	study/kernelmodule/Module.symvers
+#	study/kernelmodule/_downloaded_tiny_tty.c
+#	study/kernelmodule/a.out
+#	study/kernelmodule/aa
+#	study/kernelmodule/aaaa
+#	study/kernelmodule/abc
+#	study/kernelmodule/abcd
+#	study/kernelmodule/backup_test_udp/
+#	study/kernelmodule/bbb
+#	study/kernelmodule/copyofdownloaded_tinytty.c
+#	study/kernelmodule/core
+#	study/kernelmodule/coreutils/
+#	study/kernelmodule/cscope.files
+#	study/kernelmodule/cscope.out
+#	study/kernelmodule/downloaded_tiny_tty.h
+#	study/kernelmodule/fdklasfjlaksdfjkl
+#	study/kernelmodule/glibc/
+#	study/kernelmodule/gperf/
+#	study/kernelmodule/hash/
+#	study/kernelmodule/hello.c
+#	study/kernelmodule/huang_tiny.c
+#	study/kernelmodule/jeremy.sh
+#	study/kernelmodule/kernel-history/
+#	study/kernelmodule/kernel/
+#	study/kernelmodule/ldd3/
+#	study/kernelmodule/libshared.so
+#	study/kernelmodule/log
+#	study/kernelmodule/log1
+#	study/kernelmodule/log2
+#	study/kernelmodule/log3
+#	study/kernelmodule/log_port
+#	study/kernelmodule/main.c
+#	study/kernelmodule/modules.order
+#	study/kernelmodule/note
+#	study/kernelmodule/old_tiny_tty.c
+#	study/kernelmodule/olddowloaded_tiny_tty.c
+#	study/kernelmodule/open.c
+#	study/kernelmodule/proc.c
+#	study/kernelmodule/proc2.c
+#	study/kernelmodule/pseudo_tty_1.ko
+#	study/kernelmodule/pseudo_tty_1.mod.c
+#	study/kernelmodule/pseudo_tty_1.mod.o
+#	study/kernelmodule/pseudo_tty_1.o
+#	study/kernelmodule/pseudo_tty_2.ko
+#	study/kernelmodule/pseudo_tty_2.mod.c
+#	study/kernelmodule/pseudo_tty_2.mod.o
+#	study/kernelmodule/pseudo_tty_2.o
+#	study/kernelmodule/remserial/
+#	study/kernelmodule/sda.blktrace.0
+#	study/kernelmodule/sda1.blktrace.0
+#	study/kernelmodule/shell.sh
+#	study/kernelmodule/shell_double.sh
+#	study/kernelmodule/socket/
+#	study/kernelmodule/tcp_client
+#	study/kernelmodule/tcp_client.c
+#	study/kernelmodule/tcp_client_new.c
+#	study/kernelmodule/tcp_server
+#	study/kernelmodule/tcp_server.c
+#	study/kernelmodule/tcp_server_d.c
+#	study/kernelmodule/tcp_server_new.c
+#	study/kernelmodule/temp
+#	study/kernelmodule/test.sh
+#	study/kernelmodule/test1.blktrace.0
+#	study/kernelmodule/test_udp/
+#	study/kernelmodule/tiny_tty.h
+#	study/kernelmodule/tiny_tty.o
+#	study/kernelmodule/tiny_tty2.c
+#	study/kernelmodule/tiny_tty3.c
+#	study/kernelmodule/tiny_tty4.c
+#	study/kernelmodule/tiny_tty_dev1.c
+#	study/kernelmodule/tiny_tty_dev2.c
+#	study/kernelmodule/tiny_tty_dev2.o
+#	study/kernelmodule/tmp/
+#	study/kernelmodule/to_jason.tgz
+#	study/kernelmodule/udev/
+#	study/kernelmodule/usbview/
+#	study/kernelmodule/vtty.h
+#	study/kernelmodule/vtty/
+#	study/kernelmodule/vtty_agent.c
+#	study/kernelmodule/vtty_agent_fsm.c
+#	study/kernelmodule/vtty_agent_fsm.h
+#	study/kernelmodule/vtty_agent_fsm_get1.c
+#	study/kernelmodule/vtty_agent_fsm_get2.c
+#	study/kernelmodule/vtty_agent_send.c
+#	study/lib.c
+#	study/lib.h
+#	study/lib.so
+#	study/linux/
+#	study/linux0.11/
+#	study/linux1.0/
+#	study/linuxapplicationmanual/
+#	study/losslessh264/
+#	study/main
+#	study/main.c
+#	study/main.c~
+#	study/main.o
+#	study/main2.c
+#	study/opensource_tools/
+#	study/package/
+#	study/program1.c
+#	study/shell/
+#	study/src.2e.tar.gz
+#	study/src.3e.tar.gz
+#	study/test.c
+#	study/test/
+#	study/thread.c
+#	study/thread.o
+#	study/thread3.c
+#	study/thread_test2.c
+#	study/training/
+#	"study/\345\275\223\345\210\240\351\231\244\351\207\215\345\273\272\346\226\207\344\273\266\345\220\216\357\274\214\347\264\242\345\274\225\350\212\202\347\202\271\345\217\267\347\224\261\346\223\215\344\275\234\347\263\273\347\273\237\346\240\271\346\215\256\345\275\223\346\227\266\346\226\207\344\273\266\347\263\273\347\273\237\347\232\204\344\275\277\347\224\250\346\203\205\345\206\265\345\210\206\351\205\215\357\274\214\345\233\240\346\255\244\344\270\216\345\216\237\346\235\245\344\270\215\345\220\214\357\274\214\346\211\200\344\273\245\345\276\227\345\210\260\347\232\204\347\264\242\345\274\225\350\212\202\347\202\271\345\217\267\344\271\237\344\270\215\345\220\214\343\200\202"
+#	tcp_client.c
+#	tcp_server.c
+#	tcp_server[1].c
+#	tcp_server_new.c
+#	tiny_tty.c
+#	tiny_tty2.c
+#	tmp/
+#	tools/
+#	vim_profile/
+#	vmware-tools-distrib/
+#	vmware-tools-upgrader-32
+#	world/
+#

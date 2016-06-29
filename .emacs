@@ -119,7 +119,7 @@
 ;; (require 'session) 
 (add-hook 'after-init-hook 'session-initialize) 
 
-
+;dgl_0617
 (load "desktop") 
 (desktop-load-default) 
 (desktop-read) 
@@ -284,6 +284,7 @@ auto-mode-alist))
 					  (user-uid)
 					  0)
 					 " # " " >>> "))))
+;;dgl_0617
 ;; 计算每个命令花费时间
 (add-hook 'eshell-load-hook
           (lambda()(setq last-command-start-time (time-to-seconds))))
@@ -333,6 +334,8 @@ auto-mode-alist))
   (let ((orig (current-buffer)))
     ad-do-it
     (kill-buffer orig)))
+
+;;dgl_0617
 ;; s s 按照文件大小排序
 ;; s x 按照文件扩展名排序
 ;; s t 按照文件访问时间排序
@@ -428,52 +431,52 @@ auto-mode-alist))
 
 
 
-;; tron-theme.eldepend
-;; (load "~/.emacs.d/tron-theme.el")
-;; (require 'tron-theme)
-;; (load-theme `tron t)
-;;dgl_old theme
-;; (load   "/home/guoding/.emacs.d/elpa/pastelmac-theme-20151030.1936/pastelmac-theme.el")
-;; (require 'pastelmac-theme)
-;; (load-theme `pastelmac t)
+;; ;; tron-theme.eldepend
+;; ;; (load "~/.emacs.d/tron-theme.el")
+;; ;; (require 'tron-theme)
+;; ;; (load-theme `tron t)
+;; ;;dgl_old theme
+;; ;; (load   "/home/guoding/.emacs.d/elpa/pastelmac-theme-20151030.1936/pastelmac-theme.el")
+;; ;; (require 'pastelmac-theme)
+;; ;; (load-theme `pastelmac t)
 
-;; 让dired只使用一个buffer
-(load "~/.emacs.d/dired-single.el")
-(require 'dired-single)
+;; ;; 让dired只使用一个buffer
+;; (load "~/.emacs.d/dired-single.el")
+;; (require 'dired-single)
 
-;; thinks.el
-(load "~/.emacs.d/thinks.el")
-(require 'thinks)
+;; ;; thinks.el
+;; (load "~/.emacs.d/thinks.el")
+;; (require 'thinks)
 
-;; easymenu.el
-;(load "~/.emacs.d/easymenu.el")
-;(require 'easymenu)
+;; ;; easymenu.el
+;; ;(load "~/.emacs.d/easymenu.el")
+;; ;(require 'easymenu)
 
-;dgl
-; git-emacs.el
-(add-to-list 'load-path' "~/.emacs.d/git-emacs/")
-(require 'git-emacs)
+;; ;dgl
+;; ; git-emacs.el
+;; (add-to-list 'load-path' "~/.emacs.d/git-emacs/")
+;; (require 'git-emacs)
 
-;; markdown-mode
-(load "~/.emacs.d/markdown-mode.el")
-(require 'markdown-mode)
-(defun markdown-custom ()
-  "markdown-mode-hook"
-  (setq markdown-command "markdown | smartypants"))
-(add-hook 'markdown-mode-hook '(lambda() (markdown-custom)))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+;; ;; markdown-mode
+;; (load "~/.emacs.d/markdown-mode.el")
+;; (require 'markdown-mode)
+;; (defun markdown-custom ()
+;;   "markdown-mode-hook"
+;;   (setq markdown-command "markdown | smartypants"))
+;; (add-hook 'markdown-mode-hook '(lambda() (markdown-custom)))
+;; (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-;; browse-kill-ring
-(load "~/.emacs.d/browse-kill-ring.el")
-(require 'browse-kill-ring)
-(global-set-key (kbd "C-c k") 'browse-kill-ring)
+;; ;; browse-kill-ring
+;; (load "~/.emacs.d/browse-kill-ring.el")
+;; (require 'browse-kill-ring)
+;; (global-set-key (kbd "C-c k") 'browse-kill-ring)
 
 ;; 自动保存上次光标所在的位置
 ;(load "~/.emacs.d/saveplace.el")
 ;(require 'saveplace)
 ;(setq save-place-file "~/.emacs.d/saved-places")
 ;(setq-default save-place t)
-
+;;dgl_0617
 ;;直观矩形操作
 (load "~/.emacs.d/rect-mark.el")
 (require 'rect-mark)
@@ -546,8 +549,9 @@ auto-mode-alist))
 ;; (require 'tomorrow-day-theme)
 ;; (load-theme `tomorrow-day t)
 ;;dgl_favorite solarize theme
-(load "~/.emacs.d/emacs-color-theme-solarized/color-theme-solarized.el")
 ;; (load "~/.emacs.d/emacs-color-theme-solarized/solarized-theme.el")
+
+(load "~/.emacs.d/emacs-color-theme-solarized/color-theme-solarized.el")
 (require 'color-theme-solarized)
 (load-theme 'solarized t)
 
@@ -709,6 +713,7 @@ auto-mode-alist))
 (setq indent-tabs-mode nil)
 (setq default-indent-tabs-mode nil)
 ;(setq-default 'indent-tabs-mode nil)
+;;dgl_0617
 ;(setq-default indent-tabs-mode nil)
 (setq c-basic-offset 4)
 
@@ -881,11 +886,14 @@ auto-mode-alist))
 
 
 
-(setq mac-command-modifier 'meta) ; make cmd key do Meta
-(setq mac-option-modifier 'super) ; make opt key do Super
-(setq mac-control-modifier 'control) ; make Control key do Control
-(setq ns-function-modifier 'hyper)  ; make Fn key do Hypery
+;; (setq mac-command-modifier 'meta) ; make cmd key do Meta
+;; (setq mac-option-modifier 'super) ; make opt key do Super
+;; (setq mac-control-modifier 'control) ; make Control key do Control
+;; (setq ns-function-modifier 'hyper)  ; make Fn key do Hypery
 
+;; ;; (setq desktop-restore-frames t)
+;; ;; (setq desktop-restore-in-current-display t)
+;; ;; (setq desktop-restore-forces-onscreen nil)
 
-;;dgl_note to remove boring warning 
-;(setq load-path (delq "~/.emacs.d/" 'load-path))
+;; ;;dgl_note to remove boring warning 
+;; ;(setq load-path (delq "~/.emacs.d/" 'load-path))

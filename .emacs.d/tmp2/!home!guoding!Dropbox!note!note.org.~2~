@@ -1,0 +1,2 @@
+<C-down>		comint-next-input
+<C-up>			comint-previous-input

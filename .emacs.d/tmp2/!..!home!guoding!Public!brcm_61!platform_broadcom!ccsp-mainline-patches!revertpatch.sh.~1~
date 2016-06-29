@@ -1,0 +1,4 @@
+# patch -p0 < $CCSP_PATCH_PATH/ccsp_syscfg_path.patch
+# patch -p0 < $CCSP_PATCH_PATH/ccsp_sysevent.patch
+# patch -p0 < $CCSP_PATCH_PATH/ccsp_sysevent_helperpath.patch
+# patch -p0 < $CCSP_PATCH_PATH/ccsp_utopia_override.patch

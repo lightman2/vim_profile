@@ -1,36 +1,36 @@
 
 ;; ----- smex-history -----
 (
- magit-log-current
- magit-log
- magit-diff-buffer-file
- git-log-files
- magit-log-buffer-file
- customize-themes
  desktop-save
+ iman
+ gdb
+ highlight-symbol-at-point
+ highlight-regexp
+ highlight-phrase
+ magit-log-buffer-file
 )
 
 ;; ----- smex-data -----
 (
  (kill-whole-line . 1)
  (package-list-packages . 6)
- (shell . 12)
+ (shell . 17)
  (git-log . 2)
  (git-pull-ff-only . 1)
- (magit-log . 4)
+ (magit-log . 8)
  (magit-log-all . 6)
  (hfyview-window . 1)
  (eww . 7)
- (copy-file-name-to-clipboard . 1)
- (git-log-files . 2)
- (magit-log-current . 4)
+ (copy-file-name-to-clipboard . 7)
+ (git-log-files . 5)
+ (magit-log-current . 5)
  (customize-themes . 3)
  (magit-log-bury-buffer . 1)
  (magit-log-half-commit-limit . 1)
  (magit-log-all-branches . 2)
  (magit-diff . 1)
- (magit-diff-buffer-file . 9)
- (speedbar . 4)
+ (magit-diff-buffer-file . 14)
+ (speedbar . 5)
  (package-initialize . 1)
  (browse-kill-ring . 1)
  (ska-point-to-register . 1)
@@ -44,7 +44,7 @@
  (desktop-save-mode . 1)
  (session-initialize . 1)
  (recover-session . 2)
- (gdb . 1)
+ (gdb . 15)
  (gud-gdb . 1)
  (kill-buffer . 1)
  (bongo . 6)
@@ -55,8 +55,23 @@
  (semantic-show-unmatched-syntax-mode . 2)
  (tiny-up-list . 3)
  (find-variable . 1)
- (cscope-find-this-text-string . 2)
+ (cscope-find-this-text-string . 5)
  (load-library . 1)
- (desktop-save . 2)
- (magit-log-buffer-file . 1)
+ (desktop-save . 5)
+ (magit-log-buffer-file . 6)
+ (buffer-menu . 1)
+ (git-history . 2)
+ (gitk . 2)
+ (list-buffers . 1)
+ (git-branch . 2)
+ (git-commit-all . 1)
+ (git-log-view-diff-current . 1)
+ (iman . 9)
+ (highlight-phrase . 5)
+ (cscope-find-this-file . 3)
+ (set-locale-environment . 1)
+ (magit-diff-buffer-file-popup . 1)
+ (cscope-set-initial-directory . 1)
+ (highlight-regexp . 1)
+ (highlight-symbol-at-point . 1)
 )

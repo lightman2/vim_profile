@@ -1,0 +1,126 @@
+[ 3177.364970] Hello, world
+[ 3200.697488] ------------[ cut here ]------------
+[ 3200.697616] WARNING: CPU: 0 PID: 30598 at /build/linux-lts-trusty-fKT6hn/linux-lts-trusty-3.13.0/drivers/tty/tty_io.c:1475 tty_init_dev+0x192/0x1a0()
+[ 3200.697619] tty_init_dev: ttty driver does not set tty->port. This will crash the kernel later. Fix the driver!
+[ 3177.370145] zwave TTY driver v1.0
+[ 3200.697620] Modules linked in: hello(OX) vmhgfs(OX) isofs coretemp crc32_pclmul snd_ens1371 aesni_intel gameport ablk_helper cryptd snd_ac97_codec lrw aes_i586 ac97_bus xts gf128mul psmouse snd_pcm vmw_balloon serio_raw snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device snd vmwgfx btusb ttm soundcore snd_page_alloc drm mac_hid i2c_piix4 vmw_vmci shpchp bnep rfcomm nfsd bluetooth nfs_acl auth_rpcgss parport_pc ppdev nfs fscache lockd sunrpc lp parport hid_generic usbhid hid floppy ahci libahci pcnet32 mptspi mptscsih mptbase mii pata_acpi vmw_pvscsi vmxnet3 [last unloaded: vmhgfs]
+[ 3200.697688] CPU: 0 PID: 30598 Comm: bash Tainted: G           OX 3.13.0-68-generic #111~precise1-Ubuntu
+[ 3200.697690] Hardware name: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 07/31/2013
+[ 3200.697691]  00000000 00000000 eaf65d18 c1688874 c18eb820 eaf65d48 c1059ed4 c18eb9a4
+[ 3200.697695]  eaf65d74 00007786 c18eb820 000005c3 c13e65e2 c13e65e2 f3c5bc00 ed045280
+[ 3200.697699]  00000000 eaf65d60 c1059f93 00000009 eaf65d58 c18eb9a4 eaf65d74 eaf65d8c
+[ 3200.697702] Call Trace:
+[ 3200.697710]  [<c1688874>] dump_stack+0x41/0x52
+[ 3200.697717]  [<c1059ed4>] warn_slowpath_common+0x84/0xa0
+[ 3200.697719]  [<c13e65e2>] ? tty_init_dev+0x192/0x1a0
+[ 3200.697721]  [<c13e65e2>] ? tty_init_dev+0x192/0x1a0
+[ 3200.697723]  [<c1059f93>] warn_slowpath_fmt+0x33/0x40
+[ 3200.697725]  [<c13e65e2>] tty_init_dev+0x192/0x1a0
+[ 3200.697727]  [<c13e6f02>] tty_open+0x2a2/0x450
+[ 3200.697731]  [<c11898f7>] chrdev_open+0x97/0x180
+[ 3200.697733]  [<c11832e6>] do_dentry_open+0x1e6/0x270
+[ 3200.697736]  [<c118eb00>] ? __inode_permission+0x40/0xb0
+[ 3200.697739]  [<c1189860>] ? cdev_put+0x20/0x20
+[ 3200.697740]  [<c1183864>] vfs_open+0x54/0x70
+[ 3200.697743]  [<c1192deb>] do_last+0x38b/0x6b0
+[ 3200.697745]  [<c1190400>] ? vfs_rmdir+0x30/0x50
+[ 3200.697747]  [<c11931c0>] path_openat+0xb0/0x410
+[ 3200.697750]  [<c1150325>] ? handle_pte_fault+0x95/0x200
+[ 3200.697753]  [<c11940c5>] do_filp_open+0x35/0x80
+[ 3200.697755]  [<c1184e8e>] do_sys_open+0x11e/0x280
+[ 3200.697758]  [<c13153d9>] ? _copy_to_user+0x39/0x50
+[ 3200.697762]  [<c106c3bc>] ? SyS_rt_sigaction+0x8c/0xb0
+[ 3200.697764]  [<c1185012>] SyS_open+0x22/0x30
+[ 3200.697768]  [<c169b2cd>] sysenter_do_call+0x12/0x12
+[ 3200.697770] ---[ end trace 279bcdd7904c9918 ]---
+[ 3200.697804] BUG: unable to handle kernel NULL pointer dereference at 00000054
+[ 3200.697807] IP: [<c13e64cb>] tty_init_dev+0x7b/0x1a0
+[ 3200.697810] *pdpt = 000000002a356001 *pde = 0000000000000000 
+[ 3200.697812] Oops: 0002 [#1] SMP 
+[ 3200.697815] Modules linked in: hello(OX) vmhgfs(OX) isofs coretemp crc32_pclmul snd_ens1371 aesni_intel gameport ablk_helper cryptd snd_ac97_codec lrw aes_i586 ac97_bus xts gf128mul psmouse snd_pcm vmw_balloon serio_raw snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device snd vmwgfx btusb ttm soundcore snd_page_alloc drm mac_hid i2c_piix4 vmw_vmci shpchp bnep rfcomm nfsd bluetooth nfs_acl auth_rpcgss parport_pc ppdev nfs fscache lockd sunrpc lp parport hid_generic usbhid hid floppy ahci libahci pcnet32 mptspi mptscsih mptbase mii pata_acpi vmw_pvscsi vmxnet3 [last unloaded: vmhgfs]
+[ 3200.697840] CPU: 0 PID: 30598 Comm: bash Tainted: G        W  OX 3.13.0-68-generic #111~precise1-Ubuntu
+[ 3200.697841] Hardware name: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 07/31/2013
+[ 3200.697843] task: f4442700 ti: eaf64000 task.ti: eaf64000
+[ 3200.697845] EIP: 0060:[<c13e64cb>] EFLAGS: 00010286 CPU: 0
+[ 3200.697846] EIP is at tty_init_dev+0x7b/0x1a0
+[ 3200.697848] EAX: 00000000 EBX: f3c5bc00 ECX: 00000006 EDX: 00000000
+[ 3200.697849] ESI: ed045280 EDI: 00000000 EBP: eaf65d8c ESP: eaf65d68
+[ 3200.697850]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[ 3200.697852] CR0: 80050033 CR2: 00000054 CR3: 33ce7000 CR4: 001407f0
+[ 3200.697899] Stack:
+[ 3200.697900]  c18eb820 000005c3 c18eb9a4 c16e5b2c f9ed31a4 eaf65d8c f3da8d80 00000000
+[ 3200.697904]  ed045280 eaf65dc4 c13e6f02 eaf65db4 eaf65dc4 e5a60aa4 f4442700 00008241
+[ 3200.697907]  eaf65dd0 0f000000 00000000 00000000 e5a60aa4 eeefff00 f3da8d80 eaf65de0
+[ 3200.697911] Call Trace:
+[ 3200.697914]  [<c13e6f02>] tty_open+0x2a2/0x450
+[ 3200.697917]  [<c11898f7>] chrdev_open+0x97/0x180
+[ 3200.697919]  [<c11832e6>] do_dentry_open+0x1e6/0x270
+[ 3200.697922]  [<c118eb00>] ? __inode_permission+0x40/0xb0
+[ 3200.697924]  [<c1189860>] ? cdev_put+0x20/0x20
+[ 3200.697926]  [<c1183864>] vfs_open+0x54/0x70
+[ 3200.697928]  [<c1192deb>] do_last+0x38b/0x6b0
+[ 3200.697930]  [<c1190400>] ? vfs_rmdir+0x30/0x50
+[ 3200.697933]  [<c11931c0>] path_openat+0xb0/0x410
+[ 3200.697935]  [<c1150325>] ? handle_pte_fault+0x95/0x200
+[ 3200.697938]  [<c11940c5>] do_filp_open+0x35/0x80
+[ 3200.697940]  [<c1184e8e>] do_sys_open+0x11e/0x280
+[ 3200.697942]  [<c13153d9>] ? _copy_to_user+0x39/0x50
+[ 3200.697945]  [<c106c3bc>] ? SyS_rt_sigaction+0x8c/0xb0
+[ 3200.697947]  [<c1185012>] SyS_open+0x22/0x30
+[ 3200.697950]  [<c169b2cd>] sysenter_do_call+0x12/0x12
+[ 3200.697951] Code: 89 d8 e8 89 d4 2a 00 8b 46 74 89 da 8b 48 04 89 f0 85 c9 74 6b ff d1 89 c2 85 d2 78 73 8b 83 cc 01 00 00 85 c0 0f 84 95 00 00 00 <89> 58 54 8b 93 6c 01 00 00 89 d8 e8 05 77 00 00 85 c0 89 c6 74
+[ 3200.697971] EIP: [<c13e64cb>] tty_init_dev+0x7b/0x1a0 SS:ESP 0068:eaf65d68
+[ 3200.697974] CR2: 0000000000000054
+[ 3200.698001] ---[ end trace 279bcdd7904c9919 ]---
+guoding@ubuntu:~/study/kernelmodule$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Based on some examination/experimentation, it seems the check for
+tty->port is done during driver "installation" and occurs _before_ a
+tty driver's open() function is called().
+
+        But, amiserial.c doesn't set tty->port until the open() function is
+        called.  How does the amiserial driver avoid the warning and stack
+        trace?
+
+AFAICT, the rocket.c and cyclades.c drivers don't set tty->port at
+all.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+./fs_patch/usr/local/var/log/kern.log.1:Dec 16 22:02:11 ubuntu kernel: [10089.418646] tty_init_dev: zwave_ttyname driver does not set tty->port. This will crash the kernel later. Fix the driver!
+./fs_patch/usr/local/var/log/kern.log.1:Dec 18 01:13:27 ubuntu kernel: [20960.297476] tty_init_dev: ttty driver does not set tty->port. This will crash the kernel later. Fix the driver!
+grep: ./fs_patch/usr/local/var/backups/shadow.bak: Permission denied
+

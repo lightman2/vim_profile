@@ -1,0 +1,273 @@
+/***************************************************************
+			 Desc  : code for ZWave vtty agent
+			 Author: Song You, soyou@cisco.com
+			 Date  : 2015-1-27
+****************************************************************/
+
+#include <linux/init.h>
+#include <linux/module.h>
+#include <linux/slab.h>
+#include <linux/tty.h>
+#include <linux/uaccess.h>
+#include <linux/tty_driver.h>
+#include <linux/timer.h>
+#include <linux/sched.h>
+#include <linux/kthread.h>
+#include <linux/delay.h>
+#include <linux/workqueue.h>
+#include "vtty.h"
+#include "vtty_agent_fsm.h"
+
+struct file *pActFile=NULL;
+static agentInfo_t gAgentInfo;
+
+extern void vtty_print_buffer(char *, int);
+extern void zwave_fsm_handle_rcv_frame(unsigned char *pFrame, int length, vttyDevId_t *pId);
+extern void zwave_fsm_handle_send_frame(unsigned char *pFrame, int length, vttyDevId_t *pId);
+extern int send_lock_decision(vttyDevId_t *);
+extern void cache_msg(unsigned char *pBuffer, int length, vttyDevId_t *pId);
+extern void init_send_thread(void);
+extern void zwave_agent_fsm_init(void);
+extern void zwave_agent_fsm_deinit(void);
+
+/***************************************************************/
+
+int act_tty_send_data(unsigned char *pBuffer, int length, vttyDevId_t *pId)
+{
+	int l = -1;
+	struct tty_struct *tty ;
+
+	zwave_fsm_handle_send_frame(pBuffer, length, pId);
+
+	tty = ((struct tty_file_private  *)(pActFile->private_data))->tty;
+	if(tty->ops->write){
+		l = tty->ops->write(tty,pBuffer,length);
+	}
+	gAgentInfo.cmdSent++;
+
+	return(l);
+}
+
+int my_tty_send_data(const char *pBuffer, int length, vttyDevId_t id)
+{
+	int l = -1;
+	VTTY_LOG(KERN_DEBUG, "enter %s\n", __FUNCTION__);
+
+	if(pActFile==NULL)
+		return(-1);
+	if(send_lock_decision(&id)){
+		cache_msg((unsigned char *)pBuffer,length,&id);
+		VTTY_LOG(KERN_DEBUG, "Cache this frame\n");
+		return(length); //send thread will send it later
+	}
+
+	l = act_tty_send_data((unsigned char *)pBuffer, length, &id);
+
+	VTTY_LOG(KERN_DEBUG, "exit %s(%d)\n", __FUNCTION__, l);
+	return(l);
+}
+
+int my_tty_ioctl(struct tty_struct * tty, unsigned int cmd, unsigned long arg)
+{
+	int rv=0;
+	VTTY_LOG(KERN_DEBUG, "enter %s\n", __FUNCTION__);
+
+	if(pActFile==NULL)
+		return(-1);
+
+	switch(cmd){
+		default:
+		break;
+		case(TCGETS):{
+			struct termios t;
+
+			memset(&t,0,sizeof(t));
+			t.c_cflag = B115200 | CS8 | CLOCAL | CREAD ;
+			t.c_lflag = 0;
+			t.c_oflag = 0;
+			t.c_iflag = IGNPAR | IGNBRK;
+			t.c_cc[VTIME] = 0;
+			t.c_cc[VMIN] = 1;
+
+			if(copy_to_user((void *)arg,&t,sizeof(t)))
+				rv = -EFAULT;
+		}
+		break;
+		case(TCSETS):
+			rv = 0;
+		break;
+		case(TIOCSERGETLSR):
+			arg = N_TTY;
+		break;
+		case(TIOCGICOUNT):
+			rv = -ENOIOCTLCMD;
+		break;
+		case(FIONREAD):
+			rv = -ENOIOCTLCMD;
+		break;
+		case(TIOCMGET):
+		case(TIOCMSET):
+			rv = -ENOIOCTLCMD;
+		break;
+	}
+	
+	VTTY_LOG(KERN_DEBUG, "exit %s(%d)\n", __FUNCTION__, rv);
+	return(rv);
+}
+
+void my_tty_set_termios(struct tty_struct * tty, struct ktermios * old)
+{
+	VTTY_LOG(KERN_DEBUG, "enter %s\n", __FUNCTION__);
+
+	if(pActFile==NULL)
+		return;
+
+	VTTY_LOG(KERN_DEBUG, "exit %s\n", __FUNCTION__);
+}
+
+void vtty_closed(struct tty_struct * tty)
+{
+	//left empty
+	VTTY_LOG(KERN_DEBUG, "enter %s\n", __FUNCTION__);
+	VTTY_LOG(KERN_DEBUG, "exit %s\n", __FUNCTION__);
+}
+
+static int read_n_bytes(struct file *pFile,unsigned char *pBuffer, int length)
+{
+	loff_t pos = 0;
+	int n, got=0, rv=0;
+
+	while(length > 0){
+		n = pFile->f_op->read(pFile, pBuffer+got, length, &pos);
+		if(n < 0){
+			rv = -1;
+			break;
+		}
+		got += n;
+		length -= n;
+	}
+
+	return(rv);
+}
+
+static int zwave_agent_thread(void *pArg)
+{
+	int size;
+	unsigned char buffer[512];
+	vttyDevId_t tmpId;
+
+	if(pActFile==NULL)
+		return(-1);
+	while(1){
+		/*to get next frame*/
+		if(read_n_bytes(pActFile, buffer, 1))
+			break;
+		if(buffer[0]==ZWAVE_FRAME_SOF){
+			/*to get the field "length" */
+			if(read_n_bytes(pActFile, &buffer[1], 1))
+				break;
+			/*to get the whole frame, including checksum*/
+			if(read_n_bytes(pActFile,&buffer[2], buffer[1]))
+				break;
+			size = buffer[1] + 2;
+		}else
+			size = 1;
+		VTTY_LOG(KERN_DEBUG, "Agent Rcved a frame, type %d, length %d\n", buffer[0],size);
+		zwave_fsm_handle_rcv_frame(buffer, size, &tmpId);
+		gAgentInfo.msgRcved++;
+		if(tmpId.tty==NULL)
+			gAgentInfo.msgFlooded++;
+		my_tty_rcv_data(buffer, size, tmpId);
+	}
+
+	VTTY_LOG(KERN_DEBUG, "Zwave Agent Thread quited\n");
+	return(-1);
+}
+
+static void init_act_tty(struct file *pFile)
+{
+	struct ktermios setting;
+	struct tty_file_private *priv;
+	struct tty_struct *tty ;
+	int rv;
+
+	priv = (struct tty_file_private  *) pFile->private_data;
+	if(priv == NULL){
+		VTTY_LOG(KERN_DEBUG, "filp's private data is NULL\n");
+		return;
+	}
+	if(priv->file != pFile)
+		VTTY_LOG(KERN_DEBUG, "private data is not struct tty_file_private\n");
+	if(priv->tty == NULL){
+		VTTY_LOG(KERN_ERR, "Can't get the tty pointer of actual file\n");
+		return;
+	}
+	tty = priv->tty;
+//	memset(&setting,0,sizeof(setting));
+//dgl_temp	setting = *(tty->termios);
+	setting = (tty->termios);
+
+	setting.c_cflag = B115200 | CS8 | CLOCAL | CREAD ;
+	setting.c_lflag = 0;
+	setting.c_oflag = 0;
+	setting.c_iflag = IGNPAR | IGNBRK;
+	setting.c_cc[VTIME] = 0;
+	setting.c_cc[VMIN] = 1;
+	setting.c_ispeed = 115200;
+	setting.c_ospeed = 115200;
+	rv = tty_set_termios(tty, &setting);
+	VTTY_LOG(KERN_DEBUG, "config-tty result %d\n",rv);
+}
+
+int init_zwave_agent(char *pActPath)
+{
+	VTTY_LOG(KERN_DEBUG, "enter %s\n", __FUNCTION__);
+
+	gAgentInfo.cmdSent = 0;
+	gAgentInfo.msgRcved = 0;
+	gAgentInfo.msgFlooded = 0;
+
+	pActFile = filp_open(pActPath, O_RDWR|O_NOCTTY,0);
+	if (pActFile == NULL){
+		printk(KERN_ERR "vtty: can't open actual TTY %s\n", pActPath);
+		return(-1);
+	}
+
+	init_act_tty(pActFile);
+	printk("<0>flag0\n");
+	
+	init_send_thread();
+	printk("<0>flag1\n");
+
+	zwave_agent_fsm_init();
+	printk("<0>flag2\n");
+
+#if 1 
+	gAgentInfo.rcvThread = kthread_create(zwave_agent_thread,NULL,"zwave_rcv_thread");
+	if(gAgentInfo.rcvThread == NULL){
+		filp_close(pActFile, NULL);
+		pActFile = NULL;
+		printk(KERN_ERR "vtty: can't create zwave agent thread\n");
+		return(-1);
+	}
+	printk("flag3\n");
+	wake_up_process(gAgentInfo.rcvThread);
+#endif
+	VTTY_LOG(KERN_DEBUG, "exit %s", __FUNCTION__);
+	return(0);
+}
+
+void clean_zwave_agent(void)
+{
+	VTTY_LOG(KERN_DEBUG, "enter %s\n", __FUNCTION__);
+
+	if(pActFile){
+		filp_close(pActFile, NULL);
+		pActFile = NULL;
+		kthread_stop(gAgentInfo.rcvThread);
+		zwave_agent_fsm_deinit();
+	}
+
+	VTTY_LOG(KERN_DEBUG, "exit %s", __FUNCTION__);
+}
+

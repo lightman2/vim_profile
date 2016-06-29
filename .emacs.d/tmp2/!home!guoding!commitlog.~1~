@@ -1,0 +1,6 @@
+    Jira ID           : CCSP mainline patches integration
+    PRODUCT           : DPC4912
+    CUSTOMER          : GA
+    DESCRIPTION       : to remove ccsp_sysevent.patch
+    CODE REVIEWED BY  : Minxian
+    CODE ANALYSIS     : https://ccollab.cisco.com:8080/ui#review:id=280523

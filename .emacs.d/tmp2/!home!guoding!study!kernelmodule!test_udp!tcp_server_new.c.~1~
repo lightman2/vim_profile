@@ -1,0 +1,427 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <errno.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/inotify.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <sys/types.h>
+#include <fcntl.h>
+
+
+#define MYPORT 6666    // the port users will be connecting to
+
+#define BACKLOG 5     // how many pending connections queue will hold
+
+#define BUF_SIZE 256
+#define CMD_SIZE 512
+
+#define EVENT_SIZE  ( sizeof (struct inotify_event) )
+#define BUF_LEN     ( 1024 * ( EVENT_SIZE + 16 ) )
+
+int fd_A[BACKLOG];    // accepted connection fd
+int fd_B[BACKLOG];    // notify proc file fd
+int conn_amount;    // current connection amount
+
+void hexDump (char *desc, void *addr, int len) {
+    int i;
+    unsigned char buff[17];
+    unsigned char *pc = (unsigned char*)addr;
+
+    // Output description if given.
+    if (desc != NULL)
+        printf ("%s:\n", desc);
+
+    // Process every byte in the data.
+    for (i = 0; i < len; i++) {
+        // Multiple of 16 means new line (with line offset).
+
+        if ((i % 16) == 0) {
+            // Just don't print ASCII for the zeroth line.
+            if (i != 0)
+                printf ("  %s\n", buff);
+
+            // Output the offset.
+            printf ("  %04x ", i);
+        }
+
+        // Now the hex code for the specific character.
+        printf (" %02x", pc[i]);
+
+        // And store a printable ASCII character for later.
+        if ((pc[i] < 0x20) || (pc[i] > 0x7e))
+            buff[i % 16] = '.';
+        else
+            buff[i % 16] = pc[i];
+        buff[(i % 16) + 1] = '\0';
+    }
+
+    // Pad out last line if not exactly 16 characters.
+    while ((i % 16) != 0) {
+        printf ("   ");
+        i++;
+    }
+
+    // And print the final ASCII bit.
+    printf ("  %s\n", buff);
+}
+
+int startmonitorfile(char *file_pwd, int* fd, int* wd)
+{
+    int fd_t, wd_t;
+
+    printf("start monitor file\n");
+ 
+    fd_t = inotify_init();
+    if (fd < 0) {
+         perror("inotify_init");
+         return -1;
+    }
+
+    wd_t = inotify_add_watch(fd_t, file_pwd, IN_OPEN | IN_MODIFY | IN_CREATE | IN_CLOSE);
+
+    *fd = fd_t;
+    *wd = wd_t;
+
+    return 0;
+}
+
+int readprocfile(char * file, char * buf)
+{
+    int fd = open(file,0);
+    int len = 0;
+    len = read(fd,buf,1024);
+    hexDump("HexDump read proc file content", buf, len);
+
+    return len;
+}
+
+void closemonitorfile(int fd, int wd)
+{
+    (void)inotify_rm_watch(fd, wd);
+    (void)close(fd);
+    
+    return;
+}
+
+void showclient()
+{
+    int i;
+    printf("client amount: %d\n", conn_amount);
+    for (i = 0; i < BACKLOG; i++) {
+        if(fd_A[i] != 0 || fd_B[i] != 0)
+            printf("[%d]:(sock_fd: %d,proc_fd: %d) \n ", i, fd_A[i],fd_B[i]);
+    }
+    printf("\n\n");
+}
+
+void writeprocfile(unsigned char * file, int len)
+{
+    int fd = open("/proc/zwave/ttty0_up", O_RDWR);
+    unsigned char tmp[128];
+    unsigned char *ptr = file;
+    int i = 0, j = 0, len_tmp = 0;
+    write(fd,file,len);
+    // while(i < len){
+    //     memset(tmp,0,sizeof(tmp));
+    //     tmp[0] = ptr[i++];
+    //     switch(tmp[0]){
+    //         case 0x01:
+    //             tmp[1] = ptr[i++];
+    //             len_tmp = tmp[1] + 2;
+    //             for (j = 0; j < tmp[1]; j++){
+    //                 tmp[2 + j] = ptr[i++];
+    //             }
+    //             break;
+    //         case 0x06:
+    //         case 0x15:
+    //         case 0x18:
+    //             len_tmp = 1;
+    //             break;
+    //         default:
+    //             break;
+    //     }
+        // write(fd, tmp, len_tmp);
+        //sprintf(cmd_buf,"echo \"%s\" > /proc/zwave/ttty0_up",);
+        //printf("%s\n",cmd_buf);
+        //system(cmd_buf);
+        //p_api(tmp,len_tmp);
+    // }
+    close(fd);
+
+    return;
+}
+
+int main(int argc, char** argv)
+{
+    int sock_fd, new_fd;  // listen on sock_fd, new connection on new_fd
+    int monitor_fd, monitor_wd[BACKLOG];  //inotify proc file, only support monitor_wd[0]
+    struct sockaddr_in server_addr;    // server address information
+    struct sockaddr_in client_addr; // connector's address information
+    socklen_t sin_size;
+    int yes = 1;
+    unsigned char buf[BUF_SIZE];
+    unsigned char buf_proc[1024];
+    char name[128];
+    char cmd_buf[CMD_SIZE];
+    int ret;
+    int i;
+    int rev_len =0;
+
+    int test = 0;
+    char test_buf[] = {0x01,0x03,0x00,0x05,0xe9};
+    struct sockaddr_in echoClntAddr, client_addrlist[BACKLOG];
+    unsigned int cliAddrLen, client_addrlistlen[BACKLOG], client_addravail[BACKLOG];
+    char echoBuffer[BUF_SIZE];
+    int recvMsgSize;
+
+
+
+    /* memset(client_addrlist, 0, sizeof(client_addrlist)); */
+    /* memset(client_addrlistlen, 0, sizeof(client_addrlistlen)); */
+    /* memset(client_addravail, 0, sizeof(client_addravail)); */
+    if(argc >= 2)
+        test = 1;
+    printf("recving");
+    fflush(stdout);
+
+    //if ((sock_fd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+    if ((sock_fd = socket(AF_INET, SOCK_DGRAM, 0)) == -1) {//dgl tcp to udp
+        perror("socket");
+        exit(1);
+    }
+
+    if (setsockopt(sock_fd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) == -1) {
+        perror("setsockopt");
+        exit(1);
+    }
+
+    server_addr.sin_family =AF_UNSPEC;//use ipv4 ipv6 AF_INET;         // host byte order
+    server_addr.sin_port = htons(MYPORT);     // short, network byte order
+    server_addr.sin_addr.s_addr = htonl(INADDR_ANY); // automatically fill with my IP//dgl htonl
+    memset(server_addr.sin_zero, '\0', sizeof(server_addr.sin_zero));
+
+    if (bind(sock_fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) == -1) {
+        perror("bind");
+        exit(1);
+    }
+
+    /* if (listen(sock_fd, BACKLOG) == -1) { */
+    /*     perror("listen"); */
+    /* } */
+//dgl udp_no need to listen
+    //printf("listen port %d\n", MYPORT);
+
+    //printf("listen port %d\n", MYPORT);
+
+    fd_set fdsr;
+    int maxsock;
+    struct timeval tv;
+
+    conn_amount = 0;
+    sin_size = sizeof(client_addr);
+    maxsock = sock_fd;
+
+    while (1) {
+        // initialize file descriptor set
+        FD_ZERO(&fdsr);
+        FD_SET(sock_fd, &fdsr);
+
+        // timeout setting
+        tv.tv_sec = 30;
+        tv.tv_usec = 0;
+
+        // add active connection and notify proc file fd set
+        for (i = 0; i < BACKLOG; i++) {
+            if (fd_A[i] != 0) {
+                FD_SET(fd_A[i], &fdsr);
+                printf("add fd_A[%d]\n",i);
+            }
+            if (fd_B[i] != 0) {
+                FD_SET(fd_B[i], &fdsr);
+                printf("add fd_B[%d]\n",i);
+            }
+        }
+
+        ret = select(maxsock + 1, &fdsr, NULL, NULL, &tv);
+        if (ret < 0) {
+            perror("select");
+            break;
+        } else if (ret == 0) {
+            printf("timeout\n");
+            continue;
+        }
+
+        // check every fd in the set
+        for (i = 0; i < conn_amount; i++) {
+            if (FD_ISSET(fd_A[i], &fdsr)) {
+                //receive msg from client
+                memset(buf, 0, sizeof(buf));
+                ret = recv(fd_A[i], buf, sizeof(buf), 0);
+                if (ret <= 0) {
+                    // client close
+                    printf("client[%d] close\n", i);
+                    close(fd_A[i]);
+                    FD_CLR(fd_A[i], &fdsr);
+                    fd_A[i] = 0;
+                } else {
+                    // receive data from client and write the data to proc file
+                    // if (ret < BUF_SIZE)
+                    //     memset(&buf[ret], '\0', 1);
+                    // printf("client[%d] send:%s\n", i, buf);
+                    //hexDump("recv",buf,ret);
+                    //parse tcp package and write them to proc file
+                    int k;
+                    for(k=0;k<ret;k++)
+                    {
+                        printf("%02x ", buf[k]);
+                    }
+                    printf("\n");
+                   writeprocfile(buf, ret);
+                    printf("ret:%d\n",ret);
+                    //sprintf(cmd_buf,"echo \"%s\" > /proc/zwave/ttty0_up",buf);
+                    //printf("%s\n",cmd_buf);
+                    //system(cmd_buf);
+                    //send msg to client when received data
+                    //send(fd_A[i],"received",9,0);
+                }
+            }
+            if (FD_ISSET(fd_B[i],&fdsr)) {
+                //proc file modified
+                int length, j = 0;
+                char buffer[BUF_LEN];
+                length = read(fd_B[i], buffer, BUF_LEN);
+                if (length < 0) 
+                    perror("read");
+
+                while (j < length) {
+                    struct inotify_event *event = ( struct inotify_event * ) &buffer[i];
+                    if (event->len) {
+                        if (event->mask & IN_MODIFY ) {
+                            if ( event->mask & IN_ISDIR ) 
+                                printf("The directory %s was modified.\n",event->name);
+                            else {
+                                printf("The file %s was modified.\n",event->name);
+                                sprintf(name, "/proc/zwave/%s",event->name);
+                                memset(buf_proc, '\0', 1024);
+                                rev_len = readprocfile(name,buf_proc);
+                                printf("rev_len:%d\n",rev_len);
+                                if(rev_len == 0)
+					                  continue;
+                                // printf("read proc file content: [%s]\n",buf_proc);
+                                if (strcmp(buf_proc, "") ==0 || strcmp(buf_proc, "\n") == 0||strcmp(buf_proc, "\0") == 0)
+                                    printf("read useless info!\n");
+                                else
+                                    send(fd_A[i],buf_proc,rev_len,0);
+                            }
+                        } else if (event->mask & IN_OPEN) {
+                            if ( event->mask & IN_ISDIR )
+                                printf("The directory %s was opened.\n",event->name);
+                            else {
+                                printf("The file %s was opened.\n",event->name);
+                                sprintf(name, "/proc/zwave/%s",event->name);
+                                memset(buf_proc, '\0', 1024);
+                                rev_len=readprocfile(name,buf_proc);
+                                printf("rev_len:%d\n",rev_len);
+                                if(rev_len == 0)
+					continue;
+                                // printf("read proc file content: [%s]\n",buf_proc);
+                                if (strcmp(buf_proc, "") ==0 || strcmp(buf_proc, "\n") == 0||strcmp(buf_proc, "\0") == 0)
+                                    printf("read useless info!\n");
+                                else
+                                    send(fd_A[i],buf_proc,rev_len,0);
+                            }
+                        } else if (event->mask & IN_CLOSE) {
+                            if ( event->mask & IN_ISDIR )
+                                printf("The directory %s was close.\n",event->name);
+                            else {
+                                printf("The file %s was close.\n",event->name);
+                                sprintf(name, "/proc/zwave/%s",event->name);
+                                memset(buf_proc, '\0', 1024);
+                                rev_len = readprocfile(name,buf_proc);
+                                printf("rev_len:%d\n",rev_len);
+                                if(rev_len == 0)
+					                 continue;
+                                // printf("read proc file content: [%s]\n",buf_proc);
+                                if (strcmp(buf_proc, "") ==0 || strcmp(buf_proc, "\n") == 0||strcmp(buf_proc, "\0") == 0)
+                                    printf("read useless info!\n");
+                                else
+                                    send(fd_A[i],buf_proc,rev_len,0);
+                            }
+                        }
+                    }
+                    j += EVENT_SIZE + event->len;
+                }
+            }
+        }
+
+        // check whether a new connection comes, if yes, insert pseudo driver module
+        if (FD_ISSET(sock_fd, &fdsr)) {
+            printf("the accepted socket is %d\n", new_fd);
+
+            new_fd = recvfrom(sock_fd, echoBuffer, BUF_SIZE,0,\
+                              (struct sockaddr*)&echoClntAddr, &cliAddrLen);
+            for(i = 0; i < BACKLOG; i++)
+            {
+                if(echoClntAddr.sin_addr.s_addr == client_addrlist[i].sin_addr.s_addr && \
+                    echoClntAddr.sin_port == client_addrlist[i].sin_port)
+                {
+                    printf("received the existing sockaddr packet\n");
+                }
+            }
+            printf("new_fd = %d  echoBuffer = %s\n", new_fd, echoBuffer);
+            fflush(stdout);
+
+
+            // add to fd queue
+            if (conn_amount < BACKLOG) {
+                fd_A[conn_amount] = new_fd;
+
+                //if teset flag equals 1, send a test message
+                if(test == 1)
+                    send(new_fd, test_buf,5,0);
+ 
+                //insert module, might need change if more client has been supported
+                system("sudo insmod ./pseudo_driver.ko");
+
+                //monitor proc file
+                if(startmonitorfile("/var/tmp/vtty",&monitor_fd,&monitor_wd[0]) == -1) {
+                    perror("startmonitorfile");
+                    exit(1);
+                }
+                fd_B[conn_amount] = monitor_fd;
+                conn_amount++;
+ 
+                printf("new connection client[%d] %s:%d\n", conn_amount,
+                        inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
+                if (new_fd > maxsock)
+                    maxsock = new_fd;
+                if (monitor_fd > maxsock)
+                    maxsock = monitor_fd;
+            }
+            else {
+                printf("max connections arrive, exit\n");
+                send(new_fd, "Rejected", 4, 0);
+                close(new_fd);
+                break;
+            }
+        }
+        showclient();
+    }
+
+    // close other connections
+    for (i = 0; i < BACKLOG; i++) {
+        if (fd_A[i] != 0) {
+            close(fd_A[i]);
+        }
+        if (fd_B[i != 0]) {
+            closemonitorfile(fd_B[i],monitor_wd[0]);
+        }
+    }
+
+    exit(0);
+}
+
